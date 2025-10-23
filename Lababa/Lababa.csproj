@@ -76,5 +76,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Backend\Constants\" />
+    <Folder Include="Backend\Models\" />
+    <Folder Include="Backend\Repositories\" />
+    <Folder Include="Backend\Services\" />
+    <Folder Include="Frontend\Forms\" />
+    <Folder Include="Frontend\UserControls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
