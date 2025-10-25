@@ -34,8 +34,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnGetStarted = new System.Windows.Forms.Button();
-            this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlp1.SuspendLayout();
             this.SuspendLayout();
@@ -91,16 +91,22 @@
             this.btnGetStarted.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGetStarted.ImageKey = "arrow-right.png";
             this.btnGetStarted.ImageList = this.imageList1;
-            this.btnGetStarted.Location = new System.Drawing.Point(19, 121);
+            this.btnGetStarted.Location = new System.Drawing.Point(18, 121);
             this.btnGetStarted.Name = "btnGetStarted";
             this.btnGetStarted.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnGetStarted.Size = new System.Drawing.Size(297, 35);
+            this.btnGetStarted.Size = new System.Drawing.Size(300, 35);
             this.btnGetStarted.TabIndex = 2;
             this.btnGetStarted.Text = "Get Started  ";
             this.btnGetStarted.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGetStarted.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnGetStarted.UseVisualStyleBackColor = false;
             this.btnGetStarted.Click += new System.EventHandler(this.btnGetStarted_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "arrow-right.png");
             // 
             // tlp1
             // 
@@ -117,12 +123,6 @@
             this.tlp1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlp1.Size = new System.Drawing.Size(450, 300);
             this.tlp1.TabIndex = 0;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "arrow-right.png");
             // 
             // WelcomeStepControl
             // 

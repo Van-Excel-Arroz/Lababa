@@ -30,10 +30,11 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ltbShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.backNextButtons1 = new Lababa.Frontend.UserControls.BackNextButtons();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +47,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ltbShopName, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.ltbAddress, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.ltbPhoneNumber, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.backNextButtons1, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,6 +71,20 @@
             this.label1.Size = new System.Drawing.Size(224, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Step 1 of 4: Shop Information";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 300);
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
             // ltbShopName
             // 
@@ -97,27 +113,21 @@
             this.ltbPhoneNumber.Size = new System.Drawing.Size(416, 47);
             this.ltbPhoneNumber.TabIndex = 3;
             // 
-            // tableLayoutPanel2
+            // backNextButtons1
             // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 300);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.backNextButtons1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.backNextButtons1.Location = new System.Drawing.Point(13, 225);
+            this.backNextButtons1.Name = "backNextButtons1";
+            this.backNextButtons1.Size = new System.Drawing.Size(416, 54);
+            this.backNextButtons1.TabIndex = 4;
             // 
-            // ShopInformationControl
+            // ShopInformationStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Name = "ShopInformationControl";
+            this.Name = "ShopInformationStep";
             this.Size = new System.Drawing.Size(450, 300);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -134,5 +144,6 @@
         private LabeledTextBox ltbAddress;
         private LabeledTextBox ltbPhoneNumber;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private BackNextButtons backNextButtons1;
     }
 }

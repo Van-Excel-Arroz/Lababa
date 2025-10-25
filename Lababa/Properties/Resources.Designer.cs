@@ -63,6 +63,16 @@ namespace Lababa.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_left_black {
+            get {
+                object obj = ResourceManager.GetObject("arrow_left_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_right {
             get {
                 object obj = ResourceManager.GetObject("arrow_right", resourceCulture);
