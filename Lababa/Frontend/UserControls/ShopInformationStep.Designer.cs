@@ -34,7 +34,7 @@
             this.ltbShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.backNextButtons1 = new Lababa.Frontend.UserControls.BackNextButtons();
+            this.btnBackNext = new Lababa.Frontend.UserControls.BackNextButtons();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ltbShopName, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.ltbAddress, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.ltbPhoneNumber, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.backNextButtons1, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnBackNext, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -113,13 +113,13 @@
             this.ltbPhoneNumber.Size = new System.Drawing.Size(416, 47);
             this.ltbPhoneNumber.TabIndex = 3;
             // 
-            // backNextButtons1
+            // btnBackNext
             // 
-            this.backNextButtons1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.backNextButtons1.Location = new System.Drawing.Point(13, 225);
-            this.backNextButtons1.Name = "backNextButtons1";
-            this.backNextButtons1.Size = new System.Drawing.Size(416, 54);
-            this.backNextButtons1.TabIndex = 4;
+            this.btnBackNext.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBackNext.Location = new System.Drawing.Point(13, 225);
+            this.btnBackNext.Name = "btnBackNext";
+            this.btnBackNext.Size = new System.Drawing.Size(416, 54);
+            this.btnBackNext.TabIndex = 4;
             // 
             // ShopInformationStep
             // 
@@ -144,6 +144,6 @@
         private LabeledTextBox ltbAddress;
         private LabeledTextBox ltbPhoneNumber;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private BackNextButtons backNextButtons1;
+        private BackNextButtons btnBackNext;
     }
 }

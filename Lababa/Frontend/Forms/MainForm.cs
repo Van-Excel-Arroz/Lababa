@@ -30,17 +30,6 @@ namespace Lababa
             };
         }
 
-        private void OnGoNext(object sender, EventArgs e)
-        {
-            ShowStep(_currentStepIndex + 1);
-        }
-
-        private void OnGoBack(object sender, EventArgs e)
-        {
-            ShowStep(_currentStepIndex - 1);
-        }
-
-
         private void ShowStep(int index)
         {
             if (index < 0 || index >= _wizardSteps.Count) return;
@@ -53,14 +42,13 @@ namespace Lababa
             IWizardStep wizardStep = stepControl as IWizardStep;
             if (wizardStep != null)
             {
-                wizardStep.GoNext += OnGoNext;
-                wizardStep.GoBack += OnGoBack;
+                wizardStep.GoNext += (object sender, EventArgs e) => ShowStep(_currentStepIndex + 1);
+                wizardStep.GoBack += (object sender, EventArgs e) => ShowStep(_currentStepIndex - 1);
             }
 
             tlpMainContent.Controls.Clear();
             stepControl.Anchor = AnchorStyles.None;
             tlpMainContent.Controls.Add(stepControl);
         }
-
     }
 }
