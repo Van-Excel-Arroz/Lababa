@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.ltbShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.btnBackNext = new Lababa.Frontend.UserControls.BackNextButtons();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tlpDetails.SuspendLayout();
+            this.tlpContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpDetails
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ltbShopName, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ltbAddress, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.ltbPhoneNumber, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnBackNext, 0, 4);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84049F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84048F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84048F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84445F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.6341F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(442, 292);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlpDetails.ColumnCount = 1;
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDetails.Controls.Add(this.label1, 0, 0);
+            this.tlpDetails.Controls.Add(this.ltbShopName, 0, 1);
+            this.tlpDetails.Controls.Add(this.ltbAddress, 0, 2);
+            this.tlpDetails.Controls.Add(this.ltbPhoneNumber, 0, 3);
+            this.tlpDetails.Controls.Add(this.btnBackNext, 0, 4);
+            this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDetails.Location = new System.Drawing.Point(4, 4);
+            this.tlpDetails.Name = "tlpDetails";
+            this.tlpDetails.Padding = new System.Windows.Forms.Padding(10);
+            this.tlpDetails.RowCount = 5;
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84049F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84048F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84048F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84445F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.6341F));
+            this.tlpDetails.Size = new System.Drawing.Size(442, 292);
+            this.tlpDetails.TabIndex = 0;
             // 
             // label1
             // 
@@ -72,19 +72,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Step 1 of 4: Shop Information";
             // 
-            // tableLayoutPanel2
+            // tlpContainer
             // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 300);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tlpContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tlpContainer.ColumnCount = 1;
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
+            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
+            this.tlpContainer.Name = "tlpContainer";
+            this.tlpContainer.RowCount = 1;
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.Size = new System.Drawing.Size(450, 300);
+            this.tlpContainer.TabIndex = 1;
             // 
             // ltbShopName
             // 
@@ -126,24 +126,24 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tlpContainer);
             this.Name = "ShopInformationStep";
             this.Size = new System.Drawing.Size(450, 300);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tlpDetails.ResumeLayout(false);
+            this.tlpDetails.PerformLayout();
+            this.tlpContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlpDetails;
         private System.Windows.Forms.Label label1;
         private LabeledTextBox ltbShopName;
         private LabeledTextBox ltbAddress;
         private LabeledTextBox ltbPhoneNumber;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tlpContainer;
         private BackNextButtons btnBackNext;
     }
 }
