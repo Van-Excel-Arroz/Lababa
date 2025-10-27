@@ -30,11 +30,11 @@
         {
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.ltbShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.btnBackNext = new Lababa.Frontend.UserControls.BackNextButtons();
+            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpDetails.SuspendLayout();
             this.tlpContainer.SuspendLayout();
             this.SuspendLayout();
@@ -73,20 +73,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Step 1 of 4: Shop Information";
             // 
-            // tlpContainer
-            // 
-            this.tlpContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tlpContainer.ColumnCount = 1;
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
-            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
-            this.tlpContainer.Name = "tlpContainer";
-            this.tlpContainer.RowCount = 1;
-            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(450, 300);
-            this.tlpContainer.TabIndex = 1;
-            // 
             // ltbShopName
             // 
             this.ltbShopName.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -116,11 +102,26 @@
             // 
             // btnBackNext
             // 
-            this.btnBackNext.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBackNext.Location = new System.Drawing.Point(13, 224);
+            this.btnBackNext.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnBackNext.Location = new System.Drawing.Point(13, 239);
             this.btnBackNext.Name = "btnBackNext";
-            this.btnBackNext.Size = new System.Drawing.Size(416, 54);
+            this.btnBackNext.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.btnBackNext.Size = new System.Drawing.Size(416, 50);
             this.btnBackNext.TabIndex = 4;
+            // 
+            // tlpContainer
+            // 
+            this.tlpContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlpContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tlpContainer.ColumnCount = 1;
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
+            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
+            this.tlpContainer.Name = "tlpContainer";
+            this.tlpContainer.RowCount = 1;
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.Size = new System.Drawing.Size(450, 300);
+            this.tlpContainer.TabIndex = 1;
             // 
             // ShopInformationStep
             // 

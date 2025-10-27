@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BackNextButtons));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ArrowsImageList = new System.Windows.Forms.ImageList(this.components);
             this.btnNext = new System.Windows.Forms.Button();
+            this.ArrowsImageList = new System.Windows.Forms.ImageList(this.components);
             this.btnBack = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,20 +52,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(301, 48);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // ArrowsImageList
-            // 
-            this.ArrowsImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ArrowsImageList.ImageStream")));
-            this.ArrowsImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.ArrowsImageList.Images.SetKeyName(0, "arrow-right.png");
-            this.ArrowsImageList.Images.SetKeyName(1, "arrow-left-black.png");
-            this.ArrowsImageList.Images.SetKeyName(2, "arrow-left-fat.png");
-            // 
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNext.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
             this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNext.ImageKey = "arrow-right.png";
@@ -80,13 +72,21 @@
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // ArrowsImageList
+            // 
+            this.ArrowsImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ArrowsImageList.ImageStream")));
+            this.ArrowsImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.ArrowsImageList.Images.SetKeyName(0, "arrow-right.png");
+            this.ArrowsImageList.Images.SetKeyName(1, "arrow-left-black.png");
+            this.ArrowsImageList.Images.SetKeyName(2, "arrow-left-fat.png");
+            // 
             // btnBack
             // 
             this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBack.BackColor = System.Drawing.Color.White;
             this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBack.ImageKey = "arrow-left-fat.png";

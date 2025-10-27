@@ -13,6 +13,8 @@ namespace Lababa.Frontend.UserControls
         {
             InitializeComponent();
 
+            cmbCurrcencySymbol.SelectedIndex = 0;
+
             if (btnBackNext != null)
             {
                 btnBackNext.GoNext += (object sender, EventArgs e) => GoNext?.Invoke(this, EventArgs.Empty);
@@ -20,7 +22,7 @@ namespace Lababa.Frontend.UserControls
             }
             else
             {
-                Console.WriteLine("btnBackNext is missing on ShopInformationStep User Control.");
+                Console.WriteLine("btnBackNext is missing on PricingMethodStep User Control.");
             }
 
         }
