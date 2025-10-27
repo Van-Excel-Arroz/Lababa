@@ -26,7 +26,8 @@ namespace Lababa
             _wizardSteps = new List<Type>
             {
                 typeof(WelcomeStepControl),
-                typeof(ShopInformationStep)
+                typeof(ShopInformationStep),
+                typeof(PricingMethodStep)
             };
         }
 

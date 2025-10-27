@@ -51,13 +51,13 @@
             this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpDetails.Location = new System.Drawing.Point(4, 4);
             this.tlpDetails.Name = "tlpDetails";
-            this.tlpDetails.Padding = new System.Windows.Forms.Padding(10);
+            this.tlpDetails.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.tlpDetails.RowCount = 5;
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84049F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84048F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84048F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.84445F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.6341F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.Size = new System.Drawing.Size(442, 292);
             this.tlpDetails.TabIndex = 0;
             // 
@@ -66,9 +66,10 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 26);
+            this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 21);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.label1.Size = new System.Drawing.Size(224, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "Step 1 of 4: Shop Information";
             // 
@@ -90,7 +91,7 @@
             // 
             this.ltbShopName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ltbShopName.LabelText = "Shop Name";
-            this.ltbShopName.Location = new System.Drawing.Point(13, 66);
+            this.ltbShopName.Location = new System.Drawing.Point(13, 54);
             this.ltbShopName.Name = "ltbShopName";
             this.ltbShopName.Size = new System.Drawing.Size(416, 47);
             this.ltbShopName.TabIndex = 1;
@@ -99,7 +100,7 @@
             // 
             this.ltbAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ltbAddress.LabelText = "Address";
-            this.ltbAddress.Location = new System.Drawing.Point(13, 119);
+            this.ltbAddress.Location = new System.Drawing.Point(13, 107);
             this.ltbAddress.Name = "ltbAddress";
             this.ltbAddress.Size = new System.Drawing.Size(416, 47);
             this.ltbAddress.TabIndex = 2;
@@ -108,7 +109,7 @@
             // 
             this.ltbPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ltbPhoneNumber.LabelText = "Phone Number";
-            this.ltbPhoneNumber.Location = new System.Drawing.Point(13, 172);
+            this.ltbPhoneNumber.Location = new System.Drawing.Point(13, 160);
             this.ltbPhoneNumber.Name = "ltbPhoneNumber";
             this.ltbPhoneNumber.Size = new System.Drawing.Size(416, 47);
             this.ltbPhoneNumber.TabIndex = 3;
@@ -116,7 +117,7 @@
             // btnBackNext
             // 
             this.btnBackNext.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBackNext.Location = new System.Drawing.Point(13, 225);
+            this.btnBackNext.Location = new System.Drawing.Point(13, 224);
             this.btnBackNext.Name = "btnBackNext";
             this.btnBackNext.Size = new System.Drawing.Size(416, 54);
             this.btnBackNext.TabIndex = 4;

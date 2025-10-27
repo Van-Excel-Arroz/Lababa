@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeStepControl));
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnGetStarted = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tlp1.SuspendLayout();
+            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpDetails.SuspendLayout();
+            this.tlpContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -51,22 +51,22 @@
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome to Lababa";
             // 
-            // tableLayoutPanel1
+            // tlpDetails
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.lblWelcome, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblDescription, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnGetStarted, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(57, 70);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(336, 159);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tlpDetails.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlpDetails.ColumnCount = 1;
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDetails.Controls.Add(this.lblWelcome, 0, 0);
+            this.tlpDetails.Controls.Add(this.lblDescription, 0, 1);
+            this.tlpDetails.Controls.Add(this.btnGetStarted, 0, 2);
+            this.tlpDetails.Location = new System.Drawing.Point(57, 70);
+            this.tlpDetails.Name = "tlpDetails";
+            this.tlpDetails.RowCount = 3;
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tlpDetails.Size = new System.Drawing.Size(336, 159);
+            this.tlpDetails.TabIndex = 1;
             // 
             // lblDescription
             // 
@@ -108,41 +108,41 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "arrow-right.png");
             // 
-            // tlp1
+            // tlpContainer
             // 
-            this.tlp1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tlp1.ColumnCount = 1;
-            this.tlp1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp1.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tlp1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlp1.Location = new System.Drawing.Point(0, 0);
-            this.tlp1.Name = "tlp1";
-            this.tlp1.RowCount = 1;
-            this.tlp1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp1.Size = new System.Drawing.Size(450, 300);
-            this.tlp1.TabIndex = 0;
+            this.tlpContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlpContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tlpContainer.ColumnCount = 1;
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
+            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
+            this.tlpContainer.Name = "tlpContainer";
+            this.tlpContainer.RowCount = 1;
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpContainer.Size = new System.Drawing.Size(450, 300);
+            this.tlpContainer.TabIndex = 0;
             // 
             // WelcomeStepControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.tlp1);
+            this.Controls.Add(this.tlpContainer);
             this.Name = "WelcomeStepControl";
             this.Size = new System.Drawing.Size(450, 300);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tlp1.ResumeLayout(false);
+            this.tlpDetails.ResumeLayout(false);
+            this.tlpDetails.PerformLayout();
+            this.tlpContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tlp1;
+        private System.Windows.Forms.TableLayoutPanel tlpDetails;
+        private System.Windows.Forms.TableLayoutPanel tlpContainer;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Button btnGetStarted;
         private System.Windows.Forms.ImageList imageList1;
