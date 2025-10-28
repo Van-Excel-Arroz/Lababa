@@ -101,6 +101,12 @@
     <Compile Include="Frontend\UserControls\LabeledTextBox.Designer.cs">
       <DependentUpon>LabeledTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\UserControls\WeightPricingStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\WeightPricingStep.Designer.cs">
+      <DependentUpon>WeightPricingStep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\UserControls\WelcomeStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
