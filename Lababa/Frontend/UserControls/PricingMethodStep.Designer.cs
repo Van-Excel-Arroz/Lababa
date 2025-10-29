@@ -33,7 +33,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -41,7 +40,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbCurrcencySymbol = new System.Windows.Forms.ComboBox();
-            this.btnBackNext = new Lababa.Frontend.UserControls.BackNextButtons();
             this.tlpContainer.SuspendLayout();
             this.tlpDetails.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -59,29 +57,26 @@
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(450, 355);
+            this.tlpContainer.Size = new System.Drawing.Size(450, 234);
             this.tlpContainer.TabIndex = 0;
             // 
             // tlpDetails
             // 
             this.tlpDetails.ColumnCount = 1;
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Controls.Add(this.groupBox2, 0, 2);
-            this.tlpDetails.Controls.Add(this.label1, 0, 0);
-            this.tlpDetails.Controls.Add(this.groupBox1, 0, 1);
-            this.tlpDetails.Controls.Add(this.btnBackNext, 0, 4);
-            this.tlpDetails.Controls.Add(this.tableLayoutPanel1, 0, 3);
+            this.tlpDetails.Controls.Add(this.groupBox2, 0, 1);
+            this.tlpDetails.Controls.Add(this.groupBox1, 0, 0);
+            this.tlpDetails.Controls.Add(this.tableLayoutPanel1, 0, 2);
             this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
-            this.tlpDetails.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.tlpDetails.RowCount = 5;
+            this.tlpDetails.RowCount = 3;
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Size = new System.Drawing.Size(444, 349);
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpDetails.Size = new System.Drawing.Size(444, 228);
             this.tlpDetails.TabIndex = 0;
             // 
             // groupBox2
@@ -90,9 +85,9 @@
             this.groupBox2.Controls.Add(this.radioButton4);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 150);
+            this.groupBox2.Location = new System.Drawing.Point(3, 99);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(418, 70);
+            this.groupBox2.Size = new System.Drawing.Size(438, 70);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Default Weight Unit";
@@ -121,18 +116,6 @@
             this.radioButton4.Text = "Kilograms (kg)";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 10);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label1.Size = new System.Drawing.Size(212, 41);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Step 2 of 4: Pricing Settings";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton5);
@@ -140,9 +123,9 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 54);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(418, 90);
+            this.groupBox1.Size = new System.Drawing.Size(438, 90);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pricing Method";
@@ -187,15 +170,15 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbCurrcencySymbol, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 226);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 175);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(418, 48);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(438, 50);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // label2
@@ -203,7 +186,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(3, 2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 0;
@@ -223,18 +206,10 @@
             "¥",
             "₹",
             "₱"});
-            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(3, 16);
+            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(3, 18);
             this.cmbCurrcencySymbol.Name = "cmbCurrcencySymbol";
-            this.cmbCurrcencySymbol.Size = new System.Drawing.Size(412, 22);
+            this.cmbCurrcencySymbol.Size = new System.Drawing.Size(432, 22);
             this.cmbCurrcencySymbol.TabIndex = 1;
-            // 
-            // btnBackNext
-            // 
-            this.btnBackNext.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnBackNext.Location = new System.Drawing.Point(13, 286);
-            this.btnBackNext.Name = "btnBackNext";
-            this.btnBackNext.Size = new System.Drawing.Size(418, 60);
-            this.btnBackNext.TabIndex = 5;
             // 
             // PricingMethodStep
             // 
@@ -243,10 +218,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
             this.Name = "PricingMethodStep";
-            this.Size = new System.Drawing.Size(450, 355);
+            this.Size = new System.Drawing.Size(450, 234);
             this.tlpContainer.ResumeLayout(false);
             this.tlpDetails.ResumeLayout(false);
-            this.tlpDetails.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -261,14 +235,12 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
         private System.Windows.Forms.TableLayoutPanel tlpDetails;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
-        private BackNextButtons btnBackNext;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;

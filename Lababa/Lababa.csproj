@@ -76,7 +76,6 @@
     <Compile Include="Frontend\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\Interfaces\IWizardStep.cs" />
     <Compile Include="Frontend\UserControls\BackNextButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +99,12 @@
     </Compile>
     <Compile Include="Frontend\UserControls\LabeledTextBox.Designer.cs">
       <DependentUpon>LabeledTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\UserControls\StepControlLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\StepControlLabel.Designer.cs">
+      <DependentUpon>StepControlLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\WeightPricingStep.cs">
       <SubType>UserControl</SubType>
@@ -129,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\LabeledTextBox.resx">
       <DependentUpon>LabeledTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\StepControlLabel.resx">
+      <DependentUpon>StepControlLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\WelcomeStep.resx">
       <DependentUpon>WelcomeStep.cs</DependentUpon>

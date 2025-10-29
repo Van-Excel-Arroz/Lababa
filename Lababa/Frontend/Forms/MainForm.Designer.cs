@@ -39,6 +39,7 @@
             this.tlpMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMainContent.Location = new System.Drawing.Point(0, 0);
             this.tlpMainContent.Name = "tlpMainContent";
+            this.tlpMainContent.Padding = new System.Windows.Forms.Padding(10);
             this.tlpMainContent.RowCount = 1;
             this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMainContent.Size = new System.Drawing.Size(534, 411);
@@ -48,7 +49,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Snow;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(534, 411);
             this.Controls.Add(this.tlpMainContent);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

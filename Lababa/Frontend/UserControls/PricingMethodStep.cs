@@ -1,30 +1,13 @@
-﻿using Lababa.Frontend.Interfaces;
-using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
-    public partial class PricingMethodStep : UserControl, IWizardStep
+    public partial class PricingMethodStep : UserControl
     {
-        public event EventHandler GoNext;
-        public event EventHandler GoBack;
-
         public PricingMethodStep()
         {
             InitializeComponent();
-
             cmbCurrcencySymbol.SelectedIndex = 0;
-
-            if (btnBackNext != null)
-            {
-                btnBackNext.GoNext += (object sender, EventArgs e) => GoNext?.Invoke(this, EventArgs.Empty);
-                btnBackNext.GoBack += (object sender, EventArgs e) => GoBack?.Invoke(this, EventArgs.Empty);
-            }
-            else
-            {
-                Console.WriteLine("btnBackNext is missing on PricingMethodStep User Control.");
-            }
-
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Lababa.Frontend.Interfaces;
-using Lababa.Frontend.UserControls;
+﻿using Lababa.Frontend.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -10,14 +9,45 @@ namespace Lababa
     {
         private List<Type> _wizardSteps;
         private int _currentStepIndex = -1;
+        private TableLayoutPanel _tlpStepDetails;
+        private Control _currentControl;
+        private StepControlLabel _stepControlLabel;
+        private BackNextButtons _btnBackNext;
+
+        private const int HEADER_ROW = 0;
+        private const int CONTENT_ROW = 1;
+        private const int FOOTER_ROW = 2;
 
         public MainForm()
         {
             InitializeComponent();
             InitializeWizard();
+
+            _tlpStepDetails = new TableLayoutPanel();
+            _stepControlLabel = new StepControlLabel();
+            _btnBackNext = new BackNextButtons();
+
+            _btnBackNext.GoNext += (_, __) => ShowStep(_currentStepIndex + 1);
+            _btnBackNext.GoBack += (_, __) => ShowStep(_currentStepIndex - 1);
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
+            _tlpStepDetails.RowStyles.Clear();
+
+            _tlpStepDetails.RowCount = 3;
+            _tlpStepDetails.ColumnCount = 1;
+            _tlpStepDetails.Dock = DockStyle.Fill;
+
+            _stepControlLabel.Dock = DockStyle.Left;
+            _tlpStepDetails.Controls.Add(_stepControlLabel, 0, HEADER_ROW);
+
+            _btnBackNext.Dock = DockStyle.Bottom;
+            _tlpStepDetails.Controls.Add(_btnBackNext, 0, FOOTER_ROW);
+
+            tlpMainContent.Controls.Add(_tlpStepDetails);
+            _stepControlLabel.TotalSteps = _wizardSteps.Count;
+
             ShowStep(0);
         }
 
@@ -35,21 +65,59 @@ namespace Lababa
         {
             if (index < 0 || index >= _wizardSteps.Count) return;
 
+            if (_currentControl != null) _tlpStepDetails.Controls.Remove(_currentControl);
+
             _currentStepIndex = index;
 
-            var stepType = _wizardSteps[_currentStepIndex];
-            UserControl stepControl = (UserControl)Activator.CreateInstance(stepType);
-
-            IWizardStep wizardStep = stepControl as IWizardStep;
-            if (wizardStep != null)
+            if (index == 0)
             {
-                wizardStep.GoNext += (object sender, EventArgs e) => ShowStep(_currentStepIndex + 1);
-                wizardStep.GoBack += (object sender, EventArgs e) => ShowStep(_currentStepIndex - 1);
-            }
+                ConfigureTableLayoutPanelForWelcomStep();
 
-            tlpMainContent.Controls.Clear();
-            stepControl.Dock = DockStyle.Fill;
-            tlpMainContent.Controls.Add(stepControl);
+                var stepType = _wizardSteps[0];
+                WelcomeStepControl welcomeStepControl = (WelcomeStepControl)Activator.CreateInstance(stepType);
+
+                welcomeStepControl.Dock = DockStyle.Fill;
+                _tlpStepDetails.Controls.Add(welcomeStepControl, 0, CONTENT_ROW);
+                _currentControl = welcomeStepControl;
+
+                welcomeStepControl.GoNext += (_, __) => ShowStep(1);
+            }
+            else
+            {
+                ConfigureTableLayoutPanelForGenericStep();
+
+                _stepControlLabel.Index = index;
+                _stepControlLabel.Title = "Working Title";
+
+                var stepType = _wizardSteps[_currentStepIndex];
+                UserControl newStepControl = (UserControl)Activator.CreateInstance(stepType);
+
+                newStepControl.Dock = DockStyle.Fill;
+                _tlpStepDetails.Controls.Add(newStepControl, 0, CONTENT_ROW);
+                _currentControl = newStepControl;
+            }
+        }
+
+        private void ConfigureTableLayoutPanelForWelcomStep()
+        {
+            _tlpStepDetails.RowStyles.Clear();
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Absolute, 0F));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Absolute, 0F));
+            _stepControlLabel.Visible = false;
+            _btnBackNext.Visible = false;
+        }
+
+        private void ConfigureTableLayoutPanelForGenericStep()
+        {
+
+            _tlpStepDetails.RowStyles.Clear();
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100f));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100F));
+            _stepControlLabel.Visible = true;
+            _btnBackNext.Visible = true;
         }
     }
+
 }
