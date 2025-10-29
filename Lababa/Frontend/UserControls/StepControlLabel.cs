@@ -4,14 +4,61 @@ namespace Lababa.Frontend.UserControls
 {
     public partial class StepControlLabel : UserControl
     {
-        public int TotalSteps { get; set; }
-        public int Index { get; set; }
-        public string Title { get; set; }
+        private int _totalSteps;
+        private int _index;
+        private string _title;
+
+        public int TotalSteps
+        {
+            get { return _totalSteps; }
+            set
+            {
+                if (_totalSteps != value)
+                {
+                    _totalSteps = value;
+                    UpdateLabelText();
+                }
+            }
+        }
+
+        public int Index
+        {
+            get { return _index; }
+            set
+            {
+                if (_index != value)
+                {
+                    _index = value;
+                    UpdateLabelText();
+                }
+            }
+        }
+
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                if (_title != value)
+                {
+                    _title = value;
+                    UpdateLabelText();
+                }
+            }
+        }
 
         public StepControlLabel()
         {
             InitializeComponent();
-            label.Text = $"Step {Index} of {TotalSteps}: {Title}";
         }
+
+        private void UpdateLabelText()
+        {
+            if (label != null)
+            {
+                label.Text = $"Step {Index} of {TotalSteps}: {Title}";
+            }
+        }
+
     }
 }

@@ -46,7 +46,7 @@ namespace Lababa
             _tlpStepDetails.Controls.Add(_btnBackNext, 0, FOOTER_ROW);
 
             tlpMainContent.Controls.Add(_tlpStepDetails);
-            _stepControlLabel.TotalSteps = _wizardSteps.Count;
+            _stepControlLabel.TotalSteps = _wizardSteps.Count - 1;
 
             _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100f));
             _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -104,5 +104,4 @@ namespace Lababa
             }
         }
     }
-
 }
