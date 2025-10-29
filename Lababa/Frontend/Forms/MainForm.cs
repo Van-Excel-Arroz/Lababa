@@ -48,7 +48,7 @@ namespace Lababa
             }
 
             tlpMainContent.Controls.Clear();
-            stepControl.Anchor = AnchorStyles.None;
+            stepControl.Dock = DockStyle.Fill;
             tlpMainContent.Controls.Add(stepControl);
         }
     }

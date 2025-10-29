@@ -49,7 +49,7 @@
             this.tlpDetails.Controls.Add(this.ltbPhoneNumber, 0, 3);
             this.tlpDetails.Controls.Add(this.btnBackNext, 0, 4);
             this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpDetails.Location = new System.Drawing.Point(4, 4);
+            this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
             this.tlpDetails.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.tlpDetails.RowCount = 5;
@@ -58,7 +58,7 @@
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.Size = new System.Drawing.Size(442, 292);
+            this.tlpDetails.Size = new System.Drawing.Size(444, 294);
             this.tlpDetails.TabIndex = 0;
             // 
             // label1
@@ -79,7 +79,7 @@
             this.ltbShopName.LabelText = "Shop Name";
             this.ltbShopName.Location = new System.Drawing.Point(13, 54);
             this.ltbShopName.Name = "ltbShopName";
-            this.ltbShopName.Size = new System.Drawing.Size(416, 47);
+            this.ltbShopName.Size = new System.Drawing.Size(418, 47);
             this.ltbShopName.TabIndex = 1;
             // 
             // ltbAddress
@@ -88,7 +88,7 @@
             this.ltbAddress.LabelText = "Address";
             this.ltbAddress.Location = new System.Drawing.Point(13, 107);
             this.ltbAddress.Name = "ltbAddress";
-            this.ltbAddress.Size = new System.Drawing.Size(416, 47);
+            this.ltbAddress.Size = new System.Drawing.Size(418, 47);
             this.ltbAddress.TabIndex = 2;
             // 
             // ltbPhoneNumber
@@ -97,25 +97,24 @@
             this.ltbPhoneNumber.LabelText = "Phone Number";
             this.ltbPhoneNumber.Location = new System.Drawing.Point(13, 160);
             this.ltbPhoneNumber.Name = "ltbPhoneNumber";
-            this.ltbPhoneNumber.Size = new System.Drawing.Size(416, 47);
+            this.ltbPhoneNumber.Size = new System.Drawing.Size(418, 47);
             this.ltbPhoneNumber.TabIndex = 3;
             // 
             // btnBackNext
             // 
             this.btnBackNext.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnBackNext.Location = new System.Drawing.Point(13, 239);
+            this.btnBackNext.Location = new System.Drawing.Point(13, 241);
             this.btnBackNext.Name = "btnBackNext";
             this.btnBackNext.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.btnBackNext.Size = new System.Drawing.Size(416, 50);
+            this.btnBackNext.Size = new System.Drawing.Size(418, 50);
             this.btnBackNext.TabIndex = 4;
             // 
             // tlpContainer
             // 
-            this.tlpContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tlpContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tlpContainer.ColumnCount = 1;
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
+            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContainer.Location = new System.Drawing.Point(0, 0);
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;

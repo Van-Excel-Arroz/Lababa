@@ -51,7 +51,6 @@
             // 
             // tlpContainer
             // 
-            this.tlpContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tlpContainer.ColumnCount = 1;
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
@@ -60,7 +59,7 @@
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(450, 345);
+            this.tlpContainer.Size = new System.Drawing.Size(450, 355);
             this.tlpContainer.TabIndex = 0;
             // 
             // tlpDetails
@@ -73,26 +72,27 @@
             this.tlpDetails.Controls.Add(this.btnBackNext, 0, 4);
             this.tlpDetails.Controls.Add(this.tableLayoutPanel1, 0, 3);
             this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpDetails.Location = new System.Drawing.Point(4, 4);
+            this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
             this.tlpDetails.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.tlpDetails.RowCount = 5;
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.91608F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.57343F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.58042F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.93007F));
-            this.tlpDetails.Size = new System.Drawing.Size(442, 337);
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDetails.Size = new System.Drawing.Size(444, 349);
             this.tlpDetails.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton4);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 151);
+            this.groupBox2.Location = new System.Drawing.Point(13, 150);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(416, 67);
+            this.groupBox2.Size = new System.Drawing.Size(418, 70);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Default Weight Unit";
@@ -138,10 +138,11 @@
             this.groupBox1.Controls.Add(this.radioButton5);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(416, 90);
+            this.groupBox1.Size = new System.Drawing.Size(418, 90);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pricing Method";
@@ -189,12 +190,12 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbCurrcencySymbol, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 227);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 226);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(416, 50);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(418, 48);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // label2
@@ -202,7 +203,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 0;
@@ -222,17 +223,17 @@
             "¥",
             "₹",
             "₱"});
-            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(3, 19);
+            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(3, 16);
             this.cmbCurrcencySymbol.Name = "cmbCurrcencySymbol";
-            this.cmbCurrcencySymbol.Size = new System.Drawing.Size(410, 22);
+            this.cmbCurrcencySymbol.Size = new System.Drawing.Size(412, 22);
             this.cmbCurrcencySymbol.TabIndex = 1;
             // 
             // btnBackNext
             // 
             this.btnBackNext.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnBackNext.Location = new System.Drawing.Point(13, 284);
+            this.btnBackNext.Location = new System.Drawing.Point(13, 286);
             this.btnBackNext.Name = "btnBackNext";
-            this.btnBackNext.Size = new System.Drawing.Size(416, 50);
+            this.btnBackNext.Size = new System.Drawing.Size(418, 60);
             this.btnBackNext.TabIndex = 5;
             // 
             // PricingMethodStep
@@ -242,7 +243,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
             this.Name = "PricingMethodStep";
-            this.Size = new System.Drawing.Size(450, 345);
+            this.Size = new System.Drawing.Size(450, 355);
             this.tlpContainer.ResumeLayout(false);
             this.tlpDetails.ResumeLayout(false);
             this.tlpDetails.PerformLayout();

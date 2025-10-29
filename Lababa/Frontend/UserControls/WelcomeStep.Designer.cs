@@ -111,7 +111,6 @@
             // tlpContainer
             // 
             this.tlpContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tlpContainer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tlpContainer.ColumnCount = 1;
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
