@@ -48,6 +48,10 @@ namespace Lababa
             tlpMainContent.Controls.Add(_tlpStepDetails);
             _stepControlLabel.TotalSteps = _wizardSteps.Count;
 
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100f));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100F));
+
             ShowStep(0);
         }
 
@@ -71,7 +75,8 @@ namespace Lababa
 
             if (index == 0)
             {
-                ConfigureTableLayoutPanelForWelcomStep();
+                _stepControlLabel.Visible = false;
+                _btnBackNext.Visible = false;
 
                 var stepType = _wizardSteps[0];
                 WelcomeStepControl welcomeStepControl = (WelcomeStepControl)Activator.CreateInstance(stepType);
@@ -84,7 +89,8 @@ namespace Lababa
             }
             else
             {
-                ConfigureTableLayoutPanelForGenericStep();
+                _stepControlLabel.Visible = true;
+                _btnBackNext.Visible = true;
 
                 _stepControlLabel.Index = index;
                 _stepControlLabel.Title = "Working Title";
@@ -96,27 +102,6 @@ namespace Lababa
                 _tlpStepDetails.Controls.Add(newStepControl, 0, CONTENT_ROW);
                 _currentControl = newStepControl;
             }
-        }
-
-        private void ConfigureTableLayoutPanelForWelcomStep()
-        {
-            _tlpStepDetails.RowStyles.Clear();
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Absolute, 0F));
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Absolute, 0F));
-            _stepControlLabel.Visible = false;
-            _btnBackNext.Visible = false;
-        }
-
-        private void ConfigureTableLayoutPanelForGenericStep()
-        {
-
-            _tlpStepDetails.RowStyles.Clear();
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100f));
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100F));
-            _stepControlLabel.Visible = true;
-            _btnBackNext.Visible = true;
         }
     }
 
