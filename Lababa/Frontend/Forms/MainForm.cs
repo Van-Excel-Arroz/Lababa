@@ -1,4 +1,5 @@
-﻿using Lababa.Frontend.UserControls;
+﻿using Lababa.Frontend.Forms;
+using Lababa.Frontend.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace Lababa
 {
     public partial class MainForm : Form
     {
-        private List<Type> _wizardSteps;
+        private List<WizardStepInfo> _wizardSteps;
         private int _currentStepIndex = -1;
         private TableLayoutPanel _tlpStepDetails;
         private Control _currentControl;
@@ -38,6 +39,9 @@ namespace Lababa
             _tlpStepDetails.RowCount = 3;
             _tlpStepDetails.ColumnCount = 1;
             _tlpStepDetails.Dock = DockStyle.Fill;
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100f));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100F));
 
             _stepControlLabel.Dock = DockStyle.Left;
             _tlpStepDetails.Controls.Add(_stepControlLabel, 0, HEADER_ROW);
@@ -48,20 +52,16 @@ namespace Lababa
             tlpMainContent.Controls.Add(_tlpStepDetails);
             _stepControlLabel.TotalSteps = _wizardSteps.Count - 1;
 
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100f));
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            _tlpStepDetails.RowStyles.Add(new RowStyle(SizeType.AutoSize, 100F));
-
             ShowStep(0);
         }
 
         private void InitializeWizard()
         {
-            _wizardSteps = new List<Type>
+            _wizardSteps = new List<WizardStepInfo>
             {
-                typeof(WelcomeStepControl),
-                typeof(ShopInformationStep),
-                typeof(PricingMethodStep)
+                new WizardStepInfo {StepType = typeof(WelcomeStepControl), Title = "Welcome"},
+                new WizardStepInfo {StepType = typeof(ShopInformationStep), Title = "Shop Information"},
+                new WizardStepInfo {StepType = typeof(PricingMethodStep), Title = "Pricing Settings"}
             };
         }
 
@@ -77,8 +77,9 @@ namespace Lababa
             {
                 _stepControlLabel.Visible = false;
                 _btnBackNext.Visible = false;
+                var currentStepInfo = _wizardSteps[_currentStepIndex];
 
-                var stepType = _wizardSteps[0];
+                var stepType = currentStepInfo.StepType;
                 WelcomeStepControl welcomeStepControl = (WelcomeStepControl)Activator.CreateInstance(stepType);
 
                 welcomeStepControl.Dock = DockStyle.Fill;
@@ -91,11 +92,12 @@ namespace Lababa
             {
                 _stepControlLabel.Visible = true;
                 _btnBackNext.Visible = true;
+                var currentStepInfo = _wizardSteps[_currentStepIndex];
 
                 _stepControlLabel.Index = index;
-                _stepControlLabel.Title = "Working Title";
+                _stepControlLabel.Title = currentStepInfo.Title;
 
-                var stepType = _wizardSteps[_currentStepIndex];
+                var stepType = currentStepInfo.StepType;
                 UserControl newStepControl = (UserControl)Activator.CreateInstance(stepType);
 
                 newStepControl.Dock = DockStyle.Fill;

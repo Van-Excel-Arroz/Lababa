@@ -76,6 +76,7 @@
     <Compile Include="Frontend\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\Forms\WizardStepInfo.cs" />
     <Compile Include="Frontend\UserControls\BackNextButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
