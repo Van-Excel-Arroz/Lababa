@@ -70,6 +70,7 @@
     <Compile Include="Backend\Models\ItemServiceItem.cs" />
     <Compile Include="Backend\Models\Order.cs" />
     <Compile Include="Backend\Models\WeightServiceItem.cs" />
+    <Compile Include="Backend\Models\WizardSettingsData.cs" />
     <Compile Include="Frontend\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

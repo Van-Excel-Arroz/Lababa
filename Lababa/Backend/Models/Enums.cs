@@ -16,4 +16,17 @@
         Partial,
         Refunded
     }
+
+    public enum PricingMethod
+    {
+        Weight,
+        Item,
+        Hybrid
+    }
+
+    public enum WeightUnit
+    {
+        Kilograms,
+        Pounds
+    }
 }
