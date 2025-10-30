@@ -67,10 +67,8 @@
     <Compile Include="Backend\Models\Customer.cs" />
     <Compile Include="Backend\Models\Enums.cs" />
     <Compile Include="Backend\Models\IEntity.cs" />
-    <Compile Include="Backend\Models\ItemServiceItem.cs" />
     <Compile Include="Backend\Models\Order.cs" />
-    <Compile Include="Backend\Models\WeightServiceItem.cs" />
-    <Compile Include="Backend\Models\WizardSettingsData.cs" />
+    <Compile Include="Backend\Models\ServicePricing.cs" />
     <Compile Include="Frontend\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
