@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.ltbShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.ltbPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpDetails.SuspendLayout();
             this.tlpContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpDetails
             // 
+            this.tlpDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpDetails.ColumnCount = 1;
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpDetails.Controls.Add(this.ltbShopName, 0, 0);
             this.tlpDetails.Controls.Add(this.ltbAddress, 0, 1);
             this.tlpDetails.Controls.Add(this.ltbPhoneNumber, 0, 2);
-            this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
             this.tlpDetails.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
@@ -56,6 +57,19 @@
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpDetails.Size = new System.Drawing.Size(444, 168);
             this.tlpDetails.TabIndex = 0;
+            // 
+            // tlpContainer
+            // 
+            this.tlpContainer.ColumnCount = 1;
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
+            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
+            this.tlpContainer.Name = "tlpContainer";
+            this.tlpContainer.RowCount = 1;
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.Size = new System.Drawing.Size(450, 174);
+            this.tlpContainer.TabIndex = 1;
             // 
             // ltbShopName
             // 
@@ -83,19 +97,6 @@
             this.ltbPhoneNumber.Name = "ltbPhoneNumber";
             this.ltbPhoneNumber.Size = new System.Drawing.Size(428, 47);
             this.ltbPhoneNumber.TabIndex = 3;
-            // 
-            // tlpContainer
-            // 
-            this.tlpContainer.ColumnCount = 1;
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
-            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
-            this.tlpContainer.Name = "tlpContainer";
-            this.tlpContainer.RowCount = 1;
-            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(450, 174);
-            this.tlpContainer.TabIndex = 1;
             // 
             // ShopInformationStep
             // 
