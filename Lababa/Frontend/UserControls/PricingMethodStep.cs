@@ -7,6 +7,7 @@ namespace Lababa.Frontend.UserControls
         public PricingMethodStep()
         {
             InitializeComponent();
+            cmbCurrcencySymbol.SelectedIndex = 0;
         }
     }
 }

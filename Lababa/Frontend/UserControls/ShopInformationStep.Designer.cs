@@ -55,7 +55,7 @@
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpDetails.Size = new System.Drawing.Size(444, 168);
+            this.tlpDetails.Size = new System.Drawing.Size(594, 168);
             this.tlpDetails.TabIndex = 0;
             // 
             // tlpContainer
@@ -68,7 +68,7 @@
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(450, 174);
+            this.tlpContainer.Size = new System.Drawing.Size(600, 550);
             this.tlpContainer.TabIndex = 1;
             // 
             // ltbShopName
@@ -77,7 +77,7 @@
             this.ltbShopName.LabelText = "Shop Name";
             this.ltbShopName.Location = new System.Drawing.Point(3, 13);
             this.ltbShopName.Name = "ltbShopName";
-            this.ltbShopName.Size = new System.Drawing.Size(428, 47);
+            this.ltbShopName.Size = new System.Drawing.Size(578, 47);
             this.ltbShopName.TabIndex = 1;
             // 
             // ltbAddress
@@ -86,7 +86,7 @@
             this.ltbAddress.LabelText = "Address";
             this.ltbAddress.Location = new System.Drawing.Point(3, 66);
             this.ltbAddress.Name = "ltbAddress";
-            this.ltbAddress.Size = new System.Drawing.Size(428, 47);
+            this.ltbAddress.Size = new System.Drawing.Size(578, 47);
             this.ltbAddress.TabIndex = 2;
             // 
             // ltbPhoneNumber
@@ -95,7 +95,7 @@
             this.ltbPhoneNumber.LabelText = "Phone Number";
             this.ltbPhoneNumber.Location = new System.Drawing.Point(3, 119);
             this.ltbPhoneNumber.Name = "ltbPhoneNumber";
-            this.ltbPhoneNumber.Size = new System.Drawing.Size(428, 47);
+            this.ltbPhoneNumber.Size = new System.Drawing.Size(578, 47);
             this.ltbPhoneNumber.TabIndex = 3;
             // 
             // ShopInformationStep
@@ -105,7 +105,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
             this.Name = "ShopInformationStep";
-            this.Size = new System.Drawing.Size(450, 174);
+            this.Size = new System.Drawing.Size(600, 550);
             this.tlpDetails.ResumeLayout(false);
             this.tlpContainer.ResumeLayout(false);
             this.ResumeLayout(false);
