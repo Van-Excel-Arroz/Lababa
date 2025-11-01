@@ -39,20 +39,29 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgvWeightServices = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.colWeightServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPricePerWeightUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMinWeightPerLoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDeleteWeightService = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPricePerPiece = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDeleteItemService = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tlpContainer.SuspendLayout();
             this.tlpDetails.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightServices)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpContainer
@@ -65,8 +74,8 @@
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 575F));
-            this.tlpContainer.Size = new System.Drawing.Size(550, 350);
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 395F));
+            this.tlpContainer.Size = new System.Drawing.Size(550, 318);
             this.tlpContainer.TabIndex = 0;
             // 
             // tlpDetails
@@ -79,9 +88,9 @@
             this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
             this.tlpDetails.RowCount = 2;
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.Size = new System.Drawing.Size(544, 344);
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.14103F));
+            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.85897F));
+            this.tlpDetails.Size = new System.Drawing.Size(544, 312);
             this.tlpDetails.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -95,7 +104,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.61111F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(538, 38);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(538, 35);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // tableLayoutPanel1
@@ -112,7 +121,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(532, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(532, 29);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // cmbCurrcencySymbol
@@ -128,7 +137,7 @@
             "¥",
             "₹",
             "₱"});
-            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(446, 5);
+            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(446, 3);
             this.cmbCurrcencySymbol.Name = "cmbCurrcencySymbol";
             this.cmbCurrcencySymbol.Size = new System.Drawing.Size(83, 22);
             this.cmbCurrcencySymbol.TabIndex = 1;
@@ -143,7 +152,7 @@
             this.tableLayoutPanel6.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.radioButton1, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.radioButton2, 2, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 4);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -192,7 +201,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(341, 9);
+            this.label2.Location = new System.Drawing.Point(341, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 0;
@@ -200,56 +209,123 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 1, 0);
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.tabControl1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 47);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 44);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(538, 294);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(538, 265);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
-            // groupBox1
+            // tabControl1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(263, 288);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "By Weight Services";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(8, 5);
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(532, 259);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dgvWeightServices);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(524, 229);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "By Weight Services";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgvWeightServices
+            // 
+            this.dgvWeightServices.AllowUserToResizeRows = false;
+            this.dgvWeightServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWeightServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colWeightServiceName,
+            this.colPricePerWeightUnit,
+            this.colMinWeightPerLoad,
+            this.colDeleteWeightService});
+            this.dgvWeightServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWeightServices.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvWeightServices.Location = new System.Drawing.Point(3, 3);
+            this.dgvWeightServices.Name = "dgvWeightServices";
+            this.dgvWeightServices.Size = new System.Drawing.Size(518, 223);
+            this.dgvWeightServices.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(524, 229);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "By Item Services";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // colWeightServiceName
+            // 
+            this.colWeightServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colWeightServiceName.HeaderText = "Service Name";
+            this.colWeightServiceName.Name = "colWeightServiceName";
+            // 
+            // colPricePerWeightUnit
+            // 
+            this.colPricePerWeightUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPricePerWeightUnit.HeaderText = "Price/Unit";
+            this.colPricePerWeightUnit.Name = "colPricePerWeightUnit";
+            // 
+            // colMinWeightPerLoad
+            // 
+            this.colMinWeightPerLoad.HeaderText = "Min Weight";
+            this.colMinWeightPerLoad.Name = "colMinWeightPerLoad";
+            // 
+            // colDeleteWeightService
+            // 
+            this.colDeleteWeightService.HeaderText = "Remove";
+            this.colDeleteWeightService.Name = "colDeleteWeightService";
+            this.colDeleteWeightService.Text = "X";
+            this.colDeleteWeightService.Width = 50;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 32);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colItemName,
+            this.colPricePerPiece,
+            this.colDeleteItemService});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(239, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(518, 223);
             this.dataGridView1.TabIndex = 0;
             // 
-            // groupBox2
+            // colItemName
             // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(272, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(263, 288);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "By Item Services";
+            this.colItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colItemName.HeaderText = "Item Name";
+            this.colItemName.Name = "colItemName";
             // 
-            // dataGridView2
+            // colPricePerPiece
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(18, 32);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(239, 220);
-            this.dataGridView2.TabIndex = 1;
+            this.colPricePerPiece.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPricePerPiece.HeaderText = "Price/Piece";
+            this.colPricePerPiece.Name = "colPricePerPiece";
+            // 
+            // colDeleteItemService
+            // 
+            this.colDeleteItemService.HeaderText = "Remove";
+            this.colDeleteItemService.Name = "colDeleteItemService";
+            this.colDeleteItemService.Width = 50;
             // 
             // PricingMethodStep
             // 
@@ -259,7 +335,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
             this.Name = "PricingMethodStep";
-            this.Size = new System.Drawing.Size(550, 350);
+            this.Size = new System.Drawing.Size(550, 318);
             this.tlpContainer.ResumeLayout(false);
             this.tlpDetails.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -268,10 +344,11 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightServices)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,9 +366,17 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dgvWeightServices;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeightServiceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerWeightUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMinWeightPerLoad;
+        private System.Windows.Forms.DataGridViewButtonColumn colDeleteWeightService;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerPiece;
+        private System.Windows.Forms.DataGridViewButtonColumn colDeleteItemService;
     }
 }

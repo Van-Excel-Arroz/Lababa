@@ -68,7 +68,7 @@
     <Compile Include="Backend\Models\Enums.cs" />
     <Compile Include="Backend\Models\IEntity.cs" />
     <Compile Include="Backend\Models\Order.cs" />
-    <Compile Include="Backend\Models\ServicePricing.cs" />
+    <Compile Include="Backend\Models\ServiceItems.cs" />
     <Compile Include="Frontend\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

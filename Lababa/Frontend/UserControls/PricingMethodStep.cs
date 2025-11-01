@@ -9,5 +9,10 @@ namespace Lababa.Frontend.UserControls
             InitializeComponent();
             cmbCurrcencySymbol.SelectedIndex = 0;
         }
+
+        private void InitializeDataGridViews()
+        {
+
+        }
     }
 }

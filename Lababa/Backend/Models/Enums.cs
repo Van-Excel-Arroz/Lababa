@@ -13,7 +13,6 @@
     {
         Paid,
         Unpaid,
-        Partial,
         Refunded
     }
 
