@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backend\Utilities\FileNames.cs" />
     <Compile Include="Backend\Models\Customer.cs" />
     <Compile Include="Backend\Models\Enums.cs" />
     <Compile Include="Backend\Models\IEntity.cs" />
@@ -168,7 +169,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Backend\Constants\" />
     <Folder Include="Backend\Services\" />
   </ItemGroup>
   <ItemGroup>

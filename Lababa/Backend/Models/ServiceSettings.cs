@@ -1,4 +1,6 @@
-﻿namespace Lababa.Backend.Models
+﻿using System;
+
+namespace Lababa.Backend.Models
 {
     public class ShopSettings
     {
@@ -17,7 +19,7 @@
 
     public class WeigthServiceCatalogEntry : IEntity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string ServiceName { get; set; }
         public decimal PricePerUnit { get; set; }
         public double MinWeightPerLoad { get; set; }
@@ -25,7 +27,7 @@
 
     public class ItemServiceCatalogEntry : IEntity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string ItemName { get; set; }
         public decimal PricePerPiece { get; set; }
     }
