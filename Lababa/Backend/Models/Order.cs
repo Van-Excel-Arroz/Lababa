@@ -11,7 +11,7 @@ namespace Lababa.Backend.Models
         public DateTime DateCreated { get; set; }
         public DateTime DueDate { get; set; }
         public decimal AmountPaid { get; set; }
-        public decimal Total { get; set; }
+        public decimal TotalAmount { get; set; }
         public int CustomerId { get; set; } = 0;
     }
 }

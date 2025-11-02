@@ -69,6 +69,7 @@
     <Compile Include="Backend\Models\IEntity.cs" />
     <Compile Include="Backend\Models\Order.cs" />
     <Compile Include="Backend\Models\ServiceItems.cs" />
+    <Compile Include="Backend\Models\ServiceSettings.cs" />
     <Compile Include="Frontend\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
