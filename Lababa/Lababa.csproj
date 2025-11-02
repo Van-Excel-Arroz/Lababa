@@ -70,6 +70,8 @@
     <Compile Include="Backend\Models\Order.cs" />
     <Compile Include="Backend\Models\ServiceItems.cs" />
     <Compile Include="Backend\Models\ServiceSettings.cs" />
+    <Compile Include="Backend\Repositories\CustomerRepository.cs" />
+    <Compile Include="Backend\Repositories\ICustomerRepository.cs" />
     <Compile Include="Frontend\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backend\Constants\" />
-    <Folder Include="Backend\Repositories\" />
     <Folder Include="Backend\Services\" />
   </ItemGroup>
   <ItemGroup>
