@@ -10,8 +10,7 @@ namespace Lababa.Backend.Models
         public PaymentStatus PaymentStatus { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DueDate { get; set; }
-        public decimal AmountPaid { get; set; }
         public decimal TotalAmount { get; set; }
-        public Guid CustomerId { get; set; } = 0;
+        public Guid CustomerId { get; set; }
     }
 }
