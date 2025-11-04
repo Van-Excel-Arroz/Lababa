@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Lababa.Backend.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lababa.Backend.Repositories
 {
-    internal interface IOrderRepository
+    public interface IOrderRepository
     {
+        List<Order> GetAll();
+        Order GetById(Guid Id);
+        void Add(Order order);
+        void Update(Order order);
+        void Delete(Guid id);
     }
 }
