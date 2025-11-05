@@ -67,13 +67,12 @@
     <Compile Include="Backend\Models\ShopSettings.cs" />
     <Compile Include="Backend\Repositories\IOrderRepository.cs" />
     <Compile Include="Backend\Repositories\OrderRepository.cs" />
-    <Compile Include="Backend\Repositories\WeigthItem.cs" />
     <Compile Include="Backend\Utilities\FileNames.cs" />
     <Compile Include="Backend\Models\Customer.cs" />
     <Compile Include="Backend\Models\Enums.cs" />
     <Compile Include="Backend\Models\IEntity.cs" />
     <Compile Include="Backend\Models\Order.cs" />
-    <Compile Include="Backend\Models\ServiceItems.cs" />
+    <Compile Include="Backend\Models\ServiceProducts.cs" />
     <Compile Include="Backend\Models\ServiceSettings.cs" />
     <Compile Include="Backend\Repositories\CustomerRepository.cs" />
     <Compile Include="Backend\Repositories\ICustomerRepository.cs" />
