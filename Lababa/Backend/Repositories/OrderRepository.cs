@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Lababa.Backend.Repositories
 {
-    public class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly string _filePath;
         private readonly char _delimeter = ',';
@@ -71,7 +71,7 @@ namespace Lababa.Backend.Repositories
         {
             var parts = line.Split(_delimeter);
 
-            if (parts.Length != 5)
+            if (parts.Length != 8)
             {
                 Console.WriteLine($"Order line skipped: {line}");
                 return null;
@@ -150,10 +150,66 @@ namespace Lababa.Backend.Repositories
                    $"{order.OrderNumber}{_delimeter}" +
                    $"{order.Status}{_delimeter}" +
                    $"{order.PaymentStatus}{_delimeter}" +
-                   $"{order.DateCreated.ToString(CultureInfo.InvariantCulture)}" +
-                   $"{order.DueDate}{_delimeter}" +
+                   $"{order.DateCreated.ToString(CultureInfo.InvariantCulture)}{_delimeter}" +
+                   $"{order.DueDate.ToString(CultureInfo.InvariantCulture)}{_delimeter}" +
                    $"{order.TotalAmount}{_delimeter}" +
-                   $"{order.CustomerId}{_delimeter}";
+                   $"{order.CustomerId}";
+        }
+
+        public List<Order> GetAll()
+        {
+            return LoadAllEntities();
+        }
+
+        public Order GetById(Guid id)
+        {
+            var orders = LoadAllEntities();
+            return orders.FirstOrDefault(o => o.Id == id);
+        }
+
+        public void Add(Order order)
+        {
+            if (order.Id == Guid.Empty)
+            {
+                order.Id = Guid.NewGuid();
+            }
+
+            var orders = LoadAllEntities();
+            orders.Add(order);
+            SaveAllEntities(orders);
+        }
+
+        public void Update(Order order)
+        {
+            var orders = LoadAllEntities();
+            var existingOrder = orders.FirstOrDefault(o => o.Id == order.Id);
+            if (existingOrder != null)
+            {
+                existingOrder.Status = order.Status;
+                existingOrder.PaymentStatus = order.PaymentStatus;
+                existingOrder.DueDate = order.DueDate;
+                existingOrder.TotalAmount = order.TotalAmount;
+                SaveAllEntities(orders);
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Order with Id {order.Id} not found for update");
+            }
+        }
+
+        public void Delete(Guid id)
+        {
+            var orders = LoadAllEntities();
+            int initialCount = orders.Count;
+            orders.RemoveAll(o => o.Id == id);
+            if (orders.Count < initialCount)
+            {
+                SaveAllEntities(orders);
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Order with Id {id} not found for deletion");
+            }
         }
     }
 }
