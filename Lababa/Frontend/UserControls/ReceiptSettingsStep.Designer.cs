@@ -1,6 +1,6 @@
 ﻿namespace Lababa.Frontend.UserControls
 {
-    partial class ShopInformationStep
+    partial class ReceiptSettingsStep
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.ltbShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.ltbAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.ltbPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.labeledTextBox1 = new Lababa.Frontend.UserControls.LabeledTextBox();
+            this.labeledTextBox2 = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.tlpDetails.SuspendLayout();
             this.tlpContainer.SuspendLayout();
             this.SuspendLayout();
@@ -43,47 +42,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpDetails.ColumnCount = 1;
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Controls.Add(this.ltbShopName, 0, 0);
-            this.tlpDetails.Controls.Add(this.ltbAddress, 0, 1);
-            this.tlpDetails.Controls.Add(this.ltbPhoneNumber, 0, 2);
+            this.tlpDetails.Controls.Add(this.labeledTextBox1, 0, 0);
+            this.tlpDetails.Controls.Add(this.labeledTextBox2, 0, 1);
             this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
             this.tlpDetails.Padding = new System.Windows.Forms.Padding(10);
-            this.tlpDetails.RowCount = 3;
+            this.tlpDetails.RowCount = 2;
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpDetails.Size = new System.Drawing.Size(594, 168);
+            this.tlpDetails.Size = new System.Drawing.Size(594, 122);
             this.tlpDetails.TabIndex = 0;
-            // 
-            // ltbShopName
-            // 
-            this.ltbShopName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltbShopName.LabelText = "Shop Name";
-            this.ltbShopName.Location = new System.Drawing.Point(13, 13);
-            this.ltbShopName.Name = "ltbShopName";
-            this.ltbShopName.Size = new System.Drawing.Size(568, 47);
-            this.ltbShopName.TabIndex = 1;
-            // 
-            // ltbAddress
-            // 
-            this.ltbAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltbAddress.LabelText = "Address";
-            this.ltbAddress.Location = new System.Drawing.Point(13, 66);
-            this.ltbAddress.Name = "ltbAddress";
-            this.ltbAddress.Size = new System.Drawing.Size(568, 47);
-            this.ltbAddress.TabIndex = 2;
-            // 
-            // ltbPhoneNumber
-            // 
-            this.ltbPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltbPhoneNumber.LabelText = "Phone Number";
-            this.ltbPhoneNumber.Location = new System.Drawing.Point(13, 119);
-            this.ltbPhoneNumber.Name = "ltbPhoneNumber";
-            this.ltbPhoneNumber.Size = new System.Drawing.Size(568, 47);
-            this.ltbPhoneNumber.TabIndex = 3;
             // 
             // tlpContainer
             // 
@@ -98,13 +66,31 @@
             this.tlpContainer.Size = new System.Drawing.Size(600, 550);
             this.tlpContainer.TabIndex = 1;
             // 
-            // ShopInformationStep
+            // labeledTextBox1
+            // 
+            this.labeledTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labeledTextBox1.LabelText = "Receipt Header Message";
+            this.labeledTextBox1.Location = new System.Drawing.Point(13, 13);
+            this.labeledTextBox1.Name = "labeledTextBox1";
+            this.labeledTextBox1.Size = new System.Drawing.Size(568, 49);
+            this.labeledTextBox1.TabIndex = 0;
+            // 
+            // labeledTextBox2
+            // 
+            this.labeledTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labeledTextBox2.LabelText = "Receipt Footer Message";
+            this.labeledTextBox2.Location = new System.Drawing.Point(13, 68);
+            this.labeledTextBox2.Name = "labeledTextBox2";
+            this.labeledTextBox2.Size = new System.Drawing.Size(568, 49);
+            this.labeledTextBox2.TabIndex = 1;
+            // 
+            // ReceiptSettingsStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
-            this.Name = "ShopInformationStep";
+            this.Name = "ReceiptSettingsStep";
             this.Size = new System.Drawing.Size(600, 550);
             this.tlpDetails.ResumeLayout(false);
             this.tlpContainer.ResumeLayout(false);
@@ -115,9 +101,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpDetails;
-        private LabeledTextBox ltbShopName;
-        private LabeledTextBox ltbAddress;
-        private LabeledTextBox ltbPhoneNumber;
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
+        private LabeledTextBox labeledTextBox1;
+        private LabeledTextBox labeledTextBox2;
     }
 }

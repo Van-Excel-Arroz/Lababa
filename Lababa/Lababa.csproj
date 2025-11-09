@@ -90,11 +90,23 @@
     <Compile Include="Frontend\UserControls\BackNextButtons.Designer.cs">
       <DependentUpon>BackNextButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\UserControls\FinishWizardStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\FinishWizardStep.Designer.cs">
+      <DependentUpon>FinishWizardStep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\UserControls\PricingMethodStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Frontend\UserControls\PricingMethodStep.Designer.cs">
       <DependentUpon>PricingMethodStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\UserControls\ReceiptSettingsStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\ReceiptSettingsStep.Designer.cs">
+      <DependentUpon>ReceiptSettingsStep.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\ShopInformationStep.cs">
       <SubType>UserControl</SubType>
@@ -134,8 +146,14 @@
     <EmbeddedResource Include="Frontend\UserControls\BackNextButtons.resx">
       <DependentUpon>BackNextButtons.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\FinishWizardStep.resx">
+      <DependentUpon>FinishWizardStep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\PricingMethodStep.resx">
       <DependentUpon>PricingMethodStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\ReceiptSettingsStep.resx">
+      <DependentUpon>ReceiptSettingsStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\ShopInformationStep.resx">
       <DependentUpon>ShopInformationStep.cs</DependentUpon>
