@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Lababa
 {
-    public partial class MainForm : Form
+    public partial class WizardForm : Form
     {
         private List<WizardStepInfo> _wizardSteps;
         private int _currentStepIndex = -1;
@@ -19,7 +19,7 @@ namespace Lababa
         private const int CONTENT_ROW = 1;
         private const int FOOTER_ROW = 2;
 
-        public MainForm()
+        public WizardForm()
         {
             InitializeComponent();
             InitializeWizard();

@@ -77,11 +77,11 @@
     <Compile Include="Backend\Models\ServiceSettings.cs" />
     <Compile Include="Backend\Repositories\CustomerRepository.cs" />
     <Compile Include="Backend\Repositories\ICustomerRepository.cs" />
-    <Compile Include="Frontend\Forms\MainForm.cs">
+    <Compile Include="Frontend\Forms\WizardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frontend\Forms\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Frontend\Forms\WizardForm.Designer.cs">
+      <DependentUpon>WizardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Forms\WizardStepInfo.cs" />
     <Compile Include="Frontend\UserControls\BackNextButtons.cs">
@@ -128,8 +128,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frontend\Forms\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Frontend\Forms\WizardForm.resx">
+      <DependentUpon>WizardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\BackNextButtons.resx">
       <DependentUpon>BackNextButtons.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Lababa
 {
-    partial class MainForm
+    partial class WizardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WizardForm));
             this.tlpMainContent = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
