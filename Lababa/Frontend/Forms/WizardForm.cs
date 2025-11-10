@@ -50,7 +50,7 @@ namespace Lababa
             _tlpStepDetails.Controls.Add(_btnBackNext, 0, FOOTER_ROW);
 
             tlpMainContent.Controls.Add(_tlpStepDetails);
-            _stepControlLabel.TotalSteps = _wizardSteps.Count - 1;
+            _stepControlLabel.TotalSteps = _wizardSteps.Count - 2;
 
             ShowStep(0);
         }
@@ -62,7 +62,8 @@ namespace Lababa
                 new WizardStepInfo {StepType = typeof(WelcomeStepControl), Title = "Welcome"},
                 new WizardStepInfo {StepType = typeof(ShopInformationStep), Title = "Shop Information"},
                 new WizardStepInfo {StepType = typeof(PricingMethodStep), Title = "Pricing Settings"},
-                new WizardStepInfo {StepType = typeof(ReceiptSettingsStep), Title = "Receipt Settings"}
+                new WizardStepInfo {StepType = typeof(ReceiptSettingsStep), Title = "Receipt Settings"},
+                new WizardStepInfo {StepType = typeof(FinishWizardStep), Title = ""},
             };
         }
 
@@ -88,6 +89,21 @@ namespace Lababa
                 _currentControl = welcomeStepControl;
 
                 welcomeStepControl.GoNext += (_, __) => ShowStep(1);
+            }
+            else if (index == 4)
+            {
+                _stepControlLabel.Visible = false;
+                _btnBackNext.Visible = false;
+                var currentStepInfo = _wizardSteps[_currentStepIndex];
+
+                var stepType = currentStepInfo.StepType;
+                FinishWizardStep finishWizardStep = (FinishWizardStep)Activator.CreateInstance(stepType);
+
+                finishWizardStep.Dock = DockStyle.Fill;
+                _tlpStepDetails.Controls.Add(finishWizardStep, 0, CONTENT_ROW);
+                _currentControl = finishWizardStep;
+
+                finishWizardStep.GoNext += (_, __) => ShowStep(0);
             }
             else
             {

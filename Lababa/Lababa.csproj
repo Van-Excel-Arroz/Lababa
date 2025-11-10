@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lababa-Logo.ico" />
+    <None Include="Resources\check_mark.png" />
     <None Include="Resources\arrow-left-black.png" />
     <None Include="Resources\arrow-left.png" />
     <None Include="Resources\arrow-right.png" />

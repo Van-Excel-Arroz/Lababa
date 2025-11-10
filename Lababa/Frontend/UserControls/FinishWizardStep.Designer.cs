@@ -28,19 +28,153 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinishWizardStep));
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pbCheckMark = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnGoToDashboard = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCheckMark)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 550);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.pbCheckMark, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnGoToDashboard, 0, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(152, 142);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(296, 265);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pbCheckMark
+            // 
+            this.pbCheckMark.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbCheckMark.Image = global::Lababa.Properties.Resources.check_mark;
+            this.pbCheckMark.Location = new System.Drawing.Point(75, 3);
+            this.pbCheckMark.Name = "pbCheckMark";
+            this.pbCheckMark.Size = new System.Drawing.Size(146, 72);
+            this.pbCheckMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCheckMark.TabIndex = 0;
+            this.pbCheckMark.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(81, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Setup Complete!";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(248, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Your laundry shop is ready to start accepting orders.";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(269, 26);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "You can change these settings anytime from the Settings menu.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnGoToDashboard
+            // 
+            this.btnGoToDashboard.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGoToDashboard.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGoToDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoToDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnGoToDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoToDashboard.ImageKey = "arrow-right.png";
+            this.btnGoToDashboard.ImageList = this.imageList1;
+            this.btnGoToDashboard.Location = new System.Drawing.Point(58, 205);
+            this.btnGoToDashboard.Name = "btnGoToDashboard";
+            this.btnGoToDashboard.Size = new System.Drawing.Size(179, 30);
+            this.btnGoToDashboard.TabIndex = 4;
+            this.btnGoToDashboard.Text = "Go to Dashboard";
+            this.btnGoToDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGoToDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGoToDashboard.UseVisualStyleBackColor = false;
+            this.btnGoToDashboard.Click += new System.EventHandler(this.btnGoToDashboard_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "arrow-right.png");
             // 
             // FinishWizardStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FinishWizardStep";
             this.Size = new System.Drawing.Size(600, 550);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCheckMark)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.PictureBox pbCheckMark;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnGoToDashboard;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
