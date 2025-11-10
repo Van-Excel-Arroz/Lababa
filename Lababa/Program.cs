@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lababa.Frontend.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace Lababa
@@ -13,7 +14,8 @@ namespace Lababa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WizardForm());
+            Application.Run(new DashboardForm());
+            //Application.Run(new WizardForm());
         }
     }
 }
