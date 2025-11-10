@@ -103,7 +103,13 @@ namespace Lababa
                 _tlpStepDetails.Controls.Add(finishWizardStep, 0, CONTENT_ROW);
                 _currentControl = finishWizardStep;
 
-                finishWizardStep.GoNext += (_, __) => ShowStep(0);
+                finishWizardStep.WizardCompleted += (_, __) =>
+                {
+                    var dashboard = new DashboardForm();
+                    dashboard.FormClosed += (s, args) => this.Close();
+                    dashboard.Show();
+                    this.Hide();
+                };
             }
             else
             {

@@ -5,7 +5,7 @@ namespace Lababa.Frontend.UserControls
 {
     public partial class FinishWizardStep : UserControl
     {
-        public event EventHandler GoNext;
+        public event EventHandler WizardCompleted;
 
 
         public FinishWizardStep()
@@ -15,7 +15,7 @@ namespace Lababa.Frontend.UserControls
 
         private void btnGoToDashboard_Click(object sender, EventArgs e)
         {
-            GoNext.Invoke(this, EventArgs.Empty);
+            WizardCompleted?.Invoke(this, EventArgs.Empty);
         }
     }
 }
