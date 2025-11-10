@@ -50,7 +50,7 @@
             this.tlpDetails.RowCount = 2;
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.Size = new System.Drawing.Size(594, 122);
+            this.tlpDetails.Size = new System.Drawing.Size(441, 122);
             this.tlpDetails.TabIndex = 0;
             // 
             // tlpContainer
@@ -63,7 +63,7 @@
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(600, 550);
+            this.tlpContainer.Size = new System.Drawing.Size(447, 550);
             this.tlpContainer.TabIndex = 1;
             // 
             // labeledTextBox1
@@ -72,7 +72,7 @@
             this.labeledTextBox1.LabelText = "Receipt Header Message";
             this.labeledTextBox1.Location = new System.Drawing.Point(13, 13);
             this.labeledTextBox1.Name = "labeledTextBox1";
-            this.labeledTextBox1.Size = new System.Drawing.Size(568, 49);
+            this.labeledTextBox1.Size = new System.Drawing.Size(415, 49);
             this.labeledTextBox1.TabIndex = 0;
             // 
             // labeledTextBox2
@@ -81,7 +81,7 @@
             this.labeledTextBox2.LabelText = "Receipt Footer Message";
             this.labeledTextBox2.Location = new System.Drawing.Point(13, 68);
             this.labeledTextBox2.Name = "labeledTextBox2";
-            this.labeledTextBox2.Size = new System.Drawing.Size(568, 49);
+            this.labeledTextBox2.Size = new System.Drawing.Size(415, 49);
             this.labeledTextBox2.TabIndex = 1;
             // 
             // ReceiptSettingsStep
@@ -91,7 +91,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
             this.Name = "ReceiptSettingsStep";
-            this.Size = new System.Drawing.Size(600, 550);
+            this.Size = new System.Drawing.Size(447, 550);
             this.tlpDetails.ResumeLayout(false);
             this.tlpContainer.ResumeLayout(false);
             this.ResumeLayout(false);
