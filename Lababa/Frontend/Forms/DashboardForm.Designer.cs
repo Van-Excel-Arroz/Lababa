@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpHeader = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.lblShopName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tlpContents = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tlpSummaryCards = new System.Windows.Forms.TableLayoutPanel();
@@ -66,39 +68,36 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpCompletedStatus = new System.Windows.Forms.FlowLayoutPanel();
             this.tlpReady = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpReadyStatus = new System.Windows.Forms.FlowLayoutPanel();
             this.tlpInProgress = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpInProgressStatus = new System.Windows.Forms.FlowLayoutPanel();
             this.tlpPending = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpPendingStatus = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnNewOrder = new System.Windows.Forms.Button();
-            this.btnSearchOrders = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnSearchOrders = new System.Windows.Forms.Button();
+            this.btnNewOrder = new System.Windows.Forms.Button();
             this.tlpContainer.SuspendLayout();
             this.tlpHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tlpContents.SuspendLayout();
             this.tlpSummaryCards.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -143,54 +142,66 @@
             // tlpHeader
             // 
             this.tlpHeader.BackColor = System.Drawing.Color.White;
-            this.tlpHeader.ColumnCount = 4;
+            this.tlpHeader.ColumnCount = 5;
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpHeader.Controls.Add(this.pictureBox3, 3, 0);
-            this.tlpHeader.Controls.Add(this.pictureBox2, 2, 0);
+            this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tlpHeader.Controls.Add(this.button3, 3, 0);
+            this.tlpHeader.Controls.Add(this.button2, 2, 0);
             this.tlpHeader.Controls.Add(this.lblShopName, 0, 0);
             this.tlpHeader.Controls.Add(this.panel1, 0, 1);
-            this.tlpHeader.Controls.Add(this.pictureBox1, 1, 0);
             this.tlpHeader.Controls.Add(this.panel2, 1, 1);
             this.tlpHeader.Controls.Add(this.panel3, 2, 1);
             this.tlpHeader.Controls.Add(this.panel4, 3, 1);
+            this.tlpHeader.Controls.Add(this.button1, 1, 0);
             this.tlpHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpHeader.Location = new System.Drawing.Point(0, 0);
             this.tlpHeader.Margin = new System.Windows.Forms.Padding(0);
             this.tlpHeader.Name = "tlpHeader";
             this.tlpHeader.RowCount = 2;
             this.tlpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
+            this.tlpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
             this.tlpHeader.Size = new System.Drawing.Size(1101, 62);
             this.tlpHeader.TabIndex = 0;
             // 
-            // pictureBox3
+            // button3
             // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1061, 19);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.ImageKey = "help.png";
+            this.button3.ImageList = this.buttonImageList;
+            this.button3.Location = new System.Drawing.Point(1050, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 32);
+            this.button3.TabIndex = 10;
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // buttonImageList
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1021, 19);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(10);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.buttonImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("buttonImageList.ImageStream")));
+            this.buttonImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.buttonImageList.Images.SetKeyName(0, "plus.png");
+            this.buttonImageList.Images.SetKeyName(1, "add-user.png");
+            this.buttonImageList.Images.SetKeyName(2, "search.png");
+            this.buttonImageList.Images.SetKeyName(3, "add-customer.png");
+            this.buttonImageList.Images.SetKeyName(4, "financial.png");
+            this.buttonImageList.Images.SetKeyName(5, "help.png");
+            this.buttonImageList.Images.SetKeyName(6, "settings.png");
+            this.buttonImageList.Images.SetKeyName(7, "setting-2.png");
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.ImageKey = "setting-2.png";
+            this.button2.ImageList = this.buttonImageList;
+            this.button2.Location = new System.Drawing.Point(1005, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 32);
+            this.button2.TabIndex = 9;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // lblShopName
             // 
@@ -208,54 +219,53 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 59);
+            this.panel1.Location = new System.Drawing.Point(0, 60);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(971, 3);
+            this.panel1.Size = new System.Drawing.Size(961, 2);
             this.panel1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Lababa.Properties.Resources.financial_analytics;
-            this.pictureBox1.Location = new System.Drawing.Point(981, 19);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(971, 59);
+            this.panel2.Location = new System.Drawing.Point(961, 60);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(40, 3);
+            this.panel2.Size = new System.Drawing.Size(41, 2);
             this.panel2.TabIndex = 5;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightGray;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(1011, 59);
+            this.panel3.Location = new System.Drawing.Point(1002, 60);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(40, 3);
+            this.panel3.Size = new System.Drawing.Size(41, 2);
             this.panel3.TabIndex = 6;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.LightGray;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(1051, 59);
+            this.panel4.Location = new System.Drawing.Point(1043, 60);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(50, 3);
+            this.panel4.Size = new System.Drawing.Size(50, 2);
             this.panel4.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.ImageKey = "financial.png";
+            this.button1.ImageList = this.buttonImageList;
+            this.button1.Location = new System.Drawing.Point(964, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 32);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // tlpContents
             // 
@@ -280,10 +290,10 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(28, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 37);
+            this.label1.Size = new System.Drawing.Size(245, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Today\'s Summary";
             // 
@@ -561,7 +571,7 @@
             this.tlpCompleted.ColumnCount = 1;
             this.tlpCompleted.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpCompleted.Controls.Add(this.tableLayoutPanel13, 0, 0);
-            this.tlpCompleted.Controls.Add(this.flowLayoutPanel4, 0, 1);
+            this.tlpCompleted.Controls.Add(this.flpCompletedStatus, 0, 1);
             this.tlpCompleted.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCompleted.Location = new System.Drawing.Point(760, 5);
             this.tlpCompleted.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
@@ -633,22 +643,22 @@
             this.panel16.Size = new System.Drawing.Size(78, 1);
             this.panel16.TabIndex = 2;
             // 
-            // flowLayoutPanel4
+            // flpCompletedStatus
             // 
-            this.flowLayoutPanel4.AutoScroll = true;
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 53);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(225, 350);
-            this.flowLayoutPanel4.TabIndex = 1;
-            this.flowLayoutPanel4.WrapContents = false;
+            this.flpCompletedStatus.AutoScroll = true;
+            this.flpCompletedStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpCompletedStatus.Location = new System.Drawing.Point(3, 53);
+            this.flpCompletedStatus.Name = "flpCompletedStatus";
+            this.flpCompletedStatus.Size = new System.Drawing.Size(225, 350);
+            this.flpCompletedStatus.TabIndex = 1;
+            this.flpCompletedStatus.WrapContents = false;
             // 
             // tlpReady
             // 
             this.tlpReady.ColumnCount = 1;
             this.tlpReady.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpReady.Controls.Add(this.tableLayoutPanel11, 0, 0);
-            this.tlpReady.Controls.Add(this.flowLayoutPanel3, 0, 1);
+            this.tlpReady.Controls.Add(this.flpReadyStatus, 0, 1);
             this.tlpReady.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpReady.Location = new System.Drawing.Point(510, 5);
             this.tlpReady.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
@@ -720,22 +730,22 @@
             this.panel14.Size = new System.Drawing.Size(50, 1);
             this.panel14.TabIndex = 2;
             // 
-            // flowLayoutPanel3
+            // flpReadyStatus
             // 
-            this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 53);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(224, 350);
-            this.flowLayoutPanel3.TabIndex = 1;
-            this.flowLayoutPanel3.WrapContents = false;
+            this.flpReadyStatus.AutoScroll = true;
+            this.flpReadyStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpReadyStatus.Location = new System.Drawing.Point(3, 53);
+            this.flpReadyStatus.Name = "flpReadyStatus";
+            this.flpReadyStatus.Size = new System.Drawing.Size(224, 350);
+            this.flpReadyStatus.TabIndex = 1;
+            this.flpReadyStatus.WrapContents = false;
             // 
             // tlpInProgress
             // 
             this.tlpInProgress.ColumnCount = 1;
             this.tlpInProgress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpInProgress.Controls.Add(this.tableLayoutPanel9, 0, 0);
-            this.tlpInProgress.Controls.Add(this.flowLayoutPanel2, 0, 1);
+            this.tlpInProgress.Controls.Add(this.flpInProgressStatus, 0, 1);
             this.tlpInProgress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpInProgress.Location = new System.Drawing.Point(260, 5);
             this.tlpInProgress.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
@@ -807,22 +817,23 @@
             this.panel12.Size = new System.Drawing.Size(80, 1);
             this.panel12.TabIndex = 2;
             // 
-            // flowLayoutPanel2
+            // flpInProgressStatus
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 53);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(224, 350);
-            this.flowLayoutPanel2.TabIndex = 1;
-            this.flowLayoutPanel2.WrapContents = false;
+            this.flpInProgressStatus.AutoScroll = true;
+            this.flpInProgressStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpInProgressStatus.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpInProgressStatus.Location = new System.Drawing.Point(3, 53);
+            this.flpInProgressStatus.Name = "flpInProgressStatus";
+            this.flpInProgressStatus.Size = new System.Drawing.Size(224, 350);
+            this.flpInProgressStatus.TabIndex = 1;
+            this.flpInProgressStatus.WrapContents = false;
             // 
             // tlpPending
             // 
             this.tlpPending.ColumnCount = 1;
             this.tlpPending.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPending.Controls.Add(this.tableLayoutPanel8, 0, 0);
-            this.tlpPending.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tlpPending.Controls.Add(this.flpPendingStatus, 0, 1);
             this.tlpPending.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPending.Location = new System.Drawing.Point(10, 5);
             this.tlpPending.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
@@ -894,15 +905,16 @@
             this.panel9.Size = new System.Drawing.Size(61, 1);
             this.panel9.TabIndex = 2;
             // 
-            // flowLayoutPanel1
+            // flpPendingStatus
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 53);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(224, 350);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.WrapContents = false;
+            this.flpPendingStatus.AutoScroll = true;
+            this.flpPendingStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpPendingStatus.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpPendingStatus.Location = new System.Drawing.Point(3, 53);
+            this.flpPendingStatus.Name = "flpPendingStatus";
+            this.flpPendingStatus.Size = new System.Drawing.Size(224, 350);
+            this.flpPendingStatus.TabIndex = 1;
+            this.flpPendingStatus.WrapContents = false;
             // 
             // tableLayoutPanel2
             // 
@@ -923,10 +935,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 25);
+            this.label4.Size = new System.Drawing.Size(72, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Orders";
             // 
@@ -949,21 +961,25 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(491, 39);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
-            // btnNewOrder
+            // btnCustomers
             // 
-            this.btnNewOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNewOrder.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnNewOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewOrder.ForeColor = System.Drawing.Color.White;
-            this.btnNewOrder.Location = new System.Drawing.Point(3, 3);
-            this.btnNewOrder.Name = "btnNewOrder";
-            this.btnNewOrder.Padding = new System.Windows.Forms.Padding(2);
-            this.btnNewOrder.Size = new System.Drawing.Size(157, 33);
-            this.btnNewOrder.TabIndex = 0;
-            this.btnNewOrder.Text = "New Order";
-            this.btnNewOrder.UseVisualStyleBackColor = false;
+            this.btnCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCustomers.BackColor = System.Drawing.Color.White;
+            this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCustomers.ImageKey = "add-customer.png";
+            this.btnCustomers.ImageList = this.buttonImageList;
+            this.btnCustomers.Location = new System.Drawing.Point(329, 4);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(159, 30);
+            this.btnCustomers.TabIndex = 2;
+            this.btnCustomers.Text = "  Customers";
+            this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomers.UseVisualStyleBackColor = false;
             // 
             // btnSearchOrders
             // 
@@ -973,27 +989,39 @@
             this.btnSearchOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchOrders.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchOrders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnSearchOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearchOrders.ImageKey = "search.png";
+            this.btnSearchOrders.ImageList = this.buttonImageList;
             this.btnSearchOrders.Location = new System.Drawing.Point(166, 4);
             this.btnSearchOrders.Name = "btnSearchOrders";
             this.btnSearchOrders.Size = new System.Drawing.Size(157, 30);
             this.btnSearchOrders.TabIndex = 1;
-            this.btnSearchOrders.Text = "Search Orders";
+            this.btnSearchOrders.Text = "  Search Orders";
+            this.btnSearchOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchOrders.UseVisualStyleBackColor = false;
             // 
-            // btnCustomers
+            // btnNewOrder
             // 
-            this.btnCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCustomers.BackColor = System.Drawing.Color.White;
-            this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnCustomers.Location = new System.Drawing.Point(329, 4);
-            this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Size = new System.Drawing.Size(159, 30);
-            this.btnCustomers.TabIndex = 2;
-            this.btnCustomers.Text = "Customers";
-            this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnNewOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewOrder.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnNewOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewOrder.ForeColor = System.Drawing.Color.White;
+            this.btnNewOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNewOrder.ImageKey = "plus.png";
+            this.btnNewOrder.ImageList = this.buttonImageList;
+            this.btnNewOrder.Location = new System.Drawing.Point(3, 3);
+            this.btnNewOrder.Name = "btnNewOrder";
+            this.btnNewOrder.Padding = new System.Windows.Forms.Padding(2);
+            this.btnNewOrder.Size = new System.Drawing.Size(157, 33);
+            this.btnNewOrder.TabIndex = 0;
+            this.btnNewOrder.Text = "  New Order";
+            this.btnNewOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewOrder.UseVisualStyleBackColor = false;
+            this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
             // DashboardForm
             // 
@@ -1010,9 +1038,6 @@
             this.tlpContainer.ResumeLayout(false);
             this.tlpHeader.ResumeLayout(false);
             this.tlpHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tlpContents.ResumeLayout(false);
             this.tlpContents.PerformLayout();
             this.tlpSummaryCards.ResumeLayout(false);
@@ -1055,9 +1080,6 @@
         private System.Windows.Forms.TableLayoutPanel tlpHeader;
         private System.Windows.Forms.Label lblShopName;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
@@ -1089,7 +1111,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpPendingStatus;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TableLayoutPanel tlpCompleted;
@@ -1098,23 +1120,27 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.FlowLayoutPanel flpCompletedStatus;
         private System.Windows.Forms.TableLayoutPanel tlpReady;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flpReadyStatus;
         private System.Windows.Forms.TableLayoutPanel tlpInProgress;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flpInProgressStatus;
         private System.Windows.Forms.Button btnNewOrder;
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnSearchOrders;
+        private System.Windows.Forms.ImageList buttonImageList;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }
