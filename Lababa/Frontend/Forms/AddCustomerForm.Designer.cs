@@ -1,6 +1,6 @@
 ﻿namespace Lababa.Frontend.Forms
 {
-    partial class NewOrderForm
+    partial class AddCustomerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // NewOrderForm
+            // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "NewOrderForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New Order";
+            this.Name = "AddCustomerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New Customer";
             this.ResumeLayout(false);
 
         }

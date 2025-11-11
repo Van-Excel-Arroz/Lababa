@@ -28,8 +28,20 @@ namespace Lababa.Frontend.Forms
 
         private void btnNewOrder_Click(object sender, System.EventArgs e)
         {
-            var newOrderForm = new NewOrderForm();
-            newOrderForm.Show();
+            var addOrderForm = new AddOrderForm();
+            addOrderForm.Show();
+        }
+
+        private void btnSearchOrders_Click(object sender, System.EventArgs e)
+        {
+            var searchOrderForm = new SearchOrderForm();
+            searchOrderForm.Show();
+        }
+
+        private void btnCustomers_Click(object sender, System.EventArgs e)
+        {
+            var addCustomerForm = new AddCustomerForm();
+            addCustomerForm.Show();
         }
     }
 }

@@ -77,17 +77,35 @@
     <Compile Include="Backend\Models\ServiceSettings.cs" />
     <Compile Include="Backend\Repositories\CustomerRepository.cs" />
     <Compile Include="Backend\Repositories\ICustomerRepository.cs" />
+    <Compile Include="Frontend\Forms\AddCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Forms\AddCustomerForm.Designer.cs">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Forms\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frontend\Forms\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\Forms\NewOrderForm.cs">
+    <Compile Include="Frontend\Forms\AddOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frontend\Forms\NewOrderForm.Designer.cs">
-      <DependentUpon>NewOrderForm.cs</DependentUpon>
+    <Compile Include="Frontend\Forms\AddOrderForm.Designer.cs">
+      <DependentUpon>AddOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Forms\OrderDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Forms\OrderDetailsForm.Designer.cs">
+      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Forms\SearchOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Forms\SearchOrderForm.Designer.cs">
+      <DependentUpon>SearchOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Forms\WizardForm.cs">
       <SubType>Form</SubType>
@@ -158,11 +176,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend\Forms\AddCustomerForm.resx">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Forms\NewOrderForm.resx">
-      <DependentUpon>NewOrderForm.cs</DependentUpon>
+    <EmbeddedResource Include="Frontend\Forms\AddOrderForm.resx">
+      <DependentUpon>AddOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Forms\OrderDetailsForm.resx">
+      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Forms\SearchOrderForm.resx">
+      <DependentUpon>SearchOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Forms\WizardForm.resx">
       <DependentUpon>WizardForm.cs</DependentUpon>
@@ -222,6 +249,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lababa-Logo.ico" />
+    <None Include="Resources\trash-2.png" />
+    <None Include="Resources\print-2.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\money.png" />
+    <None Include="Resources\person.png" />
+    <None Include="Resources\order.png" />
+    <None Include="Resources\time.png" />
     <None Include="Resources\setting-2.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\financial.png" />

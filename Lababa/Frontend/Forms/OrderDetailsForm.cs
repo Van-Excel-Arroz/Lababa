@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
 {
-    public partial class NewOrderForm : Form
+    public partial class OrderDetailsForm : Form
     {
-        public NewOrderForm()
+        public OrderDetailsForm()
         {
             InitializeComponent();
         }
