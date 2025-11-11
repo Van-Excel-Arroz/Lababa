@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
@@ -8,6 +9,12 @@ namespace Lababa.Frontend.UserControls
         public LabeledTextBox()
         {
             InitializeComponent();
+        }
+
+        public new event EventHandler TextChanged
+        {
+            add => textBox1.TextChanged += value;
+            remove => textBox1.TextChanged -= value;
         }
 
         [Category("Custom Properties")]

@@ -99,7 +99,7 @@ namespace Lababa.Backend.Repositories
                 Id = id,
                 FullName = parts[1].Trim(),
                 PhoneNumber = parts[2].Trim(),
-                Addresss = parts[3].Trim(),
+                Address = parts[3].Trim(),
                 DateCreated = dateCreated
             };
         }
@@ -109,7 +109,7 @@ namespace Lababa.Backend.Repositories
             return $"{customer.Id}{_delimeter}" +
                    $"{customer.FullName}{_delimeter}" +
                    $"{customer.PhoneNumber}{_delimeter}" +
-                   $"{customer.Addresss}{_delimeter}" +
+                   $"{customer.Address}{_delimeter}" +
                    $"{customer.DateCreated.ToString(CultureInfo.InvariantCulture)}";
         }
 
@@ -144,7 +144,7 @@ namespace Lababa.Backend.Repositories
             {
                 existingCustomer.FullName = customer.FullName;
                 existingCustomer.PhoneNumber = customer.PhoneNumber;
-                existingCustomer.Addresss = customer.Addresss;
+                existingCustomer.Address = customer.Address;
                 SaveAllEntities(customers);
             }
             else
