@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvWeightServices = new System.Windows.Forms.DataGridView();
+            this.dgvWeightServiceCatalog = new System.Windows.Forms.DataGridView();
             this.colWeightServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPricePerUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMinWeightPerLoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemoveImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.tlpContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightServiceCatalog)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpContainer
             // 
             this.tlpContainer.ColumnCount = 1;
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Controls.Add(this.dgvWeightServices, 0, 0);
+            this.tlpContainer.Controls.Add(this.dgvWeightServiceCatalog, 0, 0);
             this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContainer.Location = new System.Drawing.Point(0, 0);
             this.tlpContainer.Name = "tlpContainer";
@@ -52,25 +52,25 @@
             this.tlpContainer.Size = new System.Drawing.Size(550, 318);
             this.tlpContainer.TabIndex = 0;
             // 
-            // dgvWeightServices
+            // dgvWeightServiceCatalog
             // 
-            this.dgvWeightServices.AllowUserToResizeRows = false;
-            this.dgvWeightServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWeightServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvWeightServiceCatalog.AllowUserToResizeRows = false;
+            this.dgvWeightServiceCatalog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWeightServiceCatalog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colWeightServiceName,
             this.colPricePerUnit,
             this.colMinWeightPerLoad,
             this.colRemoveImage});
-            this.dgvWeightServices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvWeightServices.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvWeightServices.Location = new System.Drawing.Point(3, 3);
-            this.dgvWeightServices.Name = "dgvWeightServices";
-            this.dgvWeightServices.Size = new System.Drawing.Size(544, 312);
-            this.dgvWeightServices.TabIndex = 1;
-            this.dgvWeightServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellContentClick);
-            this.dgvWeightServices.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvWeightServices_CellFormatting);
-            this.dgvWeightServices.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseEnter);
-            this.dgvWeightServices.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseLeave);
+            this.dgvWeightServiceCatalog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWeightServiceCatalog.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvWeightServiceCatalog.Location = new System.Drawing.Point(3, 3);
+            this.dgvWeightServiceCatalog.Name = "dgvWeightServiceCatalog";
+            this.dgvWeightServiceCatalog.Size = new System.Drawing.Size(544, 312);
+            this.dgvWeightServiceCatalog.TabIndex = 1;
+            this.dgvWeightServiceCatalog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellContentClick);
+            this.dgvWeightServiceCatalog.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvWeightServices_CellFormatting);
+            this.dgvWeightServiceCatalog.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseEnter);
+            this.dgvWeightServiceCatalog.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseLeave);
             // 
             // colWeightServiceName
             // 
@@ -117,7 +117,7 @@
             this.Size = new System.Drawing.Size(550, 318);
             this.Load += new System.EventHandler(this.WeightServicesStep_Load);
             this.tlpContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightServiceCatalog)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,7 +125,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
-        private System.Windows.Forms.DataGridView dgvWeightServices;
+        private System.Windows.Forms.DataGridView dgvWeightServiceCatalog;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWeightServiceName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMinWeightPerLoad;

@@ -21,16 +21,16 @@ namespace Lababa.Frontend.UserControls
 
         private void WeightServicesStep_Load(object sender, System.EventArgs e)
         {
-            dgvWeightServices.AutoGenerateColumns = false;
+            dgvWeightServiceCatalog.AutoGenerateColumns = false;
 
             var initialServices = _weightServiceCatalogService.GetWeightServiceCatalog();
             _weightServiceCatalog = new BindingList<WeightService>(initialServices);
-            dgvWeightServices.DataSource = _weightServiceCatalog;
+            dgvWeightServiceCatalog.DataSource = _weightServiceCatalog;
         }
 
         private void dgvWeightServices_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == dgvWeightServices.Columns["colRemoveImage"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dgvWeightServiceCatalog.Columns["colRemoveImage"].Index && e.RowIndex >= 0)
             {
                 e.Value = Properties.Resources.trash_2;
             }
@@ -38,20 +38,20 @@ namespace Lababa.Frontend.UserControls
 
         private void dgvWeightServices_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvWeightServices.Columns["colRemoveImage"].Index)
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvWeightServiceCatalog.Columns["colRemoveImage"].Index)
             {
-                dgvWeightServices.Cursor = Cursors.Hand;
+                dgvWeightServiceCatalog.Cursor = Cursors.Hand;
             }
         }
 
         private void dgvWeightServices_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            dgvWeightServices.Cursor = Cursors.Default;
+            dgvWeightServiceCatalog.Cursor = Cursors.Default;
         }
 
         private void dgvWeightServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvWeightServices.Columns["colRemoveImage"].Index)
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvWeightServiceCatalog.Columns["colRemoveImage"].Index)
             {
                 WeightService serviceToRemove = _weightServiceCatalog[e.RowIndex];
                 _weightServiceCatalog.Remove(serviceToRemove);

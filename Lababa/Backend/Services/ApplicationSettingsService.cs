@@ -5,7 +5,7 @@ namespace Lababa.Backend.Services
 {
     public class ApplicationSettingsService
     {
-        private readonly IApplicationSettingsRepostiory _appSettingsRepository;
+        private readonly ApplicationSettingsRepository _appSettingsRepository;
 
         public ApplicationSettingsService()
         {

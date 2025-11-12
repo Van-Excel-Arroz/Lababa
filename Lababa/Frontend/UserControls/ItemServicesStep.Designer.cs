@@ -28,81 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.labeledTextBox1 = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.labeledTextBox2 = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.tlpDetails.SuspendLayout();
+            this.dgvItemServiceCatalog = new System.Windows.Forms.DataGridView();
+            this.colWeightServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPricePerUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemoveImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.tlpContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemServiceCatalog)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tlpDetails
-            // 
-            this.tlpDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpDetails.ColumnCount = 1;
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Controls.Add(this.labeledTextBox1, 0, 0);
-            this.tlpDetails.Controls.Add(this.labeledTextBox2, 0, 1);
-            this.tlpDetails.Location = new System.Drawing.Point(3, 3);
-            this.tlpDetails.Name = "tlpDetails";
-            this.tlpDetails.Padding = new System.Windows.Forms.Padding(10);
-            this.tlpDetails.RowCount = 2;
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDetails.Size = new System.Drawing.Size(441, 122);
-            this.tlpDetails.TabIndex = 0;
             // 
             // tlpContainer
             // 
             this.tlpContainer.ColumnCount = 1;
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
+            this.tlpContainer.Controls.Add(this.dgvItemServiceCatalog, 0, 0);
             this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContainer.Location = new System.Drawing.Point(0, 0);
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(447, 550);
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 395F));
+            this.tlpContainer.Size = new System.Drawing.Size(550, 318);
             this.tlpContainer.TabIndex = 1;
             // 
-            // labeledTextBox1
+            // dgvItemServiceCatalog
             // 
-            this.labeledTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labeledTextBox1.LabelText = "Receipt Header Message";
-            this.labeledTextBox1.Location = new System.Drawing.Point(13, 13);
-            this.labeledTextBox1.Name = "labeledTextBox1";
-            this.labeledTextBox1.Size = new System.Drawing.Size(415, 49);
-            this.labeledTextBox1.TabIndex = 0;
+            this.dgvItemServiceCatalog.AllowUserToResizeRows = false;
+            this.dgvItemServiceCatalog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItemServiceCatalog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colWeightServiceName,
+            this.colPricePerUnit,
+            this.colRemoveImage});
+            this.dgvItemServiceCatalog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvItemServiceCatalog.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvItemServiceCatalog.Location = new System.Drawing.Point(3, 3);
+            this.dgvItemServiceCatalog.Name = "dgvItemServiceCatalog";
+            this.dgvItemServiceCatalog.Size = new System.Drawing.Size(544, 312);
+            this.dgvItemServiceCatalog.TabIndex = 1;
             // 
-            // labeledTextBox2
+            // colWeightServiceName
             // 
-            this.labeledTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labeledTextBox2.LabelText = "Receipt Footer Message";
-            this.labeledTextBox2.Location = new System.Drawing.Point(13, 68);
-            this.labeledTextBox2.Name = "labeledTextBox2";
-            this.labeledTextBox2.Size = new System.Drawing.Size(415, 49);
-            this.labeledTextBox2.TabIndex = 1;
+            this.colWeightServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colWeightServiceName.DataPropertyName = "ItemName";
+            this.colWeightServiceName.FillWeight = 22.72728F;
+            this.colWeightServiceName.HeaderText = "Item Name";
+            this.colWeightServiceName.Name = "colWeightServiceName";
             // 
-            // ReceiptSettingsStep
+            // colPricePerUnit
+            // 
+            this.colPricePerUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPricePerUnit.DataPropertyName = "PricePerPiece";
+            this.colPricePerUnit.FillWeight = 177.2727F;
+            this.colPricePerUnit.HeaderText = "Price/Piece";
+            this.colPricePerUnit.Name = "colPricePerUnit";
+            this.colPricePerUnit.Width = 88;
+            // 
+            // colRemoveImage
+            // 
+            this.colRemoveImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colRemoveImage.HeaderText = "Remove";
+            this.colRemoveImage.Image = global::Lababa.Properties.Resources.trash_2;
+            this.colRemoveImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colRemoveImage.Name = "colRemoveImage";
+            this.colRemoveImage.Width = 53;
+            // 
+            // ItemServicesStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
-            this.Name = "ReceiptSettingsStep";
-            this.Size = new System.Drawing.Size(447, 550);
-            this.tlpDetails.ResumeLayout(false);
+            this.Name = "ItemServicesStep";
+            this.Size = new System.Drawing.Size(550, 318);
             this.tlpContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemServiceCatalog)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tlpDetails;
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
-        private LabeledTextBox labeledTextBox1;
-        private LabeledTextBox labeledTextBox2;
+        private System.Windows.Forms.DataGridView dgvItemServiceCatalog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeightServiceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerUnit;
+        private System.Windows.Forms.DataGridViewImageColumn colRemoveImage;
     }
 }
