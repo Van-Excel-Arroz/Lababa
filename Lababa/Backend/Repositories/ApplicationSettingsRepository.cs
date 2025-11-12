@@ -68,7 +68,7 @@ namespace Lababa.Backend.Repositories
                 appSettings.DefaultWeightUnit = parsedWeightUnit;
 
                 settingsDictionary.TryGetValue("ReceiptMessage", out string receiptMessage);
-                appSettings.CurrencySymbol = currencySymbol;
+                appSettings.ReceiptMessage = receiptMessage;
 
 
             }

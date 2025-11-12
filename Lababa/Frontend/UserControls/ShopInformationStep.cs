@@ -9,6 +9,7 @@ namespace Lababa.Frontend.UserControls
     public partial class ShopInformationStep : UserControl, IWizardStep
     {
         private readonly ApplicationSettingsService _appSettingsService;
+        private const string DEFAULT_RECEIPT_MESSAGE = "Thank you for choosing our laundry service!";
 
         public ShopInformationStep()
         {
@@ -22,7 +23,7 @@ namespace Lababa.Frontend.UserControls
             txtShopName.Text = appSettings.ShopName;
             txtAddress.Text = appSettings.Address;
             txtPhoneNumber.Text = appSettings.PhoneNumber;
-            txtReceiptMessage.Text = appSettings.ReceiptMessage;
+            txtReceiptMessage.Text = string.IsNullOrWhiteSpace(appSettings.ReceiptMessage) ? DEFAULT_RECEIPT_MESSAGE : appSettings.ReceiptMessage;
 
             switch (appSettings.DefaultWeightUnit)
             {
@@ -49,7 +50,7 @@ namespace Lababa.Frontend.UserControls
 
         public void SaveStepData()
         {
-            var settings = new ApplicationSettings();
+            var settings = _appSettingsService.LoadSettings();
             settings.ShopName = txtShopName.Text;
             settings.Address = txtAddress.Text;
             settings.PhoneNumber = txtPhoneNumber.Text;
