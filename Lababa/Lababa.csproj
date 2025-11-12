@@ -64,17 +64,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backend\Models\ShopSettings.cs" />
+    <Compile Include="Backend\Models\ShopInformation.cs" />
     <Compile Include="Backend\Repositories\IOrderRepository.cs" />
+    <Compile Include="Backend\Repositories\IShopInformationRepository.cs" />
     <Compile Include="Backend\Repositories\OrderRepository.cs" />
-    <Compile Include="Backend\Repositories\OrderWeightProductRepository.cs" />
+    <Compile Include="Backend\Repositories\WeigthServiceCatalogRepository.cs" />
+    <Compile Include="Backend\Repositories\ShopInformationRepository.cs" />
     <Compile Include="Backend\Services\CustomerService.cs" />
     <Compile Include="Backend\Utilities\FileNames.cs" />
     <Compile Include="Backend\Models\Customer.cs" />
     <Compile Include="Backend\Models\Enums.cs" />
     <Compile Include="Backend\Models\IEntity.cs" />
     <Compile Include="Backend\Models\Order.cs" />
-    <Compile Include="Backend\Models\ServiceProducts.cs" />
+    <Compile Include="Backend\Models\ServiceItems.cs" />
     <Compile Include="Backend\Models\ServiceSettings.cs" />
     <Compile Include="Backend\Repositories\CustomerRepository.cs" />
     <Compile Include="Backend\Repositories\ICustomerRepository.cs" />
@@ -127,6 +129,7 @@
     <Compile Include="Frontend\UserControls\FinishWizardStep.Designer.cs">
       <DependentUpon>FinishWizardStep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\UserControls\Interfaces\IWizardStep.cs" />
     <Compile Include="Frontend\UserControls\OrderCardItem.cs">
       <SubType>UserControl</SubType>
     </Compile>

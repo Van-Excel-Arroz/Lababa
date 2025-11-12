@@ -15,7 +15,7 @@ namespace Lababa.Backend.Repositories
 
         public CustomerRepository()
         {
-            _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileNames.CustomersFileName);
+            _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileNames.Customers);
         }
 
         private List<Customer> LoadAllEntities()

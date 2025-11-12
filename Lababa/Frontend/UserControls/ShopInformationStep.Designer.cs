@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.ltbShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.ltbAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.ltbPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
+            this.txtShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
+            this.txtAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
+            this.txtPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpDetails.SuspendLayout();
             this.tlpContainer.SuspendLayout();
@@ -43,9 +43,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpDetails.ColumnCount = 1;
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Controls.Add(this.ltbShopName, 0, 0);
-            this.tlpDetails.Controls.Add(this.ltbAddress, 0, 1);
-            this.tlpDetails.Controls.Add(this.ltbPhoneNumber, 0, 2);
+            this.tlpDetails.Controls.Add(this.txtShopName, 0, 0);
+            this.tlpDetails.Controls.Add(this.txtAddress, 0, 1);
+            this.tlpDetails.Controls.Add(this.txtPhoneNumber, 0, 2);
             this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
             this.tlpDetails.Padding = new System.Windows.Forms.Padding(10);
@@ -58,32 +58,32 @@
             this.tlpDetails.Size = new System.Drawing.Size(530, 168);
             this.tlpDetails.TabIndex = 0;
             // 
-            // ltbShopName
+            // txtShopName
             // 
-            this.ltbShopName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltbShopName.LabelText = "Shop Name";
-            this.ltbShopName.Location = new System.Drawing.Point(13, 13);
-            this.ltbShopName.Name = "ltbShopName";
-            this.ltbShopName.Size = new System.Drawing.Size(504, 47);
-            this.ltbShopName.TabIndex = 1;
+            this.txtShopName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtShopName.LabelText = "Shop Name";
+            this.txtShopName.Location = new System.Drawing.Point(13, 13);
+            this.txtShopName.Name = "txtShopName";
+            this.txtShopName.Size = new System.Drawing.Size(504, 47);
+            this.txtShopName.TabIndex = 1;
             // 
-            // ltbAddress
+            // txtAddress
             // 
-            this.ltbAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltbAddress.LabelText = "Address";
-            this.ltbAddress.Location = new System.Drawing.Point(13, 66);
-            this.ltbAddress.Name = "ltbAddress";
-            this.ltbAddress.Size = new System.Drawing.Size(504, 47);
-            this.ltbAddress.TabIndex = 2;
+            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAddress.LabelText = "Address";
+            this.txtAddress.Location = new System.Drawing.Point(13, 66);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(504, 47);
+            this.txtAddress.TabIndex = 2;
             // 
-            // ltbPhoneNumber
+            // txtPhoneNumber
             // 
-            this.ltbPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltbPhoneNumber.LabelText = "Phone Number";
-            this.ltbPhoneNumber.Location = new System.Drawing.Point(13, 119);
-            this.ltbPhoneNumber.Name = "ltbPhoneNumber";
-            this.ltbPhoneNumber.Size = new System.Drawing.Size(504, 47);
-            this.ltbPhoneNumber.TabIndex = 3;
+            this.txtPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhoneNumber.LabelText = "Phone Number";
+            this.txtPhoneNumber.Location = new System.Drawing.Point(13, 119);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(504, 47);
+            this.txtPhoneNumber.TabIndex = 3;
             // 
             // tlpContainer
             // 
@@ -115,9 +115,9 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpDetails;
-        private LabeledTextBox ltbShopName;
-        private LabeledTextBox ltbAddress;
-        private LabeledTextBox ltbPhoneNumber;
+        private LabeledTextBox txtShopName;
+        private LabeledTextBox txtAddress;
+        private LabeledTextBox txtPhoneNumber;
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
     }
 }

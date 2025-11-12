@@ -42,11 +42,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvWeightServices = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.colWeightServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPricePerWeightUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMinWeightPerLoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDeleteWeightService = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colRemoveImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPricePerPiece = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -252,24 +252,17 @@
             this.colWeightServiceName,
             this.colPricePerWeightUnit,
             this.colMinWeightPerLoad,
-            this.colDeleteWeightService});
+            this.colRemoveImage});
             this.dgvWeightServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWeightServices.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvWeightServices.Location = new System.Drawing.Point(3, 3);
             this.dgvWeightServices.Name = "dgvWeightServices";
             this.dgvWeightServices.Size = new System.Drawing.Size(518, 223);
             this.dgvWeightServices.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(524, 229);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "By Item Services";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.dgvWeightServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellContentClick);
+            this.dgvWeightServices.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvWeightServices_CellFormatting);
+            this.dgvWeightServices.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseEnter);
+            this.dgvWeightServices.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseLeave);
             // 
             // colWeightServiceName
             // 
@@ -288,12 +281,25 @@
             this.colMinWeightPerLoad.HeaderText = "Min Weight";
             this.colMinWeightPerLoad.Name = "colMinWeightPerLoad";
             // 
-            // colDeleteWeightService
+            // colRemoveImage
             // 
-            this.colDeleteWeightService.HeaderText = "Remove";
-            this.colDeleteWeightService.Name = "colDeleteWeightService";
-            this.colDeleteWeightService.Text = "X";
-            this.colDeleteWeightService.Width = 50;
+            this.colRemoveImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colRemoveImage.HeaderText = "Remove";
+            this.colRemoveImage.Image = global::Lababa.Properties.Resources.trash_2;
+            this.colRemoveImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colRemoveImage.Name = "colRemoveImage";
+            this.colRemoveImage.Width = 53;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(524, 229);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "By Item Services";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -370,13 +376,13 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvWeightServices;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWeightServiceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerWeightUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMinWeightPerLoad;
-        private System.Windows.Forms.DataGridViewButtonColumn colDeleteWeightService;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerPiece;
         private System.Windows.Forms.DataGridViewButtonColumn colDeleteItemService;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeightServiceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerWeightUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMinWeightPerLoad;
+        private System.Windows.Forms.DataGridViewImageColumn colRemoveImage;
     }
 }

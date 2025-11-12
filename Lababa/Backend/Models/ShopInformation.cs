@@ -1,6 +1,6 @@
 ﻿namespace Lababa.Backend.Models
 {
-    public class ShopSettings
+    public class ShopInformation
     {
         public string ShopName { get; set; }
         public string Address { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Lababa.Frontend.Forms;
 using Lababa.Frontend.UserControls;
+using Lababa.Frontend.UserControls.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -28,7 +29,7 @@ namespace Lababa
             _stepControlLabel = new StepControlLabel();
             _btnBackNext = new BackNextButtons();
 
-            _btnBackNext.GoNext += (_, __) => ShowStep(_currentStepIndex + 1);
+            _btnBackNext.GoNext += GoNextButton_Click;
             _btnBackNext.GoBack += (_, __) => ShowStep(_currentStepIndex - 1);
         }
 
@@ -65,6 +66,21 @@ namespace Lababa
                 new WizardStepInfo {StepType = typeof(ReceiptSettingsStep), Title = "Receipt Settings"},
                 new WizardStepInfo {StepType = typeof(FinishWizardStep), Title = "Finish Wizard"},
             };
+        }
+
+        private void GoNextButton_Click(Object sender, EventArgs e)
+        {
+            if (_currentControl is IWizardStep currentStep)
+            {
+                if (currentStep.ValidateStep())
+                {
+                    ShowStep(_currentStepIndex + 1);
+                }
+            }
+            else
+            {
+                ShowStep(_currentStepIndex + 1);
+            }
         }
 
         private void ShowStep(int index)

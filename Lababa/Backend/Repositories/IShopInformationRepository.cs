@@ -1,6 +1,6 @@
 ﻿namespace Lababa.Backend.Repositories
 {
-    internal class OrderWeightProductRepository
+    internal interface IShopInformationRepository
     {
     }
 }
