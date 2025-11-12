@@ -38,7 +38,7 @@ namespace Lababa.Backend.Repositories
                         var weightServiceCatalogEntry = ParseLine(line);
                         if (weightServiceCatalogEntry != null)
                         {
-                            weightServiceCatalogEntry.Add(weightServiceCatalogEntry);
+                            weightServiceCatalog.Add(weightServiceCatalogEntry);
                         }
                     }
                 }
