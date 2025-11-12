@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Lababa.Backend.Repositories
 {
-    public class OrderRepository : IOrderRepository
+    public class OrderRepository
     {
         private readonly string _filePath;
         private readonly char _delimeter = ',';

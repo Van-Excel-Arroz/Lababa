@@ -65,11 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend\Models\ApplicationSettings.cs" />
-    <Compile Include="Backend\Repositories\IItemServiceCatalogRepository.cs" />
-    <Compile Include="Backend\Repositories\IOrderRepository.cs" />
-    <Compile Include="Backend\Repositories\IShopInformationRepository.cs" />
     <Compile Include="Backend\Repositories\ItemServiceCatalogRepository.cs" />
-    <Compile Include="Backend\Repositories\IWeightServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\OrderRepository.cs" />
     <Compile Include="Backend\Repositories\WeigthServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\ApplicationSettingsRepository.cs" />
@@ -84,7 +80,6 @@
     <Compile Include="Backend\Models\ServiceItems.cs" />
     <Compile Include="Backend\Models\ServiceSettings.cs" />
     <Compile Include="Backend\Repositories\CustomerRepository.cs" />
-    <Compile Include="Backend\Repositories\ICustomerRepository.cs" />
     <Compile Include="Frontend\Forms\AddCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
