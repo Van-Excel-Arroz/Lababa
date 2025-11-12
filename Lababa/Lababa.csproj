@@ -71,6 +71,7 @@
     <Compile Include="Backend\Repositories\ApplicationSettingsRepository.cs" />
     <Compile Include="Backend\Services\ApplicationSettingsService.cs" />
     <Compile Include="Backend\Services\CustomerService.cs" />
+    <Compile Include="Backend\Services\ItemServiceCatalogService.cs" />
     <Compile Include="Backend\Services\WeightServiceCatalogService.cs" />
     <Compile Include="Backend\Utilities\FileNames.cs" />
     <Compile Include="Backend\Models\Customer.cs" />

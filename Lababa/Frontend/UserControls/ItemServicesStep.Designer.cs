@@ -65,6 +65,10 @@
             this.dgvItemServiceCatalog.Name = "dgvItemServiceCatalog";
             this.dgvItemServiceCatalog.Size = new System.Drawing.Size(544, 312);
             this.dgvItemServiceCatalog.TabIndex = 1;
+            this.dgvItemServiceCatalog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellContentClick);
+            this.dgvItemServiceCatalog.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvWeightServices_CellFormatting);
+            this.dgvItemServiceCatalog.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseEnter);
+            this.dgvItemServiceCatalog.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseLeave);
             // 
             // colWeightServiceName
             // 
@@ -100,6 +104,7 @@
             this.Controls.Add(this.tlpContainer);
             this.Name = "ItemServicesStep";
             this.Size = new System.Drawing.Size(550, 318);
+            this.Load += new System.EventHandler(this.WeightServicesStep_Load);
             this.tlpContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemServiceCatalog)).EndInit();
             this.ResumeLayout(false);

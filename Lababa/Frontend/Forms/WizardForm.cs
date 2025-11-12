@@ -120,6 +120,8 @@ namespace Lababa
                 _tlpStepDetails.Controls.Add(finishWizardStep, 0, CONTENT_ROW);
                 _currentControl = finishWizardStep;
 
+                finishWizardStep.GoBack += (_, __) => ShowStep(_currentStepIndex - 1);
+
                 finishWizardStep.WizardCompleted += (_, __) =>
                 {
                     var dashboard = new DashboardForm();

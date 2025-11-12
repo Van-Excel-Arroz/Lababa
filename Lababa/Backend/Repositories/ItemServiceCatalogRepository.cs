@@ -103,6 +103,11 @@ namespace Lababa.Backend.Repositories
         }
 
 
+        public void SaveAll(List<ItemService> itemServiceCatalog)
+        {
+            SaveAllEntities(itemServiceCatalog);
+        }
+
         public List<ItemService> GetAll()
         {
             return LoadAllEntities();

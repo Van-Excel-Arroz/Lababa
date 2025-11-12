@@ -36,11 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnGoToDashboard = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnGoBack = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnGoToDashboard = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheckMark)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -65,7 +68,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.btnGoToDashboard, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 4);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(152, 142);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
@@ -123,31 +126,67 @@
             this.label3.Text = "You can change these settings anytime from the Settings menu.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnGoToDashboard
+            // tableLayoutPanel3
             // 
-            this.btnGoToDashboard.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGoToDashboard.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnGoToDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGoToDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnGoToDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoToDashboard.ImageKey = "arrow-right.png";
-            this.btnGoToDashboard.ImageList = this.imageList1;
-            this.btnGoToDashboard.Location = new System.Drawing.Point(58, 205);
-            this.btnGoToDashboard.Name = "btnGoToDashboard";
-            this.btnGoToDashboard.Size = new System.Drawing.Size(179, 30);
-            this.btnGoToDashboard.TabIndex = 4;
-            this.btnGoToDashboard.Text = "Go to Dashboard";
-            this.btnGoToDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGoToDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnGoToDashboard.UseVisualStyleBackColor = false;
-            this.btnGoToDashboard.Click += new System.EventHandler(this.btnGoToDashboard_Click);
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.58621F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.4138F));
+            this.tableLayoutPanel3.Controls.Add(this.btnGoBack, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnGoToDashboard, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 196);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(290, 48);
+            this.tableLayoutPanel3.TabIndex = 5;
+            // 
+            // btnGoBack
+            // 
+            this.btnGoBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGoBack.BackColor = System.Drawing.Color.White;
+            this.btnGoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoBack.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoBack.ForeColor = System.Drawing.Color.Silver;
+            this.btnGoBack.ImageKey = "arrow-left-black.png";
+            this.btnGoBack.ImageList = this.imageList1;
+            this.btnGoBack.Location = new System.Drawing.Point(8, 10);
+            this.btnGoBack.Name = "btnGoBack";
+            this.btnGoBack.Size = new System.Drawing.Size(43, 28);
+            this.btnGoBack.TabIndex = 5;
+            this.btnGoBack.UseVisualStyleBackColor = false;
+            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
             // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "arrow-right.png");
+            this.imageList1.Images.SetKeyName(1, "arrow-left-black.png");
+            // 
+            // btnGoToDashboard
+            // 
+            this.btnGoToDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGoToDashboard.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGoToDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGoToDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoToDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnGoToDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoToDashboard.ImageKey = "arrow-right.png";
+            this.btnGoToDashboard.ImageList = this.imageList1;
+            this.btnGoToDashboard.Location = new System.Drawing.Point(64, 10);
+            this.btnGoToDashboard.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.btnGoToDashboard.Name = "btnGoToDashboard";
+            this.btnGoToDashboard.Size = new System.Drawing.Size(218, 28);
+            this.btnGoToDashboard.TabIndex = 4;
+            this.btnGoToDashboard.Text = "Go to Dashboard";
+            this.btnGoToDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGoToDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGoToDashboard.UseVisualStyleBackColor = false;
+            this.btnGoToDashboard.Click += new System.EventHandler(this.btnGoToDashboard_Click);
             // 
             // FinishWizardStep
             // 
@@ -162,6 +201,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheckMark)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -174,7 +214,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnGoToDashboard;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button btnGoBack;
+        private System.Windows.Forms.Button btnGoToDashboard;
     }
 }
