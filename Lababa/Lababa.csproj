@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend\Models\ApplicationSettings.cs" />
-    <Compile Include="Backend\Repositories\IApplicationSettingsRepostiory.cs" />
     <Compile Include="Backend\Repositories\IItemServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\IOrderRepository.cs" />
     <Compile Include="Backend\Repositories\IShopInformationRepository.cs" />
@@ -76,6 +75,7 @@
     <Compile Include="Backend\Repositories\ApplicationSettingsRepository.cs" />
     <Compile Include="Backend\Services\ApplicationSettingsService.cs" />
     <Compile Include="Backend\Services\CustomerService.cs" />
+    <Compile Include="Backend\Services\WeightServiceCatalogService.cs" />
     <Compile Include="Backend\Utilities\FileNames.cs" />
     <Compile Include="Backend\Models\Customer.cs" />
     <Compile Include="Backend\Models\Enums.cs" />

@@ -31,7 +31,7 @@
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.dgvWeightServices = new System.Windows.Forms.DataGridView();
             this.colWeightServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPricePerWeightUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPricePerUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMinWeightPerLoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemoveImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.tlpContainer.SuspendLayout();
@@ -58,7 +58,7 @@
             this.dgvWeightServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWeightServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colWeightServiceName,
-            this.colPricePerWeightUnit,
+            this.colPricePerUnit,
             this.colMinWeightPerLoad,
             this.colRemoveImage});
             this.dgvWeightServices.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -67,23 +67,35 @@
             this.dgvWeightServices.Name = "dgvWeightServices";
             this.dgvWeightServices.Size = new System.Drawing.Size(544, 312);
             this.dgvWeightServices.TabIndex = 1;
+            this.dgvWeightServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellContentClick);
+            this.dgvWeightServices.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvWeightServices_CellFormatting);
+            this.dgvWeightServices.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseEnter);
+            this.dgvWeightServices.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseLeave);
             // 
             // colWeightServiceName
             // 
             this.colWeightServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colWeightServiceName.DataPropertyName = "ServiceName";
+            this.colWeightServiceName.FillWeight = 22.72728F;
             this.colWeightServiceName.HeaderText = "Service Name";
             this.colWeightServiceName.Name = "colWeightServiceName";
             // 
-            // colPricePerWeightUnit
+            // colPricePerUnit
             // 
-            this.colPricePerWeightUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPricePerWeightUnit.HeaderText = "Price/Unit";
-            this.colPricePerWeightUnit.Name = "colPricePerWeightUnit";
+            this.colPricePerUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPricePerUnit.DataPropertyName = "PricePerUnit";
+            this.colPricePerUnit.FillWeight = 177.2727F;
+            this.colPricePerUnit.HeaderText = "Price/Unit";
+            this.colPricePerUnit.Name = "colPricePerUnit";
+            this.colPricePerUnit.Width = 80;
             // 
             // colMinWeightPerLoad
             // 
+            this.colMinWeightPerLoad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colMinWeightPerLoad.DataPropertyName = "MinWeightPerLoad";
             this.colMinWeightPerLoad.HeaderText = "Min Weight";
             this.colMinWeightPerLoad.Name = "colMinWeightPerLoad";
+            this.colMinWeightPerLoad.Width = 86;
             // 
             // colRemoveImage
             // 
@@ -94,15 +106,16 @@
             this.colRemoveImage.Name = "colRemoveImage";
             this.colRemoveImage.Width = 53;
             // 
-            // PricingMethodStep
+            // WeightServicesStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
-            this.Name = "PricingMethodStep";
+            this.Name = "WeightServicesStep";
             this.Size = new System.Drawing.Size(550, 318);
+            this.Load += new System.EventHandler(this.WeightServicesStep_Load);
             this.tlpContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWeightServices)).EndInit();
             this.ResumeLayout(false);
@@ -114,7 +127,7 @@
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
         private System.Windows.Forms.DataGridView dgvWeightServices;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWeightServiceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerWeightUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPricePerUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMinWeightPerLoad;
         private System.Windows.Forms.DataGridViewImageColumn colRemoveImage;
     }

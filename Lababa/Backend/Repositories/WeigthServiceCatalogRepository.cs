@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Lababa.Backend.Repositories
 {
-    public class WeigthServiceCatalogRepository : IWeightServiceCatalogRepository
+    public class WeigthServiceCatalogRepository
     {
         private readonly string _filePath;
         private readonly char _delimeter = ',';
@@ -110,6 +110,10 @@ namespace Lababa.Backend.Repositories
                    $"{weightService.MinWeightPerLoad}";
         }
 
+        public void SaveAll(List<WeightService> weightServiceCatalog)
+        {
+            SaveAllEntities(weightServiceCatalog);
+        }
 
         public List<WeightService> GetAll()
         {

@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Lababa.Backend.Repositories
 {
-    class ApplicationSettingsRepository : IApplicationSettingsRepostiory
+    class ApplicationSettingsRepository
     {
 
         private readonly string _filePath;
