@@ -9,6 +9,7 @@ namespace Lababa.Frontend.UserControls
         public ShopInformationStep()
         {
             InitializeComponent();
+            cmbCurrcencySymbol.SelectedIndex = 0;
         }
 
         public bool ValidateStep()

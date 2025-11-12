@@ -7,7 +7,6 @@ namespace Lababa.Frontend.UserControls
         public PricingMethodStep()
         {
             InitializeComponent();
-            cmbCurrcencySymbol.SelectedIndex = 0;
         }
 
         private void dgvWeightServices_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

@@ -45,7 +45,7 @@ namespace Lababa.Backend.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading weight service: {ex.Message}");
+                Console.WriteLine($"Error loading weight service catalog: {ex.Message}");
                 throw;
             }
 
