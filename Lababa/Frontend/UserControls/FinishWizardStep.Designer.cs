@@ -69,23 +69,23 @@
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(152, 142);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(145, 140);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(296, 265);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(309, 269);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // pbCheckMark
             // 
             this.pbCheckMark.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbCheckMark.Image = global::Lababa.Properties.Resources.check_mark;
-            this.pbCheckMark.Location = new System.Drawing.Point(75, 3);
+            this.pbCheckMark.Location = new System.Drawing.Point(81, 7);
             this.pbCheckMark.Name = "pbCheckMark";
             this.pbCheckMark.Size = new System.Drawing.Size(146, 72);
             this.pbCheckMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -97,7 +97,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(81, 80);
+            this.label1.Location = new System.Drawing.Point(87, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 21);
             this.label1.TabIndex = 1;
@@ -105,10 +105,10 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 120);
+            this.label2.Location = new System.Drawing.Point(30, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(248, 13);
             this.label2.TabIndex = 2;
@@ -116,12 +116,13 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 158);
+            this.label3.Location = new System.Drawing.Point(4, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(269, 26);
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.label3.Size = new System.Drawing.Size(301, 23);
             this.label3.TabIndex = 3;
             this.label3.Text = "You can change these settings anytime from the Settings menu.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,12 +135,12 @@
             this.tableLayoutPanel3.Controls.Add(this.btnGoBack, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnGoToDashboard, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 196);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 200);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(290, 48);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(303, 48);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // btnGoBack
@@ -152,9 +153,9 @@
             this.btnGoBack.ForeColor = System.Drawing.Color.Silver;
             this.btnGoBack.ImageKey = "arrow-left-black.png";
             this.btnGoBack.ImageList = this.imageList1;
-            this.btnGoBack.Location = new System.Drawing.Point(8, 10);
+            this.btnGoBack.Location = new System.Drawing.Point(8, 6);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(43, 28);
+            this.btnGoBack.Size = new System.Drawing.Size(45, 35);
             this.btnGoBack.TabIndex = 5;
             this.btnGoBack.UseVisualStyleBackColor = false;
             this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
@@ -177,10 +178,10 @@
             this.btnGoToDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGoToDashboard.ImageKey = "arrow-right.png";
             this.btnGoToDashboard.ImageList = this.imageList1;
-            this.btnGoToDashboard.Location = new System.Drawing.Point(64, 10);
+            this.btnGoToDashboard.Location = new System.Drawing.Point(66, 6);
             this.btnGoToDashboard.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.btnGoToDashboard.Name = "btnGoToDashboard";
-            this.btnGoToDashboard.Size = new System.Drawing.Size(218, 28);
+            this.btnGoToDashboard.Size = new System.Drawing.Size(229, 35);
             this.btnGoToDashboard.TabIndex = 4;
             this.btnGoToDashboard.Text = "Go to Dashboard";
             this.btnGoToDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
