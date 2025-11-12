@@ -67,6 +67,7 @@
     <Compile Include="Backend\Models\ShopInformation.cs" />
     <Compile Include="Backend\Repositories\IOrderRepository.cs" />
     <Compile Include="Backend\Repositories\IShopInformationRepository.cs" />
+    <Compile Include="Backend\Repositories\IWeightServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\OrderRepository.cs" />
     <Compile Include="Backend\Repositories\WeigthServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\ShopInformationRepository.cs" />

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Lababa.Backend.Repositories
 {
-    public class WeigthServiceCatalogRepository
+    public class WeigthServiceCatalogRepository : IWeightServiceCatalogRepository
     {
         private readonly string _filePath;
         private readonly char _delimeter = ',';
@@ -17,9 +17,9 @@ namespace Lababa.Backend.Repositories
             _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileNames.WeightServiceCatalog);
         }
 
-        private List<WeigthServiceCatalogEntry> LoadAllEntities()
+        private List<WeightService> LoadAllEntities()
         {
-            var weightServiceCatalog = new List<WeigthServiceCatalogEntry>();
+            var weightServiceCatalog = new List<WeightService>();
 
             if (!File.Exists(_filePath))
             {
@@ -35,24 +35,24 @@ namespace Lababa.Backend.Repositories
                 {
                     if (!string.IsNullOrEmpty(line))
                     {
-                        var weightServiceCatalogEntry = ParseLine(line);
-                        if (weightServiceCatalogEntry != null)
+                        var weightService = ParseLine(line);
+                        if (weightService != null)
                         {
-                            weightServiceCatalog.Add(weightServiceCatalogEntry);
+                            weightServiceCatalog.Add(weightService);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading weight service catalog entry: {ex.Message}");
+                Console.WriteLine($"Error loading weight service: {ex.Message}");
                 throw;
             }
 
             return weightServiceCatalog;
         }
 
-        private void SaveAllEntities(List<WeigthServiceCatalogEntry> weightServiceCatalog)
+        private void SaveAllEntities(List<WeightService> weightServiceCatalog)
         {
             try
             {
@@ -66,19 +66,19 @@ namespace Lababa.Backend.Repositories
             }
         }
 
-        private WeigthServiceCatalogEntry ParseLine(string line)
+        private WeightService ParseLine(string line)
         {
             var parts = line.Split(_delimeter);
 
-            if (parts.Length != 3)
+            if (parts.Length != 4)
             {
-                Console.WriteLine($"weight service catalog entry line skipped: {line}");
+                Console.WriteLine($"weight service line skipped: {line}");
                 return null;
             }
 
             if (!Guid.TryParse(parts[0], out Guid id))
             {
-                Console.WriteLine($"Invalid weight service catalog entry Id in line: {line}");
+                Console.WriteLine($"Invalid weight service Id in line: {line}");
                 return null;
             }
 
@@ -94,7 +94,7 @@ namespace Lababa.Backend.Repositories
                 return null;
             }
 
-            return new WeigthServiceCatalogEntry
+            return new WeightService
             {
                 ServiceName = parts[1].Trim(),
                 PricePerUnit = pricePerUnit,
@@ -102,12 +102,68 @@ namespace Lababa.Backend.Repositories
             };
         }
 
-        private string ToCsvLine(WeigthServiceCatalogEntry weigthServiceCatalogEntry)
+        private string ToCsvLine(WeightService weightService)
         {
-            return $"{weigthServiceCatalogEntry.Id}{_delimeter}" +
-                   $"{weigthServiceCatalogEntry.ServiceName}{_delimeter}" +
-                   $"{weigthServiceCatalogEntry.PricePerUnit}{_delimeter}" +
-                   $"{weigthServiceCatalogEntry.MinWeightPerLoad}";
+            return $"{weightService.Id}{_delimeter}" +
+                   $"{weightService.ServiceName}{_delimeter}" +
+                   $"{weightService.PricePerUnit}{_delimeter}" +
+                   $"{weightService.MinWeightPerLoad}";
+        }
+
+
+        public List<WeightService> GetAll()
+        {
+            return LoadAllEntities();
+        }
+
+        public WeightService GetById(Guid id)
+        {
+            var weightServiceCatalog = LoadAllEntities();
+            return weightServiceCatalog.FirstOrDefault(w => w.Id == id);
+        }
+
+        public void Add(WeightService weightService)
+        {
+            if (weightService.Id == Guid.Empty)
+            {
+                weightService.Id = Guid.NewGuid();
+            }
+
+            var weightServiceCatalog = LoadAllEntities();
+            weightServiceCatalog.Add(weightService);
+            SaveAllEntities(weightServiceCatalog);
+        }
+
+        public void Update(WeightService weightService)
+        {
+            var weightServiceCatalog = LoadAllEntities();
+            var existingWeightService = weightServiceCatalog.FirstOrDefault(w => w.Id == weightService.Id);
+            if (existingWeightService != null)
+            {
+                existingWeightService.ServiceName = weightService.ServiceName;
+                existingWeightService.PricePerUnit = weightService.PricePerUnit;
+                existingWeightService.MinWeightPerLoad = weightService.MinWeightPerLoad;
+                SaveAllEntities(weightServiceCatalog);
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Weight service with Id {weightService.Id} not found for update");
+            }
+        }
+
+        public void Delete(Guid id)
+        {
+            var weightServiceCatalog = LoadAllEntities();
+            int initialCount = weightServiceCatalog.Count;
+            weightServiceCatalog.RemoveAll(w => w.Id == id);
+            if (weightServiceCatalog.Count < initialCount)
+            {
+                SaveAllEntities(weightServiceCatalog);
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Weight service with Id {id} not found for deletion");
+            }
         }
     }
 }

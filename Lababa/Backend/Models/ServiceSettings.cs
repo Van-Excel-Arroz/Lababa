@@ -2,7 +2,7 @@
 
 namespace Lababa.Backend.Models
 {
-    public class WeigthServiceCatalogEntry : IEntity
+    public class WeightService : IEntity
     {
         public Guid Id { get; set; }
         public string ServiceName { get; set; }
@@ -10,7 +10,7 @@ namespace Lababa.Backend.Models
         public double MinWeightPerLoad { get; set; }
     }
 
-    public class ItemServiceCatalogEntry : IEntity
+    public class ItemService : IEntity
     {
         public Guid Id { get; set; }
         public string ItemName { get; set; }
