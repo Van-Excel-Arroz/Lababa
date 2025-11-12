@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Lababa.Backend.Repositories
 {
-    class ApplicationSettingsRepository
+    class ApplicationSettingsRepository : IApplicationSettingsRepostiory
     {
 
         private readonly string _filePath;
@@ -17,7 +17,7 @@ namespace Lababa.Backend.Repositories
             _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileNames.ShopInformation);
         }
 
-        private ApplicationSettings LoadShopInformation()
+        public ApplicationSettings LoadData()
         {
             if (!File.Exists(_filePath))
             {
@@ -81,7 +81,7 @@ namespace Lababa.Backend.Repositories
             return appSettings;
         }
 
-        private void SaveShopInformation(ApplicationSettings appSettings)
+        public void SaveData(ApplicationSettings appSettings)
         {
             if (appSettings == null)
             {

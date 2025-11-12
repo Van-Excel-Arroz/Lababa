@@ -5,8 +5,8 @@
         public string ShopName { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
-        public string CurrencySymbol { get; set; }
-        public WeightUnit DefaultWeightUnit { get; set; }
         public string ReceiptMessage { get; set; }
+        public WeightUnit DefaultWeightUnit { get; set; }
+        public string CurrencySymbol { get; set; }
     }
 }

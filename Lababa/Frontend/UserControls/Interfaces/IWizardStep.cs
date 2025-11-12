@@ -3,5 +3,6 @@
     public interface IWizardStep
     {
         bool ValidateStep();
+        void SaveStepData();
     }
 }

@@ -33,18 +33,18 @@
             this.txtShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.labeledTextBox1 = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtReceiptMessage = new Lababa.Frontend.UserControls.LabeledTextBox();
+            this.tlpCurrencySymbol = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbCurrcencySymbol = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpDefaultWeightUnit = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdoKilograms = new System.Windows.Forms.RadioButton();
+            this.rdoPounds = new System.Windows.Forms.RadioButton();
             this.tlpDetails.SuspendLayout();
             this.tlpContainer.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tlpCurrencySymbol.SuspendLayout();
+            this.tlpDefaultWeightUnit.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpDetails
@@ -53,12 +53,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpDetails.ColumnCount = 1;
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Controls.Add(this.tableLayoutPanel6, 0, 4);
-            this.tlpDetails.Controls.Add(this.labeledTextBox1, 0, 3);
             this.tlpDetails.Controls.Add(this.txtShopName, 0, 0);
             this.tlpDetails.Controls.Add(this.txtAddress, 0, 1);
             this.tlpDetails.Controls.Add(this.txtPhoneNumber, 0, 2);
-            this.tlpDetails.Controls.Add(this.tableLayoutPanel1, 0, 5);
+            this.tlpDetails.Controls.Add(this.txtReceiptMessage, 0, 3);
+            this.tlpDetails.Controls.Add(this.tlpDefaultWeightUnit, 0, 4);
+            this.tlpDetails.Controls.Add(this.tlpCurrencySymbol, 0, 5);
             this.tlpDetails.Location = new System.Drawing.Point(3, 3);
             this.tlpDetails.Name = "tlpDetails";
             this.tlpDetails.Padding = new System.Windows.Forms.Padding(10);
@@ -115,28 +115,28 @@
             this.txtPhoneNumber.Size = new System.Drawing.Size(504, 47);
             this.txtPhoneNumber.TabIndex = 3;
             // 
-            // labeledTextBox1
+            // txtReceiptMessage
             // 
-            this.labeledTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labeledTextBox1.LabelText = "Receipt Message";
-            this.labeledTextBox1.Location = new System.Drawing.Point(13, 172);
-            this.labeledTextBox1.Name = "labeledTextBox1";
-            this.labeledTextBox1.Size = new System.Drawing.Size(504, 52);
-            this.labeledTextBox1.TabIndex = 4;
+            this.txtReceiptMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtReceiptMessage.LabelText = "Receipt Message";
+            this.txtReceiptMessage.Location = new System.Drawing.Point(13, 172);
+            this.txtReceiptMessage.Name = "txtReceiptMessage";
+            this.txtReceiptMessage.Size = new System.Drawing.Size(504, 52);
+            this.txtReceiptMessage.TabIndex = 4;
             // 
-            // tableLayoutPanel1
+            // tlpCurrencySymbol
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.cmbCurrcencySymbol, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 273);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(211, 30);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.tlpCurrencySymbol.ColumnCount = 2;
+            this.tlpCurrencySymbol.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCurrencySymbol.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCurrencySymbol.Controls.Add(this.cmbCurrcencySymbol, 1, 0);
+            this.tlpCurrencySymbol.Controls.Add(this.label2, 0, 0);
+            this.tlpCurrencySymbol.Location = new System.Drawing.Point(13, 273);
+            this.tlpCurrencySymbol.Name = "tlpCurrencySymbol";
+            this.tlpCurrencySymbol.RowCount = 1;
+            this.tlpCurrencySymbol.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCurrencySymbol.Size = new System.Drawing.Size(211, 30);
+            this.tlpCurrencySymbol.TabIndex = 5;
             // 
             // label2
             // 
@@ -167,22 +167,22 @@
             this.cmbCurrcencySymbol.Size = new System.Drawing.Size(100, 22);
             this.cmbCurrcencySymbol.TabIndex = 2;
             // 
-            // tableLayoutPanel6
+            // tlpDefaultWeightUnit
             // 
-            this.tableLayoutPanel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.radioButton1, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.radioButton2, 2, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(13, 237);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(304, 23);
-            this.tableLayoutPanel6.TabIndex = 8;
+            this.tlpDefaultWeightUnit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tlpDefaultWeightUnit.ColumnCount = 3;
+            this.tlpDefaultWeightUnit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpDefaultWeightUnit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpDefaultWeightUnit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpDefaultWeightUnit.Controls.Add(this.label1, 0, 0);
+            this.tlpDefaultWeightUnit.Controls.Add(this.rdoKilograms, 1, 0);
+            this.tlpDefaultWeightUnit.Controls.Add(this.rdoPounds, 2, 0);
+            this.tlpDefaultWeightUnit.Location = new System.Drawing.Point(13, 237);
+            this.tlpDefaultWeightUnit.Name = "tlpDefaultWeightUnit";
+            this.tlpDefaultWeightUnit.RowCount = 1;
+            this.tlpDefaultWeightUnit.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDefaultWeightUnit.Size = new System.Drawing.Size(304, 23);
+            this.tlpDefaultWeightUnit.TabIndex = 8;
             // 
             // label1
             // 
@@ -195,31 +195,31 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Default Weight Unit: ";
             // 
-            // radioButton1
+            // rdoKilograms
             // 
-            this.radioButton1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(123, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(90, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Kilograms (kg)";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdoKilograms.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rdoKilograms.AutoSize = true;
+            this.rdoKilograms.Checked = true;
+            this.rdoKilograms.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoKilograms.Location = new System.Drawing.Point(123, 3);
+            this.rdoKilograms.Name = "rdoKilograms";
+            this.rdoKilograms.Size = new System.Drawing.Size(90, 17);
+            this.rdoKilograms.TabIndex = 3;
+            this.rdoKilograms.TabStop = true;
+            this.rdoKilograms.Text = "Kilograms (kg)";
+            this.rdoKilograms.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdoPounds
             // 
-            this.radioButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(219, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 17);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.Text = "Pounds (lbs)";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdoPounds.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rdoPounds.AutoSize = true;
+            this.rdoPounds.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoPounds.Location = new System.Drawing.Point(219, 3);
+            this.rdoPounds.Name = "rdoPounds";
+            this.rdoPounds.Size = new System.Drawing.Size(80, 17);
+            this.rdoPounds.TabIndex = 4;
+            this.rdoPounds.Text = "Pounds (lbs)";
+            this.rdoPounds.UseVisualStyleBackColor = true;
             // 
             // ShopInformationStep
             // 
@@ -229,12 +229,13 @@
             this.Controls.Add(this.tlpContainer);
             this.Name = "ShopInformationStep";
             this.Size = new System.Drawing.Size(536, 348);
+            this.Load += new System.EventHandler(this.ShopInformationStep_Load);
             this.tlpDetails.ResumeLayout(false);
             this.tlpContainer.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tlpCurrencySymbol.ResumeLayout(false);
+            this.tlpCurrencySymbol.PerformLayout();
+            this.tlpDefaultWeightUnit.ResumeLayout(false);
+            this.tlpDefaultWeightUnit.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,13 +247,13 @@
         private LabeledTextBox txtAddress;
         private LabeledTextBox txtPhoneNumber;
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
-        private LabeledTextBox labeledTextBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private LabeledTextBox txtReceiptMessage;
+        private System.Windows.Forms.TableLayoutPanel tlpCurrencySymbol;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbCurrcencySymbol;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tlpDefaultWeightUnit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdoKilograms;
+        private System.Windows.Forms.RadioButton rdoPounds;
     }
 }

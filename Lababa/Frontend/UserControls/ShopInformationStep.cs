@@ -1,4 +1,6 @@
-﻿using Lababa.Frontend.UserControls.Interfaces;
+﻿using Lababa.Backend.Models;
+using Lababa.Backend.Services;
+using Lababa.Frontend.UserControls.Interfaces;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -6,10 +8,69 @@ namespace Lababa.Frontend.UserControls
 {
     public partial class ShopInformationStep : UserControl, IWizardStep
     {
+        private readonly ApplicationSettingsService _appSettingsService;
+
         public ShopInformationStep()
         {
             InitializeComponent();
-            cmbCurrcencySymbol.SelectedIndex = 0;
+            _appSettingsService = new ApplicationSettingsService();
+        }
+
+        private void ShopInformationStep_Load(object sender, System.EventArgs e)
+        {
+            var appSettings = _appSettingsService.LoadSettings();
+            txtShopName.Text = appSettings.ShopName;
+            txtAddress.Text = appSettings.Address;
+            txtPhoneNumber.Text = appSettings.PhoneNumber;
+            txtReceiptMessage.Text = appSettings.ReceiptMessage;
+
+            switch (appSettings.DefaultWeightUnit)
+            {
+                case WeightUnit.Kilograms:
+                    rdoKilograms.Checked = true;
+                    break;
+                case WeightUnit.Pounds:
+                    rdoPounds.Checked = true;
+                    break;
+                default:
+                    rdoKilograms.Checked = true;
+                    break;
+            }
+
+            if (appSettings.CurrencySymbol != null && cmbCurrcencySymbol.Items.Contains(appSettings.CurrencySymbol))
+            {
+                cmbCurrcencySymbol.SelectedItem = appSettings.CurrencySymbol;
+            }
+            else
+            {
+                cmbCurrcencySymbol.SelectedIndex = 0;
+            }
+        }
+
+        public void SaveStepData()
+        {
+            var settings = new ApplicationSettings();
+            settings.ShopName = txtShopName.Text;
+            settings.Address = txtAddress.Text;
+            settings.PhoneNumber = txtPhoneNumber.Text;
+            settings.ReceiptMessage = txtReceiptMessage.Text;
+
+            if (rdoKilograms.Checked)
+            {
+                settings.DefaultWeightUnit = WeightUnit.Kilograms;
+            }
+            else
+            {
+                settings.DefaultWeightUnit = WeightUnit.Pounds;
+
+            }
+
+            if (cmbCurrcencySymbol.SelectedItem != null)
+            {
+                settings.CurrencySymbol = cmbCurrcencySymbol.SelectedItem.ToString();
+            }
+
+            _appSettingsService.SaveSettings(settings);
         }
 
         public bool ValidateStep()

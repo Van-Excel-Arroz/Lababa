@@ -74,6 +74,7 @@ namespace Lababa
             {
                 if (currentStep.ValidateStep())
                 {
+                    currentStep.SaveStepData();
                     ShowStep(_currentStepIndex + 1);
                 }
             }
