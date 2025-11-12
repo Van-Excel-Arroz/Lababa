@@ -1,6 +1,6 @@
 ﻿namespace Lababa.Frontend.UserControls
 {
-    partial class PricingMethodStep
+    partial class WeightServicesStep
     {
         /// <summary> 
         /// Required designer variable.

@@ -139,17 +139,17 @@
     <Compile Include="Frontend\UserControls\OrderCardItem.Designer.cs">
       <DependentUpon>OrderCardItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\UserControls\PricingMethodStep.cs">
+    <Compile Include="Frontend\UserControls\WeightServicesStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Frontend\UserControls\PricingMethodStep.Designer.cs">
-      <DependentUpon>PricingMethodStep.cs</DependentUpon>
+    <Compile Include="Frontend\UserControls\WeightServicesStep.Designer.cs">
+      <DependentUpon>WeightServicesStep.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\UserControls\ReceiptSettingsStep.cs">
+    <Compile Include="Frontend\UserControls\ItemServicesStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Frontend\UserControls\ReceiptSettingsStep.Designer.cs">
-      <DependentUpon>ReceiptSettingsStep.cs</DependentUpon>
+    <Compile Include="Frontend\UserControls\ItemServicesStep.Designer.cs">
+      <DependentUpon>ItemServicesStep.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\ShopInformationStep.cs">
       <SubType>UserControl</SubType>
@@ -168,12 +168,6 @@
     </Compile>
     <Compile Include="Frontend\UserControls\StepControlLabel.Designer.cs">
       <DependentUpon>StepControlLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightPricingStep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightPricingStep.Designer.cs">
-      <DependentUpon>WeightPricingStep.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\WelcomeStep.cs">
       <SubType>UserControl</SubType>
@@ -210,11 +204,11 @@
     <EmbeddedResource Include="Frontend\UserControls\OrderCardItem.resx">
       <DependentUpon>OrderCardItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\PricingMethodStep.resx">
-      <DependentUpon>PricingMethodStep.cs</DependentUpon>
+    <EmbeddedResource Include="Frontend\UserControls\WeightServicesStep.resx">
+      <DependentUpon>WeightServicesStep.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\ReceiptSettingsStep.resx">
-      <DependentUpon>ReceiptSettingsStep.cs</DependentUpon>
+    <EmbeddedResource Include="Frontend\UserControls\ItemServicesStep.resx">
+      <DependentUpon>ItemServicesStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\ShopInformationStep.resx">
       <DependentUpon>ShopInformationStep.cs</DependentUpon>

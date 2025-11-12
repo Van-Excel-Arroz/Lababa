@@ -2,9 +2,9 @@
 
 namespace Lababa.Frontend.UserControls
 {
-    public partial class PricingMethodStep : UserControl
+    public partial class WeightServicesStep : UserControl
     {
-        public PricingMethodStep()
+        public WeightServicesStep()
         {
             InitializeComponent();
         }

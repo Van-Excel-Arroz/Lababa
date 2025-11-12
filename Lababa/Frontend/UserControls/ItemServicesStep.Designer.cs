@@ -1,6 +1,6 @@
 ﻿namespace Lababa.Frontend.UserControls
 {
-    partial class ReceiptSettingsStep
+    partial class ItemServicesStep
     {
         /// <summary> 
         /// Required designer variable.

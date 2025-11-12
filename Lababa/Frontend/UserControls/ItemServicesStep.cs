@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
-    public partial class ReceiptSettingsStep : UserControl
+    public partial class ItemServicesStep : UserControl
     {
-        public ReceiptSettingsStep()
+        public ItemServicesStep()
         {
             InitializeComponent();
         }

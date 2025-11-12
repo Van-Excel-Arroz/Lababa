@@ -85,7 +85,7 @@
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpContainer.Size = new System.Drawing.Size(536, 550);
+            this.tlpContainer.Size = new System.Drawing.Size(536, 348);
             this.tlpContainer.TabIndex = 1;
             // 
             // txtShopName
@@ -228,7 +228,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpContainer);
             this.Name = "ShopInformationStep";
-            this.Size = new System.Drawing.Size(536, 550);
+            this.Size = new System.Drawing.Size(536, 348);
             this.tlpDetails.ResumeLayout(false);
             this.tlpContainer.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

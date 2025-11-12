@@ -62,8 +62,8 @@ namespace Lababa
             {
                 new WizardStepInfo {StepType = typeof(WelcomeStepControl), Title = "Welcome"},
                 new WizardStepInfo {StepType = typeof(ShopInformationStep), Title = "Shop Information"},
-                new WizardStepInfo {StepType = typeof(PricingMethodStep), Title = "Pricing Settings"},
-                new WizardStepInfo {StepType = typeof(ReceiptSettingsStep), Title = "Receipt Settings"},
+                new WizardStepInfo {StepType = typeof(WeightServicesStep), Title = "Weight Services"},
+                new WizardStepInfo {StepType = typeof(ItemServicesStep), Title = "Item Services"},
                 new WizardStepInfo {StepType = typeof(FinishWizardStep), Title = "Finish Wizard"},
             };
         }
