@@ -17,7 +17,7 @@ namespace Lababa.Backend.Services
             _repo.SaveAll(itemServiceCatalog);
         }
 
-        public List<ItemService> GetWeightServiceCatalog()
+        public List<ItemService> GetItemServiceCatalog()
         {
             return _repo.GetAll();
         }

@@ -7,31 +7,11 @@ namespace Lababa.Backend.Services
 {
     public class CustomerService
     {
-        private static CustomerService _instance;
-        private static readonly object _lock = new object();
         private readonly CustomerRepository _customerRepository;
 
-        private CustomerService()
+        public CustomerService()
         {
             _customerRepository = new CustomerRepository();
-        }
-
-        public static CustomerService Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    lock (_lock)
-                    {
-                        if (_instance == null)
-                        {
-                            _instance = new CustomerService();
-                        }
-                    }
-                }
-                return _instance;
-            }
         }
 
         public void AddCustomer(Customer customer)

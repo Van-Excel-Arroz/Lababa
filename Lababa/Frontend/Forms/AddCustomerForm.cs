@@ -8,9 +8,12 @@ namespace Lababa.Frontend.Forms
 {
     public partial class AddCustomerForm : Form
     {
+        private readonly CustomerService _customerService;
+
         public AddCustomerForm()
         {
             InitializeComponent();
+            _customerService = new CustomerService();
             SetupDataGridView();
             LoadCustomers();
             txtSearchCustomers.TextChanged += TxtSearchCustomers_TextChanged;
@@ -28,7 +31,7 @@ namespace Lababa.Frontend.Forms
         {
             string searchText = txtSearchCustomers.Text.ToLower();
 
-            var allCustomers = CustomerService.Instance.GetAllCustomers();
+            var allCustomers = _customerService.GetAllCustomers();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -50,7 +53,7 @@ namespace Lababa.Frontend.Forms
         {
             try
             {
-                var customers = CustomerService.Instance.GetAllCustomers();
+                var customers = _customerService.GetAllCustomers();
                 dgvCustomers.DataSource = customers;
             }
             catch (Exception ex)
@@ -72,7 +75,7 @@ namespace Lababa.Frontend.Forms
                     Address = txtAddress.Text.Trim()
                 };
 
-                CustomerService.Instance.AddCustomer(customer);
+                _customerService.AddCustomer(customer);
 
                 MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -93,7 +96,7 @@ namespace Lababa.Frontend.Forms
             try
             {
                 var customer = (Customer)dgvCustomers.Rows[e.RowIndex].DataBoundItem;
-                CustomerService.Instance.UpdateCustomer(customer);
+                _customerService.UpdateCustomer(customer);
 
                 MessageBox.Show("Customer updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadCustomers();

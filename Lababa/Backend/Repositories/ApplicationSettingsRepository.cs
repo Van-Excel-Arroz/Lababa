@@ -17,6 +17,7 @@ namespace Lababa.Backend.Repositories
             _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileNames.ShopInformation);
         }
 
+
         public ApplicationSettings LoadData()
         {
             if (!File.Exists(_filePath))

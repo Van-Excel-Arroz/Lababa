@@ -30,37 +30,45 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbCustomers = new System.Windows.Forms.ComboBox();
+            this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreateNewOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnAddService = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabServices = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.flpWeightServices = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.flpItemServices = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAddService = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label = new System.Windows.Forms.Label();
+            this.lblCurrencySymbol = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.tabServices.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 90);
+            this.panel1.Location = new System.Drawing.Point(0, 123);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(470, 1);
@@ -69,38 +77,65 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.47414F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.52586F));
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cmbCustomers, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpDueDate, 1, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(464, 44);
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.22222F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.77778F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(464, 77);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // comboBox1
+            // label4
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(231, 9);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(227, 25);
-            this.comboBox1.TabIndex = 1;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(3, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 15);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Enter Due Date";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 14);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(3, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 15);
+            this.label2.Size = new System.Drawing.Size(87, 15);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Enter customer name or phone number: ";
+            this.label2.Text = "Enter customer ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmbCustomers
+            // 
+            this.cmbCustomers.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cmbCustomers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCustomers.FormattingEnabled = true;
+            this.cmbCustomers.Location = new System.Drawing.Point(98, 5);
+            this.cmbCustomers.Name = "cmbCustomers";
+            this.cmbCustomers.Size = new System.Drawing.Size(363, 25);
+            this.cmbCustomers.TabIndex = 1;
+            this.cmbCustomers.Text = "Name or Phone Number)";
+            // 
+            // dtpDueDate
+            // 
+            this.dtpDueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtpDueDate.Location = new System.Drawing.Point(98, 45);
+            this.dtpDueDate.Name = "dtpDueDate";
+            this.dtpDueDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpDueDate.TabIndex = 3;
             // 
             // label1
             // 
@@ -130,14 +165,24 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.36896F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.18557F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.81443F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.63105F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 638);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 662);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 541);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(470, 1);
+            this.panel2.TabIndex = 11;
             // 
             // tableLayoutPanel4
             // 
@@ -147,11 +192,11 @@
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnCreateNewOrder, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 584);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 600);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(464, 51);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(464, 59);
             this.tableLayoutPanel4.TabIndex = 9;
             // 
             // btnCancel
@@ -160,13 +205,14 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnCancel.Location = new System.Drawing.Point(10, 10);
+            this.btnCancel.Location = new System.Drawing.Point(10, 14);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(212, 30);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnCreateNewOrder
             // 
@@ -176,61 +222,88 @@
             this.btnCreateNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateNewOrder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateNewOrder.ForeColor = System.Drawing.Color.White;
-            this.btnCreateNewOrder.Location = new System.Drawing.Point(242, 10);
+            this.btnCreateNewOrder.Location = new System.Drawing.Point(242, 14);
             this.btnCreateNewOrder.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnCreateNewOrder.Name = "btnCreateNewOrder";
             this.btnCreateNewOrder.Size = new System.Drawing.Size(212, 30);
             this.btnCreateNewOrder.TabIndex = 1;
             this.btnCreateNewOrder.Text = "Create New Order";
             this.btnCreateNewOrder.UseVisualStyleBackColor = false;
+            this.btnCreateNewOrder.Click += new System.EventHandler(this.btnCreateNewOrder_Click);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.tabControl1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tabServices, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 94);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 127);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.87879F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.12122F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(464, 416);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(464, 411);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
-            // panel2
+            // tabServices
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 513);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(470, 1);
-            this.panel2.TabIndex = 11;
+            this.tabServices.Controls.Add(this.tabPage1);
+            this.tabServices.Controls.Add(this.tabPage2);
+            this.tabServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabServices.Location = new System.Drawing.Point(3, 59);
+            this.tabServices.Name = "tabServices";
+            this.tabServices.Padding = new System.Drawing.Point(10, 7);
+            this.tabServices.SelectedIndex = 0;
+            this.tabServices.Size = new System.Drawing.Size(458, 339);
+            this.tabServices.TabIndex = 1;
             // 
-            // panel3
+            // tabPage1
             // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.lblTotalAmount);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 524);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(464, 47);
-            this.panel3.TabIndex = 12;
+            this.tabPage1.Controls.Add(this.flpWeightServices);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(450, 305);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Weight Services";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // lblTotalAmount
+            // flpWeightServices
             // 
-            this.lblTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(15, 13);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(96, 21);
-            this.lblTotalAmount.TabIndex = 2;
-            this.lblTotalAmount.Text = "Total: ₱1000";
+            this.flpWeightServices.AutoScroll = true;
+            this.flpWeightServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpWeightServices.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpWeightServices.Location = new System.Drawing.Point(3, 3);
+            this.flpWeightServices.Name = "flpWeightServices";
+            this.flpWeightServices.Padding = new System.Windows.Forms.Padding(15, 5, 5, 5);
+            this.flpWeightServices.Size = new System.Drawing.Size(444, 299);
+            this.flpWeightServices.TabIndex = 0;
+            this.flpWeightServices.WrapContents = false;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.flpItemServices);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(450, 305);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Item Services";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // flpItemServices
+            // 
+            this.flpItemServices.AutoScroll = true;
+            this.flpItemServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpItemServices.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpItemServices.Location = new System.Drawing.Point(3, 3);
+            this.flpItemServices.Name = "flpItemServices";
+            this.flpItemServices.Padding = new System.Windows.Forms.Padding(15, 5, 5, 5);
+            this.flpItemServices.Size = new System.Drawing.Size(444, 299);
+            this.flpItemServices.TabIndex = 1;
+            this.flpItemServices.WrapContents = false;
             // 
             // tableLayoutPanel5
             // 
@@ -242,22 +315,10 @@
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 13);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(458, 45);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(458, 40);
             this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 21);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Services";
             // 
             // btnAddService
             // 
@@ -265,52 +326,78 @@
             this.btnAddService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnAddService.Location = new System.Drawing.Point(334, 3);
+            this.btnAddService.Location = new System.Drawing.Point(334, 6);
             this.btnAddService.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnAddService.Name = "btnAddService";
-            this.btnAddService.Size = new System.Drawing.Size(114, 29);
+            this.btnAddService.Size = new System.Drawing.Size(114, 28);
             this.btnAddService.TabIndex = 2;
             this.btnAddService.Text = "Add Service";
             this.btnAddService.UseVisualStyleBackColor = true;
+            this.btnAddService.Click += new System.EventHandler(this.btnAddService_Click);
             // 
-            // tabPage2
+            // label3
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 30);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(450, 305);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Item Services";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 21);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Services";
             // 
-            // tabPage1
+            // panel3
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(450, 305);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Weight Services";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.lblTotalAmount);
+            this.panel3.Controls.Add(this.lblCurrencySymbol);
+            this.panel3.Controls.Add(this.label);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 552);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(464, 35);
+            this.panel3.TabIndex = 12;
             // 
-            // tabControl1
+            // label
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 64);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(10, 7);
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(458, 339);
-            this.tabControl1.TabIndex = 1;
+            this.label.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(15, 7);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(49, 21);
+            this.label.TabIndex = 2;
+            this.label.Text = "Total:";
+            // 
+            // lblCurrencySymbol
+            // 
+            this.lblCurrencySymbol.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCurrencySymbol.AutoSize = true;
+            this.lblCurrencySymbol.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrencySymbol.Location = new System.Drawing.Point(68, 7);
+            this.lblCurrencySymbol.Name = "lblCurrencySymbol";
+            this.lblCurrencySymbol.Size = new System.Drawing.Size(20, 21);
+            this.lblCurrencySymbol.TabIndex = 3;
+            this.lblCurrencySymbol.Text = "₱";
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(80, 7);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(43, 21);
+            this.lblTotalAmount.TabIndex = 4;
+            this.lblTotalAmount.Text = "1000";
             // 
             // AddOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(510, 658);
+            this.ClientSize = new System.Drawing.Size(510, 682);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AddOrderForm";
@@ -323,11 +410,13 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.tabServices.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -336,7 +425,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCustomers;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -345,12 +434,18 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblTotalAmount;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddService;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabServices;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.FlowLayoutPanel flpWeightServices;
+        private System.Windows.Forms.FlowLayoutPanel flpItemServices;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtpDueDate;
+        private System.Windows.Forms.Label lblTotalAmount;
+        private System.Windows.Forms.Label lblCurrencySymbol;
     }
 }

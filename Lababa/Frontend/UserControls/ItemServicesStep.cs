@@ -23,7 +23,7 @@ namespace Lababa.Frontend.UserControls
         {
             dgvItemServiceCatalog.AutoGenerateColumns = false;
 
-            var initialServices = _service.GetWeightServiceCatalog();
+            var initialServices = _service.GetItemServiceCatalog();
             _itemServiceCatalog = new BindingList<ItemService>(initialServices);
             dgvItemServiceCatalog.DataSource = _itemServiceCatalog;
         }

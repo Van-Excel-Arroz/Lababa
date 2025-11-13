@@ -174,6 +174,12 @@ namespace Lababa.Backend.Repositories
                 order.Id = Guid.NewGuid();
             }
 
+            if (string.IsNullOrEmpty(order.OrderNumber))
+            {
+                int totalOrders = this.GetAll().Count;
+                order.OrderNumber = $"ORD-{totalOrders + 1:D4}";
+            }
+
             var orders = LoadAllEntities();
             orders.Add(order);
             SaveAllEntities(orders);

@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,6 +73,7 @@
     <Compile Include="Backend\Services\ApplicationSettingsService.cs" />
     <Compile Include="Backend\Services\CustomerService.cs" />
     <Compile Include="Backend\Services\ItemServiceCatalogService.cs" />
+    <Compile Include="Backend\Services\OrderService.cs" />
     <Compile Include="Backend\Services\WeightServiceCatalogService.cs" />
     <Compile Include="Backend\Utilities\FileNames.cs" />
     <Compile Include="Backend\Models\Customer.cs" />
@@ -131,11 +133,23 @@
       <DependentUpon>FinishWizardStep.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\Interfaces\IWizardStep.cs" />
+    <Compile Include="Frontend\UserControls\ItemServiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\ItemServiceControl.Designer.cs">
+      <DependentUpon>ItemServiceControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\UserControls\OrderCardItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Frontend\UserControls\OrderCardItem.Designer.cs">
       <DependentUpon>OrderCardItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\UserControls\WeightServiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\WeightServiceControl.Designer.cs">
+      <DependentUpon>WeightServiceControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\WeightServicesStep.cs">
       <SubType>UserControl</SubType>
@@ -199,8 +213,14 @@
     <EmbeddedResource Include="Frontend\UserControls\FinishWizardStep.resx">
       <DependentUpon>FinishWizardStep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\ItemServiceControl.resx">
+      <DependentUpon>ItemServiceControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\OrderCardItem.resx">
       <DependentUpon>OrderCardItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\WeightServiceControl.resx">
+      <DependentUpon>WeightServiceControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\WeightServicesStep.resx">
       <DependentUpon>WeightServicesStep.cs</DependentUpon>

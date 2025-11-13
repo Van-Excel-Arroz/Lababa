@@ -9,5 +9,12 @@ namespace Lababa.Backend.Models
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public DateTime DateCreated { get; set; } = DateTime.Now;
+        public string FullNameAndPhone
+        {
+            get
+            {
+                return $"{FullName} ({PhoneNumber})";
+            }
+        }
     }
 }
