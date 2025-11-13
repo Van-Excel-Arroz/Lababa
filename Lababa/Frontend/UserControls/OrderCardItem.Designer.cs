@@ -37,23 +37,23 @@
             this.lblPaymentStatus = new System.Windows.Forms.Label();
             this.lblOrderNumber = new System.Windows.Forms.Label();
             this.cmsRightClickOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.viewDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiViewDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.changeStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pendingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.completedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPending = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInProgress = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiReady = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCompleted = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCancelled = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.paidToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.unpaidToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.refundedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPaid = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUnpaid = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRefunded = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPrint = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.paidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unpaidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refundedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePaymentStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpContainer.SuspendLayout();
             this.tlpDetails.SuspendLayout();
             this.cmsRightClickOptions.SuspendLayout();
@@ -70,14 +70,14 @@
             this.tlpContainer.Name = "tlpContainer";
             this.tlpContainer.RowCount = 1;
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Size = new System.Drawing.Size(220, 88);
+            this.tlpContainer.Size = new System.Drawing.Size(221, 88);
             this.tlpContainer.TabIndex = 0;
             // 
             // tlpDetails
             // 
             this.tlpDetails.ColumnCount = 2;
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.87565F));
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.12435F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.54922F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.45078F));
             this.tlpDetails.Controls.Add(this.lblTotalAmount, 1, 2);
             this.tlpDetails.Controls.Add(this.lblDueDate, 0, 2);
             this.tlpDetails.Controls.Add(this.lblCustomerName, 0, 1);
@@ -91,7 +91,7 @@
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.25F));
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.40741F));
-            this.tlpDetails.Size = new System.Drawing.Size(212, 80);
+            this.tlpDetails.Size = new System.Drawing.Size(213, 80);
             this.tlpDetails.TabIndex = 0;
             // 
             // lblTotalAmount
@@ -99,7 +99,7 @@
             this.lblTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(152, 60);
+            this.lblTotalAmount.Location = new System.Drawing.Point(153, 60);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(47, 13);
             this.lblTotalAmount.TabIndex = 6;
@@ -119,6 +119,7 @@
             // lblCustomerName
             // 
             this.lblCustomerName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCustomerName.AutoEllipsis = true;
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Font = new System.Drawing.Font("Segoe UI Semilight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerName.Location = new System.Drawing.Point(13, 37);
@@ -131,14 +132,14 @@
             // 
             this.lblPaymentStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblPaymentStatus.AutoSize = true;
-            this.lblPaymentStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(247)))), ((int)(((byte)(210)))));
-            this.lblPaymentStatus.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblPaymentStatus.Location = new System.Drawing.Point(156, 8);
+            this.lblPaymentStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(215)))), ((int)(((byte)(213)))));
+            this.lblPaymentStatus.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblPaymentStatus.Location = new System.Drawing.Point(128, 8);
             this.lblPaymentStatus.Name = "lblPaymentStatus";
             this.lblPaymentStatus.Padding = new System.Windows.Forms.Padding(7, 3, 7, 3);
-            this.lblPaymentStatus.Size = new System.Drawing.Size(43, 19);
+            this.lblPaymentStatus.Size = new System.Drawing.Size(72, 19);
             this.lblPaymentStatus.TabIndex = 1;
-            this.lblPaymentStatus.Text = "Paid";
+            this.lblPaymentStatus.Text = "Refunded";
             // 
             // lblOrderNumber
             // 
@@ -154,94 +155,108 @@
             // cmsRightClickOptions
             // 
             this.cmsRightClickOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewDetailsToolStripMenuItem,
+            this.tsmiViewDetails,
             this.changeStatusToolStripMenuItem,
             this.paymentStatusToolStripMenuItem,
-            this.printToolStripMenuItem,
-            this.deleteToolStripMenuItem});
+            this.tsmiPrint,
+            this.tsmiDelete});
             this.cmsRightClickOptions.Name = "cmsRightClickOptions";
-            this.cmsRightClickOptions.Size = new System.Drawing.Size(181, 136);
+            this.cmsRightClickOptions.Size = new System.Drawing.Size(157, 114);
             // 
-            // viewDetailsToolStripMenuItem
+            // tsmiViewDetails
             // 
-            this.viewDetailsToolStripMenuItem.Name = "viewDetailsToolStripMenuItem";
-            this.viewDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewDetailsToolStripMenuItem.Text = "View Details";
-            this.viewDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewDetailsToolStripMenuItem_Click);
+            this.tsmiViewDetails.Name = "tsmiViewDetails";
+            this.tsmiViewDetails.Size = new System.Drawing.Size(156, 22);
+            this.tsmiViewDetails.Text = "View Details";
+            this.tsmiViewDetails.Click += new System.EventHandler(this.viewDetailsToolStripMenuItem_Click);
             // 
             // changeStatusToolStripMenuItem
             // 
             this.changeStatusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pendingToolStripMenuItem,
-            this.inProgressToolStripMenuItem,
-            this.readyToolStripMenuItem,
-            this.completedToolStripMenuItem,
-            this.cancelledToolStripMenuItem});
+            this.tsmiPending,
+            this.tsmiInProgress,
+            this.tsmiReady,
+            this.tsmiCompleted,
+            this.tsmiCancelled});
             this.changeStatusToolStripMenuItem.Name = "changeStatusToolStripMenuItem";
             this.changeStatusToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.changeStatusToolStripMenuItem.Text = "Order Status";
             // 
-            // pendingToolStripMenuItem
+            // tsmiPending
             // 
-            this.pendingToolStripMenuItem.Checked = true;
-            this.pendingToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.pendingToolStripMenuItem.Name = "pendingToolStripMenuItem";
-            this.pendingToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.pendingToolStripMenuItem.Text = "Pending";
+            this.tsmiPending.Name = "tsmiPending";
+            this.tsmiPending.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPending.Text = "Pending";
             // 
-            // inProgressToolStripMenuItem
+            // tsmiInProgress
             // 
-            this.inProgressToolStripMenuItem.Name = "inProgressToolStripMenuItem";
-            this.inProgressToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.inProgressToolStripMenuItem.Text = "In Progress";
+            this.tsmiInProgress.Name = "tsmiInProgress";
+            this.tsmiInProgress.Size = new System.Drawing.Size(180, 22);
+            this.tsmiInProgress.Text = "In Progress";
             // 
-            // readyToolStripMenuItem
+            // tsmiReady
             // 
-            this.readyToolStripMenuItem.Name = "readyToolStripMenuItem";
-            this.readyToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.readyToolStripMenuItem.Text = "Ready";
+            this.tsmiReady.Name = "tsmiReady";
+            this.tsmiReady.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReady.Text = "Ready";
             // 
-            // completedToolStripMenuItem
+            // tsmiCompleted
             // 
-            this.completedToolStripMenuItem.Name = "completedToolStripMenuItem";
-            this.completedToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.completedToolStripMenuItem.Text = "Completed";
+            this.tsmiCompleted.Name = "tsmiCompleted";
+            this.tsmiCompleted.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCompleted.Text = "Completed";
             // 
-            // cancelledToolStripMenuItem
+            // tsmiCancelled
             // 
-            this.cancelledToolStripMenuItem.Name = "cancelledToolStripMenuItem";
-            this.cancelledToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.cancelledToolStripMenuItem.Text = "Cancelled";
+            this.tsmiCancelled.Name = "tsmiCancelled";
+            this.tsmiCancelled.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCancelled.Text = "Cancelled";
             // 
             // paymentStatusToolStripMenuItem
             // 
             this.paymentStatusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.paidToolStripMenuItem1,
-            this.unpaidToolStripMenuItem1,
-            this.refundedToolStripMenuItem1});
+            this.tsmiPaid,
+            this.tsmiUnpaid,
+            this.tsmiRefunded});
             this.paymentStatusToolStripMenuItem.Name = "paymentStatusToolStripMenuItem";
-            this.paymentStatusToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.paymentStatusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.paymentStatusToolStripMenuItem.Text = "Payment Status";
             // 
-            // paidToolStripMenuItem1
+            // tsmiPaid
             // 
-            this.paidToolStripMenuItem1.Checked = true;
-            this.paidToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.paidToolStripMenuItem1.Name = "paidToolStripMenuItem1";
-            this.paidToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
-            this.paidToolStripMenuItem1.Text = "Paid";
+            this.tsmiPaid.Name = "tsmiPaid";
+            this.tsmiPaid.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPaid.Text = "Paid";
+            this.tsmiPaid.Click += new System.EventHandler(this.tsmiPaid_Click);
             // 
-            // unpaidToolStripMenuItem1
+            // tsmiUnpaid
             // 
-            this.unpaidToolStripMenuItem1.Name = "unpaidToolStripMenuItem1";
-            this.unpaidToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
-            this.unpaidToolStripMenuItem1.Text = "Unpaid";
+            this.tsmiUnpaid.Name = "tsmiUnpaid";
+            this.tsmiUnpaid.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUnpaid.Text = "Unpaid";
+            this.tsmiUnpaid.Click += new System.EventHandler(this.tsmiUnpaid_Click);
             // 
-            // refundedToolStripMenuItem1
+            // tsmiRefunded
             // 
-            this.refundedToolStripMenuItem1.Name = "refundedToolStripMenuItem1";
-            this.refundedToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
-            this.refundedToolStripMenuItem1.Text = "Refunded";
+            this.tsmiRefunded.Name = "tsmiRefunded";
+            this.tsmiRefunded.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRefunded.Text = "Refunded";
+            this.tsmiRefunded.Click += new System.EventHandler(this.tsmiRefunded_Click);
+            // 
+            // tsmiPrint
+            // 
+            this.tsmiPrint.Image = global::Lababa.Properties.Resources.print_2;
+            this.tsmiPrint.Name = "tsmiPrint";
+            this.tsmiPrint.Size = new System.Drawing.Size(156, 22);
+            this.tsmiPrint.Text = "Print";
+            // 
+            // tsmiDelete
+            // 
+            this.tsmiDelete.Image = global::Lababa.Properties.Resources.trash_2;
+            this.tsmiDelete.Name = "tsmiDelete";
+            this.tsmiDelete.Size = new System.Drawing.Size(180, 22);
+            this.tsmiDelete.Text = "Delete";
+            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
             // 
             // paidToolStripMenuItem
             // 
@@ -273,20 +288,6 @@
             this.changePaymentStatusToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.changePaymentStatusToolStripMenuItem.Text = "Payment Status";
             // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Image = global::Lababa.Properties.Resources.print_2;
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.printToolStripMenuItem.Text = "Print";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::Lababa.Properties.Resources.trash_2;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            // 
             // OrderCardItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,7 +297,8 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "OrderCardItem";
-            this.Size = new System.Drawing.Size(220, 88);
+            this.Size = new System.Drawing.Size(221, 88);
+            this.Load += new System.EventHandler(this.OrderCardItem_Load);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OrderCardItem_MouseDoubleClick);
             this.tlpContainer.ResumeLayout(false);
             this.tlpDetails.ResumeLayout(false);
@@ -316,19 +318,19 @@
         private System.Windows.Forms.Label lblDueDate;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.ContextMenuStrip cmsRightClickOptions;
-        private System.Windows.Forms.ToolStripMenuItem viewDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiViewDetails;
         private System.Windows.Forms.ToolStripMenuItem changeStatusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pendingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inProgressToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem readyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem completedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelledToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPending;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInProgress;
+        private System.Windows.Forms.ToolStripMenuItem tsmiReady;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCompleted;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCancelled;
         private System.Windows.Forms.ToolStripMenuItem paymentStatusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem paidToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem unpaidToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem refundedToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPaid;
+        private System.Windows.Forms.ToolStripMenuItem tsmiUnpaid;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRefunded;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPrint;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
         private System.Windows.Forms.ToolStripMenuItem paidToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unpaidToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refundedToolStripMenuItem;

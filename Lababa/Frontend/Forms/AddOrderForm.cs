@@ -1,6 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Lababa.Frontend.Forms
         private readonly CustomerService _customerService;
         private readonly OrderService _orderService;
         private readonly List<Customer> _allCustomers;
-
+        public event EventHandler OrderCreated;
 
         public AddOrderForm()
         {
@@ -111,6 +112,7 @@ namespace Lababa.Frontend.Forms
             };
 
             _orderService.CreateOrder(newOrder);
+            OrderCreated?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
 
