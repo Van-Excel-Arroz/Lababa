@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace Lababa.Backend.Repositories
 {
-    public class OrderItemItemsRepository
+    public class OrderItemItemRepository
     {
         private readonly string _filePath;
         private readonly char _delimeter = ',';
 
-        public OrderItemItemsRepository()
+        public OrderItemItemRepository()
         {
             _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileNames.OrderItemItem);
         }
@@ -149,10 +149,10 @@ namespace Lababa.Backend.Repositories
             var existingItem = orderItemItems.FirstOrDefault(o => o.Id == orderItemItem.Id);
             if (existingItem != null)
             {
-                existingItem.ItemName = orderItemItem.ItemName;     // Update ItemName
-                existingItem.Quantity = orderItemItem.Quantity;     // Update Quantity
-                existingItem.PricePerPiece = orderItemItem.PricePerPiece; // Update PricePerPiece
-                existingItem.OrderId = orderItemItem.OrderId;       // OrderId might also be updated if logic allows
+                existingItem.ItemName = orderItemItem.ItemName;     
+                existingItem.Quantity = orderItemItem.Quantity;     
+                existingItem.PricePerPiece = orderItemItem.PricePerPiece; 
+                existingItem.OrderId = orderItemItem.OrderId;       
                 SaveAllEntities(orderItemItems);
             }
             else

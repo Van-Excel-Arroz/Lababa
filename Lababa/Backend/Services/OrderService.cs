@@ -17,7 +17,14 @@ namespace Lababa.Backend.Services
         public Order GetRecentOrder()
         {
             var allOrders = _repo.GetAll();
+            if (allOrders.Count > 0)
+            {
             return allOrders[allOrders.Count - 1];
+
+            } else
+            {
+                return null;
+            }
         }
 
         public List<Order> GetOrdersForToday()

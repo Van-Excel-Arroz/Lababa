@@ -8,12 +8,12 @@ using System.Linq;
 
 namespace Lababa.Backend.Repositories
 {
-    public class OrderWeightItemsRepository
+    public class OrderWeightItemRepository
     {
         private readonly string _filePath;
         private readonly char _delimeter = ',';
 
-        public OrderWeightItemsRepository()
+        public OrderWeightItemRepository()
         {
             _filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FileNames.OrderWeightItem);
         }

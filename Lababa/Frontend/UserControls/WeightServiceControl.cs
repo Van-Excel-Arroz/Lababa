@@ -14,6 +14,29 @@ namespace Lababa.Frontend.UserControls
         public event EventHandler RemoveClicked;
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
+        public string ServiceName    
+        {
+            get
+            {
+                return cmbWeightServiceCatalog.SelectedItem is WeightService weightService ? weightService.ServiceName : string.Empty;
+            }
+        }
+
+        public double Weight 
+        { 
+            get
+            {
+                return Convert.ToDouble(nudWeight.Value);
+            }
+        } 
+
+        public decimal PricePerUnit 
+        { 
+            get
+            {
+                return cmbWeightServiceCatalog.SelectedItem is WeightService weightService ? weightService.PricePerUnit : 0;
+            }
+        }
 
         public WeightServiceControl()
         {

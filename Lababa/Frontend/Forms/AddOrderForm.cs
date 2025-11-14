@@ -43,7 +43,6 @@ namespace Lababa.Frontend.Forms
         {
             if (tabServices.SelectedIndex == 0)
             {
-
                 var weightServiceControl = new WeightServiceControl();
                 weightServiceControl.RemoveClicked += (_, __) =>
                 {
@@ -102,8 +101,40 @@ namespace Lababa.Frontend.Forms
                 return;
             }
 
+            var orderId = Guid.NewGuid();
+            var orderWeightItemService = new OrderWeightItemService();
+            var orderItemItemService = new OrderItemItemService();
+
+            foreach (WeightServiceControl control in flpWeightServices.Controls) 
+            {
+                var orderWeightItem = new OrderWeightItem()
+                {
+                    ServiceName = control.ServiceName,
+                    PricePerUnit = control.PricePerUnit,
+                    Weight = control.Weight,
+                    OrderId = orderId,
+                };
+
+                orderWeightItemService.CreateOrderWeightItem(orderWeightItem);
+            }
+
+            foreach (ItemServiceControl control in flpItemServices.Controls)
+            {
+                var orderItemItem = new OrderItemItem() 
+                { 
+                    ItemName = control.ItemName,
+                    PricePerPiece = control.PricePerPiece,
+                    Quantity = control.Quantity,
+                    OrderId = orderId
+                };
+
+                orderItemItemService.CreateOrderItemItem(orderItemItem);
+            }
+
+
             var newOrder = new Order()
             {
+                Id = orderId,
                 Status = OrderStatus.Pending,
                 PaymentStatus = PaymentStatus.Unpaid,
                 DueDate = dtpDueDate.Value,

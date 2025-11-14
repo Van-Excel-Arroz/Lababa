@@ -1,7 +1,6 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
@@ -29,7 +28,8 @@ namespace Lababa.Frontend.Forms
             lblTodaysRevenue.Text = $"{_appSettings.CurrencySymbol}{_orderService.CalculateOrdersTotalAmount(orders):F2}";
             lblTotalCustomers.Text = _customerService.GetAllCustomers().Count.ToString();
             lblTotalOrders.Text = orders.Count.ToString();
-            lblRecentOrder.Text = _orderService.GetRecentOrder().OrderNumber;
+            string orderNumber = _orderService.GetRecentOrder()?.OrderNumber;
+            lblRecentOrder.Text = orderNumber != null ? orderNumber : "N/A";
 
             flpPendingStatus.Controls.Clear();
             flpInProgressStatus.Controls.Clear();
@@ -66,6 +66,9 @@ namespace Lababa.Frontend.Forms
                         orderCardItem.Width = desiredWidth;
                         break;
                     case OrderStatus.Completed:
+                        flpCancelledStatus.Controls.Add(orderCardItem);
+                        desiredWidth = GetDesiredCardWidth(flpCancelledStatus);
+                        orderCardItem.Width = desiredWidth;
                         break;
                 }
             }

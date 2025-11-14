@@ -67,15 +67,17 @@
   <ItemGroup>
     <Compile Include="Backend\Models\ApplicationSettings.cs" />
     <Compile Include="Backend\Repositories\ItemServiceCatalogRepository.cs" />
-    <Compile Include="Backend\Repositories\OrderItemItemsRepository.cs" />
+    <Compile Include="Backend\Repositories\OrderItemItemRepository.cs" />
     <Compile Include="Backend\Repositories\OrderRepository.cs" />
-    <Compile Include="Backend\Repositories\OrderWeightItemsRepository.cs" />
+    <Compile Include="Backend\Repositories\OrderWeightItemRepository.cs" />
     <Compile Include="Backend\Repositories\WeigthServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\ApplicationSettingsRepository.cs" />
     <Compile Include="Backend\Services\ApplicationSettingsService.cs" />
     <Compile Include="Backend\Services\CustomerService.cs" />
     <Compile Include="Backend\Services\ItemServiceCatalogService.cs" />
+    <Compile Include="Backend\Services\OrderItemItemService.cs" />
     <Compile Include="Backend\Services\OrderService.cs" />
+    <Compile Include="Backend\Services\OrderWeightItemService.cs" />
     <Compile Include="Backend\Services\WeightServiceCatalogService.cs" />
     <Compile Include="Backend\Utilities\FileNames.cs" />
     <Compile Include="Backend\Models\Customer.cs" />
