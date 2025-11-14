@@ -50,9 +50,8 @@
             this.btnAddService = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label = new System.Windows.Forms.Label();
-            this.lblCurrencySymbol = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -68,7 +67,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 123);
+            this.panel1.Location = new System.Drawing.Point(0, 122);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(470, 1);
@@ -89,7 +88,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.22222F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.77778F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(464, 77);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(464, 76);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // label4
@@ -98,7 +97,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(3, 49);
+            this.label4.Location = new System.Drawing.Point(3, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 15);
             this.label4.TabIndex = 2;
@@ -132,7 +131,7 @@
             // dtpDueDate
             // 
             this.dtpDueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtpDueDate.Location = new System.Drawing.Point(98, 45);
+            this.dtpDueDate.Location = new System.Drawing.Point(98, 44);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(200, 22);
             this.dtpDueDate.TabIndex = 3;
@@ -178,7 +177,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 541);
+            this.panel2.Location = new System.Drawing.Point(0, 540);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(470, 1);
@@ -192,11 +191,11 @@
             this.tableLayoutPanel4.Controls.Add(this.btnCancel, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnCreateNewOrder, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 600);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 598);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(464, 59);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(464, 61);
             this.tableLayoutPanel4.TabIndex = 9;
             // 
             // btnCancel
@@ -205,7 +204,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnCancel.Location = new System.Drawing.Point(10, 14);
+            this.btnCancel.Location = new System.Drawing.Point(10, 15);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(212, 30);
@@ -222,7 +221,7 @@
             this.btnCreateNewOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateNewOrder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateNewOrder.ForeColor = System.Drawing.Color.White;
-            this.btnCreateNewOrder.Location = new System.Drawing.Point(242, 14);
+            this.btnCreateNewOrder.Location = new System.Drawing.Point(242, 15);
             this.btnCreateNewOrder.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnCreateNewOrder.Name = "btnCreateNewOrder";
             this.btnCreateNewOrder.Size = new System.Drawing.Size(212, 30);
@@ -238,7 +237,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tabServices, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 127);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 126);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.tableLayoutPanel3.RowCount = 2;
@@ -350,14 +349,25 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.Controls.Add(this.lblTotalAmount);
-            this.panel3.Controls.Add(this.lblCurrencySymbol);
             this.panel3.Controls.Add(this.label);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 552);
+            this.panel3.Location = new System.Drawing.Point(3, 551);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(464, 35);
+            this.panel3.Size = new System.Drawing.Size(464, 34);
             this.panel3.TabIndex = 12;
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTotalAmount.Location = new System.Drawing.Point(60, 7);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(43, 21);
+            this.lblTotalAmount.TabIndex = 4;
+            this.lblTotalAmount.Text = "1000";
             // 
             // label
             // 
@@ -369,28 +379,6 @@
             this.label.Size = new System.Drawing.Size(49, 21);
             this.label.TabIndex = 2;
             this.label.Text = "Total:";
-            // 
-            // lblCurrencySymbol
-            // 
-            this.lblCurrencySymbol.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCurrencySymbol.AutoSize = true;
-            this.lblCurrencySymbol.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrencySymbol.Location = new System.Drawing.Point(68, 7);
-            this.lblCurrencySymbol.Name = "lblCurrencySymbol";
-            this.lblCurrencySymbol.Size = new System.Drawing.Size(20, 21);
-            this.lblCurrencySymbol.TabIndex = 3;
-            this.lblCurrencySymbol.Text = "₱";
-            // 
-            // lblTotalAmount
-            // 
-            this.lblTotalAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(80, 7);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(43, 21);
-            this.lblTotalAmount.TabIndex = 4;
-            this.lblTotalAmount.Text = "1000";
             // 
             // AddOrderForm
             // 
@@ -446,6 +434,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
         private System.Windows.Forms.Label lblTotalAmount;
-        private System.Windows.Forms.Label lblCurrencySymbol;
     }
 }

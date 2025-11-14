@@ -10,7 +10,6 @@ namespace Lababa.Frontend.Forms
         {
             InitializeComponent();
             _order = order;
-            Text = $"Order Details - {_order.OrderNumber}";
         }
     }
 }

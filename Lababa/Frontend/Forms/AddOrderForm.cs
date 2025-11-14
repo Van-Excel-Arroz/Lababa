@@ -83,7 +83,7 @@ namespace Lababa.Frontend.Forms
                 total += control.GetTotalPrice();
             }
 
-            lblTotalAmount.Text = $"{total:F2}";
+            lblTotalAmount.Text = $"{_appSettings.CurrencySymbol}{total:F2}";
         }
 
         private void btnCreateNewOrder_Click(object sender, System.EventArgs e)
