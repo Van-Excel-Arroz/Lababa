@@ -3,8 +3,8 @@ using Lababa.Backend.Constants;
 using Lababa.Backend.Models;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
+using System.Linq;
 
 namespace Lababa.Backend.Repositories
 {
@@ -20,12 +20,12 @@ namespace Lababa.Backend.Repositories
 
         private List<OrderWeightItem> LoadAllEntities()
         {
-            var items = new List<OrderWeightItem>();
+            var orderWeightItems = new List<OrderWeightItem>();
 
             if (!File.Exists(_filePath))
             {
                 Console.WriteLine($"File doesn't exist: {_filePath}");
-                return items;
+                return orderWeightItems;
             }
 
             try
@@ -36,135 +36,143 @@ namespace Lababa.Backend.Repositories
                 {
                     if (!string.IsNullOrEmpty(line))
                     {
-                        var customer = ParseLine(line);
-                        if (customer != null)
+                        var orderWeightItem = ParseLine(line);
+                        if (orderWeightItem != null)
                         {
-                            items.Add(customer);
+                            orderWeightItems.Add(orderWeightItem);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading customers: {ex.Message}");
+                Console.WriteLine($"Error loading order weight items: {ex.Message}");
                 throw;
             }
 
-            return items;
+            return orderWeightItems;
         }
 
-        private void SaveAllEntities(List<Customer> customers)
+        private void SaveAllEntities(List<OrderWeightItem> orderWeightItems)
         {
             try
             {
-                var lines = customers.Select(c => ToCsvLine(c)).ToList();
+                var lines = orderWeightItems.Select(o => ToCsvLine(o)).ToList();
                 File.WriteAllLines(_filePath, lines);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error saving customers: {ex.Message}");
+                Console.WriteLine($"Error saving order weight items: {ex.Message}");
                 throw;
             }
         }
 
-        private Customer ParseLine(string line)
+        private OrderWeightItem ParseLine(string line)
         {
             var parts = line.Split(_delimeter);
 
-            if (parts.Length != 5)
+            if (parts.Length != 4)
             {
-                Console.WriteLine($"Customer line skipped: {line}");
+                Console.WriteLine($"Order weight item line skipped: {line}");
                 return null;
             }
 
             if (!Guid.TryParse(parts[0], out Guid id))
             {
-                Console.WriteLine($"Invalid Customer Id in line: {line}");
+                Console.WriteLine($"Invalid order weight item Id in line: {line}");  
                 return null;
             }
 
-            if (!DateTime.TryParse(
-                parts[4],
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None,
-                out DateTime dateCreated
-                ))
+            if (!decimal.TryParse(parts[2], out decimal pricePerUnit))
             {
-                Console.WriteLine($"Warning: Invalid DateCreated in line: {line}");
+                Console.WriteLine($"Invalid order weight item PricePerUnit in line: {line}");
                 return null;
             }
 
-            return new Customer
+            if (!double.TryParse(parts[3], out double weight))
+            {
+                Console.WriteLine($"Invalid order weight item Weight in line: {line}");
+                return null;
+            }
+
+            if (!Guid.TryParse(parts[4], out Guid orderId))
+            {
+                Console.WriteLine($"Invalid order weight item Order Id in line: {line}");
+                return null;
+            }
+
+
+            return new OrderWeightItem
             {
                 Id = id,
-                FullName = parts[1].Trim(),
-                PhoneNumber = parts[2].Trim(),
-                Address = parts[3].Trim(),
-                DateCreated = dateCreated
+                ServiceName= parts[1].Trim(),
+                PricePerUnit = pricePerUnit,
+                Weight = weight,
+                OrderId = orderId
             };
         }
 
-        private string ToCsvLine(Customer customer)
+        private string ToCsvLine(OrderWeightItem orderWeightItem)
         {
-            return $"{customer.Id}{_delimeter}" +
-                   $"{customer.FullName}{_delimeter}" +
-                   $"{customer.PhoneNumber}{_delimeter}" +
-                   $"{customer.Address}{_delimeter}" +
-                   $"{customer.DateCreated.ToString(CultureInfo.InvariantCulture)}";
+            return $"{orderWeightItem.Id}{_delimeter}" +
+                   $"{orderWeightItem.ServiceName}{_delimeter}" +
+                   $"{orderWeightItem.PricePerUnit}{_delimeter}" +
+                   $"{orderWeightItem.Weight}{_delimeter}" +
+                   $"{orderWeightItem.OrderId}";
         }
 
-        public List<Customer> GetAll()
+        public List<OrderWeightItem> GetAll()
         {
             return LoadAllEntities();
         }
 
-        public Customer GetById(Guid id)
+        public OrderWeightItem GetById(Guid id)
         {
-            var customers = LoadAllEntities();
-            return customers.FirstOrDefault(c => c.Id == id);
+            var orderWeightItems = LoadAllEntities();
+            return orderWeightItems.FirstOrDefault(o => o.Id == id);
         }
 
-        public void Add(Customer customer)
+        public void Add(OrderWeightItem orderWeightItem)
         {
-            if (customer.Id == Guid.Empty)
+            if (orderWeightItem.Id == Guid.Empty)
             {
-                customer.Id = Guid.NewGuid();
+                orderWeightItem.Id = Guid.NewGuid();
             }
 
-            var customers = LoadAllEntities();
-            customers.Add(customer);
-            SaveAllEntities(customers);
+            var orderWeightItems = LoadAllEntities();
+            orderWeightItems.Add(orderWeightItem);
+            SaveAllEntities(orderWeightItems);
         }
 
-        public void Update(Customer customer)
+        public void Update(OrderWeightItem orderWeightItem)
         {
-            var customers = LoadAllEntities();
-            var existingCustomer = customers.FirstOrDefault(c => c.Id == customer.Id);
-            if (existingCustomer != null)
+            var orderWeightItems = LoadAllEntities();
+            var existingItem = orderWeightItems.FirstOrDefault(o => o.Id == orderWeightItem.Id);
+            if (existingItem != null)
             {
-                existingCustomer.FullName = customer.FullName;
-                existingCustomer.PhoneNumber = customer.PhoneNumber;
-                existingCustomer.Address = customer.Address;
-                SaveAllEntities(customers);
+                existingItem.ServiceName = orderWeightItem.ServiceName;
+                existingItem.PricePerUnit = orderWeightItem.PricePerUnit;
+                existingItem.Weight = orderWeightItem.Weight;
+                SaveAllEntities(orderWeightItems);
             }
             else
             {
-                throw new KeyNotFoundException($"Customer with Id {customer.Id} not found for update");
+                throw new KeyNotFoundException($"Order weight item with Id {orderWeightItem.Id} not found for update");
             }
         }
 
         public void Delete(Guid id)
         {
-            var customers = LoadAllEntities();
-            int initialCount = customers.Count;
-            customers.RemoveAll(c => c.Id == id);
-            if (customers.Count < initialCount)
+            var orderWeightItems = LoadAllEntities();
+            int initialCount = orderWeightItems.Count;
+            orderWeightItems.RemoveAll(o => o.Id == id);
+            if (orderWeightItems.Count < initialCount)
             {
-                SaveAllEntities(customers);
+                SaveAllEntities(orderWeightItems);
             }
             else
             {
-                throw new KeyNotFoundException($"Customer with Id {id} not found for deletion");
+                throw new KeyNotFoundException($"Order weight item with Id {id} not found for deletion");
             }
         }
     }
