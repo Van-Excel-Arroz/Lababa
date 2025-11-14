@@ -74,9 +74,9 @@
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.lblCompletedCount = new System.Windows.Forms.Label();
+            this.lblCancelledCount = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.flpCompletedStatus = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpCancelledStatus = new System.Windows.Forms.FlowLayoutPanel();
             this.tlpReady = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -677,7 +677,7 @@
             this.tlpCompleted.ColumnCount = 1;
             this.tlpCompleted.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpCompleted.Controls.Add(this.tableLayoutPanel13, 0, 0);
-            this.tlpCompleted.Controls.Add(this.flpCompletedStatus, 0, 1);
+            this.tlpCompleted.Controls.Add(this.flpCancelledStatus, 0, 1);
             this.tlpCompleted.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCompleted.Location = new System.Drawing.Point(934, 5);
             this.tlpCompleted.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
@@ -695,7 +695,7 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.Controls.Add(this.panel15, 1, 1);
             this.tableLayoutPanel13.Controls.Add(this.label13, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.lblCompletedCount, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.lblCancelledCount, 1, 0);
             this.tableLayoutPanel13.Controls.Add(this.panel16, 0, 1);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 3);
@@ -723,21 +723,21 @@
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(3, 13);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(72, 17);
+            this.label13.Size = new System.Drawing.Size(64, 17);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Completed";
+            this.label13.Text = "Cancelled";
             // 
-            // lblCompletedCount
+            // lblCancelledCount
             // 
-            this.lblCompletedCount.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCompletedCount.AutoSize = true;
-            this.lblCompletedCount.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblCompletedCount.Location = new System.Drawing.Point(81, 10);
-            this.lblCompletedCount.Name = "lblCompletedCount";
-            this.lblCompletedCount.Padding = new System.Windows.Forms.Padding(5);
-            this.lblCompletedCount.Size = new System.Drawing.Size(29, 23);
-            this.lblCompletedCount.TabIndex = 1;
-            this.lblCompletedCount.Text = "67";
+            this.lblCancelledCount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCancelledCount.AutoSize = true;
+            this.lblCancelledCount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCancelledCount.Location = new System.Drawing.Point(81, 10);
+            this.lblCancelledCount.Name = "lblCancelledCount";
+            this.lblCancelledCount.Padding = new System.Windows.Forms.Padding(5);
+            this.lblCancelledCount.Size = new System.Drawing.Size(29, 23);
+            this.lblCancelledCount.TabIndex = 1;
+            this.lblCancelledCount.Text = "67";
             // 
             // panel16
             // 
@@ -749,14 +749,14 @@
             this.panel16.Size = new System.Drawing.Size(78, 1);
             this.panel16.TabIndex = 2;
             // 
-            // flpCompletedStatus
+            // flpCancelledStatus
             // 
-            this.flpCompletedStatus.AutoScroll = true;
-            this.flpCompletedStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpCompletedStatus.Location = new System.Drawing.Point(3, 53);
-            this.flpCompletedStatus.Name = "flpCompletedStatus";
-            this.flpCompletedStatus.Size = new System.Drawing.Size(284, 342);
-            this.flpCompletedStatus.TabIndex = 1;
+            this.flpCancelledStatus.AutoScroll = true;
+            this.flpCancelledStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpCancelledStatus.Location = new System.Drawing.Point(3, 53);
+            this.flpCancelledStatus.Name = "flpCancelledStatus";
+            this.flpCancelledStatus.Size = new System.Drawing.Size(284, 342);
+            this.flpCancelledStatus.TabIndex = 1;
             // 
             // tlpReady
             // 
@@ -1233,9 +1233,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lblCompletedCount;
+        private System.Windows.Forms.Label lblCancelledCount;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.FlowLayoutPanel flpCompletedStatus;
+        private System.Windows.Forms.FlowLayoutPanel flpCancelledStatus;
         private System.Windows.Forms.TableLayoutPanel tlpReady;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Panel panel13;

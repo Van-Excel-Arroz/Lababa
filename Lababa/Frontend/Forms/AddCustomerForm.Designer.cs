@@ -35,6 +35,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtSearchCustomers = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +44,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.txtSearchCustomers = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtCustomerName = new Lababa.Frontend.UserControls.LabeledTextBox();
@@ -120,6 +120,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.46479F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(824, 355);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // txtSearchCustomers
+            // 
+            this.txtSearchCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchCustomers.LabelText = "Search Customers";
+            this.txtSearchCustomers.Location = new System.Drawing.Point(4, 15);
+            this.txtSearchCustomers.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchCustomers.Name = "txtSearchCustomers";
+            this.txtSearchCustomers.Size = new System.Drawing.Size(816, 49);
+            this.txtSearchCustomers.TabIndex = 0;
             // 
             // dgvCustomers
             // 
@@ -210,16 +220,6 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "plus.png");
-            // 
-            // txtSearchCustomers
-            // 
-            this.txtSearchCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchCustomers.LabelText = "Search Customers";
-            this.txtSearchCustomers.Location = new System.Drawing.Point(4, 15);
-            this.txtSearchCustomers.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearchCustomers.Name = "txtSearchCustomers";
-            this.txtSearchCustomers.Size = new System.Drawing.Size(816, 49);
-            this.txtSearchCustomers.TabIndex = 0;
             // 
             // txtAddress
             // 

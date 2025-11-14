@@ -9,6 +9,7 @@ namespace Lababa.Frontend.Forms
     public partial class AddCustomerForm : Form
     {
         private readonly CustomerService _customerService;
+        public event EventHandler CustomerUpdated;
 
         public AddCustomerForm()
         {
@@ -98,6 +99,7 @@ namespace Lababa.Frontend.Forms
                 var customer = (Customer)dgvCustomers.Rows[e.RowIndex].DataBoundItem;
                 _customerService.UpdateCustomer(customer);
 
+                CustomerUpdated?.Invoke(this, EventArgs.Empty);
                 MessageBox.Show("Customer updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadCustomers();
             }

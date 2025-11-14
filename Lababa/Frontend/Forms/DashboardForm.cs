@@ -34,7 +34,7 @@ namespace Lababa.Frontend.Forms
             flpPendingStatus.Controls.Clear();
             flpInProgressStatus.Controls.Clear();
             flpReadyStatus.Controls.Clear();
-            flpCompletedStatus.Controls.Clear();
+            flpCancelledStatus.Controls.Clear();
 
             foreach (var order in orders)
             {
@@ -60,12 +60,12 @@ namespace Lababa.Frontend.Forms
                         desiredWidth = GetDesiredCardWidth(flpReadyStatus);
                         orderCardItem.Width = desiredWidth;
                         break;
-                    case OrderStatus.Completed:
-                        flpCompletedStatus.Controls.Add(orderCardItem);
-                        desiredWidth = GetDesiredCardWidth(flpCompletedStatus);
+                    case OrderStatus.Cancelled:
+                        flpCancelledStatus.Controls.Add(orderCardItem);
+                        desiredWidth = GetDesiredCardWidth(flpCancelledStatus);
                         orderCardItem.Width = desiredWidth;
                         break;
-                    case OrderStatus.Cancelled:
+                    case OrderStatus.Completed:
                         break;
                 }
             }
@@ -73,7 +73,7 @@ namespace Lababa.Frontend.Forms
             lblPendingCount.Text = flpPendingStatus.Controls.Count.ToString();
             lblInProgrgessCount.Text = flpInProgressStatus.Controls.Count.ToString();
             lblReadyCount.Text = flpReadyStatus.Controls.Count.ToString();
-            lblCompletedCount.Text = flpCompletedStatus.Controls.Count.ToString();
+            lblCancelledCount.Text = flpCancelledStatus.Controls.Count.ToString();
 
         }
 
@@ -82,7 +82,7 @@ namespace Lababa.Frontend.Forms
             SetupFlowLayoutPanelResize(flpPendingStatus);
             SetupFlowLayoutPanelResize(flpInProgressStatus);
             SetupFlowLayoutPanelResize(flpReadyStatus);
-            SetupFlowLayoutPanelResize(flpCompletedStatus);
+            SetupFlowLayoutPanelResize(flpCancelledStatus);
         }
 
         private void btnNewOrder_Click(object sender, System.EventArgs e)
@@ -101,6 +101,7 @@ namespace Lababa.Frontend.Forms
         private void btnCustomers_Click(object sender, System.EventArgs e)
         {
             var addCustomerForm = new AddCustomerForm();
+            addCustomerForm.CustomerUpdated += (_, __) => LoadOrders();
             addCustomerForm.Show();
         }
 

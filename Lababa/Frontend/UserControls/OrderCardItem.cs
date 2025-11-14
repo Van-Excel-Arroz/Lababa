@@ -135,13 +135,13 @@ namespace Lababa.Frontend.UserControls
 
         private void OrderCardItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var orderDetailsForm = new OrderDetailsForm();
+            var orderDetailsForm = new OrderDetailsForm(_order);
             orderDetailsForm.Show();
         }
 
         private void viewDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            var orderDetailsForm = new OrderDetailsForm();
+            var orderDetailsForm = new OrderDetailsForm(_order);
             orderDetailsForm.Show();
         }
 
