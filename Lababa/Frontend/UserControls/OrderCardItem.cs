@@ -172,6 +172,39 @@ namespace Lababa.Frontend.UserControls
             ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
         }
 
-      
+        private void tsmiPending_Click(object sender, EventArgs e)
+        {
+            _order.Status = OrderStatus.Pending;
+            _orderService.UpdateOrder(_order);
+            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void tsmiInProgress_Click(object sender, EventArgs e)
+        {
+            _order.Status = OrderStatus.InProgress;
+            _orderService.UpdateOrder(_order);
+            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void tsmiReady_Click(object sender, EventArgs e)
+        {
+            _order.Status = OrderStatus.Ready;
+            _orderService.UpdateOrder(_order);
+            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void tsmiCompleted_Click(object sender, EventArgs e)
+        {
+            _order.Status = OrderStatus.Completed;
+            _orderService.UpdateOrder(_order);
+            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void tsmiCancelled_Click(object sender, EventArgs e)
+        {
+            _order.Status = OrderStatus.Cancelled;
+            _orderService.UpdateOrder(_order);
+            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

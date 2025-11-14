@@ -14,6 +14,31 @@ namespace Lababa.Backend.Services
             _repo = new OrderRepository();
         }
 
+        public Order GetRecentOrder()
+        {
+            var allOrders = _repo.GetAll();
+            return allOrders[allOrders.Count - 1];
+        }
+
+        public List<Order> GetOrdersForToday()
+        {
+            var allOrders = _repo.GetAll();
+            var today = DateTime.Today;
+            return allOrders.FindAll(o => o.DateCreated.Date == today || o.DueDate.Date >= today);
+        }
+
+        public decimal CalculateOrdersTotalAmount(List<Order> orders) 
+        {
+            decimal total = 0;
+            foreach (var order in orders)
+            {
+                total += order.TotalAmount;
+            }
+
+            return total;
+        }
+
+
         public void CreateOrder(Order order)
         {
             _repo.Add(order);
