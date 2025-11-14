@@ -68,6 +68,7 @@
     <Compile Include="Backend\Models\ApplicationSettings.cs" />
     <Compile Include="Backend\Repositories\ItemServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\OrderRepository.cs" />
+    <Compile Include="Backend\Repositories\OrderWeightItemsRepository.cs" />
     <Compile Include="Backend\Repositories\WeigthServiceCatalogRepository.cs" />
     <Compile Include="Backend\Repositories\ApplicationSettingsRepository.cs" />
     <Compile Include="Backend\Services\ApplicationSettingsService.cs" />

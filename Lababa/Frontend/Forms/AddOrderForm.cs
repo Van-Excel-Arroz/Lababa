@@ -4,31 +4,31 @@ using Lababa.Frontend.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
 {
     public partial class AddOrderForm : Form
     {
-        private readonly ApplicationSettings _appSettings;
         private readonly CustomerService _customerService;
         private readonly OrderService _orderService;
         private readonly List<Customer> _allCustomers;
+        private readonly string _currencySymbol;
+        private decimal _currentTotalAmount ;
         public event EventHandler OrderCreated;
 
         public AddOrderForm()
         {
             InitializeComponent();
 
-            _appSettings = new ApplicationSettingsService().LoadSettings();
+            var appSettings = new ApplicationSettingsService().LoadSettings();
             _customerService = new CustomerService();
             _orderService = new OrderService();
             _allCustomers = _customerService.GetAllCustomers();
+            _currencySymbol = appSettings.CurrencySymbol;
             InitializeCustomers();
-            lblTotalAmount.Text = "0";
-
-          
+            _currentTotalAmount = 0;
+            lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount}";
         }
 
         private void InitializeCustomers()
@@ -83,14 +83,14 @@ namespace Lababa.Frontend.Forms
                 total += control.GetTotalPrice();
             }
 
-            lblTotalAmount.Text = $"{_appSettings.CurrencySymbol}{total:F2}";
+            _currentTotalAmount = total;
+
+            lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
         }
 
         private void btnCreateNewOrder_Click(object sender, System.EventArgs e)
         {
-            decimal parsedTotalAmount = decimal.Parse(lblTotalAmount.Text);
-
-            if (parsedTotalAmount <= 0)
+            if (_currentTotalAmount <= 0)
             {
                 MessageBox.Show("Please add at least one service with a valid amount before creating an order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -107,10 +107,10 @@ namespace Lababa.Frontend.Forms
                 Status = OrderStatus.Pending,
                 PaymentStatus = PaymentStatus.Unpaid,
                 DueDate = dtpDueDate.Value,
-                TotalAmount = parsedTotalAmount,
+                TotalAmount = _currentTotalAmount,
                 CustomerId = cmbCustomers.SelectedValue is Customer selectedCustomer ? selectedCustomer.Id : System.Guid.Empty
             };
-
+                
             _orderService.CreateOrder(newOrder);
             OrderCreated?.Invoke(this, EventArgs.Empty);
             this.Close();
