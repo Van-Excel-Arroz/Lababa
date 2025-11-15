@@ -53,7 +53,7 @@
             this.lblCreatedDate = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPaymentStatus = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -316,7 +316,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblCreatedDate, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dtpDueDate, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbPaymentStatus, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 183);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
@@ -402,14 +402,15 @@
             this.dtpDueDate.Size = new System.Drawing.Size(100, 22);
             this.dtpDueDate.TabIndex = 8;
             // 
-            // comboBox1
+            // cmbPaymentStatus
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(327, 25);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 9;
+            this.cmbPaymentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentStatus.FormattingEnabled = true;
+            this.cmbPaymentStatus.Location = new System.Drawing.Point(327, 25);
+            this.cmbPaymentStatus.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.cmbPaymentStatus.Name = "cmbPaymentStatus";
+            this.cmbPaymentStatus.Size = new System.Drawing.Size(100, 21);
+            this.cmbPaymentStatus.TabIndex = 9;
             // 
             // label6
             // 
@@ -651,7 +652,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnAddService;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPaymentStatus;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;

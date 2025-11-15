@@ -1,6 +1,8 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
+using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
@@ -20,6 +22,8 @@ namespace Lababa.Frontend.Forms
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
 
             InitializeExistingServices();
+            InitializeCustomerDetails();
+            InitializePaymentStatus();
         }
 
         private void btnAddService_Click(object sender, System.EventArgs e)
@@ -92,7 +96,26 @@ namespace Lababa.Frontend.Forms
         private void InitializeCustomerDetails()
         {
             var customer = new CustomerService().GetCustomerById(_order.CustomerId);
+            lblCustomerName.Text = customer.FullName;
+            lblPhoneNumber.Text = customer.PhoneNumber;
+            lblAddress.Text = string.IsNullOrEmpty(customer.Address) ? "N/A" : customer.Address;
+        }
 
+        private void InitializePaymentStatus()
+        {
+            var paymentStatuses = Enum.GetValues(typeof(PaymentStatus)).Cast<PaymentStatus>();
+
+            var dataSource = paymentStatuses.Select(ps => new
+            {
+                Text = ps.ToString(), 
+                Value = ps            
+            }).ToList();
+
+            cmbPaymentStatus.DataSource = dataSource;
+            cmbPaymentStatus.DisplayMember = "Text";  
+            cmbPaymentStatus.ValueMember = "Value";
+
+            cmbPaymentStatus.SelectedValue = _order.PaymentStatus;
         }
 
         private void RecalculateTotalAmount()
