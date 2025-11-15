@@ -18,6 +18,11 @@ namespace Lababa.Backend.Services
             _catalog = new WeightServiceCatalogService().GetWeightServiceCatalog();
         }
 
+        public List<OrderWeightItem> GetAllOrderWeightItems(Guid orderId)
+        {
+            return _repo.GetAll().Where(owi => owi.OrderId == orderId).ToList();
+        }
+
         public void CreateOrderWeightItem(OrderWeightItem item)
         {
             if (_catalog.Any(s => s.Id == item.ServiceId))

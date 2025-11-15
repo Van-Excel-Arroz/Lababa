@@ -1,5 +1,7 @@
 ﻿using Lababa.Backend.Models;
+using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
@@ -9,21 +11,22 @@ namespace Lababa.Frontend.Forms
         private readonly Order _order;
         private decimal _currentTotalAmount;
         private string _currencySymbol;
+
         public OrderDetailsForm(Order order, decimal currentTotalAmount, string currencySymbol)
         {
             InitializeComponent();
             _currentTotalAmount = currentTotalAmount;
             _currencySymbol = currencySymbol;
             _order = order;
-
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
+
+            InitializeExistingServices();
         }
 
         private void btnAddService_Click(object sender, System.EventArgs e)
         {
             if (tabServices.SelectedIndex == 0)
             {
-
                 var weightServiceControl = new WeightServiceControl();
                 weightServiceControl.RemoveClicked += (_, __) =>
                 {
@@ -34,7 +37,6 @@ namespace Lababa.Frontend.Forms
                 weightServiceControl.WeightChanged += (_, __) => RecalculateTotalAmount();
 
                 flpWeightServices.Controls.Add(weightServiceControl);
-
             }
             else
             {
@@ -50,6 +52,30 @@ namespace Lababa.Frontend.Forms
             }
             RecalculateTotalAmount();
         }
+
+        private void InitializeExistingServices()
+        {
+            var orderWeightItems = new OrderWeightItemService().GetAllOrderWeightItems(_order.Id);
+
+            MessageBox.Show($"Count: {orderWeightItems.Count} \nOrder Id: {_order.Id}");
+
+            foreach (var orderWeightItem in orderWeightItems)
+            {
+                var weightServiceControl = new WeightServiceControl(orderWeightItem);
+                weightServiceControl.RemoveClicked += (_, __) =>
+                {
+                    flpWeightServices.Controls.Remove(weightServiceControl);
+                    RecalculateTotalAmount();
+                };
+                weightServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
+                weightServiceControl.WeightChanged += (_, __) => RecalculateTotalAmount();
+
+                flpWeightServices.Controls.Add(weightServiceControl);
+
+                MessageBox.Show("Test");
+            }
+        }
+
 
         private void RecalculateTotalAmount()
         {

@@ -71,15 +71,15 @@ namespace Lababa.Backend.Repositories
         {
             var parts = line.Split(_delimeter);
 
-            if (parts.Length != 4)
+            if (parts.Length != 5)
             {
                 Console.WriteLine($"Order weight item line skipped: {line}");
                 return null;
             }
 
-            if (!Guid.TryParse(parts[0], out Guid id))
+            if (!Guid.TryParse(parts[0], out Guid serviceId))
             {
-                Console.WriteLine($"Invalid order weight item Id in line: {line}");  
+                Console.WriteLine($"Invalid order weight item ServiceId in line: {line}");  
                 return null;
             }
 
@@ -88,7 +88,7 @@ namespace Lababa.Backend.Repositories
                 Console.WriteLine($"Invalid order weight item PricePerUnit in line: {line}");
                 return null;
             }
-
+                
             if (!double.TryParse(parts[3], out double weight))
             {
                 Console.WriteLine($"Invalid order weight item Weight in line: {line}");
@@ -104,7 +104,7 @@ namespace Lababa.Backend.Repositories
 
             return new OrderWeightItem
             {
-                ServiceId = id,
+                ServiceId = serviceId,
                 ServiceNameAtOrderTime= parts[1].Trim(),
                 PricePerUnitAtOrderTime = pricePerUnit,
                 Weight = weight,
