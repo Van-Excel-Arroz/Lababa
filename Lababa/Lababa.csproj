@@ -111,6 +111,12 @@
     <Compile Include="Frontend\Forms\OrderDetailsForm.Designer.cs">
       <DependentUpon>OrderDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\Forms\PrintOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Forms\PrintOrderForm.Designer.cs">
+      <DependentUpon>PrintOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Forms\SearchOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Forms\OrderDetailsForm.resx">
       <DependentUpon>OrderDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Forms\PrintOrderForm.resx">
+      <DependentUpon>PrintOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Forms\SearchOrderForm.resx">
       <DependentUpon>SearchOrderForm.cs</DependentUpon>

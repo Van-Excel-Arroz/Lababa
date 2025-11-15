@@ -185,35 +185,35 @@
             // tsmiPending
             // 
             this.tsmiPending.Name = "tsmiPending";
-            this.tsmiPending.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPending.Size = new System.Drawing.Size(133, 22);
             this.tsmiPending.Text = "Pending";
             this.tsmiPending.Click += new System.EventHandler(this.tsmiPending_Click);
             // 
             // tsmiInProgress
             // 
             this.tsmiInProgress.Name = "tsmiInProgress";
-            this.tsmiInProgress.Size = new System.Drawing.Size(180, 22);
+            this.tsmiInProgress.Size = new System.Drawing.Size(133, 22);
             this.tsmiInProgress.Text = "In Progress";
             this.tsmiInProgress.Click += new System.EventHandler(this.tsmiInProgress_Click);
             // 
             // tsmiReady
             // 
             this.tsmiReady.Name = "tsmiReady";
-            this.tsmiReady.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReady.Size = new System.Drawing.Size(133, 22);
             this.tsmiReady.Text = "Ready";
             this.tsmiReady.Click += new System.EventHandler(this.tsmiReady_Click);
             // 
             // tsmiCompleted
             // 
             this.tsmiCompleted.Name = "tsmiCompleted";
-            this.tsmiCompleted.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCompleted.Size = new System.Drawing.Size(133, 22);
             this.tsmiCompleted.Text = "Completed";
             this.tsmiCompleted.Click += new System.EventHandler(this.tsmiCompleted_Click);
             // 
             // tsmiCancelled
             // 
             this.tsmiCancelled.Name = "tsmiCancelled";
-            this.tsmiCancelled.Size = new System.Drawing.Size(180, 22);
+            this.tsmiCancelled.Size = new System.Drawing.Size(133, 22);
             this.tsmiCancelled.Text = "Cancelled";
             this.tsmiCancelled.Click += new System.EventHandler(this.tsmiCancelled_Click);
             // 
@@ -254,6 +254,7 @@
             this.tsmiPrint.Name = "tsmiPrint";
             this.tsmiPrint.Size = new System.Drawing.Size(180, 22);
             this.tsmiPrint.Text = "Print";
+            this.tsmiPrint.Click += new System.EventHandler(this.tsmiPrint_Click);
             // 
             // tsmiDelete
             // 

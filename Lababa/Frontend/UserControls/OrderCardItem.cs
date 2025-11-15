@@ -147,6 +147,12 @@ namespace Lababa.Frontend.UserControls
             orderDetailsForm.Show();
         }
 
+        private void tsmiPrint_Click(object sender, EventArgs e)
+        {
+            var printOrderForm = new PrintOrderForm();
+            printOrderForm.Show();
+        }
+
         private void tsmiPaid_Click(object sender, EventArgs e)
         {
             _order.PaymentStatus = PaymentStatus.Paid;
