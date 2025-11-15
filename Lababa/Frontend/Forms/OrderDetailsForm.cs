@@ -89,6 +89,12 @@ namespace Lababa.Frontend.Forms
         }
 
 
+        private void InitializeCustomerDetails()
+        {
+            var customer = new CustomerService().GetCustomerById(_order.CustomerId);
+
+        }
+
         private void RecalculateTotalAmount()
         {
             decimal total = 0;

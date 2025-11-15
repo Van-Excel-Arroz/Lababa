@@ -7,11 +7,11 @@ namespace Lababa.Backend.Services
 {
     public class CustomerService
     {
-        private readonly CustomerRepository _customerRepository;
+        private readonly CustomerRepository _repo;
 
         public CustomerService()
         {
-            _customerRepository = new CustomerRepository();
+            _repo = new CustomerRepository();
         }
 
         public void AddCustomer(Customer customer)
@@ -27,17 +27,17 @@ namespace Lababa.Backend.Services
             }
 
             customer.DateCreated = DateTime.Now;
-            _customerRepository.Add(customer);
+            _repo.Add(customer);
         }
 
         public List<Customer> GetAllCustomers()
         {
-            return _customerRepository.GetAll();
+            return _repo.GetAll();
         }
 
         public Customer GetCustomerById(Guid id)
         {
-            return _customerRepository.GetById(id);
+            return _repo.GetById(id);
         }
 
         public void UpdateCustomer(Customer customer)
@@ -51,12 +51,12 @@ namespace Lababa.Backend.Services
             {
                 throw new ArgumentException("Phone number is required");
             }
-            _customerRepository.Update(customer);
+            _repo.Update(customer);
         }
 
         public void DeleteCustomer(Guid id)
         {
-            _customerRepository.Delete(id);
+            _repo.Delete(id);
         }
     }
 }
