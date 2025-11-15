@@ -144,6 +144,7 @@ namespace Lababa.Frontend.Forms
                 Status = OrderStatus.Pending,
                 PaymentStatus = PaymentStatus.Unpaid,
                 DueDate = dtpDueDate.Value,
+                DateCreated = DateTime.Now,
                 TotalAmount = _currentTotalAmount,
                 CustomerId = cmbCustomers.SelectedValue is Customer selectedCustomer ? selectedCustomer.Id : System.Guid.Empty
             };

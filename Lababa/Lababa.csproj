@@ -149,6 +149,12 @@
     <Compile Include="Frontend\UserControls\ItemServiceControl.Designer.cs">
       <DependentUpon>ItemServiceControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\UserControls\ItemServicePrintDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\ItemServicePrintDetail.Designer.cs">
+      <DependentUpon>ItemServicePrintDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\UserControls\OrderCardItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +166,12 @@
     </Compile>
     <Compile Include="Frontend\UserControls\WeightServiceControl.Designer.cs">
       <DependentUpon>WeightServiceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\UserControls\WeightServicePrintDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\WeightServicePrintDetail.Designer.cs">
+      <DependentUpon>WeightServicePrintDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\WeightServicesStep.cs">
       <SubType>UserControl</SubType>
@@ -229,11 +241,17 @@
     <EmbeddedResource Include="Frontend\UserControls\ItemServiceControl.resx">
       <DependentUpon>ItemServiceControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\ItemServicePrintDetail.resx">
+      <DependentUpon>ItemServicePrintDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\OrderCardItem.resx">
       <DependentUpon>OrderCardItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\WeightServiceControl.resx">
       <DependentUpon>WeightServiceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\WeightServicePrintDetail.resx">
+      <DependentUpon>WeightServicePrintDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\WeightServicesStep.resx">
       <DependentUpon>WeightServicesStep.cs</DependentUpon>

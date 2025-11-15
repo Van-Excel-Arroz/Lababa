@@ -13,6 +13,7 @@ namespace Lababa.Frontend.UserControls
         private readonly Customer _customer;
         private readonly OrderService _orderService;
         private readonly string _currencySymbol;
+        private readonly ApplicationSettings _appSettings;
         public event EventHandler OrderCardUpdated;
 
         public OrderCardItem(Order order)
@@ -24,6 +25,7 @@ namespace Lababa.Frontend.UserControls
             _orderService = new OrderService();
             _customer = customerService.GetCustomerById(order.CustomerId);
             _currencySymbol = appSettings.CurrencySymbol;
+            _appSettings = appSettings;
 
             SetupInteractiveEffects();
             AddDoubleClickToAllControls(this);
@@ -149,7 +151,7 @@ namespace Lababa.Frontend.UserControls
 
         private void tsmiPrint_Click(object sender, EventArgs e)
         {
-            var printOrderForm = new PrintOrderForm();
+            var printOrderForm = new PrintOrderForm(_order, _appSettings, _customer.FullName);
             printOrderForm.Show();
         }
 
