@@ -13,7 +13,7 @@ namespace Lababa.Frontend.UserControls
         private readonly Customer _customer;
         private readonly OrderService _orderService;
         private readonly string _currencySymbol;
-        public event EventHandler ToolStripMenuItemClicked;
+        public event EventHandler OrderCardUpdated;
 
         public OrderCardItem(Order order)
         {
@@ -136,12 +136,14 @@ namespace Lababa.Frontend.UserControls
         private void OrderCardItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             var orderDetailsForm = new OrderDetailsForm(_order, _order.TotalAmount, _currencySymbol);
+            orderDetailsForm.OrderUpdated += (_, __) => OrderCardUpdated?.Invoke(this, EventArgs.Empty);
             orderDetailsForm.Show();
         }
 
         private void viewDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             var orderDetailsForm = new OrderDetailsForm(_order, _order.TotalAmount, _currencySymbol);
+            orderDetailsForm.OrderUpdated += (_, __) => OrderCardUpdated?.Invoke(this, EventArgs.Empty);
             orderDetailsForm.Show();
         }
 
@@ -149,62 +151,62 @@ namespace Lababa.Frontend.UserControls
         {
             _order.PaymentStatus = PaymentStatus.Paid;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiUnpaid_Click(object sender, System.EventArgs e)
         {
             _order.PaymentStatus = PaymentStatus.Unpaid;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiRefunded_Click(object sender, EventArgs e)
         {
             _order.PaymentStatus = PaymentStatus.Refunded;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiDelete_Click(object sender, EventArgs e)
         {
             _orderService.DeleteOrder(_order.Id);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiPending_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Pending;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiInProgress_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.InProgress;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiReady_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Ready;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiCompleted_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Completed;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         private void tsmiCancelled_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Cancelled;
             _orderService.UpdateOrder(_order);
-            ToolStripMenuItemClicked?.Invoke(this, EventArgs.Empty);
+            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
         }
     }
 }

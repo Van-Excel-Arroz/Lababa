@@ -40,7 +40,7 @@ namespace Lababa.Frontend.Forms
             {
                 var orderCardItem = new OrderCardItem(order);
 
-                orderCardItem.ToolStripMenuItemClicked += (_, __) => LoadOrders();
+                orderCardItem.OrderCardUpdated += (_, __) => LoadOrders();
                 int desiredWidth = 0;
 
                 switch (order.Status)

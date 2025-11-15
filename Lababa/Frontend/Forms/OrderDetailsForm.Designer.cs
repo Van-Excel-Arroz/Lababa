@@ -156,6 +156,7 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnConfirmOrder
             // 
@@ -173,6 +174,7 @@
             this.btnConfirmOrder.TabIndex = 1;
             this.btnConfirmOrder.Text = "Confirm Order";
             this.btnConfirmOrder.UseVisualStyleBackColor = false;
+            this.btnConfirmOrder.Click += new System.EventHandler(this.btnConfirmOrder_Click);
             // 
             // panel4
             // 

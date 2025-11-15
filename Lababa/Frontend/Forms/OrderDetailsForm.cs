@@ -2,6 +2,7 @@
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,6 +13,9 @@ namespace Lababa.Frontend.Forms
         private readonly Order _order;
         private decimal _currentTotalAmount;
         private string _currencySymbol;
+        private List<WeightService> _currentWeightServicesAdded;
+        private List<ItemService> _currentItemtServicesAdded;
+        public event EventHandler OrderUpdated;
 
         public OrderDetailsForm(Order order, decimal currentTotalAmount, string currencySymbol)
         {
@@ -20,6 +24,7 @@ namespace Lababa.Frontend.Forms
             _currencySymbol = currencySymbol;
             _order = order;
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
+            dtpDueDate.Value = _order.DueDate;
 
             InitializeExistingServices();
             InitializeCustomerDetails();
@@ -152,6 +157,56 @@ namespace Lababa.Frontend.Forms
             _currentTotalAmount = total;
 
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnConfirmOrder_Click(object sender, EventArgs e)
+        {
+            var orderService = new OrderService();
+
+            _order.DueDate = dtpDueDate.Value;
+            _order.PaymentStatus = (PaymentStatus)cmbPaymentStatus.SelectedValue;
+            _order.Status = (OrderStatus)cmbOrderStatus.SelectedValue;
+            _order.TotalAmount = _currentTotalAmount;
+
+            orderService.UpdateOrder(_order);
+
+            var orderWeightItemService = new OrderWeightItemService();
+            var orderItemItemService = new OrderItemItemService();
+
+            foreach (WeightServiceControl control in flpWeightServices.Controls)
+            {
+                var orderWeightItem = new OrderWeightItem()
+                {
+                    ServiceId = control.ServiceId,
+                    ServiceNameAtOrderTime = control.ServiceName,
+                    PricePerUnitAtOrderTime = control.PricePerUnit,
+                    Weight = control.Weight,
+                    OrderId = _order.Id,
+                };
+
+                orderWeightItemService.CreateOrderWeightItem(orderWeightItem);
+            }
+
+            foreach (ItemServiceControl control in flpItemServices.Controls)
+            {
+                var orderItemItem = new OrderItemItem()
+                {
+                    ServiceId = control.ServiceId,
+                    ItemNameAtOrderTime = control.ItemName,
+                    PricePerPieceAtOrderTime = control.PricePerPiece,
+                    Quantity = control.Quantity,
+                    OrderId = _order.Id
+                };
+
+                orderItemItemService.CreateOrderItemItem(orderItemItem);
+            }
+
+            OrderUpdated?.Invoke(this, EventArgs.Empty);
         }
     }
 }
