@@ -104,9 +104,9 @@ namespace Lababa.Backend.Repositories
 
             return new OrderWeightItem
             {
-                Id = id,
-                ServiceName= parts[1].Trim(),
-                PricePerUnit = pricePerUnit,
+                ServiceId = id,
+                ServiceNameAtOrderTime= parts[1].Trim(),
+                PricePerUnitAtOrderTime = pricePerUnit,
                 Weight = weight,
                 OrderId = orderId
             };
@@ -114,9 +114,9 @@ namespace Lababa.Backend.Repositories
 
         private string ToCsvLine(OrderWeightItem orderWeightItem)
         {
-            return $"{orderWeightItem.Id}{_delimeter}" +
-                   $"{orderWeightItem.ServiceName}{_delimeter}" +
-                   $"{orderWeightItem.PricePerUnit}{_delimeter}" +
+            return $"{orderWeightItem.ServiceId}{_delimeter}" +
+                   $"{orderWeightItem.ServiceNameAtOrderTime}{_delimeter}" +
+                   $"{orderWeightItem.PricePerUnitAtOrderTime}{_delimeter}" +
                    $"{orderWeightItem.Weight}{_delimeter}" +
                    $"{orderWeightItem.OrderId}";
         }
@@ -129,14 +129,15 @@ namespace Lababa.Backend.Repositories
         public OrderWeightItem GetById(Guid id)
         {
             var orderWeightItems = LoadAllEntities();
-            return orderWeightItems.FirstOrDefault(o => o.Id == id);
+            return orderWeightItems.FirstOrDefault(o => o.ServiceId == id);
         }
 
         public void Add(OrderWeightItem orderWeightItem)
         {
-            if (orderWeightItem.Id == Guid.Empty)
+            if (orderWeightItem.ServiceId == Guid.Empty)
             {
-                orderWeightItem.Id = Guid.NewGuid();
+                throw new KeyNotFoundException($"Order weight item no id {orderWeightItem.ServiceNameAtOrderTime} for adding: service id {orderWeightItem.ServiceId}");
+
             }
 
             var orderWeightItems = LoadAllEntities();
@@ -147,17 +148,17 @@ namespace Lababa.Backend.Repositories
         public void Update(OrderWeightItem orderWeightItem)
         {
             var orderWeightItems = LoadAllEntities();
-            var existingItem = orderWeightItems.FirstOrDefault(o => o.Id == orderWeightItem.Id);
+            var existingItem = orderWeightItems.FirstOrDefault(o => o.ServiceId == orderWeightItem.ServiceId);
             if (existingItem != null)
             {
-                existingItem.ServiceName = orderWeightItem.ServiceName;
-                existingItem.PricePerUnit = orderWeightItem.PricePerUnit;
+                existingItem.ServiceNameAtOrderTime = orderWeightItem.ServiceNameAtOrderTime;
+                existingItem.PricePerUnitAtOrderTime = orderWeightItem.PricePerUnitAtOrderTime;
                 existingItem.Weight = orderWeightItem.Weight;
                 SaveAllEntities(orderWeightItems);
             }
             else
             {
-                throw new KeyNotFoundException($"Order weight item with Id {orderWeightItem.Id} not found for update");
+                throw new KeyNotFoundException($"Order weight item with Id {orderWeightItem.ServiceId} not found for update");
             }
         }
 
@@ -165,7 +166,7 @@ namespace Lababa.Backend.Repositories
         {
             var orderWeightItems = LoadAllEntities();
             int initialCount = orderWeightItems.Count;
-            orderWeightItems.RemoveAll(o => o.Id == id);
+            orderWeightItems.RemoveAll(o => o.ServiceId == id);
             if (orderWeightItems.Count < initialCount)
             {
                 SaveAllEntities(orderWeightItems);

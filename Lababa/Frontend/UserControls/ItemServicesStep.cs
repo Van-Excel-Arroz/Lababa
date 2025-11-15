@@ -55,6 +55,7 @@ namespace Lababa.Frontend.UserControls
             {
                 ItemService serviceToRemove = _itemServiceCatalog[e.RowIndex];
                 _itemServiceCatalog.Remove(serviceToRemove);
+                _service.DeleteItemService(serviceToRemove.Id);
             }
         }
 
@@ -92,7 +93,7 @@ namespace Lababa.Frontend.UserControls
 
         public void SaveStepData()
         {
-            _service.SaveCatalog(_itemServiceCatalog.ToList());
+            _service.SaveItemServiceCatalog(_itemServiceCatalog.ToList());
         }
     }
 }

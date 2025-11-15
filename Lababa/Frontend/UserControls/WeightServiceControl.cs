@@ -10,10 +10,16 @@ namespace Lababa.Frontend.UserControls
     public partial class WeightServiceControl : UserControl
     {
         private readonly ApplicationSettings _appSettings;
-        private readonly BindingList<WeightService> _weightServiceCatalog;
         public event EventHandler RemoveClicked;
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
+        public Guid ServiceId 
+        { 
+            get
+            {
+                return cmbWeightServiceCatalog.SelectedItem is WeightService weightService ? weightService.Id : Guid.Empty;
+            }
+        }
         public string ServiceName    
         {
             get
@@ -44,13 +50,31 @@ namespace Lababa.Frontend.UserControls
 
             _appSettings = new ApplicationSettingsService().LoadSettings();
             var catalog = new WeightServiceCatalogService().GetWeightServiceCatalog();
-            _weightServiceCatalog = new BindingList<WeightService>(catalog);
-            cmbWeightServiceCatalog.DataSource = _weightServiceCatalog;
-            cmbWeightServiceCatalog.DisplayMember = "ServiceName"; 
+            var weightServiceCatalog = new BindingList<WeightService>(catalog);
+            cmbWeightServiceCatalog.DataSource = weightServiceCatalog;
+            cmbWeightServiceCatalog.DisplayMember = "ServiceName";
+            cmbWeightServiceCatalog.ValueMember = "Id";
+            cmbWeightServiceCatalog.SelectedIndex = 0;
 
             AddInteractiveEffectsRecursively(this);
             InitializeLabels();
         }
+
+        public WeightServiceControl(OrderWeightItem orderWeightItem)
+        {
+            InitializeComponent();
+
+            _appSettings = new ApplicationSettingsService().LoadSettings();
+            var catalog = new WeightServiceCatalogService().GetWeightServiceCatalog();
+            var weightServiceCatalog = new BindingList<WeightService>(catalog);
+            cmbWeightServiceCatalog.DataSource = weightServiceCatalog;
+            cmbWeightServiceCatalog.DisplayMember = "ServiceName";
+            cmbWeightServiceCatalog.SelectedIndex = 0;
+
+            AddInteractiveEffectsRecursively(this);
+            InitializeLabels();
+        }
+
 
         public decimal GetTotalPrice()
         {
@@ -59,6 +83,10 @@ namespace Lababa.Frontend.UserControls
                 return weightService.PricePerUnit * Convert.ToDecimal(nudWeight.Value);
             }
             return 0;
+        }
+
+        private void InitializeDefaultValues(OrderWeightItem orderWeightItem)
+        {
         }
 
         private void InitializeLabels()

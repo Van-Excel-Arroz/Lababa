@@ -107,10 +107,22 @@ namespace Lababa.Frontend.Forms
 
             foreach (WeightServiceControl control in flpWeightServices.Controls) 
             {
+                var serviceId = control.ServiceId;
+                var serviceName = control.ServiceName;
+
+                if (serviceId == Guid.Empty)
+                {
+                    MessageBox.Show($"Warning: Service '{serviceName}' has an empty GUID!\n" +
+                                   $"SelectedItem: {control.ServiceName}\n");
+                    return;
+                }
+
+
                 var orderWeightItem = new OrderWeightItem()
                 {
-                    ServiceName = control.ServiceName,
-                    PricePerUnit = control.PricePerUnit,
+                    ServiceId = control.ServiceId,
+                    ServiceNameAtOrderTime = control.ServiceName,
+                    PricePerUnitAtOrderTime = control.PricePerUnit,
                     Weight = control.Weight,
                     OrderId = orderId,
                 };
@@ -121,9 +133,10 @@ namespace Lababa.Frontend.Forms
             foreach (ItemServiceControl control in flpItemServices.Controls)
             {
                 var orderItemItem = new OrderItemItem() 
-                { 
-                    ItemName = control.ItemName,
-                    PricePerPiece = control.PricePerPiece,
+                {
+                    ServiceId = control.ServiceId,
+                    ItemNameAtOrderTime = control.ItemName,
+                    PricePerPieceAtOrderTime = control.PricePerPiece,
                     Quantity = control.Quantity,
                     OrderId = orderId
                 };

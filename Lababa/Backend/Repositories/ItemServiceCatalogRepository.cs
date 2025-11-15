@@ -90,6 +90,7 @@ namespace Lababa.Backend.Repositories
 
             return new ItemService
             {
+                Id = id,
                 ItemName = parts[1].Trim(),
                 PricePerPiece = pricePerPiece,
             };
@@ -102,15 +103,23 @@ namespace Lababa.Backend.Repositories
                    $"{itemService.PricePerPiece}";
         }
 
-
-        public void SaveAll(List<ItemService> itemServiceCatalog)
-        {
-            SaveAllEntities(itemServiceCatalog);
-        }
-
         public List<ItemService> GetAll()
         {
             return LoadAllEntities();
+        }
+
+        public void SaveAll(List<ItemService> itemServices)
+        {
+            var itemServicesWithIds = itemServices.Select(i =>
+            {
+                if (i.Id == Guid.Empty)
+                {
+                    i.Id = Guid.NewGuid();
+                }
+                return i;
+            });
+
+            SaveAllEntities(itemServicesWithIds.ToList());
         }
 
         public ItemService GetById(Guid id)

@@ -96,6 +96,7 @@ namespace Lababa.Backend.Repositories
 
             return new WeightService
             {
+                Id = id,
                 ServiceName = parts[1].Trim(),
                 PricePerUnit = pricePerUnit,
                 MinWeightPerLoad = minWeightPerLoad
@@ -110,14 +111,22 @@ namespace Lababa.Backend.Repositories
                    $"{weightService.MinWeightPerLoad}";
         }
 
-        public void SaveAll(List<WeightService> weightServiceCatalog)
-        {
-            SaveAllEntities(weightServiceCatalog);
-        }
-
         public List<WeightService> GetAll()
         {
             return LoadAllEntities();
+        }
+
+        public void SaveAll(List<WeightService> weightServices)
+        {
+            var weightServicesWithIds = weightServices.Select(ws =>
+            {
+                if (ws.Id == Guid.Empty) 
+                {
+                    ws.Id = Guid.NewGuid();
+                }
+                return ws;
+            });
+            SaveAllEntities(weightServicesWithIds.ToList());
         }
 
         public WeightService GetById(Guid id)

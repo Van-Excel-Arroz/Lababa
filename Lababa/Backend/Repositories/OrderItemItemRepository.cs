@@ -103,9 +103,9 @@ namespace Lababa.Backend.Repositories
 
             return new OrderItemItem
             {
-                Id = id,
-                ItemName = parts[1].Trim(), 
-                PricePerPiece = pricePerPiece, 
+                ServiceId = id,
+                ItemNameAtOrderTime = parts[1].Trim(), 
+                PricePerPieceAtOrderTime = pricePerPiece, 
                 Quantity = quantity,        
                 OrderId = orderId
             };
@@ -113,9 +113,9 @@ namespace Lababa.Backend.Repositories
 
         private string ToCsvLine(OrderItemItem orderItemItem)
         {
-            return $"{orderItemItem.Id}{_delimeter}" +
-                   $"{orderItemItem.ItemName}{_delimeter}" +    
-                   $"{orderItemItem.PricePerPiece}{_delimeter}" + 
+            return $"{orderItemItem.ServiceId}{_delimeter}" +
+                   $"{orderItemItem.ItemNameAtOrderTime}{_delimeter}" +    
+                   $"{orderItemItem.PricePerPieceAtOrderTime}{_delimeter}" + 
                    $"{orderItemItem.Quantity}{_delimeter}" +     
                    $"{orderItemItem.OrderId}";
         }
@@ -128,14 +128,14 @@ namespace Lababa.Backend.Repositories
         public OrderItemItem GetById(Guid id)
         {
             var orderItemItems = LoadAllEntities();
-            return orderItemItems.FirstOrDefault(o => o.Id == id);
+            return orderItemItems.FirstOrDefault(o => o.ServiceId == id);
         }
 
         public void Add(OrderItemItem orderItemItem)
         {
-            if (orderItemItem.Id == Guid.Empty)
+            if (orderItemItem.ServiceId == Guid.Empty)
             {
-                orderItemItem.Id = Guid.NewGuid();
+                throw new KeyNotFoundException($"Order item no id {orderItemItem.ItemNameAtOrderTime} for adding");
             }
 
             var orderItemItems = LoadAllEntities();
@@ -146,18 +146,18 @@ namespace Lababa.Backend.Repositories
         public void Update(OrderItemItem orderItemItem)
         {
             var orderItemItems = LoadAllEntities();
-            var existingItem = orderItemItems.FirstOrDefault(o => o.Id == orderItemItem.Id);
+            var existingItem = orderItemItems.FirstOrDefault(o => o.ServiceId == orderItemItem.ServiceId);
             if (existingItem != null)
             {
-                existingItem.ItemName = orderItemItem.ItemName;     
+                existingItem.ItemNameAtOrderTime = orderItemItem.ItemNameAtOrderTime;     
                 existingItem.Quantity = orderItemItem.Quantity;     
-                existingItem.PricePerPiece = orderItemItem.PricePerPiece; 
+                existingItem.PricePerPieceAtOrderTime = orderItemItem.PricePerPieceAtOrderTime; 
                 existingItem.OrderId = orderItemItem.OrderId;       
                 SaveAllEntities(orderItemItems);
             }
             else
             {
-                throw new KeyNotFoundException($"Order item item with Id {orderItemItem.Id} not found for update");
+                throw new KeyNotFoundException($"Order item item with Id {orderItemItem.ServiceId} not found for update");
             }
         }
 
@@ -165,7 +165,7 @@ namespace Lababa.Backend.Repositories
         {
             var orderItemItems = LoadAllEntities();
             int initialCount = orderItemItems.Count;
-            orderItemItems.RemoveAll(o => o.Id == id);
+            orderItemItems.RemoveAll(o => o.ServiceId == id);
             if (orderItemItems.Count < initialCount)
             {
                 SaveAllEntities(orderItemItems);

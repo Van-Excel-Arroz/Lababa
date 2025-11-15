@@ -1,5 +1,6 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Repositories;
+using System;
 using System.Collections.Generic;
 
 namespace Lababa.Backend.Services
@@ -12,9 +13,22 @@ namespace Lababa.Backend.Services
             _repo = new ItemServiceCatalogRepository();
         }
 
-        public void SaveCatalog(List<ItemService> itemServiceCatalog)
+        public void SaveItemServiceCatalog(List<ItemService> itemServiceCatalog)
         {
             _repo.SaveAll(itemServiceCatalog);
+        }
+
+        public void CreateItemServiceCatalog(List<ItemService> itemServiceCatalog)
+        {
+            foreach (var itemService in itemServiceCatalog)
+            {
+                _repo.Add(itemService);
+            }
+        }
+
+        public void DeleteItemService(Guid id)
+        {
+            _repo.Delete(id);
         }
 
         public List<ItemService> GetItemServiceCatalog()

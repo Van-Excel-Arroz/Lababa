@@ -15,6 +15,14 @@ namespace Lababa.Frontend.UserControls
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
 
+        public Guid ServiceId
+        { 
+            get
+            {
+                return cmbItemServiceCatalog.SelectedItem is ItemService itemService ? itemService.Id: Guid.Empty;
+            }
+        }
+
         public string ItemName
         {
             get

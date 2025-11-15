@@ -9,13 +9,13 @@ namespace Lababa.Frontend.UserControls
 {
     public partial class WeightServicesStep : UserControl, IWizardStep
     {
-        private readonly WeightServiceCatalogService _weightServiceCatalogService;
+        private readonly WeightServiceCatalogService _service;
         private BindingList<WeightService> _weightServiceCatalog;
 
         public WeightServicesStep()
         {
             InitializeComponent();
-            _weightServiceCatalogService = new WeightServiceCatalogService();
+            _service = new WeightServiceCatalogService();
             _weightServiceCatalog = new BindingList<WeightService>();
         }
 
@@ -23,7 +23,7 @@ namespace Lababa.Frontend.UserControls
         {
             dgvWeightServiceCatalog.AutoGenerateColumns = false;
 
-            var initialServices = _weightServiceCatalogService.GetWeightServiceCatalog();
+            var initialServices = _service.GetWeightServiceCatalog();
             _weightServiceCatalog = new BindingList<WeightService>(initialServices);
             dgvWeightServiceCatalog.DataSource = _weightServiceCatalog;
         }
@@ -97,7 +97,7 @@ namespace Lababa.Frontend.UserControls
 
         public void SaveStepData()
         {
-            _weightServiceCatalogService.SaveCatalog(_weightServiceCatalog.ToList());
+            _service.SaveWeightServiceCatalog(_weightServiceCatalog.ToList());
         }
     }
 }
