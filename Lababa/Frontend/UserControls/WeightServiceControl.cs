@@ -22,7 +22,7 @@ namespace Lababa.Frontend.UserControls
 
         public double GetWeight 
         { 
-            get { return Convert.ToDouble(nudWeight.Value); }
+            get { return Convert.ToDouble(nudWeight.Value);}
         }
 
         public WeightServiceControl()

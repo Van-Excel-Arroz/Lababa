@@ -42,7 +42,7 @@ namespace Lababa.Frontend.UserControls
             nudQuantity.Value = orderItemItem.Quantity;
         }
 
-        public void InitializeCommon()
+        private void InitializeCommon()
         {
             _appSettings = new ApplicationSettingsService().LoadSettings();
             var catalog = new ItemServiceCatalogService().GetItemServiceCatalog();
