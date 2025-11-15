@@ -24,6 +24,7 @@ namespace Lababa.Frontend.Forms
             InitializeExistingServices();
             InitializeCustomerDetails();
             InitializePaymentStatus();
+            InitializeOrderStatus(); 
         }
 
         private void btnAddService_Click(object sender, System.EventArgs e)
@@ -116,6 +117,23 @@ namespace Lababa.Frontend.Forms
             cmbPaymentStatus.ValueMember = "Value";
 
             cmbPaymentStatus.SelectedValue = _order.PaymentStatus;
+        }
+
+        private void InitializeOrderStatus()
+        {
+            var orderStatuses = Enum.GetValues(typeof(OrderStatus)).Cast<OrderStatus>();
+
+            var dataSource = orderStatuses.Select(ps => new
+            {
+                Text = ps.ToString(),
+                Value = ps
+            }).ToList();
+
+            cmbOrderStatus.DataSource = dataSource;
+            cmbOrderStatus.DisplayMember = "Text";
+            cmbOrderStatus.ValueMember = "Value";
+
+            cmbOrderStatus.SelectedValue = _order.Status;
         }
 
         private void RecalculateTotalAmount()

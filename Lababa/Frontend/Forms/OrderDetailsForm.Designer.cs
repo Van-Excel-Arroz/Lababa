@@ -46,7 +46,7 @@
             this.flpItemServices = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbOrderStatus = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -309,7 +309,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbOrderStatus, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label7, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label9, 1, 0);
@@ -328,14 +328,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(644, 60);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // comboBox2
+            // cmbOrderStatus
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(483, 25);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 10;
+            this.cmbOrderStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOrderStatus.FormattingEnabled = true;
+            this.cmbOrderStatus.Location = new System.Drawing.Point(483, 25);
+            this.cmbOrderStatus.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.cmbOrderStatus.Name = "cmbOrderStatus";
+            this.cmbOrderStatus.Size = new System.Drawing.Size(100, 21);
+            this.cmbOrderStatus.TabIndex = 10;
             // 
             // label7
             // 
@@ -653,7 +654,7 @@
         private System.Windows.Forms.Button btnAddService;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
         private System.Windows.Forms.ComboBox cmbPaymentStatus;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbOrderStatus;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
