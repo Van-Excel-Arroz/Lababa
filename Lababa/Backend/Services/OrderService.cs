@@ -39,7 +39,10 @@ namespace Lababa.Backend.Services
             decimal total = 0;
             foreach (var order in orders)
             {
-                total += order.TotalAmount;
+                if (order.PaymentStatus == PaymentStatus.Paid)
+                {
+                    total += order.TotalAmount;
+                }
             }
 
             return total;
