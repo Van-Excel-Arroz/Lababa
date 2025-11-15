@@ -601,7 +601,10 @@
             this.ClientSize = new System.Drawing.Size(724, 775);
             this.Controls.Add(this.tlpDetails);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "OrderDetailsForm";
             this.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

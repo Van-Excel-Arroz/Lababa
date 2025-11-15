@@ -221,6 +221,9 @@ namespace Lababa.Frontend.Forms
             }
 
             OrderUpdated?.Invoke(this, EventArgs.Empty);
+            this.Close();
+            MessageBox.Show("Order updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }
