@@ -1,7 +1,6 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
@@ -35,7 +34,7 @@ namespace Lababa.Frontend.Forms
                 };
                 weightServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
                 weightServiceControl.WeightChanged += (_, __) => RecalculateTotalAmount();
-
+                weightServiceControl.Width = tabServices.Width - 50;
                 flpWeightServices.Controls.Add(weightServiceControl);
             }
             else
@@ -50,14 +49,11 @@ namespace Lababa.Frontend.Forms
                 itemServiceControl.WeightChanged += (_, __) => RecalculateTotalAmount();
                 flpItemServices.Controls.Add(itemServiceControl);
             }
-            RecalculateTotalAmount();
         }
 
         private void InitializeExistingServices()
         {
             var orderWeightItems = new OrderWeightItemService().GetAllOrderWeightItems(_order.Id);
-
-            MessageBox.Show($"Count: {orderWeightItems.Count} \nOrder Id: {_order.Id}");
 
             foreach (var orderWeightItem in orderWeightItems)
             {
@@ -69,10 +65,9 @@ namespace Lababa.Frontend.Forms
                 };
                 weightServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
                 weightServiceControl.WeightChanged += (_, __) => RecalculateTotalAmount();
+                weightServiceControl.Width = tabServices.Width - 50;
 
                 flpWeightServices.Controls.Add(weightServiceControl);
-
-                MessageBox.Show("Test");
             }
         }
 
