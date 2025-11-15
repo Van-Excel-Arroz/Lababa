@@ -107,23 +107,14 @@ namespace Lababa.Frontend.Forms
 
             foreach (WeightServiceControl control in flpWeightServices.Controls) 
             {
-                var serviceId = control.ServiceId;
-                var serviceName = control.ServiceName;
-
-                if (serviceId == Guid.Empty)
-                {
-                    MessageBox.Show($"Warning: Service '{serviceName}' has an empty GUID!\n" +
-                                   $"SelectedItem: {control.ServiceName}\n");
-                    return;
-                }
-
+                var weightService = control.GetWeightService;
 
                 var orderWeightItem = new OrderWeightItem()
                 {
-                    ServiceId = control.ServiceId,
-                    ServiceNameAtOrderTime = control.ServiceName,
-                    PricePerUnitAtOrderTime = control.PricePerUnit,
-                    Weight = control.Weight,
+                    ServiceId = weightService.Id,
+                    ServiceNameAtOrderTime = weightService.ServiceName,
+                    PricePerUnitAtOrderTime = weightService.PricePerUnit,
+                    Weight = control.GetWeight,
                     OrderId = orderId,
                 };
 
@@ -132,12 +123,14 @@ namespace Lababa.Frontend.Forms
 
             foreach (ItemServiceControl control in flpItemServices.Controls)
             {
-                var orderItemItem = new OrderItemItem() 
+                var itemService = control.GetItemService;
+
+                var orderItemItem = new OrderItemItem()
                 {
-                    ServiceId = control.ServiceId,
-                    ItemNameAtOrderTime = control.ItemName,
-                    PricePerPieceAtOrderTime = control.PricePerPiece,
-                    Quantity = control.Quantity,
+                    ServiceId = itemService.Id,
+                    ItemNameAtOrderTime = itemService.ItemName,
+                    PricePerPieceAtOrderTime = itemService.PricePerPiece,
+                    Quantity = control.GetQuantity,
                     OrderId = orderId
                 };
 

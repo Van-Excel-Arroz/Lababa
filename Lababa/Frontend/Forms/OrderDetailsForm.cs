@@ -13,8 +13,8 @@ namespace Lababa.Frontend.Forms
         private readonly Order _order;
         private decimal _currentTotalAmount;
         private string _currencySymbol;
-        private List<WeightService> _currentWeightServicesAdded;
-        private List<ItemService> _currentItemtServicesAdded;
+        private List<WeightServiceControl> _initialWeightServiceControls;
+        private List<ItemServiceControl> _initialItemServiceControls;
         public event EventHandler OrderUpdated;
 
         public OrderDetailsForm(Order order, decimal currentTotalAmount, string currencySymbol)
@@ -23,9 +23,13 @@ namespace Lababa.Frontend.Forms
             _currentTotalAmount = currentTotalAmount;
             _currencySymbol = currencySymbol;
             _order = order;
+            _initialWeightServiceControls = new List<WeightServiceControl>();
+            _initialItemServiceControls = new List<ItemServiceControl>();
+
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
             dtpDueDate.Value = _order.DueDate;
 
+            
             InitializeExistingServices();
             InitializeCustomerDetails();
             InitializePaymentStatus();
@@ -78,6 +82,7 @@ namespace Lababa.Frontend.Forms
                 weightServiceControl.Width = tabServices.Width - 50;
 
                 flpWeightServices.Controls.Add(weightServiceControl);
+                _initialWeightServiceControls.Add(weightServiceControl);
             }
 
             var orderItemItems = new OrderItemItemService().GetAllOrderItemItems(_order.Id);
@@ -95,6 +100,7 @@ namespace Lababa.Frontend.Forms
                 itemServiceControl.Width = tabServices.Width - 50;
 
                 flpItemServices.Controls.Add(itemServiceControl);
+                _initialItemServiceControls.Add(itemServiceControl);
             }
         }
 
@@ -180,12 +186,16 @@ namespace Lababa.Frontend.Forms
 
             foreach (WeightServiceControl control in flpWeightServices.Controls)
             {
+                if (_initialWeightServiceControls.Contains(control)) continue;
+
+                var weightService = control.GetWeightService;
+
                 var orderWeightItem = new OrderWeightItem()
                 {
-                    ServiceId = control.ServiceId,
-                    ServiceNameAtOrderTime = control.ServiceName,
-                    PricePerUnitAtOrderTime = control.PricePerUnit,
-                    Weight = control.Weight,
+                    ServiceId = weightService.Id,
+                    ServiceNameAtOrderTime = weightService.ServiceName,
+                    PricePerUnitAtOrderTime = weightService.PricePerUnit,
+                    Weight = control.GetWeight,
                     OrderId = _order.Id,
                 };
 
@@ -194,12 +204,16 @@ namespace Lababa.Frontend.Forms
 
             foreach (ItemServiceControl control in flpItemServices.Controls)
             {
+                if (_initialItemServiceControls.Contains(control)) continue;
+
+                var itemService = control.GetItemService;
+
                 var orderItemItem = new OrderItemItem()
                 {
-                    ServiceId = control.ServiceId,
-                    ItemNameAtOrderTime = control.ItemName,
-                    PricePerPieceAtOrderTime = control.PricePerPiece,
-                    Quantity = control.Quantity,
+                    ServiceId = itemService.Id,
+                    ItemNameAtOrderTime = itemService.ItemName,
+                    PricePerPieceAtOrderTime = itemService.PricePerPiece,
+                    Quantity = control.GetQuantity,
                     OrderId = _order.Id
                 };
 

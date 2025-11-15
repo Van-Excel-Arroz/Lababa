@@ -15,36 +15,14 @@ namespace Lababa.Frontend.UserControls
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
 
-        public Guid ServiceId
-        { 
-            get
-            {
-                return cmbItemServiceCatalog.SelectedItem is ItemService itemService ? itemService.Id: Guid.Empty;
-            }
+        public ItemService GetItemService
+        {
+            get { return cmbItemServiceCatalog.SelectedItem as ItemService; }
         }
 
-        public string ItemName
+        public int GetQuantity
         {
-            get
-            {
-                return cmbItemServiceCatalog.SelectedItem is ItemService itemService ? itemService.ItemName : string.Empty;
-            }
-        }
-
-        public int Quantity
-        {
-            get
-            {
-                return Convert.ToInt16(nudQuantity.Value);
-            }
-        }
-
-        public decimal PricePerPiece
-        {
-            get
-            {
-                return cmbItemServiceCatalog.SelectedItem is ItemService itemService ? itemService.PricePerPiece : 0;
-            }
+            get { return Convert.ToInt16(nudQuantity.Value);  }
         }
 
         public ItemServiceControl()
