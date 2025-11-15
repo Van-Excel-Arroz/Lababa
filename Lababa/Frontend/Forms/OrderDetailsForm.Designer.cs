@@ -466,8 +466,8 @@
             this.tlpCustomerDetails.Name = "tlpCustomerDetails";
             this.tlpCustomerDetails.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.tlpCustomerDetails.RowCount = 2;
-            this.tlpCustomerDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.03226F));
-            this.tlpCustomerDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.96774F));
+            this.tlpCustomerDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlpCustomerDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tlpCustomerDetails.Size = new System.Drawing.Size(644, 60);
             this.tlpCustomerDetails.TabIndex = 3;
             // 
@@ -478,10 +478,10 @@
             this.lblAddress.AutoEllipsis = true;
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(429, 19);
+            this.lblAddress.Location = new System.Drawing.Point(429, 25);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblAddress.Size = new System.Drawing.Size(202, 35);
+            this.lblAddress.Size = new System.Drawing.Size(202, 30);
             this.lblAddress.TabIndex = 5;
             this.lblAddress.Text = "67th Street, New york Cityd dadasd  dasd ad ad dsa dasd";
             // 
@@ -490,7 +490,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(429, 6);
+            this.label5.Location = new System.Drawing.Point(429, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 4;
@@ -501,7 +501,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(221, 6);
+            this.label4.Location = new System.Drawing.Point(221, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 2;
@@ -511,7 +511,7 @@
             // 
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerName.Location = new System.Drawing.Point(13, 19);
+            this.lblCustomerName.Location = new System.Drawing.Point(13, 25);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblCustomerName.Size = new System.Drawing.Size(61, 20);
@@ -523,7 +523,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 6);
+            this.label2.Location = new System.Drawing.Point(13, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 0;
@@ -533,7 +533,7 @@
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(221, 19);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(221, 25);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lblPhoneNumber.Size = new System.Drawing.Size(81, 20);
