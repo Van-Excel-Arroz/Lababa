@@ -61,10 +61,10 @@
             // tlpDetails
             // 
             this.tlpDetails.ColumnCount = 4;
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.88235F));
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.11765F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.14173F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.85827F));
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tlpDetails.Controls.Add(this.label2, 2, 0);
             this.tlpDetails.Controls.Add(this.lblWeightUnit, 1, 0);
             this.tlpDetails.Controls.Add(this.label1, 0, 0);
@@ -87,7 +87,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(270, 5);
+            this.label2.Location = new System.Drawing.Point(269, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
@@ -142,7 +142,7 @@
             0,
             0});
             this.nudWeight.Name = "nudWeight";
-            this.nudWeight.Size = new System.Drawing.Size(81, 25);
+            this.nudWeight.Size = new System.Drawing.Size(80, 25);
             this.nudWeight.TabIndex = 4;
             this.nudWeight.Value = new decimal(new int[] {
             1,
@@ -158,7 +158,7 @@
             this.txtPricePerUnit.Enabled = false;
             this.txtPricePerUnit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPricePerUnit.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtPricePerUnit.Location = new System.Drawing.Point(270, 21);
+            this.txtPricePerUnit.Location = new System.Drawing.Point(269, 21);
             this.txtPricePerUnit.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.txtPricePerUnit.Name = "txtPricePerUnit";
             this.txtPricePerUnit.Size = new System.Drawing.Size(78, 25);
@@ -170,7 +170,7 @@
             this.pbxRemove.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbxRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxRemove.Image = global::Lababa.Properties.Resources.trash_2;
-            this.pbxRemove.Location = new System.Drawing.Point(359, 21);
+            this.pbxRemove.Location = new System.Drawing.Point(358, 21);
             this.pbxRemove.Name = "pbxRemove";
             this.pbxRemove.Size = new System.Drawing.Size(20, 25);
             this.pbxRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

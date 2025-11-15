@@ -9,8 +9,8 @@ namespace Lababa.Frontend.UserControls
 {
     public partial class ItemServiceControl : UserControl
     {
-        private readonly ApplicationSettings _appSettings;
-        private readonly BindingList<ItemService> _itemServiceCatalog;
+        private ApplicationSettings _appSettings;
+        private BindingList<ItemService> _itemServiceCatalog;
         public event EventHandler RemoveClicked;
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
@@ -50,12 +50,29 @@ namespace Lababa.Frontend.UserControls
         public ItemServiceControl()
         {
             InitializeComponent();
+            InitializeCommon();
+                
+            cmbItemServiceCatalog.SelectedIndex = 0;
+        }
 
+        public ItemServiceControl(OrderItemItem orderItemItem)
+        {
+            InitializeComponent();
+            InitializeCommon();
+
+            cmbItemServiceCatalog.SelectedValue = orderItemItem.ServiceId;
+            nudQuantity.Value = orderItemItem.Quantity;
+        }
+
+        public void InitializeCommon()
+        {
             _appSettings = new ApplicationSettingsService().LoadSettings();
             var catalog = new ItemServiceCatalogService().GetItemServiceCatalog();
             _itemServiceCatalog = new BindingList<ItemService>(catalog);
+
             cmbItemServiceCatalog.DataSource = _itemServiceCatalog;
             cmbItemServiceCatalog.DisplayMember = "ItemName";
+            cmbItemServiceCatalog.ValueMember = "Id";
 
             AddInteractiveEffectsRecursively(this);
         }

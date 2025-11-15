@@ -18,6 +18,12 @@ namespace Lababa.Backend.Services
             _catalog = new ItemServiceCatalogRepository().GetAll();
         }
 
+        public List<OrderItemItem> GetAllOrderItemItems(Guid orderId) 
+        {
+            return _repo.GetAll().Where(o => o.OrderId == orderId).ToList();
+        }
+
+
         public void CreateOrderItemItem(OrderItemItem item)
         {
             if (_catalog.Any(s => Guid.Equals(s.Id, item.ServiceId)))

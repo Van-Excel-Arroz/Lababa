@@ -55,10 +55,7 @@ namespace Lababa.Frontend.UserControls
             InitializeComponent();
             InitializeCommon();
 
-            if (cmbWeightServiceCatalog.Items.Count > 0)
-            {
-                cmbWeightServiceCatalog.SelectedIndex = 0;
-            }
+            cmbWeightServiceCatalog.SelectedIndex = 0;
         }
 
         public WeightServiceControl(OrderWeightItem orderWeightItem)
@@ -67,24 +64,6 @@ namespace Lababa.Frontend.UserControls
             InitializeCommon();
 
             cmbWeightServiceCatalog.SelectedValue = orderWeightItem.ServiceId;
-
-            if (cmbWeightServiceCatalog.SelectedValue == null ||
-                (Guid)cmbWeightServiceCatalog.SelectedValue != orderWeightItem.ServiceId)
-            {
-                MessageBox.Show(
-                    $"Warning: Service '{orderWeightItem.ServiceNameAtOrderTime}' is no longer in the catalog.\n" +
-                    $"Falling back to first available service.",
-                    "Service Not Found",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                if (cmbWeightServiceCatalog.Items.Count > 0)
-                {
-                    cmbWeightServiceCatalog.SelectedIndex = 0;
-                }
-            }
-
             nudWeight.Value = Convert.ToDecimal(orderWeightItem.Weight);
         }
 

@@ -31,11 +31,11 @@
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbItemServiceCatalog = new System.Windows.Forms.ComboBox();
-            this.txtPricePerPiece = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
+            this.txtPricePerPiece = new System.Windows.Forms.TextBox();
             this.pbxRemove = new System.Windows.Forms.PictureBox();
             this.tlpContainer.SuspendLayout();
             this.tlpDetails.SuspendLayout();
@@ -61,10 +61,10 @@
             // tlpDetails
             // 
             this.tlpDetails.ColumnCount = 4;
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.62428F));
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.07514F));
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.30058F));
-            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.74803F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.25197F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tlpDetails.Controls.Add(this.label2, 2, 0);
             this.tlpDetails.Controls.Add(this.label3, 1, 0);
             this.tlpDetails.Controls.Add(this.label1, 0, 0);
@@ -87,12 +87,23 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(270, 5);
+            this.label2.Location = new System.Drawing.Point(269, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Price/Piece";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(175, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Quantity";
             // 
             // label1
             // 
@@ -115,48 +126,23 @@
             this.cmbItemServiceCatalog.Location = new System.Drawing.Point(8, 21);
             this.cmbItemServiceCatalog.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.cmbItemServiceCatalog.Name = "cmbItemServiceCatalog";
-            this.cmbItemServiceCatalog.Size = new System.Drawing.Size(176, 25);
+            this.cmbItemServiceCatalog.Size = new System.Drawing.Size(154, 25);
             this.cmbItemServiceCatalog.TabIndex = 3;
             this.cmbItemServiceCatalog.SelectedValueChanged += new System.EventHandler(this.cmbWeightServiceCatalog_SelectedValueChanged);
-            // 
-            // txtPricePerPiece
-            // 
-            this.txtPricePerPiece.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPricePerPiece.Enabled = false;
-            this.txtPricePerPiece.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPricePerPiece.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtPricePerPiece.Location = new System.Drawing.Point(270, 21);
-            this.txtPricePerPiece.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.txtPricePerPiece.Name = "txtPricePerPiece";
-            this.txtPricePerPiece.Size = new System.Drawing.Size(78, 25);
-            this.txtPricePerPiece.TabIndex = 5;
-            this.txtPricePerPiece.Text = "31";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(197, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Quantity";
             // 
             // nudQuantity
             // 
             this.nudQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudQuantity.Location = new System.Drawing.Point(197, 21);
+            this.nudQuantity.Location = new System.Drawing.Point(175, 21);
             this.nudQuantity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudQuantity.Name = "nudQuantity";
-            this.nudQuantity.Size = new System.Drawing.Size(60, 25);
+            this.nudQuantity.Size = new System.Drawing.Size(81, 25);
             this.nudQuantity.TabIndex = 4;
             this.nudQuantity.Value = new decimal(new int[] {
             1,
@@ -165,12 +151,26 @@
             0});
             this.nudQuantity.ValueChanged += new System.EventHandler(this.nudQuantity_ValueChanged);
             // 
+            // txtPricePerPiece
+            // 
+            this.txtPricePerPiece.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPricePerPiece.Enabled = false;
+            this.txtPricePerPiece.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPricePerPiece.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtPricePerPiece.Location = new System.Drawing.Point(269, 21);
+            this.txtPricePerPiece.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.txtPricePerPiece.Name = "txtPricePerPiece";
+            this.txtPricePerPiece.Size = new System.Drawing.Size(78, 25);
+            this.txtPricePerPiece.TabIndex = 5;
+            this.txtPricePerPiece.Text = "31";
+            // 
             // pbxRemove
             // 
             this.pbxRemove.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbxRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxRemove.Image = global::Lababa.Properties.Resources.trash_2;
-            this.pbxRemove.Location = new System.Drawing.Point(359, 21);
+            this.pbxRemove.Location = new System.Drawing.Point(358, 21);
             this.pbxRemove.Name = "pbxRemove";
             this.pbxRemove.Size = new System.Drawing.Size(20, 25);
             this.pbxRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

@@ -69,6 +69,23 @@ namespace Lababa.Frontend.Forms
 
                 flpWeightServices.Controls.Add(weightServiceControl);
             }
+
+            var orderItemItems = new OrderItemItemService().GetAllOrderItemItems(_order.Id);
+
+            foreach (var orderItemItem in orderItemItems)
+            {
+                var itemServiceControl = new ItemServiceControl(orderItemItem);
+                itemServiceControl.RemoveClicked += (_, __) =>
+                {
+                    flpItemServices.Controls.Remove(itemServiceControl);
+                    RecalculateTotalAmount();
+                };
+                itemServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
+                itemServiceControl.WeightChanged += (_, __) => RecalculateTotalAmount();
+                itemServiceControl.Width = tabServices.Width - 50;
+
+                flpItemServices.Controls.Add(itemServiceControl);
+            }
         }
 
 
