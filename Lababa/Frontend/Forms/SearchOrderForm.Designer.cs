@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchOrderForm));
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
@@ -54,7 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.colOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +75,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContainer
@@ -83,7 +85,7 @@
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
-            this.pnlContainer.Size = new System.Drawing.Size(833, 716);
+            this.pnlContainer.Size = new System.Drawing.Size(829, 716);
             this.pnlContainer.TabIndex = 0;
             // 
             // tlpDetails
@@ -94,7 +96,7 @@
             this.tlpDetails.Controls.Add(this.label1, 0, 0);
             this.tlpDetails.Controls.Add(this.tlpSearchFilters, 0, 1);
             this.tlpDetails.Controls.Add(this.panel1, 0, 2);
-            this.tlpDetails.Controls.Add(this.dataGridView1, 0, 4);
+            this.tlpDetails.Controls.Add(this.dgvOrders, 0, 4);
             this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpDetails.Location = new System.Drawing.Point(20, 10);
             this.tlpDetails.Name = "tlpDetails";
@@ -104,7 +106,7 @@
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 199F));
-            this.tlpDetails.Size = new System.Drawing.Size(793, 696);
+            this.tlpDetails.Size = new System.Drawing.Size(789, 696);
             this.tlpDetails.TabIndex = 0;
             // 
             // lblResult
@@ -154,7 +156,7 @@
             this.tlpSearchFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tlpSearchFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tlpSearchFilters.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSearchFilters.Size = new System.Drawing.Size(753, 222);
+            this.tlpSearchFilters.Size = new System.Drawing.Size(749, 222);
             this.tlpSearchFilters.TabIndex = 3;
             // 
             // btnAddCustomer
@@ -182,14 +184,14 @@
             this.tableLayoutPanel6.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.cmbPaymentStatus, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(379, 118);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(377, 118);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(361, 49);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(359, 49);
             this.tableLayoutPanel6.TabIndex = 7;
             // 
             // label7
@@ -211,7 +213,7 @@
             this.cmbPaymentStatus.FormattingEnabled = true;
             this.cmbPaymentStatus.Location = new System.Drawing.Point(8, 21);
             this.cmbPaymentStatus.Name = "cmbPaymentStatus";
-            this.cmbPaymentStatus.Size = new System.Drawing.Size(345, 21);
+            this.cmbPaymentStatus.Size = new System.Drawing.Size(343, 21);
             this.cmbPaymentStatus.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -228,7 +230,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(360, 49);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(358, 49);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
             // label6
@@ -250,7 +252,7 @@
             this.cmbOrderStatus.FormattingEnabled = true;
             this.cmbOrderStatus.Location = new System.Drawing.Point(8, 21);
             this.cmbOrderStatus.Name = "cmbOrderStatus";
-            this.cmbOrderStatus.Size = new System.Drawing.Size(344, 21);
+            this.cmbOrderStatus.Size = new System.Drawing.Size(342, 21);
             this.cmbOrderStatus.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -260,14 +262,14 @@
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBox1, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(379, 63);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(377, 63);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(361, 49);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(359, 49);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // label5
@@ -288,7 +290,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(8, 21);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(345, 22);
+            this.textBox1.Size = new System.Drawing.Size(343, 22);
             this.textBox1.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -305,7 +307,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(360, 49);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(358, 49);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // label4
@@ -326,7 +328,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCustomerNameOrPhone.Location = new System.Drawing.Point(8, 21);
             this.txtCustomerNameOrPhone.Name = "txtCustomerNameOrPhone";
-            this.txtCustomerNameOrPhone.Size = new System.Drawing.Size(344, 22);
+            this.txtCustomerNameOrPhone.Size = new System.Drawing.Size(342, 22);
             this.txtCustomerNameOrPhone.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -336,14 +338,14 @@
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.dtpToDate, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(379, 8);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(377, 8);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(361, 49);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(359, 49);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // label3
@@ -363,7 +365,7 @@
             this.dtpToDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpToDate.Location = new System.Drawing.Point(8, 21);
             this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(345, 22);
+            this.dtpToDate.Size = new System.Drawing.Size(343, 22);
             this.dtpToDate.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -380,7 +382,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(360, 49);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 49);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label2
@@ -400,7 +402,7 @@
             this.dtpFromDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpFromDate.Location = new System.Drawing.Point(8, 21);
             this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(344, 22);
+            this.dtpFromDate.Size = new System.Drawing.Size(342, 22);
             this.dtpFromDate.TabIndex = 1;
             // 
             // panel1
@@ -409,13 +411,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 278);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 1);
+            this.panel1.Size = new System.Drawing.Size(783, 1);
             this.panel1.TabIndex = 4;
             // 
-            // dataGridView1
+            // dgvOrders
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvOrders.AllowUserToAddRows = false;
+            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colOrderId,
             this.colCustomerName,
             this.colPhoneNumber,
@@ -425,77 +428,106 @@
             this.colDateCreated,
             this.colView,
             this.colDelete});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 320);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(20, 3, 20, 10);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(753, 366);
-            this.dataGridView1.TabIndex = 8;
+            this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOrders.Location = new System.Drawing.Point(20, 320);
+            this.dgvOrders.Margin = new System.Windows.Forms.Padding(20, 3, 20, 10);
+            this.dgvOrders.Name = "dgvOrders";
+            this.dgvOrders.ReadOnly = true;
+            this.dgvOrders.Size = new System.Drawing.Size(749, 366);
+            this.dgvOrders.TabIndex = 8;
+            this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
             // 
             // colOrderId
             // 
             this.colOrderId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colOrderId.DataPropertyName = "OrderId";
             this.colOrderId.HeaderText = "Order ID";
             this.colOrderId.Name = "colOrderId";
-            this.colOrderId.Width = 70;
+            this.colOrderId.ReadOnly = true;
+            this.colOrderId.Width = 76;
             // 
             // colCustomerName
             // 
             this.colCustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCustomerName.DataPropertyName = "Customer";
             this.colCustomerName.HeaderText = "Customer";
             this.colCustomerName.Name = "colCustomerName";
+            this.colCustomerName.ReadOnly = true;
             // 
             // colPhoneNumber
             // 
             this.colPhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPhoneNumber.DataPropertyName = "Phone";
             this.colPhoneNumber.HeaderText = "Phone";
             this.colPhoneNumber.Name = "colPhoneNumber";
+            this.colPhoneNumber.ReadOnly = true;
             // 
             // colOrderStatus
             // 
             this.colOrderStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colOrderStatus.DataPropertyName = "OrderStatus";
+            this.colOrderStatus.FillWeight = 70F;
             this.colOrderStatus.HeaderText = "Order Status";
             this.colOrderStatus.Name = "colOrderStatus";
+            this.colOrderStatus.ReadOnly = true;
             // 
             // colPaymentStatus
             // 
             this.colPaymentStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPaymentStatus.DataPropertyName = "PaymentStatus";
+            this.colPaymentStatus.FillWeight = 70F;
             this.colPaymentStatus.HeaderText = "Payment Status";
             this.colPaymentStatus.Name = "colPaymentStatus";
+            this.colPaymentStatus.ReadOnly = true;
             // 
             // colTotal
             // 
             this.colTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTotal.DataPropertyName = "Total";
             this.colTotal.HeaderText = "Total";
             this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
             // 
             // colDateCreated
             // 
             this.colDateCreated.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDateCreated.DataPropertyName = "DateCreated";
+            dataGridViewCellStyle3.Format = "f";
+            dataGridViewCellStyle3.NullValue = null;
+            this.colDateCreated.DefaultCellStyle = dataGridViewCellStyle3;
             this.colDateCreated.HeaderText = "Date Created";
             this.colDateCreated.Name = "colDateCreated";
+            this.colDateCreated.ReadOnly = true;
             // 
             // colView
             // 
             this.colView.HeaderText = "View";
+            this.colView.Image = global::Lababa.Properties.Resources.view;
+            this.colView.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.colView.Name = "colView";
+            this.colView.ReadOnly = true;
             this.colView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colView.Width = 40;
+            this.colView.Width = 50;
             // 
             // colDelete
             // 
-            this.colDelete.HeaderText = "Del";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colDelete.HeaderText = "Delete";
             this.colDelete.Image = global::Lababa.Properties.Resources.trash_2;
+            this.colDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
             this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colDelete.Width = 40;
+            this.colDelete.Width = 50;
             // 
             // SearchOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(833, 716);
+            this.ClientSize = new System.Drawing.Size(829, 716);
             this.Controls.Add(this.pnlContainer);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -518,7 +550,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,7 +582,7 @@
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNumber;
