@@ -63,6 +63,7 @@ namespace Lababa.Frontend.Forms
                 itemServiceControl.WeightChanged += (_, __) => RecalculateTotalAmount();
                 flpItemServices.Controls.Add(itemServiceControl);
             }
+            RecalculateTotalAmount();
         }
 
         private void InitializeExistingServices()
