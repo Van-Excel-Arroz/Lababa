@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchOrderForm));
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.lblResult = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tlpSearchFilters = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddCustomer = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbPaymentStatus = new System.Windows.Forms.ComboBox();
@@ -45,7 +44,7 @@
             this.cmbOrderStatus = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtOrderNumber = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomerNameOrPhone = new System.Windows.Forms.TextBox();
@@ -55,6 +54,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.colOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +77,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,13 +142,13 @@
             this.tlpSearchFilters.ColumnCount = 2;
             this.tlpSearchFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpSearchFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSearchFilters.Controls.Add(this.btnAddCustomer, 0, 3);
             this.tlpSearchFilters.Controls.Add(this.tableLayoutPanel6, 1, 2);
             this.tlpSearchFilters.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tlpSearchFilters.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tlpSearchFilters.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tlpSearchFilters.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tlpSearchFilters.Controls.Add(this.tableLayoutPanel1, 0, 0);
+            this.tlpSearchFilters.Controls.Add(this.tableLayoutPanel7, 0, 3);
             this.tlpSearchFilters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSearchFilters.Location = new System.Drawing.Point(20, 43);
             this.tlpSearchFilters.Margin = new System.Windows.Forms.Padding(20, 3, 20, 10);
@@ -158,24 +161,6 @@
             this.tlpSearchFilters.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSearchFilters.Size = new System.Drawing.Size(749, 222);
             this.tlpSearchFilters.TabIndex = 3;
-            // 
-            // btnAddCustomer
-            // 
-            this.btnAddCustomer.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnAddCustomer.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnAddCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddCustomer.ImageKey = "plus.png";
-            this.btnAddCustomer.Location = new System.Drawing.Point(20, 177);
-            this.btnAddCustomer.Margin = new System.Windows.Forms.Padding(10, 0, 3, 3);
-            this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(110, 30);
-            this.btnAddCustomer.TabIndex = 8;
-            this.btnAddCustomer.Text = "Search";
-            this.btnAddCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddCustomer.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel6
             // 
@@ -260,7 +245,7 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.txtOrderNumber, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(377, 63);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -284,14 +269,14 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Order ID (ORD-XXX)";
             // 
-            // textBox1
+            // txtOrderNumber
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtOrderNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(8, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(343, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtOrderNumber.Location = new System.Drawing.Point(8, 21);
+            this.txtOrderNumber.Name = "txtOrderNumber";
+            this.txtOrderNumber.Size = new System.Drawing.Size(343, 22);
+            this.txtOrderNumber.TabIndex = 1;
             // 
             // tableLayoutPanel3
             // 
@@ -405,6 +390,59 @@
             this.dtpFromDate.Size = new System.Drawing.Size(342, 22);
             this.dtpFromDate.TabIndex = 1;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.75419F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.24581F));
+            this.tableLayoutPanel7.Controls.Add(this.btnClear, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btnFilter, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(13, 173);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(358, 41);
+            this.tableLayoutPanel7.TabIndex = 9;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnClear.BackColor = System.Drawing.Color.White;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.ForeColor = System.Drawing.Color.DimGray;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClear.ImageKey = "plus.png";
+            this.btnClear.Location = new System.Drawing.Point(10, 4);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(10, 0, 3, 3);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(110, 30);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.Text = "Clear";
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnFilter.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.ForeColor = System.Drawing.Color.White;
+            this.btnFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFilter.ImageKey = "plus.png";
+            this.btnFilter.Location = new System.Drawing.Point(137, 4);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(10, 0, 3, 3);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(110, 30);
+            this.btnFilter.TabIndex = 8;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
@@ -492,9 +530,9 @@
             // 
             this.colDateCreated.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDateCreated.DataPropertyName = "DateCreated";
-            dataGridViewCellStyle1.Format = "f";
-            dataGridViewCellStyle1.NullValue = null;
-            this.colDateCreated.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "f";
+            dataGridViewCellStyle5.NullValue = null;
+            this.colDateCreated.DefaultCellStyle = dataGridViewCellStyle5;
             this.colDateCreated.HeaderText = "Date Created";
             this.colDateCreated.Name = "colDateCreated";
             this.colDateCreated.ReadOnly = true;
@@ -511,9 +549,9 @@
             // 
             // colDelete
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            this.colDelete.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle6;
             this.colDelete.HeaderText = "Delete";
             this.colDelete.Image = global::Lababa.Properties.Resources.trash_2;
             this.colDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -550,6 +588,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
 
@@ -572,14 +611,14 @@
         private System.Windows.Forms.TextBox txtCustomerNameOrPhone;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOrderNumber;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbOrderStatus;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbPaymentStatus;
-        private System.Windows.Forms.Button btnAddCustomer;
+        private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.DataGridView dgvOrders;
@@ -592,5 +631,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateCreated;
         private System.Windows.Forms.DataGridViewImageColumn colView;
         private System.Windows.Forms.DataGridViewImageColumn colDelete;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button btnClear;
     }
 }
