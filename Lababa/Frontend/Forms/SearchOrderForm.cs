@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Lababa.Frontend.Forms
 {
@@ -15,7 +14,9 @@ namespace Lababa.Frontend.Forms
         private readonly List<Order> _allOrders;
         private List<Order> _filteredOrders;
         private readonly CustomerService _customerService;
+        private readonly OrderService _orderService;
         private string _currencySymbol;
+        public event EventHandler OrdersUpdated;
 
         public SearchOrderForm(List<Order> orders, CustomerService customerService, string currencySymbol)
         {
@@ -24,6 +25,7 @@ namespace Lababa.Frontend.Forms
             _customerService = customerService;
             _currencySymbol = currencySymbol;
             _filteredOrders = new List<Order>(_allOrders);
+            _orderService = new OrderService();
 
             lblResult.Text = $"Found ({_allOrders.Count}) Orders";
             LoadOrders();
@@ -176,7 +178,11 @@ namespace Lababa.Frontend.Forms
 
                 if (result == DialogResult.Yes)
                 {
-                    dgvOrders.Rows.RemoveAt(e.RowIndex);
+                    _orderService.DeleteOrder(order.Id);
+                    _allOrders.Remove(order);
+                    _filteredOrders.Remove(order);
+                    LoadOrders();
+                    OrdersUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
 
