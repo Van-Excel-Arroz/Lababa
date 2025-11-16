@@ -82,13 +82,13 @@ namespace Lababa.Frontend.UserControls
 
         public bool ValidateStep()
         {
-            if (string.IsNullOrWhiteSpace(txtShopName.Text) || string.IsNullOrWhiteSpace(txtAddress.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+            if (string.IsNullOrWhiteSpace(txtShopName.Text))
             {
-                MessageBox.Show("You can't leave all the fields empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Shop Name can't be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (txtShopName.Text.Length > 50)
+                if (txtShopName.Text.Length > 50)
             {
                 MessageBox.Show("Shop Name field must not be greater than 50", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtShopName.Focus();
