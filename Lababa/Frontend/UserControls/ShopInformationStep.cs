@@ -1,6 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls.Interfaces;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -46,6 +47,11 @@ namespace Lababa.Frontend.UserControls
             {
                 cmbCurrcencySymbol.SelectedIndex = 0;
             }
+        }
+
+        public void LoadStepData()
+        {
+            ShopInformationStep_Load(this, EventArgs.Empty);
         }
 
         public void SaveStepData()

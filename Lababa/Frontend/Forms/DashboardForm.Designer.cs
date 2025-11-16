@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpHeader = new System.Windows.Forms.TableLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
             this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblShopName = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.tlpOrdersTableView = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tlpSummaryCards = new System.Windows.Forms.TableLayoutPanel();
@@ -167,14 +165,12 @@
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpHeader.Controls.Add(this.button3, 3, 0);
-            this.tlpHeader.Controls.Add(this.btnSettings, 2, 0);
             this.tlpHeader.Controls.Add(this.lblShopName, 0, 0);
             this.tlpHeader.Controls.Add(this.panel1, 0, 1);
             this.tlpHeader.Controls.Add(this.panel2, 1, 1);
             this.tlpHeader.Controls.Add(this.panel3, 2, 1);
             this.tlpHeader.Controls.Add(this.panel4, 3, 1);
-            this.tlpHeader.Controls.Add(this.button1, 1, 0);
+            this.tlpHeader.Controls.Add(this.btnSettings, 3, 0);
             this.tlpHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpHeader.Location = new System.Drawing.Point(0, 0);
             this.tlpHeader.Margin = new System.Windows.Forms.Padding(0);
@@ -185,18 +181,6 @@
             this.tlpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
             this.tlpHeader.Size = new System.Drawing.Size(1334, 70);
             this.tlpHeader.TabIndex = 0;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.ImageKey = "help.png";
-            this.button3.ImageList = this.buttonImageList;
-            this.button3.Location = new System.Drawing.Point(1276, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 32);
-            this.button3.TabIndex = 10;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // buttonImageList
             // 
@@ -217,7 +201,7 @@
             this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSettings.ImageKey = "setting-2.png";
             this.btnSettings.ImageList = this.buttonImageList;
-            this.btnSettings.Location = new System.Drawing.Point(1228, 18);
+            this.btnSettings.Location = new System.Drawing.Point(1276, 18);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(6);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(35, 32);
@@ -278,19 +262,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(50, 2);
             this.panel4.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.ImageKey = "financial.png";
-            this.button1.ImageList = this.buttonImageList;
-            this.button1.Location = new System.Drawing.Point(1181, 18);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 32);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tlpOrdersTableView
             // 
@@ -1137,10 +1108,14 @@
             // 
             // settingsControl
             // 
+            this.settingsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.settingsControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.settingsControl.Location = new System.Drawing.Point(3, 415);
+            this.settingsControl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsControl.Location = new System.Drawing.Point(10, 422);
+            this.settingsControl.Margin = new System.Windows.Forms.Padding(10);
             this.settingsControl.Name = "settingsControl";
-            this.settingsControl.Size = new System.Drawing.Size(1328, 336);
+            this.settingsControl.Padding = new System.Windows.Forms.Padding(25, 10, 25, 25);
+            this.settingsControl.Size = new System.Drawing.Size(1314, 322);
             this.settingsControl.TabIndex = 2;
             // 
             // DashboardForm
@@ -1268,8 +1243,6 @@
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnSearchOrders;
         private System.Windows.Forms.ImageList buttonImageList;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.PictureBox pictureBox1;
