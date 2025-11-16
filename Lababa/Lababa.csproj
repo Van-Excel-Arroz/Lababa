@@ -161,6 +161,12 @@
     <Compile Include="Frontend\UserControls\OrderCardItem.Designer.cs">
       <DependentUpon>OrderCardItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\UserControls\SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frontend\UserControls\SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\UserControls\WeightServiceControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\OrderCardItem.resx">
       <DependentUpon>OrderCardItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\UserControls\SettingsControl.resx">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\UserControls\WeightServiceControl.resx">
       <DependentUpon>WeightServiceControl.cs</DependentUpon>

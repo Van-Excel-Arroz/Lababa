@@ -17,6 +17,8 @@ namespace Lababa.Frontend.Forms
             _orderService = new OrderService();
             _appSettings = new ApplicationSettingsService().LoadSettings();
             _customerService = new CustomerService();
+            settingsControl.Visible = false;
+            tlpContainer.RowStyles[2] = new RowStyle(SizeType.Absolute, 0);
             AttachFlowLayoutPanelResizeHandlers();
             LoadOrders();
         }
@@ -143,6 +145,22 @@ namespace Lababa.Frontend.Forms
 
 
             return width > 0 ? width : 0;
+        }
+
+        private void btnSettings_Click(object sender, System.EventArgs e)
+        {
+            tlpOrdersTableView.Visible = false;
+            settingsControl.Visible = true;
+            tlpContainer.RowStyles[1] = new RowStyle(SizeType.Absolute, 0);
+            tlpContainer.RowStyles[2] = new RowStyle(SizeType.Percent, 100);
+        }
+
+        private void lblShopName_Click(object sender, System.EventArgs e)
+        {
+            tlpOrdersTableView.Visible = true;
+            settingsControl.Visible = false;
+            tlpContainer.RowStyles[2] = new RowStyle(SizeType.Absolute, 0);
+            tlpContainer.RowStyles[1] = new RowStyle(SizeType.Percent, 100);
         }
     }
 }
