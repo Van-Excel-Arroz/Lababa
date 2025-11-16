@@ -111,6 +111,13 @@ namespace Lababa.Frontend.UserControls
                 return false;
             }
 
+            if (txtReceiptMessage.Text.Length > 100)
+            {
+                MessageBox.Show("Receipt message must not be greater than 100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtReceiptMessage.Focus();
+                return false;
+            }
+
             return true;
         }
     }
