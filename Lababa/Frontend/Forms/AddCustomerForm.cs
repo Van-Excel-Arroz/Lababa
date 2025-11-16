@@ -2,6 +2,7 @@
 using Lababa.Backend.Services;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
@@ -71,6 +72,43 @@ namespace Lababa.Frontend.Forms
         {
             try
             {
+                string pattern = @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$";
+
+                if (string.IsNullOrWhiteSpace(txtCustomerName.Text))
+                {
+                    MessageBox.Show("Customer Name can't be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtCustomerName.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+                {
+                    MessageBox.Show("Customer Name can't be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPhoneNumber.Focus();
+                    return;
+                }
+
+                if (txtCustomerName.Text.Length > 50)
+                {
+                    MessageBox.Show("Customer name must not be greater than 50", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtCustomerName.Focus();
+                    return;
+                }
+
+                if (!Regex.IsMatch(txtPhoneNumber.Text.Trim(), pattern))
+                {
+                    MessageBox.Show("Please enter a valid phone number format \n(e.g., 123-456-7890).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPhoneNumber.Focus();
+                    return;
+                }
+
+                if (txtAddress.Text.Length > 100)
+                {
+                    MessageBox.Show("Address must not be greater than 100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtAddress.Focus();
+                    return;
+                }
+
                 var customer = new Customer
                 {
                     FullName = txtCustomerName.Text.Trim(),
