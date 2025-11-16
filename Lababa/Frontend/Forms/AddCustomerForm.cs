@@ -117,7 +117,7 @@ namespace Lababa.Frontend.Forms
             if (e.RowIndex >= 0 && e.ColumnIndex == dgvCustomers.Columns["colDelete"].Index) {
                 var customer = dgvCustomers.Rows[e.RowIndex].DataBoundItem as Customer;
 
-                var result = MessageBox.Show($"Are you sure you want to delete {customer.FullName}", "Confirm Deletes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var result = MessageBox.Show($"Are you sure you want to delete {customer.FullName}", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
