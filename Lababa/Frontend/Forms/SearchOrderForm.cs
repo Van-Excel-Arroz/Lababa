@@ -6,30 +6,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Lababa.Frontend.Forms
 {
     public partial class SearchOrderForm : Form
     {
-        private readonly List<Order> _orders;
+        private readonly List<Order> _allOrders;
+        private List<Order> _filteredOrders;
         private readonly CustomerService _customerService;
         private string _currencySymbol;
 
         public SearchOrderForm(List<Order> orders, CustomerService customerService, string currencySymbol)
         {
             InitializeComponent();
-            _orders = orders;
+            _allOrders = orders;
             _customerService = customerService;
+            _currencySymbol = currencySymbol;
+            _filteredOrders = new List<Order>(_allOrders);
 
-            lblResult.Text = $"Found ({_orders.Count}) Orders";
+            lblResult.Text = $"Found ({_allOrders.Count}) Orders";
             LoadOrders();
             InitializeOrderStatus();
             InitializePaymentStatus();
+
+            dtpFromDate.Value = DateTime.Now.AddMonths(-1);
+            dtpToDate.Value = DateTime.Now;
         }
 
         private void LoadOrders()
         {
-            var orderViewModels = _orders.Select(order =>
+            var orderViewModels = _filteredOrders.Select(order =>
             {
                 var customer = _customerService.GetCustomerById(order.CustomerId);
 
@@ -48,7 +55,53 @@ namespace Lababa.Frontend.Forms
 
             dgvOrders.DataSource = orderViewModels;
             dgvOrders.Columns["Order"].Visible = false;
+
+            lblResult.Text = $"Found ({_filteredOrders.Count}) Orders";
         }
+
+        private void ApplyFilters()
+        {
+            IEnumerable<Order> query = _allOrders;
+
+            if (!string.IsNullOrWhiteSpace(txtCustomerNameOrPhone.Text))
+            {
+                string searchTerm = txtCustomerNameOrPhone.Text.Trim().ToLower();
+                query = query.Where(order =>
+                {
+                    var customer = _customerService.GetCustomerById(order.CustomerId);
+                    return (customer != null && customer.FullName.ToLower().Contains(searchTerm)) ||
+                           (customer != null && customer.PhoneNumber.ToLower().Contains(searchTerm));
+                });
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtOrderNumber.Text))
+            {
+                string orderNumberSearchTerm = txtOrderNumber.Text.Trim().ToLower();
+                query = query.Where(order => order.OrderNumber.ToLower().Contains(orderNumberSearchTerm));
+            }
+
+            if (cmbOrderStatus.SelectedValue != null && cmbOrderStatus.SelectedIndex != -1)
+            {
+                OrderStatus selectedStatus = (OrderStatus)cmbOrderStatus.SelectedValue;
+                query = query.Where(order => order.Status == selectedStatus);
+            }
+
+            if (cmbPaymentStatus.SelectedValue != null && cmbPaymentStatus.SelectedIndex != -1)
+            {
+                PaymentStatus selectedPaymentStatus = (PaymentStatus)cmbPaymentStatus.SelectedValue;
+                query = query.Where(order => order.PaymentStatus == selectedPaymentStatus);
+            }
+
+            DateTime fromDate = dtpFromDate.Value.Date;
+            DateTime toDate = dtpToDate.Value.Date.AddDays(1).AddSeconds(-1);
+
+            query = query.Where(order => order.DateCreated >= fromDate && order.DateCreated <= toDate);
+
+
+            _filteredOrders = query.ToList(); 
+            LoadOrders(); 
+        }
+
 
         private void InitializePaymentStatus()
         {
@@ -65,6 +118,24 @@ namespace Lababa.Frontend.Forms
             cmbPaymentStatus.ValueMember = "Value";
 
             cmbPaymentStatus.SelectedIndex = -1;
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            txtCustomerNameOrPhone.Clear();
+            txtOrderNumber.Clear(); 
+            cmbOrderStatus.SelectedIndex = -1;
+            cmbPaymentStatus.SelectedIndex = -1;
+            dtpFromDate.Value = DateTime.Today.AddMonths(-1);
+            dtpToDate.Value = DateTime.Today;
+
+            _filteredOrders = new List<Order>(_allOrders);
+            LoadOrders(); 
         }
 
         private void InitializeOrderStatus()
@@ -107,7 +178,9 @@ namespace Lababa.Frontend.Forms
 
                 if (result == DialogResult.Yes)
                 {
-                    dgvOrders.Rows.RemoveAt(e.RowIndex);
+                    _allOrders.Remove(order);
+                    _filteredOrders.Remove(order);
+                    LoadOrders();
                 }
             }
 
