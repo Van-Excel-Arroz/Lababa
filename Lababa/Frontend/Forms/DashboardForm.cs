@@ -99,7 +99,7 @@ namespace Lababa.Frontend.Forms
 
         private void btnSearchOrders_Click(object sender, System.EventArgs e)
         {
-            var searchOrderForm = new SearchOrderForm(_orderService.GetAllOrders(), _customerService, _appSettings.CurrencySymbol);
+            var searchOrderForm = new SearchOrderForm();
             searchOrderForm.Show();
         }
 

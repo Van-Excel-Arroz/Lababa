@@ -4,7 +4,6 @@ using Lababa.Frontend.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
@@ -135,10 +134,10 @@ namespace Lababa.Frontend.Forms
         {
             var orderStatuses = Enum.GetValues(typeof(OrderStatus)).Cast<OrderStatus>();
 
-            var dataSource = orderStatuses.Select(os => new
+            var dataSource = orderStatuses.Select(ps => new
             {
-                Text = Regex.Replace(os.ToString(), "([a-z])([A-Z])", "$1 $2"),
-                Value = os
+                Text = ps.ToString(),
+                Value = ps
             }).ToList();
 
             cmbOrderStatus.DataSource = dataSource;

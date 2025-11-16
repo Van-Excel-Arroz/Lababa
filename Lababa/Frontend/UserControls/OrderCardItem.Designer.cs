@@ -165,7 +165,6 @@
             // 
             // tsmiViewDetails
             // 
-            this.tsmiViewDetails.Image = global::Lababa.Properties.Resources.view_2;
             this.tsmiViewDetails.Name = "tsmiViewDetails";
             this.tsmiViewDetails.Size = new System.Drawing.Size(180, 22);
             this.tsmiViewDetails.Text = "View Details";
