@@ -9,12 +9,14 @@ namespace Lababa.Frontend.Forms
     public partial class AddCustomerForm : Form
     {
         private readonly CustomerService _customerService;
+        private readonly OrderService _orderService;
         public event EventHandler CustomerUpdated;
 
-        public AddCustomerForm()
+        public AddCustomerForm(OrderService orderService)
         {
             InitializeComponent();
             _customerService = new CustomerService();
+            _orderService = orderService;
             SetupDataGridView();
             LoadCustomers();
             txtSearchCustomers.TextChanged += TxtSearchCustomers_TextChanged;
@@ -107,6 +109,22 @@ namespace Lababa.Frontend.Forms
             {
                 MessageBox.Show($"Error updating customer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoadCustomers();
+            }
+        }
+
+        private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvCustomers.Columns["colDelete"].Index) {
+                var customer = dgvCustomers.Rows[e.RowIndex].DataBoundItem as Customer;
+
+                var result = MessageBox.Show($"Are you sure you want to delete {customer.FullName}", "Confirm Deletes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    _customerService.DeleteCustomer(customer.Id);
+                    LoadCustomers();
+                    CustomerUpdated?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
     }

@@ -114,7 +114,7 @@ namespace Lababa.Frontend.Forms
 
         private void btnCustomers_Click(object sender, System.EventArgs e)
         {
-            var addCustomerForm = new AddCustomerForm();
+            var addCustomerForm = new AddCustomerForm(_orderService);
             addCustomerForm.CustomerUpdated += (_, __) => LoadOrders();
             addCustomerForm.Show();
         }
