@@ -67,6 +67,18 @@ namespace Lababa.Backend.Services
         public void DeleteOrder(Guid id)
         {
             _repo.Delete(id);
+            var orderWeightItemService = new OrderWeightItemService();
+            var orderItemItemService = new OrderItemItemService();
+
+            foreach (var item in orderWeightItemService.GetAllOrderWeightItems(id))
+            {
+                orderWeightItemService.DeleteOrderWeightItem(item.Id);
+            }
+
+            foreach (var item in orderItemItemService.GetAllOrderItemItems(id))
+            {
+                orderItemItemService.DeleteOrderItemItem(item.Id);
+            }
         }
     }
 }
