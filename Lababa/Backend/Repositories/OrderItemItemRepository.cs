@@ -70,11 +70,12 @@ namespace Lababa.Backend.Repositories
         {
             var parts = line.Split(_delimeter);
 
-            if (parts.Length != 5)
+            if (parts.Length != 6)
             {
                 Console.WriteLine($"Order item item line skipped: {line} - Incorrect number of parts.");
                 return null;
             }
+
 
             if (!Guid.TryParse(parts[0], out Guid id))
             {
@@ -82,20 +83,26 @@ namespace Lababa.Backend.Repositories
                 return null;
             }
 
-            if (!decimal.TryParse(parts[2], out decimal pricePerPiece))
+            if (!Guid.TryParse(parts[1], out Guid serviceId))
+            {
+                Console.WriteLine($"Invalid order item item ServiceId in line: {line}");
+                return null;
+            }
+
+            if (!decimal.TryParse(parts[3], out decimal pricePerPiece))
             {
                 Console.WriteLine($"Invalid order item item PricePerPiece in line: {line}");
                 return null;
             }
 
-            if (!int.TryParse(parts[3], out int quantity))
+            if (!int.TryParse(parts[4], out int quantity))
             {
                 Console.WriteLine($"Invalid order item item Quantity in line: {line}");
                 return null;
             }
 
 
-            if (!Guid.TryParse(parts[4], out Guid orderId))
+            if (!Guid.TryParse(parts[5], out Guid orderId))
             {
                 Console.WriteLine($"Invalid order item item Order Id in line: {line}");
                 return null;
@@ -103,7 +110,8 @@ namespace Lababa.Backend.Repositories
 
             return new OrderItemItem
             {
-                ServiceId = id,
+                Id = id,
+                ServiceId = serviceId,
                 ItemNameAtOrderTime = parts[1].Trim(), 
                 PricePerPieceAtOrderTime = pricePerPiece, 
                 Quantity = quantity,        
@@ -113,7 +121,8 @@ namespace Lababa.Backend.Repositories
 
         private string ToCsvLine(OrderItemItem orderItemItem)
         {
-            return $"{orderItemItem.ServiceId}{_delimeter}" +
+            return $"{orderItemItem.Id}{_delimeter}" +
+                   $"{orderItemItem.ServiceId}{_delimeter}" +
                    $"{orderItemItem.ItemNameAtOrderTime}{_delimeter}" +    
                    $"{orderItemItem.PricePerPieceAtOrderTime}{_delimeter}" + 
                    $"{orderItemItem.Quantity}{_delimeter}" +     
@@ -133,6 +142,11 @@ namespace Lababa.Backend.Repositories
 
         public void Add(OrderItemItem orderItemItem)
         {
+            if (orderItemItem.Id == Guid.Empty)
+            {
+                orderItemItem.Id = Guid.NewGuid();
+            }
+
             if (orderItemItem.ServiceId == Guid.Empty)
             {
                 throw new KeyNotFoundException($"Order item no id {orderItemItem.ItemNameAtOrderTime} for adding");
@@ -165,7 +179,7 @@ namespace Lababa.Backend.Repositories
         {
             var orderItemItems = LoadAllEntities();
             int initialCount = orderItemItems.Count;
-            orderItemItems.RemoveAll(o => o.ServiceId == id);
+            orderItemItems.RemoveAll(o => o.Id == id);
             if (orderItemItems.Count < initialCount)
             {
                 SaveAllEntities(orderItemItems);

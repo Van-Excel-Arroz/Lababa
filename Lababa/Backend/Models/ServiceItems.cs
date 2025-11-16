@@ -4,6 +4,7 @@ namespace Lababa.Backend.Models
 {
     public class OrderItemItem
     {
+        public Guid Id { get; set; }
         public Guid ServiceId { get; set; }
         public string ItemNameAtOrderTime { get; set; }
         public decimal PricePerPieceAtOrderTime { get; set; }
@@ -12,6 +13,7 @@ namespace Lababa.Backend.Models
     }
     public class OrderWeightItem 
     {
+        public Guid Id { get; set; }
         public Guid ServiceId { get; set; }
         public string ServiceNameAtOrderTime { get; set; }
         public decimal PricePerUnitAtOrderTime { get; set; }
