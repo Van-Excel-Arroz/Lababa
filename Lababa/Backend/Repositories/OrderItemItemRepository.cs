@@ -112,7 +112,7 @@ namespace Lababa.Backend.Repositories
             {
                 Id = id,
                 ServiceId = serviceId,
-                ItemNameAtOrderTime = parts[1].Trim(), 
+                ItemNameAtOrderTime = parts[2].Trim(), 
                 PricePerPieceAtOrderTime = pricePerPiece, 
                 Quantity = quantity,        
                 OrderId = orderId

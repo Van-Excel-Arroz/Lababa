@@ -33,6 +33,7 @@ namespace Lababa.Frontend.Forms
             _orderItemItemService = new OrderItemItemService();
 
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
+            lblCreatedDate.Text = order.DateCreated.ToString("MMM dd, yyyy");
             dtpDueDate.Value = _order.DueDate;
             
             InitializeExistingServices();
