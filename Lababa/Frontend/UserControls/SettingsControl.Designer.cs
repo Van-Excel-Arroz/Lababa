@@ -53,12 +53,12 @@
             // 
             // tlpContents
             // 
-            this.tlpContents.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tlpContents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.tlpContents.ColumnCount = 1;
             this.tlpContents.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpContents.Controls.Add(this.label1, 0, 0);
             this.tlpContents.Controls.Add(this.flpDetails, 0, 1);
+            this.tlpContents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContents.Location = new System.Drawing.Point(25, 10);
             this.tlpContents.Name = "tlpContents";
             this.tlpContents.RowCount = 2;
