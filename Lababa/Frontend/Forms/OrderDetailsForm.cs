@@ -15,7 +15,10 @@ namespace Lababa.Frontend.Forms
         private string _currencySymbol;
         private List<WeightServiceControl> _initialWeightServiceControls;
         private List<ItemServiceControl> _initialItemServiceControls;
+        private readonly OrderWeightItemService _orderWeightItemService;
+        private readonly OrderItemItemService _orderItemItemService;
         public event EventHandler OrderUpdated;
+
 
         public OrderDetailsForm(Order order, decimal currentTotalAmount, string currencySymbol)
         {
@@ -25,10 +28,12 @@ namespace Lababa.Frontend.Forms
             _order = order;
             _initialWeightServiceControls = new List<WeightServiceControl>();
             _initialItemServiceControls = new List<ItemServiceControl>();
+            _orderWeightItemService = new OrderWeightItemService();
+            _orderItemItemService = new OrderItemItemService();
 
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
+            lblCreatedDate.Text = order.DateCreated.ToString("MMM dd, yyyy");
             dtpDueDate.Value = _order.DueDate;
-
             
             InitializeExistingServices();
             InitializeCustomerDetails();
@@ -68,7 +73,8 @@ namespace Lababa.Frontend.Forms
 
         private void InitializeExistingServices()
         {
-            var orderWeightItems = new OrderWeightItemService().GetAllOrderWeightItems(_order.Id);
+            var orderWeightItems = _orderWeightItemService.GetAllOrderWeightItems(_order.Id);
+
 
             foreach (var orderWeightItem in orderWeightItems)
             {
@@ -76,6 +82,7 @@ namespace Lababa.Frontend.Forms
                 weightServiceControl.RemoveClicked += (_, __) =>
                 {
                     flpWeightServices.Controls.Remove(weightServiceControl);
+                    _orderWeightItemService.DeleteOrderWeightItem(orderWeightItem.Id);
                     RecalculateTotalAmount();
                 };
                 weightServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
@@ -86,7 +93,7 @@ namespace Lababa.Frontend.Forms
                 _initialWeightServiceControls.Add(weightServiceControl);
             }
 
-            var orderItemItems = new OrderItemItemService().GetAllOrderItemItems(_order.Id);
+            var orderItemItems = _orderItemItemService.GetAllOrderItemItems(_order.Id);
 
             foreach (var orderItemItem in orderItemItems)
             {
@@ -94,6 +101,7 @@ namespace Lababa.Frontend.Forms
                 itemServiceControl.RemoveClicked += (_, __) =>
                 {
                     flpItemServices.Controls.Remove(itemServiceControl);
+                    _orderItemItemService.DeleteOrderItemItem(orderItemItem.Id);
                     RecalculateTotalAmount();
                 };
                 itemServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
@@ -103,6 +111,7 @@ namespace Lababa.Frontend.Forms
                 flpItemServices.Controls.Add(itemServiceControl);
                 _initialItemServiceControls.Add(itemServiceControl);
             }
+            RecalculateTotalAmount();
         }
 
 
@@ -182,9 +191,7 @@ namespace Lababa.Frontend.Forms
 
             orderService.UpdateOrder(_order);
 
-            var orderWeightItemService = new OrderWeightItemService();
-            var orderItemItemService = new OrderItemItemService();
-
+  
             foreach (WeightServiceControl control in flpWeightServices.Controls)
             {
                 if (_initialWeightServiceControls.Contains(control)) continue;
@@ -200,7 +207,7 @@ namespace Lababa.Frontend.Forms
                     OrderId = _order.Id,
                 };
 
-                orderWeightItemService.CreateOrderWeightItem(orderWeightItem);
+                _orderWeightItemService.CreateOrderWeightItem(orderWeightItem);
             }
 
             foreach (ItemServiceControl control in flpItemServices.Controls)
@@ -218,7 +225,7 @@ namespace Lababa.Frontend.Forms
                     OrderId = _order.Id
                 };
 
-                orderItemItemService.CreateOrderItemItem(orderItemItem);
+                _orderItemItemService.CreateOrderItemItem(orderItemItem);
             }
 
             OrderUpdated?.Invoke(this, EventArgs.Empty);

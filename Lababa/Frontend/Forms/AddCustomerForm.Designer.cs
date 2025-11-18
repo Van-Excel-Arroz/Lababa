@@ -40,13 +40,14 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtSearchCustomers = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
+            this.txtPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
+            this.txtCustomerName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.txtCustomerName = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.txtPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.txtAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.tlpDetails.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -128,12 +129,14 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.colDelete});
             this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomers.Location = new System.Drawing.Point(3, 82);
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.Size = new System.Drawing.Size(818, 270);
             this.dgvCustomers.TabIndex = 1;
+            this.dgvCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellContentClick);
             this.dgvCustomers.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellEndEdit);
             // 
             // Column1
@@ -169,6 +172,17 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 110;
             // 
+            // colDelete
+            // 
+            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colDelete.HeaderText = "Delete";
+            this.colDelete.Image = global::Lababa.Properties.Resources.trash_2;
+            this.colDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colDelete.Width = 70;
+            // 
             // txtSearchCustomers
             // 
             this.txtSearchCustomers.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -194,6 +208,33 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add New Customers";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.LabelText = "Address (Optional)";
+            this.txtAddress.Location = new System.Drawing.Point(30, 130);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(644, 84);
+            this.txtAddress.TabIndex = 6;
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.LabelText = "Phone Number";
+            this.txtPhoneNumber.Location = new System.Drawing.Point(30, 72);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(552, 64);
+            this.txtPhoneNumber.TabIndex = 5;
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.LabelText = "Full Name";
+            this.txtCustomerName.Location = new System.Drawing.Point(30, 14);
+            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(473, 49);
+            this.txtCustomerName.TabIndex = 4;
             // 
             // btnAddCustomer
             // 
@@ -221,33 +262,6 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "plus.png");
             // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.LabelText = "Full Name";
-            this.txtCustomerName.Location = new System.Drawing.Point(30, 14);
-            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(473, 49);
-            this.txtCustomerName.TabIndex = 4;
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.LabelText = "Phone Number";
-            this.txtPhoneNumber.Location = new System.Drawing.Point(30, 72);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(552, 64);
-            this.txtPhoneNumber.TabIndex = 5;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.LabelText = "Address (Optional)";
-            this.txtAddress.Location = new System.Drawing.Point(30, 130);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(644, 84);
-            this.txtAddress.TabIndex = 6;
-            // 
             // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,6 +271,7 @@
             this.Controls.Add(this.tlpDetails);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddCustomerForm";
@@ -285,13 +300,14 @@
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private UserControls.LabeledTextBox txtSearchCustomers;
         private UserControls.LabeledTextBox txtAddress;
         private UserControls.LabeledTextBox txtPhoneNumber;
         private UserControls.LabeledTextBox txtCustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewImageColumn colDelete;
     }
 }

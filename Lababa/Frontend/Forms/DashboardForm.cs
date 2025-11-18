@@ -9,18 +9,26 @@ namespace Lababa.Frontend.Forms
     {
         private readonly OrderService _orderService;
         private readonly CustomerService _customerService;
-        private readonly ApplicationSettings _appSettings;
+        private ApplicationSettings _appSettings;
 
         public DashboardForm()
         {
             InitializeComponent();
             _orderService = new OrderService();
-            _appSettings = new ApplicationSettingsService().LoadSettings();
             _customerService = new CustomerService();
+            tlpOrdersTableView.Visible = true;
             settingsControl.Visible = false;
             tlpContainer.RowStyles[2] = new RowStyle(SizeType.Absolute, 0);
             AttachFlowLayoutPanelResizeHandlers();
+            AttachedSettingsControlEvent();
+            LoadSettings();
             LoadOrders();
+        }
+
+        private void LoadSettings()
+        {
+            _appSettings = new ApplicationSettingsService().LoadSettings();
+            lblShopName.Text = _appSettings.ShopName;
         }
 
         private void LoadOrders()
@@ -99,13 +107,14 @@ namespace Lababa.Frontend.Forms
 
         private void btnSearchOrders_Click(object sender, System.EventArgs e)
         {
-            var searchOrderForm = new SearchOrderForm();
+            var searchOrderForm = new SearchOrderForm(_orderService.GetAllOrders(), _customerService, _appSettings.CurrencySymbol);
+            searchOrderForm.OrdersUpdated += (_, __) => LoadOrders();
             searchOrderForm.Show();
         }
 
         private void btnCustomers_Click(object sender, System.EventArgs e)
         {
-            var addCustomerForm = new AddCustomerForm();
+            var addCustomerForm = new AddCustomerForm(_orderService);
             addCustomerForm.CustomerUpdated += (_, __) => LoadOrders();
             addCustomerForm.Show();
         }
@@ -147,20 +156,43 @@ namespace Lababa.Frontend.Forms
             return width > 0 ? width : 0;
         }
 
+        private void AttachedSettingsControlEvent()
+        {
+            settingsControl.SettingsChanged += (_, __) =>
+            {
+                LoadSettings();
+                LoadOrders();
+                HandleSwitchTab();
+            };
+
+            settingsControl.CancelClicked += (_, __) => HandleSwitchTab();
+        }
+
+        private void HandleSwitchTab()
+        {
+            if (settingsControl.Visible == false && tlpOrdersTableView.Visible == true)
+            {
+                tlpOrdersTableView.Visible = false;
+                settingsControl.Visible = true;
+                tlpContainer.RowStyles[1] = new RowStyle(SizeType.Absolute, 0);
+                tlpContainer.RowStyles[2] = new RowStyle(SizeType.Percent, 100);
+            } else
+            {
+                tlpOrdersTableView.Visible = true;
+                settingsControl.Visible = false;
+                tlpContainer.RowStyles[2] = new RowStyle(SizeType.Absolute, 0);
+                tlpContainer.RowStyles[1] = new RowStyle(SizeType.Percent, 100);
+            }
+        }
+
         private void btnSettings_Click(object sender, System.EventArgs e)
         {
-            tlpOrdersTableView.Visible = false;
-            settingsControl.Visible = true;
-            tlpContainer.RowStyles[1] = new RowStyle(SizeType.Absolute, 0);
-            tlpContainer.RowStyles[2] = new RowStyle(SizeType.Percent, 100);
+            HandleSwitchTab();
         }
 
         private void lblShopName_Click(object sender, System.EventArgs e)
         {
-            tlpOrdersTableView.Visible = true;
-            settingsControl.Visible = false;
-            tlpContainer.RowStyles[2] = new RowStyle(SizeType.Absolute, 0);
-            tlpContainer.RowStyles[1] = new RowStyle(SizeType.Percent, 100);
+            HandleSwitchTab();
         }
     }
 }

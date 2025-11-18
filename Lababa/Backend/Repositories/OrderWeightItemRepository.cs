@@ -71,31 +71,37 @@ namespace Lababa.Backend.Repositories
         {
             var parts = line.Split(_delimeter);
 
-            if (parts.Length != 5)
+            if (parts.Length != 6)
             {
                 Console.WriteLine($"Order weight item line skipped: {line}");
                 return null;
             }
 
-            if (!Guid.TryParse(parts[0], out Guid serviceId))
+            if (!Guid.TryParse(parts[0], out Guid id))
+            {
+                Console.WriteLine($"Invalid order weight item Id in line: {line}");
+                return null;
+            }
+
+            if (!Guid.TryParse(parts[1], out Guid serviceId))
             {
                 Console.WriteLine($"Invalid order weight item ServiceId in line: {line}");  
                 return null;
             }
 
-            if (!decimal.TryParse(parts[2], out decimal pricePerUnit))
+            if (!decimal.TryParse(parts[3], out decimal pricePerUnit))
             {
                 Console.WriteLine($"Invalid order weight item PricePerUnit in line: {line}");
                 return null;
             }
                 
-            if (!double.TryParse(parts[3], out double weight))
+            if (!double.TryParse(parts[4], out double weight))
             {
                 Console.WriteLine($"Invalid order weight item Weight in line: {line}");
                 return null;
             }
 
-            if (!Guid.TryParse(parts[4], out Guid orderId))
+            if (!Guid.TryParse(parts[5], out Guid orderId))
             {
                 Console.WriteLine($"Invalid order weight item Order Id in line: {line}");
                 return null;
@@ -104,8 +110,9 @@ namespace Lababa.Backend.Repositories
 
             return new OrderWeightItem
             {
+                Id = id,
                 ServiceId = serviceId,
-                ServiceNameAtOrderTime= parts[1].Trim(),
+                ServiceNameAtOrderTime= parts[2].Trim(),
                 PricePerUnitAtOrderTime = pricePerUnit,
                 Weight = weight,
                 OrderId = orderId
@@ -114,7 +121,8 @@ namespace Lababa.Backend.Repositories
 
         private string ToCsvLine(OrderWeightItem orderWeightItem)
         {
-            return $"{orderWeightItem.ServiceId}{_delimeter}" +
+            return $"{orderWeightItem.Id}{_delimeter}" +
+                   $"{orderWeightItem.ServiceId}{_delimeter}" +
                    $"{orderWeightItem.ServiceNameAtOrderTime}{_delimeter}" +
                    $"{orderWeightItem.PricePerUnitAtOrderTime}{_delimeter}" +
                    $"{orderWeightItem.Weight}{_delimeter}" +
@@ -134,6 +142,11 @@ namespace Lababa.Backend.Repositories
 
         public void Add(OrderWeightItem orderWeightItem)
         {
+            if (orderWeightItem.Id == Guid.Empty)
+            {
+                orderWeightItem.Id = Guid.NewGuid();
+            }
+
             if (orderWeightItem.ServiceId == Guid.Empty)
             {
                 throw new KeyNotFoundException($"Order weight item no id {orderWeightItem.ServiceNameAtOrderTime} for adding: service id {orderWeightItem.ServiceId}");
@@ -166,7 +179,7 @@ namespace Lababa.Backend.Repositories
         {
             var orderWeightItems = LoadAllEntities();
             int initialCount = orderWeightItems.Count;
-            orderWeightItems.RemoveAll(o => o.ServiceId == id);
+            orderWeightItems.RemoveAll(o => o.Id == id);
             if (orderWeightItems.Count < initialCount)
             {
                 SaveAllEntities(orderWeightItems);

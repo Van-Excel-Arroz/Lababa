@@ -8,10 +8,12 @@ namespace Lababa.Backend.Services
     public class CustomerService
     {
         private readonly CustomerRepository _repo;
+        private readonly OrderService _orderService;
 
         public CustomerService()
         {
             _repo = new CustomerRepository();
+            _orderService = new OrderService();
         }
 
         public void AddCustomer(Customer customer)
@@ -56,6 +58,11 @@ namespace Lababa.Backend.Services
 
         public void DeleteCustomer(Guid id)
         {
+            var orders = _orderService.GetAllOrdersByCustomerId(id);
+            foreach (var order in orders)
+            {
+                _orderService.DeleteOrder(order.Id);
+            }
             _repo.Delete(id);
         }
     }

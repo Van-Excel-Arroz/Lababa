@@ -2,16 +2,18 @@
 
 namespace Lababa.Backend.Models
 {
-    public class OrderItemItem
+    public class OrderItemItem : IEntity
     {
+        public Guid Id { get; set; }
         public Guid ServiceId { get; set; }
         public string ItemNameAtOrderTime { get; set; }
         public decimal PricePerPieceAtOrderTime { get; set; }
         public int Quantity { get; set; }
         public Guid OrderId { get; set; }
     }
-    public class OrderWeightItem 
+    public class OrderWeightItem : IEntity
     {
+        public Guid Id { get; set; }
         public Guid ServiceId { get; set; }
         public string ServiceNameAtOrderTime { get; set; }
         public decimal PricePerUnitAtOrderTime { get; set; }

@@ -42,6 +42,7 @@ namespace Lababa.Frontend.Forms
             lblOrderStatus.Text = _order.Status.ToString();
             lblPaymentStatus.Text = _order.PaymentStatus.ToString();
             lblTotalAmount.Text = $"{_appSettings.CurrencySymbol}{_order.TotalAmount}";
+            lblReceiptMessage.Text = _appSettings.ReceiptMessage;
         }
 
         private void InitializeServices()

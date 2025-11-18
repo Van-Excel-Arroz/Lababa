@@ -1,6 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls.Interfaces;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -48,6 +49,11 @@ namespace Lababa.Frontend.UserControls
             }
         }
 
+        public void LoadStepData()
+        {
+            ShopInformationStep_Load(this, EventArgs.Empty);
+        }
+
         public void SaveStepData()
         {
             var settings = _appSettingsService.LoadSettings();
@@ -76,13 +82,13 @@ namespace Lababa.Frontend.UserControls
 
         public bool ValidateStep()
         {
-            if (string.IsNullOrWhiteSpace(txtShopName.Text) || string.IsNullOrWhiteSpace(txtAddress.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+            if (string.IsNullOrWhiteSpace(txtShopName.Text))
             {
-                MessageBox.Show("You can't leave all the fields empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Shop Name can't be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (txtShopName.Text.Length > 50)
+                if (txtShopName.Text.Length > 50)
             {
                 MessageBox.Show("Shop Name field must not be greater than 50", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtShopName.Focus();
@@ -102,6 +108,13 @@ namespace Lababa.Frontend.UserControls
             {
                 MessageBox.Show("Please enter a valid phone number format \n(e.g., 123-456-7890).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhoneNumber.Focus();
+                return false;
+            }
+
+            if (txtReceiptMessage.Text.Length > 100)
+            {
+                MessageBox.Show("Receipt message must not be greater than 100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtReceiptMessage.Focus();
                 return false;
             }
 

@@ -18,6 +18,11 @@ namespace Lababa.Backend.Services
             _catalog = new ItemServiceCatalogRepository().GetAll();
         }
 
+        public void DeleteOrderItemItem(Guid id)
+        {
+            _repo.Delete(id);
+        }
+
         public List<OrderItemItem> GetAllOrderItemItems(Guid orderId) 
         {
             return _repo.GetAll().Where(o => o.OrderId == orderId).ToList();

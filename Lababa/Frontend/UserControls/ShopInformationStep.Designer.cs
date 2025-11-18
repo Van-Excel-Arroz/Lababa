@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.txtShopName = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtAddress = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtPhoneNumber = new Lababa.Frontend.UserControls.LabeledTextBox();
             this.txtReceiptMessage = new Lababa.Frontend.UserControls.LabeledTextBox();
-            this.tlpCurrencySymbol = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbCurrcencySymbol = new System.Windows.Forms.ComboBox();
             this.tlpDefaultWeightUnit = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.rdoKilograms = new System.Windows.Forms.RadioButton();
             this.rdoPounds = new System.Windows.Forms.RadioButton();
+            this.tlpCurrencySymbol = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbCurrcencySymbol = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpDetails.SuspendLayout();
-            this.tlpContainer.SuspendLayout();
-            this.tlpCurrencySymbol.SuspendLayout();
             this.tlpDefaultWeightUnit.SuspendLayout();
+            this.tlpCurrencySymbol.SuspendLayout();
+            this.tlpContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpDetails
@@ -74,20 +74,6 @@
             this.tlpDetails.Size = new System.Drawing.Size(530, 316);
             this.tlpDetails.TabIndex = 0;
             // 
-            // tlpContainer
-            // 
-            this.tlpContainer.ColumnCount = 1;
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
-            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
-            this.tlpContainer.Name = "tlpContainer";
-            this.tlpContainer.RowCount = 1;
-            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpContainer.Size = new System.Drawing.Size(536, 348);
-            this.tlpContainer.TabIndex = 1;
-            // 
             // txtShopName
             // 
             this.txtShopName.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -100,7 +86,7 @@
             // txtAddress
             // 
             this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddress.LabelText = "Address";
+            this.txtAddress.LabelText = "Address (Optional)";
             this.txtAddress.Location = new System.Drawing.Point(13, 66);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(504, 47);
@@ -109,7 +95,7 @@
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhoneNumber.LabelText = "Phone Number";
+            this.txtPhoneNumber.LabelText = "Phone Number (Optional)";
             this.txtPhoneNumber.Location = new System.Drawing.Point(13, 119);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(504, 47);
@@ -123,49 +109,6 @@
             this.txtReceiptMessage.Name = "txtReceiptMessage";
             this.txtReceiptMessage.Size = new System.Drawing.Size(504, 52);
             this.txtReceiptMessage.TabIndex = 4;
-            // 
-            // tlpCurrencySymbol
-            // 
-            this.tlpCurrencySymbol.ColumnCount = 2;
-            this.tlpCurrencySymbol.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpCurrencySymbol.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCurrencySymbol.Controls.Add(this.cmbCurrcencySymbol, 1, 0);
-            this.tlpCurrencySymbol.Controls.Add(this.label2, 0, 0);
-            this.tlpCurrencySymbol.Location = new System.Drawing.Point(13, 273);
-            this.tlpCurrencySymbol.Name = "tlpCurrencySymbol";
-            this.tlpCurrencySymbol.RowCount = 1;
-            this.tlpCurrencySymbol.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCurrencySymbol.Size = new System.Drawing.Size(211, 30);
-            this.tlpCurrencySymbol.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Currency Symbol: ";
-            // 
-            // cmbCurrcencySymbol
-            // 
-            this.cmbCurrcencySymbol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbCurrcencySymbol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCurrcencySymbol.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCurrcencySymbol.FormattingEnabled = true;
-            this.cmbCurrcencySymbol.Items.AddRange(new object[] {
-            "$",
-            "€",
-            "£",
-            "¥",
-            "₹",
-            "₱"});
-            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(108, 4);
-            this.cmbCurrcencySymbol.Name = "cmbCurrcencySymbol";
-            this.cmbCurrcencySymbol.Size = new System.Drawing.Size(100, 22);
-            this.cmbCurrcencySymbol.TabIndex = 2;
             // 
             // tlpDefaultWeightUnit
             // 
@@ -221,6 +164,63 @@
             this.rdoPounds.Text = "Pounds (lbs)";
             this.rdoPounds.UseVisualStyleBackColor = true;
             // 
+            // tlpCurrencySymbol
+            // 
+            this.tlpCurrencySymbol.ColumnCount = 2;
+            this.tlpCurrencySymbol.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCurrencySymbol.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCurrencySymbol.Controls.Add(this.cmbCurrcencySymbol, 1, 0);
+            this.tlpCurrencySymbol.Controls.Add(this.label2, 0, 0);
+            this.tlpCurrencySymbol.Location = new System.Drawing.Point(13, 273);
+            this.tlpCurrencySymbol.Name = "tlpCurrencySymbol";
+            this.tlpCurrencySymbol.RowCount = 1;
+            this.tlpCurrencySymbol.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCurrencySymbol.Size = new System.Drawing.Size(211, 30);
+            this.tlpCurrencySymbol.TabIndex = 5;
+            // 
+            // cmbCurrcencySymbol
+            // 
+            this.cmbCurrcencySymbol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbCurrcencySymbol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCurrcencySymbol.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCurrcencySymbol.FormattingEnabled = true;
+            this.cmbCurrcencySymbol.Items.AddRange(new object[] {
+            "$",
+            "€",
+            "£",
+            "¥",
+            "₹",
+            "₱"});
+            this.cmbCurrcencySymbol.Location = new System.Drawing.Point(108, 4);
+            this.cmbCurrcencySymbol.Name = "cmbCurrcencySymbol";
+            this.cmbCurrcencySymbol.Size = new System.Drawing.Size(100, 22);
+            this.cmbCurrcencySymbol.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Currency Symbol: ";
+            // 
+            // tlpContainer
+            // 
+            this.tlpContainer.ColumnCount = 1;
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.Controls.Add(this.tlpDetails, 0, 0);
+            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
+            this.tlpContainer.Name = "tlpContainer";
+            this.tlpContainer.RowCount = 1;
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpContainer.Size = new System.Drawing.Size(536, 348);
+            this.tlpContainer.TabIndex = 1;
+            // 
             // ShopInformationStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,11 +231,11 @@
             this.Size = new System.Drawing.Size(536, 348);
             this.Load += new System.EventHandler(this.ShopInformationStep_Load);
             this.tlpDetails.ResumeLayout(false);
-            this.tlpContainer.ResumeLayout(false);
-            this.tlpCurrencySymbol.ResumeLayout(false);
-            this.tlpCurrencySymbol.PerformLayout();
             this.tlpDefaultWeightUnit.ResumeLayout(false);
             this.tlpDefaultWeightUnit.PerformLayout();
+            this.tlpCurrencySymbol.ResumeLayout(false);
+            this.tlpCurrencySymbol.PerformLayout();
+            this.tlpContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

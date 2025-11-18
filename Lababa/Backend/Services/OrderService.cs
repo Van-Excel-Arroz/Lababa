@@ -2,6 +2,7 @@
 using Lababa.Backend.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Lababa.Backend.Services
 {
@@ -25,6 +26,11 @@ namespace Lababa.Backend.Services
             {
                 return null;
             }
+        }
+
+        public List<Order> GetAllOrdersByCustomerId(Guid customerId)
+        {
+            return _repo.GetAll().Where(o => o.CustomerId == customerId).ToList();
         }
 
         public List<Order> GetOrdersForToday()
@@ -67,6 +73,18 @@ namespace Lababa.Backend.Services
         public void DeleteOrder(Guid id)
         {
             _repo.Delete(id);
+            var orderWeightItemService = new OrderWeightItemService();
+            var orderItemItemService = new OrderItemItemService();
+
+            foreach (var item in orderWeightItemService.GetAllOrderWeightItems(id))
+            {
+                orderWeightItemService.DeleteOrderWeightItem(item.Id);
+            }
+
+            foreach (var item in orderItemItemService.GetAllOrderItemItems(id))
+            {
+                orderItemItemService.DeleteOrderItemItem(item.Id);
+            }
         }
     }
 }
