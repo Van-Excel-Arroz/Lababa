@@ -2,7 +2,7 @@
 
 namespace Lababa.Backend.Models
 {
-    public class OrderItemItem
+    public class OrderItemItem : IEntity
     {
         public Guid Id { get; set; }
         public Guid ServiceId { get; set; }
@@ -11,7 +11,7 @@ namespace Lababa.Backend.Models
         public int Quantity { get; set; }
         public Guid OrderId { get; set; }
     }
-    public class OrderWeightItem 
+    public class OrderWeightItem : IEntity
     {
         public Guid Id { get; set; }
         public Guid ServiceId { get; set; }

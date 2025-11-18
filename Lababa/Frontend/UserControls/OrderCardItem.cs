@@ -35,7 +35,7 @@ namespace Lababa.Frontend.UserControls
         {
             lblOrderNumber.Text = _order.OrderNumber;
             lblCustomerName.Text = _customer.FullName;
-            lblDueDate.Text = _order.DueDate.ToString("MMM  dd, yyyy");
+            lblDueDate.Text = _order.DueDate.Date == DateTime.Today ? "Today" : _order.DueDate.ToString("MMM  dd, yyyy");
             lblTotalAmount.Text = $"{_currencySymbol}{_order.TotalAmount}";
             HandlePaymentStatus(_order.PaymentStatus);
             HandleOrderStatus(_order.Status);
@@ -178,8 +178,13 @@ namespace Lababa.Frontend.UserControls
 
         private void tsmiDelete_Click(object sender, EventArgs e)
         {
-            _orderService.DeleteOrder(_order.Id);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            var result = MessageBox.Show($"Are you sure you want to delete {_order.OrderNumber}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                _orderService.DeleteOrder(_order.Id);
+                OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void tsmiPending_Click(object sender, EventArgs e)
