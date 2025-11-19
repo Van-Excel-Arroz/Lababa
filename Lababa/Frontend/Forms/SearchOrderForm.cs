@@ -1,6 +1,10 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Lababa.Backend.Models;
+using Lababa.Backend.Services; 
 
 namespace Lababa.Frontend.Forms
 {
@@ -22,13 +26,13 @@ namespace Lababa.Frontend.Forms
             _filteredOrders = new List<Order>(_allOrders);
             _orderService = new OrderService();
 
-            lblResult.Text = $"Found ({_allOrders.Count}) Orders";
-            LoadOrders();
             InitializeOrderStatus();
             InitializePaymentStatus();
 
-            dtpFromDate.Value = DateTime.Today.AddMonths(-1); 
+            dtpFromDate.Value = DateTime.Today.AddMonths(-1);
             dtpToDate.Value = DateTime.Today;
+
+            LoadOrders();
         }
 
         private void LoadOrders()
@@ -51,7 +55,11 @@ namespace Lababa.Frontend.Forms
             }).ToList();
 
             dgvOrders.DataSource = orderViewModels;
-            dgvOrders.Columns["Order"].Visible = false;
+
+            if (dgvOrders.Columns["Order"] != null)
+            {
+                dgvOrders.Columns["Order"].Visible = false;
+            }
 
             lblResult.Text = $"Found ({_filteredOrders.Count}) Orders";
         }
@@ -89,49 +97,13 @@ namespace Lababa.Frontend.Forms
                 query = query.Where(order => order.PaymentStatus == selectedPaymentStatus);
             }
 
-        private void ApplyFilters()
-        {
-            IEnumerable<Order> query = _allOrders; 
-
-            if (!string.IsNullOrWhiteSpace(txtCustomerNameOrPhone.Text))
-            {
-                string searchTerm = txtCustomerNameOrPhone.Text.Trim().ToLower();
-                query = query.Where(order =>
-                {
-                    var customer = _customerService.GetCustomerById(order.CustomerId);
-                    return (customer != null && customer.FullName.ToLower().Contains(searchTerm)) ||
-                           (customer != null && customer.PhoneNumber.ToLower().Contains(searchTerm));
-                });
-            }
-
-            if (!string.IsNullOrWhiteSpace(txtOrderNumber.Text))
-            {
-                string orderNumberSearchTerm = txtOrderNumber.Text.Trim().ToLower();
-                query = query.Where(order => order.OrderNumber.ToLower().Contains(orderNumberSearchTerm));
-            }
-
-            if (cmbOrderStatus.SelectedValue != null && cmbOrderStatus.SelectedIndex != -1)
-            {
-                OrderStatus selectedStatus = (OrderStatus)cmbOrderStatus.SelectedValue;
-                query = query.Where(order => order.Status == selectedStatus);
-            }
-            
-            if (cmbPaymentStatus.SelectedValue != null && cmbPaymentStatus.SelectedIndex != -1)
-            {
-                PaymentStatus selectedPaymentStatus = (PaymentStatus)cmbPaymentStatus.SelectedValue;
-                query = query.Where(order => order.PaymentStatus == selectedPaymentStatus);
-            }
-
-            DateTime fromDate = dtpFromDate.Value.Date; 
+            DateTime fromDate = dtpFromDate.Value.Date;
             DateTime toDate = dtpToDate.Value.Date.AddDays(1).AddSeconds(-1);
-
             query = query.Where(order => order.DateCreated >= fromDate && order.DateCreated <= toDate);
-
 
             _filteredOrders = query.ToList();
             LoadOrders();
         }
-
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
@@ -141,49 +113,14 @@ namespace Lababa.Frontend.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtCustomerNameOrPhone.Clear();
-            txtOrderNumber.Clear(); 
-            cmbOrderStatus.SelectedIndex = -1;
-            cmbPaymentStatus.SelectedIndex = -1;
-            dtpFromDate.Value = DateTime.Today.AddMonths(-1); 
-            dtpToDate.Value = DateTime.Today;
-
-            _filteredOrders = new List<Order>(_allOrders);
-            LoadOrders(); 
-        }
-
-        private void InitializePaymentStatus()
-        {
-            var paymentStatuses = Enum.GetValues(typeof(PaymentStatus)).Cast<PaymentStatus>();
-
-            var dataSource = paymentStatuses.Select(ps => new
-            {
-                Text = ps.ToString(),
-                Value = ps
-            }).ToList();
-
-            cmbPaymentStatus.DataSource = dataSource;
-            cmbPaymentStatus.DisplayMember = "Text";
-            cmbPaymentStatus.ValueMember = "Value";
-
-            cmbPaymentStatus.SelectedIndex = -1;
-        }
-
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-            ApplyFilters();
-        }
-
-        private void btnClearFilters_Click(object sender, EventArgs e)
-        {
-            txtCustomerNameOrPhone.Clear();
-            txtOrderNumber.Clear(); 
+            txtOrderNumber.Clear();
             cmbOrderStatus.SelectedIndex = -1;
             cmbPaymentStatus.SelectedIndex = -1;
             dtpFromDate.Value = DateTime.Today.AddMonths(-1);
             dtpToDate.Value = DateTime.Today;
 
             _filteredOrders = new List<Order>(_allOrders);
-            LoadOrders(); 
+            LoadOrders();
         }
 
         private void InitializeOrderStatus()
@@ -199,20 +136,35 @@ namespace Lababa.Frontend.Forms
             cmbOrderStatus.DataSource = dataSource;
             cmbOrderStatus.DisplayMember = "Text";
             cmbOrderStatus.ValueMember = "Value";
-
             cmbOrderStatus.SelectedIndex = -1;
+        }
+
+        private void InitializePaymentStatus()
+        {
+            var paymentStatuses = Enum.GetValues(typeof(PaymentStatus)).Cast<PaymentStatus>();
+
+            var dataSource = paymentStatuses.Select(ps => new
+            {
+                Text = ps.ToString(),
+                Value = ps
+            }).ToList();
+
+            cmbPaymentStatus.DataSource = dataSource;
+            cmbPaymentStatus.DisplayMember = "Text";
+            cmbPaymentStatus.ValueMember = "Value";
+            cmbPaymentStatus.SelectedIndex = -1;
         }
 
         private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvOrders.Columns["colView"].Index)
+            if (e.RowIndex >= 0 && dgvOrders.Columns["colView"] != null && e.ColumnIndex == dgvOrders.Columns["colView"].Index)
             {
                 var viewModel = (OrderDisplayViewModel)dgvOrders.Rows[e.RowIndex].DataBoundItem;
                 var orderDetailsForm = new OrderDetailsForm(viewModel.Order, viewModel.Total, _currencySymbol);
                 orderDetailsForm.Show();
             }
 
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvOrders.Columns["colDelete"].Index)
+            if (e.RowIndex >= 0 && dgvOrders.Columns["colDelete"] != null && e.ColumnIndex == dgvOrders.Columns["colDelete"].Index)
             {
                 var viewModel = (OrderDisplayViewModel)dgvOrders.Rows[e.RowIndex].DataBoundItem;
                 Order order = viewModel.Order;
@@ -233,8 +185,18 @@ namespace Lababa.Frontend.Forms
                     OrdersUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
->>>>>>> fa0b83e7288ca9b2544f7dcffbc6bd543e81a39e
-
         }
+    }
+
+    public class OrderDisplayViewModel
+    {
+        public string OrderId { get; set; }
+        public string Customer { get; set; }
+        public string Phone { get; set; }
+        public string OrderStatus { get; set; }
+        public string PaymentStatus { get; set; }
+        public decimal Total { get; set; }
+        public string DateCreated { get; set; }
+        public Order Order { get; set; } // Hidden column to store the full object
     }
 }
