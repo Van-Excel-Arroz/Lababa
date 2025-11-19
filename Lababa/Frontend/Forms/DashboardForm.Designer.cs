@@ -32,13 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpHeader = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
-            this.btnSettings = new System.Windows.Forms.Button();
             this.lblShopName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
             this.tlpOrdersTableView = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tlpSummaryCards = new System.Windows.Forms.TableLayoutPanel();
@@ -103,6 +103,8 @@
             this.btnSearchOrders = new System.Windows.Forms.Button();
             this.btnNewOrder = new System.Windows.Forms.Button();
             this.settingsControl = new Lababa.Frontend.UserControls.SettingsControl();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tlpContainer.SuspendLayout();
             this.tlpHeader.SuspendLayout();
             this.tlpOrdersTableView.SuspendLayout();
@@ -165,12 +167,14 @@
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpHeader.Controls.Add(this.button1, 1, 0);
             this.tlpHeader.Controls.Add(this.lblShopName, 0, 0);
             this.tlpHeader.Controls.Add(this.panel1, 0, 1);
             this.tlpHeader.Controls.Add(this.panel2, 1, 1);
             this.tlpHeader.Controls.Add(this.panel3, 2, 1);
             this.tlpHeader.Controls.Add(this.panel4, 3, 1);
-            this.tlpHeader.Controls.Add(this.btnSettings, 3, 0);
+            this.tlpHeader.Controls.Add(this.button2, 3, 0);
+            this.tlpHeader.Controls.Add(this.btnSettings, 2, 0);
             this.tlpHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpHeader.Location = new System.Drawing.Point(0, 0);
             this.tlpHeader.Margin = new System.Windows.Forms.Padding(0);
@@ -181,33 +185,6 @@
             this.tlpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
             this.tlpHeader.Size = new System.Drawing.Size(1334, 70);
             this.tlpHeader.TabIndex = 0;
-            // 
-            // buttonImageList
-            // 
-            this.buttonImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("buttonImageList.ImageStream")));
-            this.buttonImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.buttonImageList.Images.SetKeyName(0, "plus.png");
-            this.buttonImageList.Images.SetKeyName(1, "add-user.png");
-            this.buttonImageList.Images.SetKeyName(2, "search.png");
-            this.buttonImageList.Images.SetKeyName(3, "add-customer.png");
-            this.buttonImageList.Images.SetKeyName(4, "financial.png");
-            this.buttonImageList.Images.SetKeyName(5, "help.png");
-            this.buttonImageList.Images.SetKeyName(6, "settings.png");
-            this.buttonImageList.Images.SetKeyName(7, "setting-2.png");
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.ImageKey = "setting-2.png";
-            this.btnSettings.ImageList = this.buttonImageList;
-            this.btnSettings.Location = new System.Drawing.Point(1276, 18);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(6);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(35, 32);
-            this.btnSettings.TabIndex = 9;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // lblShopName
             // 
@@ -262,6 +239,33 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(50, 2);
             this.panel4.TabIndex = 7;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.ImageKey = "setting-2.png";
+            this.btnSettings.ImageList = this.buttonImageList;
+            this.btnSettings.Location = new System.Drawing.Point(1228, 18);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(35, 32);
+            this.btnSettings.TabIndex = 9;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // buttonImageList
+            // 
+            this.buttonImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("buttonImageList.ImageStream")));
+            this.buttonImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.buttonImageList.Images.SetKeyName(0, "plus.png");
+            this.buttonImageList.Images.SetKeyName(1, "add-user.png");
+            this.buttonImageList.Images.SetKeyName(2, "search.png");
+            this.buttonImageList.Images.SetKeyName(3, "add-customer.png");
+            this.buttonImageList.Images.SetKeyName(4, "financial.png");
+            this.buttonImageList.Images.SetKeyName(5, "help.png");
+            this.buttonImageList.Images.SetKeyName(6, "settings.png");
+            this.buttonImageList.Images.SetKeyName(7, "setting-2.png");
             // 
             // tlpOrdersTableView
             // 
@@ -1118,6 +1122,32 @@
             this.settingsControl.Size = new System.Drawing.Size(1314, 322);
             this.settingsControl.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.ImageKey = "financial.png";
+            this.button1.ImageList = this.buttonImageList;
+            this.button1.Location = new System.Drawing.Point(1181, 18);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 32);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.ImageKey = "help.png";
+            this.button2.ImageList = this.buttonImageList;
+            this.button2.Location = new System.Drawing.Point(1276, 18);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 32);
+            this.button2.TabIndex = 11;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1253,5 +1283,7 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.PictureBox pictureBox4;
         private UserControls.SettingsControl settingsControl;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
