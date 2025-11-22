@@ -28,86 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvItemServiceCatalog = new System.Windows.Forms.DataGridView();
-            this.colWeightServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPricePerUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemoveImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tlpContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItemServiceCatalog)).BeginInit();
-            this.SuspendLayout();
+            tlpContainer = new System.Windows.Forms.TableLayoutPanel();
+            dgvItemServiceCatalog = new System.Windows.Forms.DataGridView();
+            colWeightServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colPricePerUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colRemoveImage = new System.Windows.Forms.DataGridViewImageColumn();
+            tlpContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvItemServiceCatalog).BeginInit();
+            SuspendLayout();
             // 
             // tlpContainer
             // 
-            this.tlpContainer.ColumnCount = 1;
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.Controls.Add(this.dgvItemServiceCatalog, 0, 0);
-            this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpContainer.Location = new System.Drawing.Point(0, 0);
-            this.tlpContainer.Name = "tlpContainer";
-            this.tlpContainer.RowCount = 1;
-            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 395F));
-            this.tlpContainer.Size = new System.Drawing.Size(550, 318);
-            this.tlpContainer.TabIndex = 1;
+            tlpContainer.ColumnCount = 1;
+            tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tlpContainer.Controls.Add(dgvItemServiceCatalog, 0, 0);
+            tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            tlpContainer.Location = new System.Drawing.Point(0, 0);
+            tlpContainer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tlpContainer.Name = "tlpContainer";
+            tlpContainer.RowCount = 1;
+            tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 456F));
+            tlpContainer.Size = new System.Drawing.Size(493, 367);
+            tlpContainer.TabIndex = 1;
             // 
             // dgvItemServiceCatalog
             // 
-            this.dgvItemServiceCatalog.AllowUserToResizeRows = false;
-            this.dgvItemServiceCatalog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItemServiceCatalog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colWeightServiceName,
-            this.colPricePerUnit,
-            this.colRemoveImage});
-            this.dgvItemServiceCatalog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvItemServiceCatalog.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvItemServiceCatalog.Location = new System.Drawing.Point(3, 3);
-            this.dgvItemServiceCatalog.Name = "dgvItemServiceCatalog";
-            this.dgvItemServiceCatalog.Size = new System.Drawing.Size(544, 312);
-            this.dgvItemServiceCatalog.TabIndex = 1;
-            this.dgvItemServiceCatalog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellContentClick);
-            this.dgvItemServiceCatalog.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvWeightServices_CellFormatting);
-            this.dgvItemServiceCatalog.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseEnter);
-            this.dgvItemServiceCatalog.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWeightServices_CellMouseLeave);
+            dgvItemServiceCatalog.AllowUserToResizeRows = false;
+            dgvItemServiceCatalog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dgvItemServiceCatalog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvItemServiceCatalog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colWeightServiceName, colPricePerUnit, colRemoveImage });
+            dgvItemServiceCatalog.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgvItemServiceCatalog.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            dgvItemServiceCatalog.Location = new System.Drawing.Point(4, 3);
+            dgvItemServiceCatalog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dgvItemServiceCatalog.Name = "dgvItemServiceCatalog";
+            dgvItemServiceCatalog.Size = new System.Drawing.Size(485, 361);
+            dgvItemServiceCatalog.TabIndex = 1;
+            dgvItemServiceCatalog.CellContentClick += dgvWeightServices_CellContentClick;
+            dgvItemServiceCatalog.CellFormatting += dgvWeightServices_CellFormatting;
+            dgvItemServiceCatalog.CellMouseEnter += dgvWeightServices_CellMouseEnter;
+            dgvItemServiceCatalog.CellMouseLeave += dgvWeightServices_CellMouseLeave;
             // 
             // colWeightServiceName
             // 
-            this.colWeightServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colWeightServiceName.DataPropertyName = "ItemName";
-            this.colWeightServiceName.FillWeight = 22.72728F;
-            this.colWeightServiceName.HeaderText = "Item Name";
-            this.colWeightServiceName.Name = "colWeightServiceName";
+            colWeightServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            colWeightServiceName.DataPropertyName = "ItemName";
+            colWeightServiceName.FillWeight = 22.72728F;
+            colWeightServiceName.HeaderText = "Item Name";
+            colWeightServiceName.Name = "colWeightServiceName";
             // 
             // colPricePerUnit
             // 
-            this.colPricePerUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPricePerUnit.DataPropertyName = "PricePerPiece";
-            this.colPricePerUnit.FillWeight = 177.2727F;
-            this.colPricePerUnit.HeaderText = "Price/Piece";
-            this.colPricePerUnit.Name = "colPricePerUnit";
-            this.colPricePerUnit.Width = 88;
+            colPricePerUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            colPricePerUnit.DataPropertyName = "PricePerPiece";
+            colPricePerUnit.FillWeight = 177.2727F;
+            colPricePerUnit.HeaderText = "Price/Piece";
+            colPricePerUnit.Name = "colPricePerUnit";
+            colPricePerUnit.Width = 91;
             // 
             // colRemoveImage
             // 
-            this.colRemoveImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colRemoveImage.HeaderText = "Remove";
-            this.colRemoveImage.Image = global::Lababa.Properties.Resources.trash_2;
-            this.colRemoveImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colRemoveImage.Name = "colRemoveImage";
-            this.colRemoveImage.Width = 53;
+            colRemoveImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            colRemoveImage.HeaderText = "Remove";
+            colRemoveImage.Image = Properties.Resources.trash_2;
+            colRemoveImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            colRemoveImage.Name = "colRemoveImage";
+            colRemoveImage.Width = 56;
             // 
             // ItemServicesStep
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.tlpContainer);
-            this.Name = "ItemServicesStep";
-            this.Size = new System.Drawing.Size(550, 318);
-            this.Load += new System.EventHandler(this.WeightServicesStep_Load);
-            this.tlpContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItemServiceCatalog)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.White;
+            Controls.Add(tlpContainer);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "ItemServicesStep";
+            Size = new System.Drawing.Size(493, 367);
+            Load += WeightServicesStep_Load;
+            tlpContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvItemServiceCatalog).EndInit();
+            ResumeLayout(false);
 
         }
 
