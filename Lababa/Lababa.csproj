@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{014743C1-5BE0-4011-A6F0-5ADAD20F18DD}</ProjectGuid>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lababa</RootNamespace>
-    <AssemblyName>Lababa</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,306 +17,65 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <ApplicationIcon>Lababa-Logo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Compile Update="Frontend\UserControls\BackNextButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\FinishWizardStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\ItemServiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\ItemServicePrintDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\OrderCardItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\WeightServiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\WeightServicePrintDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\WeightServicesStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\ItemServicesStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\ShopInformationStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\LabeledTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\StepControlLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Frontend\UserControls\WelcomeStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Backend\Models\ApplicationSettings.cs" />
-    <Compile Include="Backend\Repositories\ItemServiceCatalogRepository.cs" />
-    <Compile Include="Backend\Repositories\OrderItemItemRepository.cs" />
-    <Compile Include="Backend\Repositories\OrderRepository.cs" />
-    <Compile Include="Backend\Repositories\OrderWeightItemRepository.cs" />
-    <Compile Include="Backend\Repositories\WeigthServiceCatalogRepository.cs" />
-    <Compile Include="Backend\Repositories\ApplicationSettingsRepository.cs" />
-    <Compile Include="Backend\Services\ApplicationSettingsService.cs" />
-    <Compile Include="Backend\Services\CustomerService.cs" />
-    <Compile Include="Backend\Services\ItemServiceCatalogService.cs" />
-    <Compile Include="Backend\Services\OrderItemItemService.cs" />
-    <Compile Include="Backend\Services\OrderService.cs" />
-    <Compile Include="Backend\Services\OrderWeightItemService.cs" />
-    <Compile Include="Backend\Services\WeightServiceCatalogService.cs" />
-    <Compile Include="Backend\Utilities\FileNames.cs" />
-    <Compile Include="Backend\Models\Customer.cs" />
-    <Compile Include="Backend\Models\Enums.cs" />
-    <Compile Include="Backend\Models\IEntity.cs" />
-    <Compile Include="Backend\Models\Order.cs" />
-    <Compile Include="Backend\Models\ServiceItems.cs" />
-    <Compile Include="Backend\Models\ServiceSettings.cs" />
-    <Compile Include="Backend\Repositories\CustomerRepository.cs" />
-    <Compile Include="Frontend\Forms\AddCustomerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Forms\AddCustomerForm.Designer.cs">
-      <DependentUpon>AddCustomerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\Forms\DashboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Forms\DashboardForm.Designer.cs">
-      <DependentUpon>DashboardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\Forms\AddOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Forms\AddOrderForm.Designer.cs">
-      <DependentUpon>AddOrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\Forms\OrderDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Forms\OrderDetailsForm.Designer.cs">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\Forms\PrintOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Forms\PrintOrderForm.Designer.cs">
-      <DependentUpon>PrintOrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\Forms\SearchOrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Forms\SearchOrderForm.Designer.cs">
-      <DependentUpon>SearchOrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\Forms\WizardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frontend\Forms\WizardForm.Designer.cs">
-      <DependentUpon>WizardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\Forms\WizardStepInfo.cs" />
-    <Compile Include="Frontend\UserControls\BackNextButtons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\BackNextButtons.Designer.cs">
-      <DependentUpon>BackNextButtons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\FinishWizardStep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\FinishWizardStep.Designer.cs">
-      <DependentUpon>FinishWizardStep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\Interfaces\IWizardStep.cs" />
-    <Compile Include="Frontend\UserControls\ItemServiceControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\ItemServiceControl.Designer.cs">
-      <DependentUpon>ItemServiceControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\ItemServicePrintDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\ItemServicePrintDetail.Designer.cs">
-      <DependentUpon>ItemServicePrintDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\OrderCardItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\OrderCardItem.Designer.cs">
-      <DependentUpon>OrderCardItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\SettingsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\SettingsControl.Designer.cs">
-      <DependentUpon>SettingsControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightServiceControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightServiceControl.Designer.cs">
-      <DependentUpon>WeightServiceControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightServicePrintDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightServicePrintDetail.Designer.cs">
-      <DependentUpon>WeightServicePrintDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightServicesStep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WeightServicesStep.Designer.cs">
-      <DependentUpon>WeightServicesStep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\ItemServicesStep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\ItemServicesStep.Designer.cs">
-      <DependentUpon>ItemServicesStep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\ShopInformationStep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\ShopInformationStep.Designer.cs">
-      <DependentUpon>ShopInformationStep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\LabeledTextBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\LabeledTextBox.Designer.cs">
-      <DependentUpon>LabeledTextBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\StepControlLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\StepControlLabel.Designer.cs">
-      <DependentUpon>StepControlLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WelcomeStep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Frontend\UserControls\WelcomeStep.Designer.cs">
-      <DependentUpon>WelcomeStep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frontend\Forms\AddCustomerForm.resx">
-      <DependentUpon>AddCustomerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Forms\DashboardForm.resx">
-      <DependentUpon>DashboardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Forms\AddOrderForm.resx">
-      <DependentUpon>AddOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Forms\OrderDetailsForm.resx">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Forms\PrintOrderForm.resx">
-      <DependentUpon>PrintOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Forms\SearchOrderForm.resx">
-      <DependentUpon>SearchOrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\Forms\WizardForm.resx">
-      <DependentUpon>WizardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\BackNextButtons.resx">
-      <DependentUpon>BackNextButtons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\FinishWizardStep.resx">
-      <DependentUpon>FinishWizardStep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\ItemServiceControl.resx">
-      <DependentUpon>ItemServiceControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\ItemServicePrintDetail.resx">
-      <DependentUpon>ItemServicePrintDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\OrderCardItem.resx">
-      <DependentUpon>OrderCardItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\SettingsControl.resx">
-      <DependentUpon>SettingsControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\WeightServiceControl.resx">
-      <DependentUpon>WeightServiceControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\WeightServicePrintDetail.resx">
-      <DependentUpon>WeightServicePrintDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\WeightServicesStep.resx">
-      <DependentUpon>WeightServicesStep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\ItemServicesStep.resx">
-      <DependentUpon>ItemServicesStep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\ShopInformationStep.resx">
-      <DependentUpon>ShopInformationStep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\LabeledTextBox.resx">
-      <DependentUpon>LabeledTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\StepControlLabel.resx">
-      <DependentUpon>StepControlLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\UserControls\WelcomeStep.resx">
-      <DependentUpon>WelcomeStep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Lababa-Logo.ico" />
-    <None Include="Resources\trash-2.png" />
-    <None Include="Resources\print-2.png" />
-    <None Include="Resources\print.png" />
-    <None Include="Resources\trash.png" />
-    <None Include="Resources\money.png" />
-    <None Include="Resources\person.png" />
-    <None Include="Resources\order.png" />
-    <None Include="Resources\time.png" />
-    <None Include="Resources\setting-2.png" />
-    <None Include="Resources\settings.png" />
-    <None Include="Resources\financial.png" />
-    <None Include="Resources\help.png" />
-    <None Include="Resources\add-customer.png" />
-    <None Include="Resources\search.png" />
-    <None Include="Resources\add-user.png" />
-    <None Include="Resources\plus.png" />
-    <None Include="Resources\check_mark.png" />
-    <None Include="Resources\arrow-left-black.png" />
-    <None Include="Resources\arrow-left.png" />
-    <None Include="Resources\arrow-right.png" />
-    <None Include="Resources\Lababa-Logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -340,5 +89,4 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
