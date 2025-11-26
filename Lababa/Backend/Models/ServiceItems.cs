@@ -10,6 +10,7 @@ namespace Lababa.Backend.Models
         public decimal PricePerPieceAtOrderTime { get; set; }
         public int Quantity { get; set; }
         public Guid OrderId { get; set; }
+        public virtual Order Order { get; set; }
     }
     public class OrderWeightItem : IEntity
     {
@@ -19,5 +20,6 @@ namespace Lababa.Backend.Models
         public decimal PricePerUnitAtOrderTime { get; set; }
         public double Weight { get; set; }
         public Guid OrderId { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

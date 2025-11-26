@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TableLayoutPanel tlpDetails;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchOrderForm));
             lblResult = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -510,9 +510,9 @@
             // 
             colDateCreated.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             colDateCreated.DataPropertyName = "DateCreated";
-            dataGridViewCellStyle3.Format = "f";
-            dataGridViewCellStyle3.NullValue = null;
-            colDateCreated.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "f";
+            dataGridViewCellStyle1.NullValue = null;
+            colDateCreated.DefaultCellStyle = dataGridViewCellStyle1;
             colDateCreated.HeaderText = "Date Created";
             colDateCreated.Name = "colDateCreated";
             colDateCreated.ReadOnly = true;
@@ -528,9 +528,9 @@
             // 
             // colDelete
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = resources.GetObject("dataGridViewCellStyle4.NullValue");
-            colDelete.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = resources.GetObject("dataGridViewCellStyle2.NullValue");
+            colDelete.DefaultCellStyle = dataGridViewCellStyle2;
             colDelete.HeaderText = "Delete";
             colDelete.Image = Properties.Resources.trash_2;
             colDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;

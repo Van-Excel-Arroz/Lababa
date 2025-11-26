@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lababa.Backend.Models
 {
@@ -12,5 +13,8 @@ namespace Lababa.Backend.Models
         public DateTime DueDate { get; set; }
         public decimal TotalAmount { get; set; }
         public Guid CustomerId { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual ICollection<OrderItemItem> ItemItems { get; set; }
+        public virtual ICollection<OrderWeightItem> WeightItems { get; set; }
     }
 }

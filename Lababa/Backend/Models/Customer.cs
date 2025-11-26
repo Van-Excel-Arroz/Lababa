@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lababa.Backend.Models
 {
@@ -16,5 +17,6 @@ namespace Lababa.Backend.Models
                 return $"{FullName} ({PhoneNumber})";
             }
         }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
