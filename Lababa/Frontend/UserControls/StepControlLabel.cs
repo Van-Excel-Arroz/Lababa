@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
@@ -8,6 +9,7 @@ namespace Lababa.Frontend.UserControls
         private int _index;
         private string _title;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int TotalSteps
         {
             get { return _totalSteps; }
@@ -21,6 +23,7 @@ namespace Lababa.Frontend.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int Index
         {
             get { return _index; }
@@ -34,6 +37,7 @@ namespace Lababa.Frontend.UserControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Title
         {
             get { return _title; }

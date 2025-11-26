@@ -19,6 +19,7 @@ namespace Lababa.Frontend.UserControls
 
         [Category("Custom Properties")]
         [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string LabelText
         {
             get { return label1.Text; }
@@ -27,6 +28,7 @@ namespace Lababa.Frontend.UserControls
 
         [Category("Custom Properties")]
         [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override string Text
         {
             get { return textBox1.Text; }
