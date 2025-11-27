@@ -1,9 +1,6 @@
 ﻿using Lababa.Frontend.Forms;
 using Lababa.Frontend.UserControls;
 using Lababa.Frontend.UserControls.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Lababa
 {

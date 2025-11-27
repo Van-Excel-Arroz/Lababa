@@ -1,69 +1,61 @@
-﻿using Lababa.Backend.Models;
-using Lababa.Backend.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using Lababa.Backend.Data;
+using Lababa.Backend.Models;
 
 namespace Lababa.Backend.Services
 {
     public class CustomerService
     {
-        private readonly CustomerRepository _repo;
-        private readonly OrderService _orderService;
+        private readonly LababaDbContext _context;
 
-        public CustomerService()
+        public CustomerService(LababaDbContext context)
         {
-            _repo = new CustomerRepository();
-            _orderService = new OrderService();
+            _context = context;
         }
 
         public void AddCustomer(Customer customer)
         {
             if (string.IsNullOrWhiteSpace(customer.FullName))
-            {
                 throw new ArgumentException("Customer name is required");
-            }
 
             if (string.IsNullOrWhiteSpace(customer.PhoneNumber))
-            {
                 throw new ArgumentException("Phone number is required");
-            }
 
             customer.DateCreated = DateTime.Now;
-            _repo.Add(customer);
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
         }
 
         public List<Customer> GetAllCustomers()
         {
-            return _repo.GetAll();
+            return _context.Customers.ToList();
         }
 
         public Customer GetCustomerById(Guid id)
         {
-            return _repo.GetById(id);
+            return _context.Customers.Find(id);
         }
 
         public void UpdateCustomer(Customer customer)
         {
             if (string.IsNullOrWhiteSpace(customer.FullName))
-            {
                 throw new ArgumentException("Customer name is required");
-            }
 
             if (string.IsNullOrWhiteSpace(customer.PhoneNumber))
-            {
                 throw new ArgumentException("Phone number is required");
-            }
-            _repo.Update(customer);
+
+            _context.Customers.Update(customer);
+            _context.SaveChanges();
         }
 
         public void DeleteCustomer(Guid id)
         {
-            var orders = _orderService.GetAllOrdersByCustomerId(id);
-            foreach (var order in orders)
+            var customer = _context.Customers.Find(id);
+
+            if (customer != null)
             {
-                _orderService.DeleteOrder(order.Id);
+                _context.Customers.Remove(customer);
+                _context.SaveChanges();
             }
-            _repo.Delete(id);
         }
     }
 }

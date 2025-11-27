@@ -1,10 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
 {
@@ -14,7 +11,7 @@ namespace Lababa.Frontend.Forms
         private readonly OrderService _orderService;
         private readonly List<Customer> _allCustomers;
         private readonly string _currencySymbol;
-        private decimal _currentTotalAmount ;
+        private decimal _currentTotalAmount;
         public event EventHandler OrderCreated;
 
         public AddOrderForm()
@@ -54,7 +51,8 @@ namespace Lababa.Frontend.Forms
 
                 flpWeightServices.Controls.Add(weightServiceControl);
 
-            } else
+            }
+            else
             {
                 var itemServiceControl = new ItemServiceControl();
                 itemServiceControl.RemoveClicked += (_, __) =>
@@ -72,7 +70,7 @@ namespace Lababa.Frontend.Forms
         private void RecalculateTotalAmount()
         {
             decimal total = 0;
-            foreach (WeightServiceControl control in flpWeightServices.Controls) 
+            foreach (WeightServiceControl control in flpWeightServices.Controls)
             {
                 total += control.GetTotalPrice();
             }
@@ -105,7 +103,7 @@ namespace Lababa.Frontend.Forms
             var orderWeightItemService = new OrderWeightItemService();
             var orderItemItemService = new OrderItemItemService();
 
-            foreach (WeightServiceControl control in flpWeightServices.Controls) 
+            foreach (WeightServiceControl control in flpWeightServices.Controls)
             {
                 var weightService = control.GetWeightService;
 
@@ -148,7 +146,7 @@ namespace Lababa.Frontend.Forms
                 TotalAmount = _currentTotalAmount,
                 CustomerId = cmbCustomers.SelectedValue is Customer selectedCustomer ? selectedCustomer.Id : System.Guid.Empty
             };
-                
+
             _orderService.CreateOrder(newOrder);
             OrderCreated?.Invoke(this, EventArgs.Empty);
             this.Close();
