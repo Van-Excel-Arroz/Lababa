@@ -1,6 +1,9 @@
 ﻿using Lababa.Frontend.Forms;
 using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.Windows.Forms;
+using Lababa.Backend.Data;
 
 namespace Lababa
 {
@@ -14,8 +17,17 @@ namespace Lababa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+
             Application.Run(new DashboardForm());
             //Application.Run(new WizardForm());
         }
+
+        static IHostBuilder CreateHostBuilder() =>
+            Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddDbContext<LababaDbContext>();
+                });
     }
 }
