@@ -1,5 +1,7 @@
-﻿using Lababa.Backend.Models;
+﻿using Lababa.Backend.Data;
+using Lababa.Backend.Models;
 using Lababa.Backend.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,82 +10,73 @@ namespace Lababa.Backend.Services
 {
     public class OrderService
     {
-        private readonly OrderRepository _repo;
+        private readonly LababaDbContext _context;
 
-        public OrderService()
+        public OrderService(LababaDbContext context)
         {
-            _repo = new OrderRepository();
+            _context = context;
         }
 
         public Order GetRecentOrder()
         {
-            var allOrders = _repo.GetAll();
-            if (allOrders.Count > 0)
-            {
-            return allOrders[allOrders.Count - 1];
-
-            } else
-            {
-                return null;
-            }
+            return _context.Orders.OrderByDescending(o => o.DateCreated).FirstOrDefault();
         }
 
         public List<Order> GetAllOrdersByCustomerId(Guid customerId)
         {
-            return _repo.GetAll().Where(o => o.CustomerId == customerId).ToList();
+            return _context.Orders.Where(o => o.CustomerId == customerId).ToList();
         }
 
         public List<Order> GetOrdersForToday()
         {
-            var allOrders = _repo.GetAll();
             var today = DateTime.Today;
-            return allOrders.FindAll(o => o.DateCreated.Date == today || o.DueDate.Date >= today);
+
+            return _context.Orders
+                .Where(o => o.DateCreated == today || o.DueDate >= today)
+                .ToList();
         }
 
         public decimal CalculateOrdersTotalAmount(List<Order> orders) 
         {
-            decimal total = 0;
-            foreach (var order in orders)
-            {
-                if (order.PaymentStatus == PaymentStatus.Paid)
-                {
-                    total += order.TotalAmount;
-                }
-            }
-
-            return total;
+            return orders.Where(o => o.PaymentStatus == PaymentStatus.Paid)
+                .Sum(o => o.TotalAmount);
         }
-
 
         public void CreateOrder(Order order)
         {
-            _repo.Add(order);
+            if (order.Id == Guid.Empty)
+            {
+                order.Id = Guid.NewGuid();
+            }
+
+            if (string.IsNullOrEmpty(order.OrderNumber))
+            {
+                int totalOrders = _context.Orders.Count();
+                order.OrderNumber = $"ORD-{totalOrders + 1:D4}";
+            }
+
+            _context.Orders.Add(order);
+            _context.SaveChanges();
         }
 
         public List<Order> GetAllOrders()
         {
-            return _repo.GetAll();
+            return _context.Orders.Include(o => o.Customer).ToList(); 
         }
 
         public void UpdateOrder(Order order)
         {
-            _repo.Update(order);
+            _context.Orders.Update(order);
+            _context.SaveChanges();
         }
 
         public void DeleteOrder(Guid id)
         {
-            _repo.Delete(id);
-            var orderWeightItemService = new OrderWeightItemService();
-            var orderItemItemService = new OrderItemItemService();
-
-            foreach (var item in orderWeightItemService.GetAllOrderWeightItems(id))
+            var order = _context.Orders.Find(id);
+            if (order != null)
             {
-                orderWeightItemService.DeleteOrderWeightItem(item.Id);
-            }
-
-            foreach (var item in orderItemItemService.GetAllOrderItemItems(id))
-            {
-                orderItemItemService.DeleteOrderItemItem(item.Id);
+                _context.Orders.Remove(order);
+                _context.SaveChanges();
             }
         }
     }
