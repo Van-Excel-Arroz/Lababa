@@ -1,44 +1,53 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
 {
     public partial class OrderDetailsForm : Form
     {
-        private readonly Order _order;
+        private Order _order;
         private decimal _currentTotalAmount;
         private string _currencySymbol;
         private List<WeightServiceControl> _initialWeightServiceControls;
         private List<ItemServiceControl> _initialItemServiceControls;
+        private readonly CustomerService _customerService;
+        private readonly OrderService _orderService;
         private readonly OrderWeightItemService _orderWeightItemService;
         private readonly OrderItemItemService _orderItemItemService;
         public event EventHandler OrderUpdated;
 
 
-        public OrderDetailsForm(Order order, decimal currentTotalAmount, string currencySymbol)
+        public OrderDetailsForm(
+            CustomerService customerService, 
+            OrderService orderService, 
+            ApplicationSettingsService appSettingsService, 
+            OrderWeightItemService weightItemService, 
+            OrderItemItemService orderItemservice)
         {
             InitializeComponent();
-            _currentTotalAmount = currentTotalAmount;
-            _currencySymbol = currencySymbol;
-            _order = order;
+            _currentTotalAmount = _order.TotalAmount;
+            _currencySymbol = appSettingsService.LoadSettings().CurrencySymbol;
+            _customerService = customerService;
+            _orderService = orderService;
             _initialWeightServiceControls = new List<WeightServiceControl>();
             _initialItemServiceControls = new List<ItemServiceControl>();
-            _orderWeightItemService = new OrderWeightItemService();
-            _orderItemItemService = new OrderItemItemService();
+            _orderWeightItemService = weightItemService;
+            _orderItemItemService = orderItemservice;
 
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
-            lblCreatedDate.Text = order.DateCreated.ToString("MMM dd, yyyy");
+            lblCreatedDate.Text = _order.DateCreated.ToString("MMM dd, yyyy");
             dtpDueDate.Value = _order.DueDate;
             
             InitializeExistingServices();
             InitializeCustomerDetails();
             InitializePaymentStatus();
             InitializeOrderStatus(); 
+        }
+
+        public void LoadOrder(Guid orderId)
+        {
+            _order = _orderService.GetOrderById(orderId);
         }
 
         private void btnAddService_Click(object sender, System.EventArgs e)
@@ -73,7 +82,7 @@ namespace Lababa.Frontend.Forms
 
         private void InitializeExistingServices()
         {
-            var orderWeightItems = _orderWeightItemService.GetAllOrderWeightItems(_order.Id);
+            var orderWeightItems = _order.WeightItems;
 
 
             foreach (var orderWeightItem in orderWeightItems)
@@ -117,7 +126,7 @@ namespace Lababa.Frontend.Forms
 
         private void InitializeCustomerDetails()
         {
-            var customer = new CustomerService().GetCustomerById(_order.CustomerId);
+            var customer = _customerService.GetCustomerById(_order.CustomerId);
             lblCustomerName.Text = customer.FullName;
             lblPhoneNumber.Text = customer.PhoneNumber;
             lblAddress.Text = string.IsNullOrEmpty(customer.Address) ? "N/A" : customer.Address;
@@ -182,14 +191,12 @@ namespace Lababa.Frontend.Forms
 
         private void btnConfirmOrder_Click(object sender, EventArgs e)
         {
-            var orderService = new OrderService();
-
             _order.DueDate = dtpDueDate.Value;
             _order.PaymentStatus = (PaymentStatus)cmbPaymentStatus.SelectedValue;
             _order.Status = (OrderStatus)cmbOrderStatus.SelectedValue;
             _order.TotalAmount = _currentTotalAmount;
 
-            orderService.UpdateOrder(_order);
+            _orderService.UpdateOrder(_order);
 
   
             foreach (WeightServiceControl control in flpWeightServices.Controls)

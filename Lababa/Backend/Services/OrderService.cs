@@ -17,6 +17,15 @@ namespace Lababa.Backend.Services
             _context = context;
         }
 
+        public Order GetOrderById(Guid id)
+        {
+            return _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.ItemItems)
+                .Include(o => o.WeightItems)
+                .FirstOrDefault(o => o.Id == id);
+        }
+
         public Order GetRecentOrder()
         {
             return _context.Orders.OrderByDescending(o => o.DateCreated).FirstOrDefault();

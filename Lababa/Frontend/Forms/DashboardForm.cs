@@ -1,7 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
-using System.Windows.Forms;
+using Lababa.Frontend.UserControls.Events;
 
 namespace Lababa.Frontend.Forms
 {
@@ -9,13 +9,15 @@ namespace Lababa.Frontend.Forms
     {
         private readonly OrderService _orderService;
         private readonly CustomerService _customerService;
+        private ApplicationSettingsService _appSettingService;
         private ApplicationSettings _appSettings;
 
-        public DashboardForm()
+        public DashboardForm(OrderService orderService, CustomerService customerService, ApplicationSettingsService appSettingsService)
         {
             InitializeComponent();
-            _orderService = new OrderService();
-            _customerService = new CustomerService();
+            _orderService = orderService;
+            _customerService = customerService;
+            _appSettingService = appSettingsService;
             tlpOrdersTableView.Visible = true;
             settingsControl.Visible = false;
             tlpContainer.RowStyles[2] = new RowStyle(SizeType.Absolute, 0);
@@ -27,7 +29,7 @@ namespace Lababa.Frontend.Forms
 
         private void LoadSettings()
         {
-            _appSettings = new ApplicationSettingsService().LoadSettings();
+            _appSettings = _appSettingService.LoadSettings();
             lblShopName.Text = _appSettings.ShopName;
         }
 
@@ -48,9 +50,11 @@ namespace Lababa.Frontend.Forms
 
             foreach (var order in orders)
             {
-                var orderCardItem = new OrderCardItem(order);
+                var orderCardItem = new OrderCardItem(order, _appSettings);
 
-                orderCardItem.OrderCardUpdated += (_, __) => LoadOrders();
+                orderCardItem.OrderActionRequested += HandleOrderCardAction;
+
+                orderCardItem.OrderActionRequested += (_, __) => LoadOrders();
                 int desiredWidth = 0;
 
                 switch (order.Status)
@@ -90,6 +94,19 @@ namespace Lababa.Frontend.Forms
 
         }
 
+        private void HandleOrderCardAction(object sender, OrderCardActionEventArgs e)
+        {
+            switch (e.Action) 
+            {
+                case OrderCardActionType.Update:
+                    _orderService.UpdateOrder(e.Order);
+                    break;
+                case OrderCardActionType.Delete:
+                    _orderService.DeleteOrder(e.Order.Id);
+                    break;
+            }
+        }
+
         private void AttachFlowLayoutPanelResizeHandlers()
         {
             SetupFlowLayoutPanelResize(flpPendingStatus);
@@ -107,7 +124,7 @@ namespace Lababa.Frontend.Forms
 
         private void btnSearchOrders_Click(object sender, System.EventArgs e)
         {
-            var searchOrderForm = new SearchOrderForm(_orderService.GetAllOrders(), _customerService, _appSettings.CurrencySymbol);
+            var searchOrderForm = new SearchOrderForm(_orderService.GetAllOrders(), _customerService, _appSettingService.CurrencySymbol);
             searchOrderForm.OrdersUpdated += (_, __) => LoadOrders();
             searchOrderForm.Show();
         }

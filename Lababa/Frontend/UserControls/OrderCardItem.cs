@@ -1,30 +1,20 @@
 ﻿using Lababa.Backend.Models;
-using Lababa.Backend.Services;
 using Lababa.Frontend.Forms;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+using Lababa.Frontend.UserControls.Events;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class OrderCardItem : UserControl
     {
         private readonly Order _order;
-        private readonly Customer _customer;
-        private readonly OrderService _orderService;
-        private readonly string _currencySymbol;
         private readonly ApplicationSettings _appSettings;
-        public event EventHandler OrderCardUpdated;
+        public event EventHandler<OrderCardActionEventArgs> OrderActionRequested;
 
-        public OrderCardItem(Order order)
+        public OrderCardItem(Order order, ApplicationSettings appSettings)
         {
             InitializeComponent();
             _order = order;
-            var customerService = new CustomerService();
-            var appSettings = new ApplicationSettingsService().LoadSettings();
-            _orderService = new OrderService();
-            _customer = customerService.GetCustomerById(order.CustomerId);
-            _currencySymbol = appSettings.CurrencySymbol;
             _appSettings = appSettings;
 
             SetupInteractiveEffects();
@@ -34,11 +24,17 @@ namespace Lababa.Frontend.UserControls
         private void OrderCardItem_Load(object sender, System.EventArgs e)
         {
             lblOrderNumber.Text = _order.OrderNumber;
-            lblCustomerName.Text = _customer.FullName;
+            lblCustomerName.Text = _order.Customer?.FullName ?? "N/A";
             lblDueDate.Text = _order.DueDate.Date == DateTime.Today ? "Today" : _order.DueDate.ToString("MMM  dd, yyyy");
-            lblTotalAmount.Text = $"{_currencySymbol}{_order.TotalAmount}";
+            lblTotalAmount.Text = $"{_appSettings.CurrencySymbol}{_order.TotalAmount}";
             HandlePaymentStatus(_order.PaymentStatus);
             HandleOrderStatus(_order.Status);
+        }
+
+        private void ShowOrderDetails()
+        {
+            var orderDetailsForm = Program.ServiceProvider.GetRequiredService<OrderDetailsForm>();
+
         }
 
         private void HandlePaymentStatus(PaymentStatus paymentStatus)
@@ -137,15 +133,17 @@ namespace Lababa.Frontend.UserControls
 
         private void OrderCardItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var orderDetailsForm = new OrderDetailsForm(_order, _order.TotalAmount, _currencySymbol);
-            orderDetailsForm.OrderUpdated += (_, __) => OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            var orderDetailsForm = Program.ServiceProvider.GetRequiredService<OrderDetailsForm>();
+            orderDetailsForm.LoadOrder(_order.Id);
+            orderDetailsForm.OrderUpdated += (_, __) => OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
             orderDetailsForm.Show();
         }
 
         private void viewDetailsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            var orderDetailsForm = new OrderDetailsForm(_order, _order.TotalAmount, _currencySymbol);
-            orderDetailsForm.OrderUpdated += (_, __) => OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            var orderDetailsForm = Program.ServiceProvider.GetRequiredService<OrderDetailsForm>();
+            orderDetailsForm.LoadOrder(_order.Id);
+            orderDetailsForm.OrderUpdated += (_, __) => OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
             orderDetailsForm.Show();
         }
 
@@ -158,22 +156,19 @@ namespace Lababa.Frontend.UserControls
         private void tsmiPaid_Click(object sender, EventArgs e)
         {
             _order.PaymentStatus = PaymentStatus.Paid;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
 
         private void tsmiUnpaid_Click(object sender, System.EventArgs e)
         {
             _order.PaymentStatus = PaymentStatus.Unpaid;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
 
         private void tsmiRefunded_Click(object sender, EventArgs e)
         {
             _order.PaymentStatus = PaymentStatus.Refunded;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
 
         private void tsmiDelete_Click(object sender, EventArgs e)
@@ -182,44 +177,38 @@ namespace Lababa.Frontend.UserControls
 
             if (result == DialogResult.Yes)
             {
-                _orderService.DeleteOrder(_order.Id);
-                OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+                OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Delete));
             }
         }
 
         private void tsmiPending_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Pending;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
 
         private void tsmiInProgress_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.InProgress;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
 
         private void tsmiReady_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Ready;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
 
         private void tsmiCompleted_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Completed;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
 
         private void tsmiCancelled_Click(object sender, EventArgs e)
         {
             _order.Status = OrderStatus.Cancelled;
-            _orderService.UpdateOrder(_order);
-            OrderCardUpdated?.Invoke(this, EventArgs.Empty);
+            OrderActionRequested?.Invoke(this, new OrderCardActionEventArgs(_order, OrderCardActionType.Update));
         }
     }
 }

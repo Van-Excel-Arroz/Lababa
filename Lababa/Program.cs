@@ -1,6 +1,7 @@
 ﻿using Lababa.Backend.Data;
 using Lababa.Backend.Services;
 using Lababa.Frontend.Forms;
+using Lababa.Frontend.UserControls;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -8,6 +9,8 @@ namespace Lababa
 {
     internal static class Program
     {
+        public static IServiceProvider ServiceProvider { get; private set; }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,9 +20,16 @@ namespace Lababa
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            var host = CreateHostBuilder().Build();
+            ServiceProvider = host.Services;
 
-            Application.Run(new DashboardForm());
-            //Application.Run(new WizardForm());
+            using (var scope = ServiceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<LababaDbContext>();
+                dbContext.Database.EnsureCreated();
+            }
+
+            Application.Run(ServiceProvider.GetRequiredService<DashboardForm>());
         }
 
         static IHostBuilder CreateHostBuilder() =>
@@ -37,7 +47,10 @@ namespace Lababa
                     services.AddTransient<OrderItemItemService>();
                     services.AddTransient<OrderWeightItemService>();
 
-                    // forms
+                    // forms and user controls
+                    services.AddTransient<DashboardForm>();
+                    services.AddTransient<OrderCardItem>();
+
                 });
     }
 }
