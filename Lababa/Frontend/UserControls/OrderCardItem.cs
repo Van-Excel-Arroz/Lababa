@@ -31,12 +31,6 @@ namespace Lababa.Frontend.UserControls
             HandleOrderStatus(_order.Status);
         }
 
-        private void ShowOrderDetails()
-        {
-            var orderDetailsForm = Program.ServiceProvider.GetRequiredService<OrderDetailsForm>();
-
-        }
-
         private void HandlePaymentStatus(PaymentStatus paymentStatus)
         {
             switch (paymentStatus)
