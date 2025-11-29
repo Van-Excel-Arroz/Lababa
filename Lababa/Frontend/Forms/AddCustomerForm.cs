@@ -1,23 +1,18 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
-using System;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
 {
     public partial class AddCustomerForm : Form
     {
         private readonly CustomerService _customerService;
-        private readonly OrderService _orderService;
         public event EventHandler CustomerUpdated;
 
-        public AddCustomerForm(OrderService orderService)
+        public AddCustomerForm(CustomerService customerService)
         {
             InitializeComponent();
-            _customerService = new CustomerService();
-            _orderService = orderService;
+            _customerService = customerService;
             SetupDataGridView();
             LoadCustomers();
             txtSearchCustomers.TextChanged += TxtSearchCustomers_TextChanged;
@@ -152,7 +147,8 @@ namespace Lababa.Frontend.Forms
 
         private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvCustomers.Columns["colDelete"].Index) {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvCustomers.Columns["colDelete"].Index)
+            {
                 var customer = dgvCustomers.Rows[e.RowIndex].DataBoundItem as Customer;
 
                 var result = MessageBox.Show($"Are you sure you want to delete {customer.FullName}", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

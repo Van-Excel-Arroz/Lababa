@@ -2,6 +2,7 @@
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
 using Lababa.Frontend.UserControls.Events;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Lababa.Frontend.Forms
 {
@@ -51,10 +52,7 @@ namespace Lababa.Frontend.Forms
             foreach (var order in orders)
             {
                 var orderCardItem = new OrderCardItem(order, _appSettings);
-
                 orderCardItem.OrderActionRequested += HandleOrderCardAction;
-
-                orderCardItem.OrderActionRequested += (_, __) => LoadOrders();
                 int desiredWidth = 0;
 
                 switch (order.Status)
@@ -91,12 +89,11 @@ namespace Lababa.Frontend.Forms
             lblInProgrgessCount.Text = flpInProgressStatus.Controls.Count.ToString();
             lblReadyCount.Text = flpReadyStatus.Controls.Count.ToString();
             lblCancelledCount.Text = flpCancelledStatus.Controls.Count.ToString();
-
         }
 
         private void HandleOrderCardAction(object sender, OrderCardActionEventArgs e)
         {
-            switch (e.Action) 
+            switch (e.Action)
             {
                 case OrderCardActionType.Update:
                     _orderService.UpdateOrder(e.Order);
@@ -131,7 +128,7 @@ namespace Lababa.Frontend.Forms
 
         private void btnCustomers_Click(object sender, System.EventArgs e)
         {
-            var addCustomerForm = new AddCustomerForm(_orderService);
+            var addCustomerForm = Program.ServiceProvider.GetRequiredService<AddCustomerForm>();
             addCustomerForm.CustomerUpdated += (_, __) => LoadOrders();
             addCustomerForm.Show();
         }
@@ -193,7 +190,8 @@ namespace Lababa.Frontend.Forms
                 settingsControl.Visible = true;
                 tlpContainer.RowStyles[1] = new RowStyle(SizeType.Absolute, 0);
                 tlpContainer.RowStyles[2] = new RowStyle(SizeType.Percent, 100);
-            } else
+            }
+            else
             {
                 tlpOrdersTableView.Visible = true;
                 settingsControl.Visible = false;

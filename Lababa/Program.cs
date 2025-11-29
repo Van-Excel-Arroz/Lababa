@@ -50,7 +50,7 @@ namespace Lababa
                     // forms and user controls
                     services.AddTransient<DashboardForm>();
                     services.AddTransient<OrderCardItem>();
-
+                    services.AddTransient<AddCustomerForm>();
                 });
     }
 }
