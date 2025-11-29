@@ -39,7 +39,7 @@ namespace Lababa.Frontend.UserControls
 
         private void HandlePaymentStatus(PaymentStatus paymentStatus)
         {
-            switch (paymentStatus) 
+            switch (paymentStatus)
             {
                 case PaymentStatus.Paid:
                     lblPaymentStatus.Text = "Paid";
@@ -149,7 +149,7 @@ namespace Lababa.Frontend.UserControls
 
         private void tsmiPrint_Click(object sender, EventArgs e)
         {
-            var printOrderForm = new PrintOrderForm(_order, _appSettings, _customer.FullName);
+            var printOrderForm = new PrintOrderForm(_order, _appSettings);
             printOrderForm.Show();
         }
 

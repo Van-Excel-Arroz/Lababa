@@ -1,9 +1,6 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.Forms
 {
@@ -11,16 +8,14 @@ namespace Lababa.Frontend.Forms
     {
         private readonly Order _order;
         private readonly ApplicationSettings _appSettings;
-        private readonly string _customerName;
         private readonly List<OrderWeightItem> _orderWeightItems;
         private readonly List<OrderItemItem> _orderItemItems;
 
-        public PrintOrderForm(Order order, ApplicationSettings appSettings, string customerName)
+        public PrintOrderForm(Order order, ApplicationSettings appSettings)
         {
             InitializeComponent();
             _order = order;
             _appSettings = appSettings;
-            _customerName = customerName;
 
             var orderWeightItemService = new OrderWeightItemService();
             var orderItemItemService = new OrderItemItemService();
@@ -36,7 +31,7 @@ namespace Lababa.Frontend.Forms
         {
             lblShopName.Text = _appSettings.ShopName;
             lblOrderId.Text = _order.OrderNumber;
-            lblCustomerName.Text = _customerName;
+            lblCustomerName.Text = _order?.Customer.FullName ?? "N/A";
             lblDateCreated.Text = _order.DateCreated.ToString("MMM dd, yyyy");
             lblDueDate.Text = _order.DueDate.ToString("MMM dd, yyyy");
             lblOrderStatus.Text = _order.Status.ToString();
@@ -47,7 +42,7 @@ namespace Lababa.Frontend.Forms
 
         private void InitializeServices()
         {
-            foreach (var orderWeightItem in _orderWeightItems) 
+            foreach (var orderWeightItem in _orderWeightItems)
             {
                 var control = new WeightServicePrintDetail(orderWeightItem, _appSettings.DefaultWeightUnit, _appSettings.CurrencySymbol);
                 control.Width = flpWeightServices.Width - 23;
