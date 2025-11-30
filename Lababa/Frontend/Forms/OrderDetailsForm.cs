@@ -111,7 +111,7 @@ namespace Lababa.Frontend.Forms
                 _initialWeightServiceControls.Add(weightServiceControl);
             }
 
-            var orderItemItems = _orderItemItemService.GetAllOrderItemItems(_order.Id);
+            var orderItemItems = _orderItemItemService.GetAll(_order.Id);
 
             foreach (var orderItemItem in orderItemItems)
             {
@@ -119,7 +119,7 @@ namespace Lababa.Frontend.Forms
                 itemServiceControl.RemoveClicked += (_, __) =>
                 {
                     flpItemServices.Controls.Remove(itemServiceControl);
-                    _orderItemItemService.DeleteOrderItemItem(orderItemItem.Id);
+                    _orderItemItemService.Delete(orderItemItem.Id);
                     RecalculateTotalAmount();
                 };
                 itemServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
@@ -241,7 +241,7 @@ namespace Lababa.Frontend.Forms
                     OrderId = _order.Id
                 };
 
-                _orderItemItemService.CreateOrderItemItem(orderItemItem);
+                _orderItemItemService.Add(orderItemItem);
             }
 
             OrderUpdated?.Invoke(this, EventArgs.Empty);

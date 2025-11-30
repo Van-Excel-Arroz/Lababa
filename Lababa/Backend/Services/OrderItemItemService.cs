@@ -1,44 +1,38 @@
 ﻿
+using Lababa.Backend.Data;
 using Lababa.Backend.Models;
-using Lababa.Backend.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Lababa.Backend.Services
 {
     public class OrderItemItemService
     {
-        private readonly OrderItemItemRepository _repo;
-        private readonly List<ItemService> _catalog;
+        private readonly LababaDbContext _context;
 
-        public OrderItemItemService()
+        public OrderItemItemService(LababaDbContext context)
         {
-            _repo = new OrderItemItemRepository();
-            _catalog = new ItemServiceCatalogRepository().GetAll();
+            _context = context;
         }
 
-        public void DeleteOrderItemItem(Guid id)
+        public void Delete(Guid id)
         {
-            _repo.Delete(id);
-        }
-
-        public List<OrderItemItem> GetAllOrderItemItems(Guid orderId) 
-        {
-            return _repo.GetAll().Where(o => o.OrderId == orderId).ToList();
-        }
-
-
-        public void CreateOrderItemItem(OrderItemItem item)
-        {
-            if (_catalog.Any(s => Guid.Equals(s.Id, item.ServiceId)))
+            var item = _context.OrderItemItems.Find(id);
+            if (item != null)
             {
-                _repo.Add(item);
+                _context.OrderItemItems.Remove(item);
+                _context.SaveChanges();
             }
-            else
-            {
-                throw new KeyNotFoundException($"Order item item with {item.ServiceId} does not exist on Item service catalog!");
-            }
+        }
+
+        public List<OrderItemItem> GetAll(Guid orderId)
+        {
+            return _context.OrderItemItems.Where(oi => oi.OrderId == orderId).ToList();
+        }
+
+
+        public void Add(OrderItemItem item)
+        {
+            _context.OrderItemItems.Add(item);
+            _context.SaveChanges();
         }
     }
 }

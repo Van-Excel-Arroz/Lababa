@@ -1,8 +1,6 @@
 ﻿
 using Lababa.Backend.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.IO;
 
 namespace Lababa.Backend.Data
 {

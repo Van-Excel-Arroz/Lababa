@@ -132,7 +132,7 @@ namespace Lababa.Frontend.Forms
                     OrderId = orderId
                 };
 
-                orderItemItemService.CreateOrderItemItem(orderItemItem);
+                orderItemItemService.Add(orderItemItem);
             }
 
 
