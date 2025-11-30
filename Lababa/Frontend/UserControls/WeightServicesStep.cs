@@ -2,8 +2,6 @@
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls.Interfaces;
 using System.ComponentModel;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
@@ -12,10 +10,10 @@ namespace Lababa.Frontend.UserControls
         private readonly WeightServiceCatalogService _service;
         private BindingList<WeightService> _weightServiceCatalog;
 
-        public WeightServicesStep()
+        public WeightServicesStep(WeightServiceCatalogService weightServiceCatalogService)
         {
             InitializeComponent();
-            _service = new WeightServiceCatalogService();
+            _service = weightServiceCatalogService;
             _weightServiceCatalog = new BindingList<WeightService>();
         }
 
@@ -97,7 +95,7 @@ namespace Lababa.Frontend.UserControls
 
         public void SaveStepData()
         {
-            _service.SaveWeightServiceCatalog(_weightServiceCatalog.ToList());
+            _service.UpdateCatalog(_weightServiceCatalog.ToList());
         }
     }
 }

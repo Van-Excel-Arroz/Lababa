@@ -1,25 +1,26 @@
-﻿using Lababa.Backend.Models;
-using Lababa.Backend.Repositories;
+﻿using Lababa.Backend.Data;
+using Lababa.Backend.Models;
 
 namespace Lababa.Backend.Services
 {
     public class ApplicationSettingsService
     {
-        private readonly ApplicationSettingsRepository _appSettingsRepository;
+        private readonly LababaDbContext _context;
 
-        public ApplicationSettingsService()
+        public ApplicationSettingsService(LababaDbContext context)
         {
-            _appSettingsRepository = new ApplicationSettingsRepository();
+            _context = context;
         }
 
         public ApplicationSettings LoadSettings()
         {
-            return _appSettingsRepository.LoadData();
+            return _context.AppSettings.Find(1);
         }
 
         public void SaveSettings(ApplicationSettings appSettings)
         {
-            _appSettingsRepository.SaveData(appSettings);
+            _context.AppSettings.Update(appSettings);
+            _context.SaveChanges();
         }
     }
 }

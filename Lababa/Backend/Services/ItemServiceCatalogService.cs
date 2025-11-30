@@ -1,39 +1,47 @@
-﻿using Lababa.Backend.Models;
-using Lababa.Backend.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using Lababa.Backend.Data;
+using Lababa.Backend.Models;
 
 namespace Lababa.Backend.Services
 {
     public class ItemServiceCatalogService
     {
-        private readonly ItemServiceCatalogRepository _repo;
-        public ItemServiceCatalogService()
+        private readonly LababaDbContext _context;
+        public ItemServiceCatalogService(LababaDbContext context)
         {
-            _repo = new ItemServiceCatalogRepository();
+            _context = context;
         }
 
-        public void SaveItemServiceCatalog(List<ItemService> itemServiceCatalog)
+        public void UpdateCatalog(List<ItemService> itemServiceCatalog)
         {
-            _repo.SaveAll(itemServiceCatalog);
-        }
+            var existingServices = _context.ItemServices.ToList();
+            var servicesToDelete = existingServices
+                .Where(es => !itemServiceCatalog.Any(us => us.Id == es.Id))
+                .ToList();
 
-        public void CreateItemServiceCatalog(List<ItemService> itemServiceCatalog)
-        {
-            foreach (var itemService in itemServiceCatalog)
+            if (servicesToDelete.Any())
             {
-                _repo.Add(itemService);
+                _context.ItemServices.RemoveRange(servicesToDelete);
             }
-        }
 
-        public void DeleteItemService(Guid id)
-        {
-            _repo.Delete(id);
+            foreach (var service in itemServiceCatalog)
+            {
+                if (service.Id == Guid.Empty)
+                {
+                    service.Id = Guid.NewGuid();
+                    _context.ItemServices.Add(service);
+                }
+                else
+                {
+                    _context.ItemServices.Update(service);
+                }
+            }
+
+            _context.SaveChanges();
         }
 
         public List<ItemService> GetItemServiceCatalog()
         {
-            return _repo.GetAll();
+            return _context.ItemServices.ToList();
         }
     }
 }

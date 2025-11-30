@@ -47,12 +47,19 @@ namespace Lababa
                     services.AddTransient<OrderItemItemService>();
                     services.AddTransient<OrderWeightItemService>();
 
-                    // forms and user controls
+                    // forms
                     services.AddTransient<DashboardForm>();
-                    services.AddTransient<OrderCardItem>();
                     services.AddTransient<AddCustomerForm>();
                     services.AddTransient<AddOrderForm>();
                     services.AddTransient<SearchOrderForm>();
+
+                    // user controls
+                    services.AddTransient<WelcomeStep>();
+                    services.AddTransient<ShopInformationStep>();
+                    services.AddTransient<WeightServicesStep>();
+                    services.AddTransient<ItemServicesStep>();
+                    services.AddTransient<FinishWizardStep>();
+                    services.AddTransient<OrderCardItem>();
 
                 });
     }

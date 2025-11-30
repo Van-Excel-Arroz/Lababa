@@ -1,32 +1,31 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls.Interfaces;
-using System;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class ShopInformationStep : UserControl, IWizardStep
     {
+        private readonly ApplicationSettings _appSettings;
         private readonly ApplicationSettingsService _appSettingsService;
         private const string DEFAULT_RECEIPT_MESSAGE = "Thank you for choosing our laundry service!";
 
-        public ShopInformationStep()
+        public ShopInformationStep(ApplicationSettingsService appSettingsService)
         {
             InitializeComponent();
-            _appSettingsService = new ApplicationSettingsService();
+            _appSettingsService = appSettingsService;
+            _appSettings = appSettingsService.LoadSettings();
         }
 
         private void ShopInformationStep_Load(object sender, System.EventArgs e)
         {
-            var appSettings = _appSettingsService.LoadSettings();
-            txtShopName.Text = appSettings.ShopName;
-            txtAddress.Text = appSettings.Address;
-            txtPhoneNumber.Text = appSettings.PhoneNumber;
-            txtReceiptMessage.Text = string.IsNullOrWhiteSpace(appSettings.ReceiptMessage) ? DEFAULT_RECEIPT_MESSAGE : appSettings.ReceiptMessage;
+            txtShopName.Text = _appSettings.ShopName;
+            txtAddress.Text = _appSettings.Address;
+            txtPhoneNumber.Text = _appSettings.PhoneNumber;
+            txtReceiptMessage.Text = string.IsNullOrWhiteSpace(_appSettings.ReceiptMessage) ? DEFAULT_RECEIPT_MESSAGE : _appSettings.ReceiptMessage;
 
-            switch (appSettings.DefaultWeightUnit)
+            switch (_appSettings.DefaultWeightUnit)
             {
                 case WeightUnit.Kilograms:
                     rdoKilograms.Checked = true;
@@ -39,9 +38,9 @@ namespace Lababa.Frontend.UserControls
                     break;
             }
 
-            if (appSettings.CurrencySymbol != null && cmbCurrcencySymbol.Items.Contains(appSettings.CurrencySymbol))
+            if (_appSettings.CurrencySymbol != null && cmbCurrcencySymbol.Items.Contains(_appSettings.CurrencySymbol))
             {
-                cmbCurrcencySymbol.SelectedItem = appSettings.CurrencySymbol;
+                cmbCurrcencySymbol.SelectedItem = _appSettings.CurrencySymbol;
             }
             else
             {
@@ -56,28 +55,27 @@ namespace Lababa.Frontend.UserControls
 
         public void SaveStepData()
         {
-            var settings = _appSettingsService.LoadSettings();
-            settings.ShopName = txtShopName.Text;
-            settings.Address = txtAddress.Text;
-            settings.PhoneNumber = txtPhoneNumber.Text;
-            settings.ReceiptMessage = txtReceiptMessage.Text;
+            _appSettings.ShopName = txtShopName.Text;
+            _appSettings.Address = txtAddress.Text;
+            _appSettings.PhoneNumber = txtPhoneNumber.Text;
+            _appSettings.ReceiptMessage = txtReceiptMessage.Text;
 
             if (rdoKilograms.Checked)
             {
-                settings.DefaultWeightUnit = WeightUnit.Kilograms;
+                _appSettings.DefaultWeightUnit = WeightUnit.Kilograms;
             }
             else
             {
-                settings.DefaultWeightUnit = WeightUnit.Pounds;
+                _appSettings.DefaultWeightUnit = WeightUnit.Pounds;
 
             }
 
             if (cmbCurrcencySymbol.SelectedItem != null)
             {
-                settings.CurrencySymbol = cmbCurrcencySymbol.SelectedItem.ToString();
+                _appSettings.CurrencySymbol = cmbCurrcencySymbol.SelectedItem.ToString();
             }
 
-            _appSettingsService.SaveSettings(settings);
+            _appSettingsService.SaveSettings(_appSettings);
         }
 
         public bool ValidateStep()
@@ -88,7 +86,7 @@ namespace Lababa.Frontend.UserControls
                 return false;
             }
 
-                if (txtShopName.Text.Length > 50)
+            if (txtShopName.Text.Length > 50)
             {
                 MessageBox.Show("Shop Name field must not be greater than 50", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtShopName.Focus();

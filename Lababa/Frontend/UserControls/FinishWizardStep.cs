@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace Lababa.Frontend.UserControls
+﻿namespace Lababa.Frontend.UserControls
 {
     public partial class FinishWizardStep : UserControl
     {

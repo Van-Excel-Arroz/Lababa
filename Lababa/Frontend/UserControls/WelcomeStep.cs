@@ -1,13 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace Lababa.Frontend.UserControls
+﻿namespace Lababa.Frontend.UserControls
 {
-    public partial class WelcomeStepControl : UserControl
+    public partial class WelcomeStep : UserControl
     {
         public event EventHandler GoNext;
 
-        public WelcomeStepControl()
+        public WelcomeStep()
         {
             InitializeComponent();
         }

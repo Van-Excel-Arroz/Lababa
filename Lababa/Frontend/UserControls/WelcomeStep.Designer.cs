@@ -1,6 +1,6 @@
 ﻿namespace Lababa.Frontend.UserControls
 {
-    partial class WelcomeStepControl
+    partial class WelcomeStep
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeStepControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeStep));
             this.lblWelcome = new System.Windows.Forms.Label();
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.lblDescription = new System.Windows.Forms.Label();

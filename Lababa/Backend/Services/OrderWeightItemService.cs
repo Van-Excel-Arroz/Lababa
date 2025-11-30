@@ -1,9 +1,6 @@
 ﻿
 using Lababa.Backend.Models;
 using Lababa.Backend.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Lababa.Backend.Services
 {

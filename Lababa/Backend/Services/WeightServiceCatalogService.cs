@@ -1,40 +1,48 @@
-﻿using Lababa.Backend.Models;
-using Lababa.Backend.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using Lababa.Backend.Data;
+using Lababa.Backend.Models;
 
 namespace Lababa.Backend.Services
 {
     class WeightServiceCatalogService
     {
-        private readonly WeigthServiceCatalogRepository _repo;
+        private readonly LababaDbContext _context;
 
-        public WeightServiceCatalogService()
+        public WeightServiceCatalogService(LababaDbContext context)
         {
-            _repo = new WeigthServiceCatalogRepository();
+            _context = context;
         }
 
-        public void SaveWeightServiceCatalog(List<WeightService> weightServiceCatalog)
+        public void UpdateCatalog(List<WeightService> updatedCatalog)
         {
-            _repo.SaveAll(weightServiceCatalog);
-        }
+            var existingServices = _context.WeightServices.ToList();
+            var servicesToDelete = updatedCatalog
+                .Where(es => !updatedCatalog.Any(us => us.Id == es.Id))
+                .ToList();
 
-        public void CreateServiceWeightCatalog(List<WeightService> weightServiceCatalog)
-        {
-            foreach (var weightService in weightServiceCatalog)
+            if (servicesToDelete.Any())
             {
-                _repo.Add(weightService);
+                _context.WeightServices.RemoveRange(servicesToDelete);
             }
-        }
 
-        public void DeleteWeightService(Guid id)
-        {
-            _repo.Delete(id);
+            foreach (var service in updatedCatalog)
+            {
+                if (service.Id == Guid.Empty)
+                {
+                    service.Id = Guid.NewGuid();
+                    _context.WeightServices.Add(service);
+                }
+                else
+                {
+                    _context.WeightServices.Update(service);
+                }
+            }
+
+            _context.SaveChanges();
         }
 
         public List<WeightService> GetWeightServiceCatalog()
         {
-            return _repo.GetAll();
+            return _context.WeightServices.ToList();
         }
     }
 }

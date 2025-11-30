@@ -2,8 +2,6 @@
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls.Interfaces;
 using System.ComponentModel;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
@@ -12,10 +10,10 @@ namespace Lababa.Frontend.UserControls
         private readonly ItemServiceCatalogService _service;
         private BindingList<ItemService> _itemServiceCatalog;
 
-        public ItemServicesStep()
+        public ItemServicesStep(ItemServiceCatalogService itemServiceCatalogService)
         {
             InitializeComponent();
-            _service = new ItemServiceCatalogService();
+            _service = itemServiceCatalogService;
             _itemServiceCatalog = new BindingList<ItemService>();
         }
 
@@ -55,7 +53,6 @@ namespace Lababa.Frontend.UserControls
             {
                 ItemService serviceToRemove = _itemServiceCatalog[e.RowIndex];
                 _itemServiceCatalog.Remove(serviceToRemove);
-                _service.DeleteItemService(serviceToRemove.Id);
             }
         }
 
@@ -93,7 +90,7 @@ namespace Lababa.Frontend.UserControls
 
         public void SaveStepData()
         {
-            _service.SaveItemServiceCatalog(_itemServiceCatalog.ToList());
+            _service.UpdateCatalog(_itemServiceCatalog.ToList());
         }
     }
 }

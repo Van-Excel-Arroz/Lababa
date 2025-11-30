@@ -1,11 +1,13 @@
 ﻿using Lababa.Frontend.Forms;
 using Lababa.Frontend.UserControls;
 using Lababa.Frontend.UserControls.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Lababa
 {
     public partial class WizardForm : Form
     {
+        private readonly IServiceProvider _serviceProvider;
         private List<WizardStepInfo> _wizardSteps;
         private int _currentStepIndex = -1;
         private TableLayoutPanel _tlpStepDetails;
@@ -17,11 +19,12 @@ namespace Lababa
         private const int CONTENT_ROW = 1;
         private const int FOOTER_ROW = 2;
 
-        public WizardForm()
+        public WizardForm(IServiceProvider serviceProvider)
         {
             InitializeComponent();
             InitializeWizard();
 
+            _serviceProvider = serviceProvider;
             _tlpStepDetails = new TableLayoutPanel();
             _stepControlLabel = new StepControlLabel();
             _btnBackNext = new BackNextButtons();
@@ -57,7 +60,7 @@ namespace Lababa
         {
             _wizardSteps = new List<WizardStepInfo>
             {
-                new WizardStepInfo {StepType = typeof(WelcomeStepControl), Title = "Welcome"},
+                new WizardStepInfo {StepType = typeof(WelcomeStep), Title = "Welcome"},
                 new WizardStepInfo {StepType = typeof(ShopInformationStep), Title = "Shop Information"},
                 new WizardStepInfo {StepType = typeof(WeightServicesStep), Title = "Weight Services"},
                 new WizardStepInfo {StepType = typeof(ItemServicesStep), Title = "Item Services"},
@@ -96,7 +99,7 @@ namespace Lababa
                 var currentStepInfo = _wizardSteps[_currentStepIndex];
 
                 var stepType = currentStepInfo.StepType;
-                WelcomeStepControl welcomeStepControl = (WelcomeStepControl)Activator.CreateInstance(stepType);
+                WelcomeStep welcomeStepControl = (WelcomeStep)_serviceProvider.GetRequiredService(stepType);
 
                 welcomeStepControl.Dock = DockStyle.Fill;
                 _tlpStepDetails.Controls.Add(welcomeStepControl, 0, CONTENT_ROW);
@@ -111,7 +114,7 @@ namespace Lababa
                 var currentStepInfo = _wizardSteps[_currentStepIndex];
 
                 var stepType = currentStepInfo.StepType;
-                FinishWizardStep finishWizardStep = (FinishWizardStep)Activator.CreateInstance(stepType);
+                FinishWizardStep finishWizardStep = (FinishWizardStep)_serviceProvider.GetRequiredService(stepType);
 
                 finishWizardStep.Dock = DockStyle.Fill;
                 _tlpStepDetails.Controls.Add(finishWizardStep, 0, CONTENT_ROW);
@@ -121,7 +124,7 @@ namespace Lababa
 
                 finishWizardStep.WizardCompleted += (_, __) =>
                 {
-                    var dashboard = new DashboardForm();
+                    var dashboard = Program.ServiceProvider.GetRequiredService<DashboardForm>();
                     dashboard.FormClosed += (s, args) => this.Close();
                     dashboard.Show();
                     this.Hide();
@@ -137,7 +140,7 @@ namespace Lababa
                 _stepControlLabel.Title = currentStepInfo.Title;
 
                 var stepType = currentStepInfo.StepType;
-                UserControl newStepControl = (UserControl)Activator.CreateInstance(stepType);
+                UserControl newStepControl = (UserControl)_serviceProvider.GetRequiredService(stepType);
 
                 newStepControl.Dock = DockStyle.Fill;
                 _tlpStepDetails.Controls.Add(newStepControl, 0, CONTENT_ROW);
