@@ -19,35 +19,44 @@ namespace Lababa.Frontend.Forms
 
 
         public OrderDetailsForm(
-            CustomerService customerService, 
-            OrderService orderService, 
-            ApplicationSettingsService appSettingsService, 
-            OrderWeightItemService weightItemService, 
+            CustomerService customerService,
+            OrderService orderService,
+            ApplicationSettingsService appSettingsService,
+            OrderWeightItemService weightItemService,
             OrderItemItemService orderItemservice)
         {
             InitializeComponent();
-            _currentTotalAmount = _order.TotalAmount;
-            _currencySymbol = appSettingsService.LoadSettings().CurrencySymbol;
             _customerService = customerService;
             _orderService = orderService;
-            _initialWeightServiceControls = new List<WeightServiceControl>();
-            _initialItemServiceControls = new List<ItemServiceControl>();
             _orderWeightItemService = weightItemService;
             _orderItemItemService = orderItemservice;
 
-            lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
-            lblCreatedDate.Text = _order.DateCreated.ToString("MMM dd, yyyy");
-            dtpDueDate.Value = _order.DueDate;
-            
+            _currencySymbol = appSettingsService.LoadSettings().CurrencySymbol;
+            _initialWeightServiceControls = new List<WeightServiceControl>();
+            _initialItemServiceControls = new List<ItemServiceControl>();
+
+
             InitializeExistingServices();
             InitializeCustomerDetails();
             InitializePaymentStatus();
-            InitializeOrderStatus(); 
+            InitializeOrderStatus();
         }
 
         public void LoadOrder(Guid orderId)
         {
-            _order = _orderService.GetOrderById(orderId);
+            _order = _orderService.GetOrderByIdWithDetails(orderId);
+
+            if (_order == null)
+            {
+                MessageBox.Show("Order not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            _currentTotalAmount = _order.TotalAmount;
+            lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
+            lblCreatedDate.Text = _order.DateCreated.ToString("MMM dd, yyyy");
+            dtpDueDate.Value = _order.DueDate;
         }
 
         private void btnAddService_Click(object sender, System.EventArgs e)
@@ -138,12 +147,12 @@ namespace Lababa.Frontend.Forms
 
             var dataSource = paymentStatuses.Select(ps => new
             {
-                Text = ps.ToString(), 
-                Value = ps            
+                Text = ps.ToString(),
+                Value = ps
             }).ToList();
 
             cmbPaymentStatus.DataSource = dataSource;
-            cmbPaymentStatus.DisplayMember = "Text";  
+            cmbPaymentStatus.DisplayMember = "Text";
             cmbPaymentStatus.ValueMember = "Value";
 
             cmbPaymentStatus.SelectedValue = _order.PaymentStatus;
@@ -198,7 +207,7 @@ namespace Lababa.Frontend.Forms
 
             _orderService.UpdateOrder(_order);
 
-  
+
             foreach (WeightServiceControl control in flpWeightServices.Controls)
             {
                 if (_initialWeightServiceControls.Contains(control)) continue;

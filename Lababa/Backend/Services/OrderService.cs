@@ -1,10 +1,6 @@
 ﻿using Lababa.Backend.Data;
 using Lababa.Backend.Models;
-using Lababa.Backend.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Lababa.Backend.Services
 {
@@ -17,7 +13,7 @@ namespace Lababa.Backend.Services
             _context = context;
         }
 
-        public Order GetOrderById(Guid id)
+        public Order GetOrderByIdWithDetails(Guid id)
         {
             return _context.Orders
                 .Include(o => o.Customer)
@@ -45,7 +41,7 @@ namespace Lababa.Backend.Services
                 .ToList();
         }
 
-        public decimal CalculateOrdersTotalAmount(List<Order> orders) 
+        public decimal CalculateOrdersTotalAmount(List<Order> orders)
         {
             return orders.Where(o => o.PaymentStatus == PaymentStatus.Paid)
                 .Sum(o => o.TotalAmount);
@@ -70,7 +66,7 @@ namespace Lababa.Backend.Services
 
         public List<Order> GetAllOrders()
         {
-            return _context.Orders.Include(o => o.Customer).ToList(); 
+            return _context.Orders.Include(o => o.Customer).ToList();
         }
 
         public void UpdateOrder(Order order)
@@ -87,6 +83,35 @@ namespace Lababa.Backend.Services
                 _context.Orders.Remove(order);
                 _context.SaveChanges();
             }
+        }
+
+        public List<Order> SearchOrders(string customerTerm, string orderNumber, OrderStatus? status, PaymentStatus? paymentStatus, DateTime fromDate, DateTime toDate)
+        {
+            IQueryable<Order> query = _context.Orders.Include(o => o.Customer);
+
+            if (!string.IsNullOrWhiteSpace(customerTerm))
+            {
+                string term = customerTerm.Trim().ToLower();
+                query = query.Where(o => o.Customer.FullName.Contains(term) || o.Customer.PhoneNumber.Contains(term));
+            }
+
+            if (!string.IsNullOrWhiteSpace(orderNumber))
+            {
+                string orderNumberSearchTerm = orderNumber.Trim().ToLower();
+                query = query.Where(o => o.OrderNumber.ToLower().Contains(orderNumberSearchTerm));
+            }
+
+            if (status.HasValue)
+                query = query.Where(o => o.Status == status.Value);
+
+            if (paymentStatus.HasValue)
+                query = query.Where(o => o.PaymentStatus == paymentStatus.Value);
+
+            DateTime startDate = fromDate.Date;
+            DateTime endDate = toDate.Date.AddDays(1).AddSeconds(-1);
+            query = query.Where(order => order.DateCreated >= startDate && order.DateCreated <= endDate);
+
+            return query.ToList();
         }
     }
 }

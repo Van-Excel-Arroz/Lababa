@@ -1,30 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Lababa.Backend.Models;
+using Lababa.Backend.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using Lababa.Backend.Models;
-using Lababa.Backend.Services; 
 
 namespace Lababa.Frontend.Forms
 {
     public partial class SearchOrderForm : Form
     {
-        private readonly List<Order> _allOrders;
-        private List<Order> _filteredOrders;
-        private readonly CustomerService _customerService;
         private readonly OrderService _orderService;
-        private string _currencySymbol;
+        private List<Order> _currentOrders;
         public event EventHandler OrdersUpdated;
 
-        public SearchOrderForm(List<Order> orders, CustomerService customerService, string currencySymbol)
+        public SearchOrderForm(OrderService orderService)
         {
             InitializeComponent();
-            _allOrders = orders;
-            _customerService = customerService;
-            _currencySymbol = currencySymbol;
-            _filteredOrders = new List<Order>(_allOrders);
-            _orderService = new OrderService();
+            _orderService = orderService;
+            _currentOrders = new List<Order>();
 
             InitializeOrderStatus();
             InitializePaymentStatus();
@@ -32,20 +23,18 @@ namespace Lababa.Frontend.Forms
             dtpFromDate.Value = DateTime.Today.AddMonths(-1);
             dtpToDate.Value = DateTime.Today;
 
-            LoadOrders();
+            ApplyFilters();
         }
 
         private void LoadOrders()
         {
-            var orderViewModels = _filteredOrders.Select(order =>
+            var orderViewModels = _currentOrders.Select(order =>
             {
-                var customer = _customerService.GetCustomerById(order.CustomerId);
-
                 return new OrderDisplayViewModel
                 {
                     OrderId = order.OrderNumber,
-                    Customer = customer?.FullName ?? "Unknown",
-                    Phone = customer?.PhoneNumber ?? "N/A",
+                    Customer = order?.Customer.FullName ?? "N/A",
+                    Phone = order?.Customer.PhoneNumber ?? "N/A",
                     OrderStatus = Regex.Replace(order.Status.ToString(), "([a-z])([A-Z])", "$1 $2"),
                     PaymentStatus = order.PaymentStatus.ToString(),
                     Total = order.TotalAmount,
@@ -61,47 +50,20 @@ namespace Lababa.Frontend.Forms
                 dgvOrders.Columns["Order"].Visible = false;
             }
 
-            lblResult.Text = $"Found ({_filteredOrders.Count}) Orders";
+            lblResult.Text = $"Found ({_currentOrders.Count}) Orders";
         }
 
         private void ApplyFilters()
         {
-            IEnumerable<Order> query = _allOrders;
+            _currentOrders = _orderService.SearchOrders(
+                txtCustomerNameOrPhone.Text.Trim(),
+                txtOrderNumber.Text.Trim(),
+                (OrderStatus?)cmbOrderStatus.SelectedValue,
+                (PaymentStatus?)cmbPaymentStatus.SelectedValue,
+                dtpFromDate.Value.Date,
+                dtpToDate.Value.Date
+             );
 
-            if (!string.IsNullOrWhiteSpace(txtCustomerNameOrPhone.Text))
-            {
-                string searchTerm = txtCustomerNameOrPhone.Text.Trim().ToLower();
-                query = query.Where(order =>
-                {
-                    var customer = _customerService.GetCustomerById(order.CustomerId);
-                    return (customer != null && customer.FullName.ToLower().Contains(searchTerm)) ||
-                           (customer != null && customer.PhoneNumber.ToLower().Contains(searchTerm));
-                });
-            }
-
-            if (!string.IsNullOrWhiteSpace(txtOrderNumber.Text))
-            {
-                string orderNumberSearchTerm = txtOrderNumber.Text.Trim().ToLower();
-                query = query.Where(order => order.OrderNumber.ToLower().Contains(orderNumberSearchTerm));
-            }
-
-            if (cmbOrderStatus.SelectedValue != null && cmbOrderStatus.SelectedIndex != -1)
-            {
-                OrderStatus selectedStatus = (OrderStatus)cmbOrderStatus.SelectedValue;
-                query = query.Where(order => order.Status == selectedStatus);
-            }
-
-            if (cmbPaymentStatus.SelectedValue != null && cmbPaymentStatus.SelectedIndex != -1)
-            {
-                PaymentStatus selectedPaymentStatus = (PaymentStatus)cmbPaymentStatus.SelectedValue;
-                query = query.Where(order => order.PaymentStatus == selectedPaymentStatus);
-            }
-
-            DateTime fromDate = dtpFromDate.Value.Date;
-            DateTime toDate = dtpToDate.Value.Date.AddDays(1).AddSeconds(-1);
-            query = query.Where(order => order.DateCreated >= fromDate && order.DateCreated <= toDate);
-
-            _filteredOrders = query.ToList();
             LoadOrders();
         }
 
@@ -119,8 +81,7 @@ namespace Lababa.Frontend.Forms
             dtpFromDate.Value = DateTime.Today.AddMonths(-1);
             dtpToDate.Value = DateTime.Today;
 
-            _filteredOrders = new List<Order>(_allOrders);
-            LoadOrders();
+            ApplyFilters();
         }
 
         private void InitializeOrderStatus()
@@ -160,7 +121,13 @@ namespace Lababa.Frontend.Forms
             if (e.RowIndex >= 0 && dgvOrders.Columns["colView"] != null && e.ColumnIndex == dgvOrders.Columns["colView"].Index)
             {
                 var viewModel = (OrderDisplayViewModel)dgvOrders.Rows[e.RowIndex].DataBoundItem;
-                var orderDetailsForm = new OrderDetailsForm(viewModel.Order, viewModel.Total, _currencySymbol);
+                var orderDetailsForm = Program.ServiceProvider.GetRequiredService<OrderDetailsForm>();
+                orderDetailsForm.LoadOrder(viewModel.Order.Id);
+                orderDetailsForm.OrderUpdated += (sender2, e2) =>
+                {
+                    ApplyFilters();
+                    OrdersUpdated?.Invoke(this, EventArgs.Empty);
+                };
                 orderDetailsForm.Show();
             }
 
@@ -179,9 +146,7 @@ namespace Lababa.Frontend.Forms
                 if (result == DialogResult.Yes)
                 {
                     _orderService.DeleteOrder(order.Id);
-                    _allOrders.Remove(order);
-                    _filteredOrders.Remove(order);
-                    LoadOrders();
+                    ApplyFilters();
                     OrdersUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
