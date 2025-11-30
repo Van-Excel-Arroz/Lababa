@@ -14,13 +14,13 @@ namespace Lababa.Frontend.Forms
         private decimal _currentTotalAmount;
         public event EventHandler OrderCreated;
 
-        public AddOrderForm()
+        public AddOrderForm(CustomerService customerService, OrderService orderService)
         {
             InitializeComponent();
 
             var appSettings = new ApplicationSettingsService().LoadSettings();
-            _customerService = new CustomerService();
-            _orderService = new OrderService();
+            _customerService = customerService;
+            _orderService = orderService;
             _allCustomers = _customerService.GetAllCustomers();
             _currencySymbol = appSettings.CurrencySymbol;
             InitializeCustomers();

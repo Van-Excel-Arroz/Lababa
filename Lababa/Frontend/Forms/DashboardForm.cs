@@ -114,7 +114,7 @@ namespace Lababa.Frontend.Forms
 
         private void btnNewOrder_Click(object sender, System.EventArgs e)
         {
-            var addOrderForm = new AddOrderForm();
+            var addOrderForm = Program.ServiceProvider.GetRequiredService<AddOrderForm>();
             addOrderForm.Show();
             addOrderForm.OrderCreated += (_, __) => LoadOrders();
         }

@@ -51,6 +51,8 @@ namespace Lababa
                     services.AddTransient<DashboardForm>();
                     services.AddTransient<OrderCardItem>();
                     services.AddTransient<AddCustomerForm>();
+                    services.AddTransient<AddOrderForm>();
+
                 });
     }
 }
