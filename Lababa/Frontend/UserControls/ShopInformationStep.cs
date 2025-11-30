@@ -11,6 +11,11 @@ namespace Lababa.Frontend.UserControls
         private readonly ApplicationSettingsService _appSettingsService;
         private const string DEFAULT_RECEIPT_MESSAGE = "Thank you for choosing our laundry service!";
 
+        public ShopInformationStep()
+        {
+            InitializeComponent();
+        }
+
         public ShopInformationStep(ApplicationSettingsService appSettingsService)
         {
             InitializeComponent();

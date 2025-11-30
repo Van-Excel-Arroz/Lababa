@@ -10,6 +10,11 @@ namespace Lababa.Frontend.UserControls
         private readonly ItemServiceCatalogService _service;
         private BindingList<ItemService> _itemServiceCatalog;
 
+        public ItemServicesStep()
+        {
+            InitializeComponent();
+        }
+
         public ItemServicesStep(ItemServiceCatalogService itemServiceCatalogService)
         {
             InitializeComponent();

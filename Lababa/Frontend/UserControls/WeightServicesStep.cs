@@ -10,6 +10,11 @@ namespace Lababa.Frontend.UserControls
         private readonly WeightServiceCatalogService _service;
         private BindingList<WeightService> _weightServiceCatalog;
 
+        public WeightServicesStep()
+        {
+            InitializeComponent();
+        }
+
         public WeightServicesStep(WeightServiceCatalogService weightServiceCatalogService)
         {
             InitializeComponent();
