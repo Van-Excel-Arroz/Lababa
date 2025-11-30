@@ -3,7 +3,7 @@ using Lababa.Backend.Models;
 
 namespace Lababa.Backend.Services
 {
-    class WeightServiceCatalogService
+    public class WeightServiceCatalogService
     {
         private readonly LababaDbContext _context;
 
