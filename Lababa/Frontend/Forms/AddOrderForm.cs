@@ -1,6 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
+using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel;
 
 namespace Lababa.Frontend.Forms
@@ -14,11 +15,11 @@ namespace Lababa.Frontend.Forms
         private decimal _currentTotalAmount;
         public event EventHandler OrderCreated;
 
-        public AddOrderForm(CustomerService customerService, OrderService orderService)
+        public AddOrderForm(CustomerService customerService, OrderService orderService, ApplicationSettingsService appSettingsService)
         {
             InitializeComponent();
 
-            var appSettings = new ApplicationSettingsService().LoadSettings();
+            var appSettings = appSettingsService.LoadSettings();
             _customerService = customerService;
             _orderService = orderService;
             _allCustomers = _customerService.GetAllCustomers();
@@ -100,8 +101,8 @@ namespace Lababa.Frontend.Forms
             }
 
             var orderId = Guid.NewGuid();
-            var orderWeightItemService = new OrderWeightItemService();
-            var orderItemItemService = new OrderItemItemService();
+            var orderWeightItemService = Program.ServiceProvider.GetRequiredService<OrderWeightItemService>();
+            var orderItemItemService = Program.ServiceProvider.GetRequiredService<OrderItemItemService>();
 
             foreach (WeightServiceControl control in flpWeightServices.Controls)
             {
