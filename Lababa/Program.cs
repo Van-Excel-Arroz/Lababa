@@ -29,7 +29,7 @@ namespace Lababa
                 dbContext.Database.EnsureCreated();
             }
 
-            Application.Run(ServiceProvider.GetRequiredService<DashboardForm>());
+            Application.Run(ServiceProvider.GetRequiredService<WizardForm>());
         }
 
         static IHostBuilder CreateHostBuilder() =>
@@ -52,6 +52,7 @@ namespace Lababa
                     services.AddTransient<AddCustomerForm>();
                     services.AddTransient<AddOrderForm>();
                     services.AddTransient<SearchOrderForm>();
+                    services.AddTransient<WizardForm>();
 
                     // user controls
                     services.AddTransient<WelcomeStep>();
