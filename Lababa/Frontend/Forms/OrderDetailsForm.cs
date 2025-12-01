@@ -100,7 +100,7 @@ namespace Lababa.Frontend.Forms
                 weightServiceControl.RemoveClicked += (_, __) =>
                 {
                     flpWeightServices.Controls.Remove(weightServiceControl);
-                    _orderWeightItemService.DeleteOrderWeightItem(orderWeightItem.Id);
+                    _orderWeightItemService.Delete(orderWeightItem.Id);
                     RecalculateTotalAmount();
                 };
                 weightServiceControl.DropDownValueChanged += (_, __) => RecalculateTotalAmount();
@@ -223,7 +223,7 @@ namespace Lababa.Frontend.Forms
                     OrderId = _order.Id,
                 };
 
-                _orderWeightItemService.CreateOrderWeightItem(orderWeightItem);
+                _orderWeightItemService.Add(orderWeightItem);
             }
 
             foreach (ItemServiceControl control in flpItemServices.Controls)

@@ -116,7 +116,7 @@ namespace Lababa.Frontend.Forms
                     OrderId = orderId,
                 };
 
-                orderWeightItemService.CreateOrderWeightItem(orderWeightItem);
+                orderWeightItemService.Add(orderWeightItem);
             }
 
             foreach (ItemServiceControl control in flpItemServices.Controls)

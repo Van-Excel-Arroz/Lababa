@@ -20,7 +20,7 @@ namespace Lababa.Frontend.Forms
             var orderWeightItemService = new OrderWeightItemService();
             var orderItemItemService = new OrderItemItemService();
 
-            _orderWeightItems = orderWeightItemService.GetAllOrderWeightItems(_order.Id);
+            _orderWeightItems = orderWeightItemService.GetAll(_order.Id);
             _orderItemItems = orderItemItemService.GetAll(_order.Id);
 
             InitializeOrderDetails();

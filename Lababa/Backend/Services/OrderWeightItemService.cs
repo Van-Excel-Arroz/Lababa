@@ -1,39 +1,36 @@
 ﻿
+using Lababa.Backend.Data;
 using Lababa.Backend.Models;
-using Lababa.Backend.Repositories;
 
 namespace Lababa.Backend.Services
 {
     public class OrderWeightItemService
     {
-        private readonly OrderWeightItemRepository _repo;
-        private readonly List<WeightService> _catalog;
+        private readonly LababaDbContext _context;
 
-        public OrderWeightItemService()
+        public OrderWeightItemService(LababaDbContext context)
         {
-            _repo = new OrderWeightItemRepository();
-            _catalog = new WeightServiceCatalogService().GetWeightServiceCatalog();
+            _context = context;
         }
 
-        public void DeleteOrderWeightItem(Guid id)
+        public void Delete(Guid id)
         {
-            _repo.Delete(id);
-        }
-        public List<OrderWeightItem> GetAllOrderWeightItems(Guid orderId)
-        {
-            return _repo.GetAll().Where(owi => owi.OrderId == orderId).ToList();
-        }
-
-        public void CreateOrderWeightItem(OrderWeightItem item)
-        {
-            if (_catalog.Any(s => s.Id == item.ServiceId))
+            var item = _context.OrderWeightItems.Find(id);
+            if (item != null)
             {
-                _repo.Add(item);
+                _context.OrderWeightItems.Remove(item);
+                _context.SaveChanges();
             }
-            else
-            {
-                throw new KeyNotFoundException($"Order weight item with {item.ServiceId} does not exist on weight service catalog!");
-            }
+        }
+        public List<OrderWeightItem> GetAll(Guid orderId)
+        {
+            return _context.OrderWeightItems.Where(ow => ow.OrderId == orderId).ToList();
+        }
+
+        public void Add(OrderWeightItem item)
+        {
+            _context.OrderWeightItems.Add(item);
+            _context.SaveChanges();
         }
     }
 }
