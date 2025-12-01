@@ -1,15 +1,13 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
-using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class ItemServiceControl : UserControl
     {
-        private ApplicationSettings _appSettings;
+        private readonly ApplicationSettings _appSettings;
+        private readonly ItemServiceCatalogService _catalogService;
         private BindingList<ItemService> _itemServiceCatalog;
         public event EventHandler RemoveClicked;
         public event EventHandler DropDownValueChanged;
@@ -22,14 +20,17 @@ namespace Lababa.Frontend.UserControls
 
         public int GetQuantity
         {
-            get { return Convert.ToInt16(nudQuantity.Value);  }
+            get { return Convert.ToInt16(nudQuantity.Value); }
         }
 
-        public ItemServiceControl()
+        public ItemServiceControl(ApplicationSettingsService appSettingsService, ItemServiceCatalogService catalogService)
         {
             InitializeComponent();
+
+            _appSettings = appSettingsService.LoadSettings();
+            _catalogService = catalogService;
+
             InitializeCommon();
-                
             cmbItemServiceCatalog.SelectedIndex = 0;
         }
 
@@ -44,9 +45,7 @@ namespace Lababa.Frontend.UserControls
 
         private void InitializeCommon()
         {
-            _appSettings = new ApplicationSettingsService().LoadSettings();
-            var catalog = new ItemServiceCatalogService().GetItemServiceCatalog();
-            _itemServiceCatalog = new BindingList<ItemService>(catalog);
+            _itemServiceCatalog = new BindingList<ItemService>(_catalogService.GetItemServiceCatalog());
 
             cmbItemServiceCatalog.DataSource = _itemServiceCatalog;
             cmbItemServiceCatalog.DisplayMember = "ItemName";

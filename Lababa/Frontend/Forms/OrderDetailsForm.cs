@@ -1,6 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Lababa.Frontend.Forms
 {
@@ -63,7 +64,7 @@ namespace Lababa.Frontend.Forms
         {
             if (tabServices.SelectedIndex == 0)
             {
-                var weightServiceControl = new WeightServiceControl();
+                var weightServiceControl = Program.ServiceProvider.GetRequiredService<WeightServiceControl>();
                 weightServiceControl.RemoveClicked += (_, __) =>
                 {
                     flpWeightServices.Controls.Remove(weightServiceControl);
@@ -76,7 +77,7 @@ namespace Lababa.Frontend.Forms
             }
             else
             {
-                var itemServiceControl = new ItemServiceControl();
+                var itemServiceControl = Program.ServiceProvider.GetRequiredService<ItemServiceControl>();
                 itemServiceControl.RemoveClicked += (_, __) =>
                 {
                     flpItemServices.Controls.Remove(itemServiceControl);

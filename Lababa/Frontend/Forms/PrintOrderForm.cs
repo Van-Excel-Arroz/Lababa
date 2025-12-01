@@ -1,6 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Lababa.Frontend.Forms
 {
@@ -17,8 +18,8 @@ namespace Lababa.Frontend.Forms
             _order = order;
             _appSettings = appSettings;
 
-            var orderWeightItemService = new OrderWeightItemService();
-            var orderItemItemService = new OrderItemItemService();
+            var orderWeightItemService = Program.ServiceProvider.GetRequiredService<OrderWeightItemService>();
+            var orderItemItemService = Program.ServiceProvider.GetRequiredService<OrderItemItemService>();
 
             _orderWeightItems = orderWeightItemService.GetAll(_order.Id);
             _orderItemItems = orderItemItemService.GetAll(_order.Id);

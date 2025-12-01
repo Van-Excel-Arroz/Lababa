@@ -1,34 +1,35 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
-using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class WeightServiceControl : UserControl
     {
-        private ApplicationSettings _appSettings;
+        private readonly ApplicationSettings _appSettings;
+        private readonly WeightServiceCatalogService _catalogService;
         public event EventHandler RemoveClicked;
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
 
-        public WeightService GetWeightService 
+        public WeightService GetWeightService
         {
             get { return cmbWeightServiceCatalog.SelectedItem as WeightService; }
         }
 
-        public double GetWeight 
-        { 
-            get { return Convert.ToDouble(nudWeight.Value);}
+        public double GetWeight
+        {
+            get { return Convert.ToDouble(nudWeight.Value); }
         }
 
-        public WeightServiceControl()
+        public WeightServiceControl(ApplicationSettingsService appSettingsService, WeightServiceCatalogService catalogService)
         {
             InitializeComponent();
-            InitializeCommon();
 
+            _appSettings = appSettingsService.LoadSettings();
+            _catalogService = catalogService;
+
+            InitializeCommon();
             cmbWeightServiceCatalog.SelectedIndex = 0;
         }
 
@@ -43,9 +44,7 @@ namespace Lababa.Frontend.UserControls
 
         private void InitializeCommon()
         {
-            _appSettings = new ApplicationSettingsService().LoadSettings();
-            var catalog = new WeightServiceCatalogService().GetWeightServiceCatalog();
-            var weightServiceCatalog = new BindingList<WeightService>(catalog);
+            var weightServiceCatalog = new BindingList<WeightService>(_catalogService.GetWeightServiceCatalog());
 
             cmbWeightServiceCatalog.DataSource = weightServiceCatalog;
             cmbWeightServiceCatalog.DisplayMember = "ServiceName";
