@@ -39,7 +39,7 @@ namespace Lababa.Backend.Services
             _context.SaveChanges();
         }
 
-        public List<ItemService> GetItemServiceCatalog()
+        public List<ItemService> GetAll()
         {
             return _context.ItemServices.ToList();
         }

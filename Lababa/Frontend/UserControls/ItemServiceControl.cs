@@ -45,7 +45,7 @@ namespace Lababa.Frontend.UserControls
 
         private void InitializeCommon()
         {
-            _itemServiceCatalog = new BindingList<ItemService>(_catalogService.GetItemServiceCatalog());
+            _itemServiceCatalog = new BindingList<ItemService>(_catalogService.GetAll());
 
             cmbItemServiceCatalog.DataSource = _itemServiceCatalog;
             cmbItemServiceCatalog.DisplayMember = "ItemName";

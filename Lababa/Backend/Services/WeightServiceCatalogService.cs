@@ -40,7 +40,7 @@ namespace Lababa.Backend.Services
             _context.SaveChanges();
         }
 
-        public List<WeightService> GetWeightServiceCatalog()
+        public List<WeightService> GetAll()
         {
             return _context.WeightServices.ToList();
         }

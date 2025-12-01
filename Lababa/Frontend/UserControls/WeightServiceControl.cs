@@ -44,7 +44,7 @@ namespace Lababa.Frontend.UserControls
 
         private void InitializeCommon()
         {
-            var weightServiceCatalog = new BindingList<WeightService>(_catalogService.GetWeightServiceCatalog());
+            var weightServiceCatalog = new BindingList<WeightService>(_catalogService.GetAll());
 
             cmbWeightServiceCatalog.DataSource = weightServiceCatalog;
             cmbWeightServiceCatalog.DisplayMember = "ServiceName";
