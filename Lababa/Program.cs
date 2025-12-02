@@ -39,7 +39,7 @@ namespace Lababa
                     services.AddDbContext<LababaDbContext>();
 
                     // services
-                    services.AddSingleton<ApplicationSettingsService>();
+                    services.AddScoped<ApplicationSettingsService>();
                     services.AddTransient<CustomerService>();
                     services.AddTransient<OrderService>();
                     services.AddTransient<ItemServiceCatalogService>();
@@ -60,8 +60,6 @@ namespace Lababa
                     services.AddTransient<WeightServicesStep>();
                     services.AddTransient<ItemServicesStep>();
                     services.AddTransient<FinishWizardStep>();
-                    services.AddTransient<OrderCardItem>();
-
                 });
     }
 }
