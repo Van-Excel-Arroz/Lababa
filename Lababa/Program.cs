@@ -26,7 +26,7 @@ namespace Lababa
             using (var scope = ServiceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<LababaDbContext>();
-                dbContext.Database.EnsureCreated();
+                dbContext.Database.Migrate();
             }
 
             Application.Run(ServiceProvider.GetRequiredService<WizardForm>());
