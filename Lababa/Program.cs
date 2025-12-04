@@ -2,6 +2,7 @@
 using Lababa.Backend.Services;
 using Lababa.Frontend.Forms;
 using Lababa.Frontend.UserControls;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
