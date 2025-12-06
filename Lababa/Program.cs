@@ -30,7 +30,7 @@ namespace Lababa
                 dbContext.Database.Migrate();
             }
 
-            Application.Run(ServiceProvider.GetRequiredService<WizardForm>());
+            Application.Run(ServiceProvider.GetRequiredService<DashboardForm>());
         }
 
         static IHostBuilder CreateHostBuilder() =>
@@ -61,6 +61,8 @@ namespace Lababa
                     services.AddTransient<WeightServicesStep>();
                     services.AddTransient<ItemServicesStep>();
                     services.AddTransient<FinishWizardStep>();
+                    services.AddTransient<WeightServiceControl>();
+                    services.AddTransient<ItemServiceControl>();
                 });
     }
 }
