@@ -108,6 +108,8 @@ namespace Lababa.Frontend.Forms
                 DateCreated = DateTime.Now,
                 TotalAmount = _currentTotalAmount,
                 CustomerId = cmbCustomers.SelectedValue is Customer selectedCustomer ? selectedCustomer.Id : System.Guid.Empty,
+                WeightItems = new List<OrderWeightItem>(),
+                ItemItems = new List<OrderItemItem>()
             };
 
             foreach (WeightServiceControl control in flpWeightServices.Controls)
