@@ -100,9 +100,15 @@ namespace Lababa.Frontend.Forms
                 return;
             }
 
-            var orderId = Guid.NewGuid();
-            var orderWeightItemService = Program.ServiceProvider.GetRequiredService<OrderWeightItemService>();
-            var orderItemItemService = Program.ServiceProvider.GetRequiredService<OrderItemItemService>();
+            var newOrder = new Order()
+            {
+                Status = OrderStatus.Pending,
+                PaymentStatus = PaymentStatus.Unpaid,
+                DueDate = dtpDueDate.Value,
+                DateCreated = DateTime.Now,
+                TotalAmount = _currentTotalAmount,
+                CustomerId = cmbCustomers.SelectedValue is Customer selectedCustomer ? selectedCustomer.Id : System.Guid.Empty,
+            };
 
             foreach (WeightServiceControl control in flpWeightServices.Controls)
             {
@@ -114,10 +120,9 @@ namespace Lababa.Frontend.Forms
                     ServiceNameAtOrderTime = weightService.ServiceName,
                     PricePerUnitAtOrderTime = weightService.PricePerUnit,
                     Weight = control.GetWeight,
-                    OrderId = orderId,
+                    OrderId = newOrder.Id,
                 };
-
-                orderWeightItemService.Add(orderWeightItem);
+                newOrder.WeightItems.Add(orderWeightItem);
             }
 
             foreach (ItemServiceControl control in flpItemServices.Controls)
@@ -130,23 +135,10 @@ namespace Lababa.Frontend.Forms
                     ItemNameAtOrderTime = itemService.ItemName,
                     PricePerPieceAtOrderTime = itemService.PricePerPiece,
                     Quantity = control.GetQuantity,
-                    OrderId = orderId
+                    OrderId = newOrder.Id
                 };
-
-                orderItemItemService.Add(orderItemItem);
+                newOrder.ItemItems.Add(orderItemItem);
             }
-
-
-            var newOrder = new Order()
-            {
-                Id = orderId,
-                Status = OrderStatus.Pending,
-                PaymentStatus = PaymentStatus.Unpaid,
-                DueDate = dtpDueDate.Value,
-                DateCreated = DateTime.Now,
-                TotalAmount = _currentTotalAmount,
-                CustomerId = cmbCustomers.SelectedValue is Customer selectedCustomer ? selectedCustomer.Id : System.Guid.Empty
-            };
 
             _orderService.CreateOrder(newOrder);
             OrderCreated?.Invoke(this, EventArgs.Empty);
