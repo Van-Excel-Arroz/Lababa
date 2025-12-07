@@ -54,6 +54,7 @@ namespace Lababa
                     services.AddTransient<AddOrderForm>();
                     services.AddTransient<SearchOrderForm>();
                     services.AddTransient<WizardForm>();
+                    services.AddTransient<OrderDetailsForm>();
 
                     // user controls
                     services.AddTransient<WelcomeStep>();

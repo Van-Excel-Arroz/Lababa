@@ -35,12 +35,6 @@ namespace Lababa.Frontend.Forms
             _currencySymbol = appSettingsService.LoadSettings().CurrencySymbol;
             _initialWeightServiceControls = new List<WeightServiceControl>();
             _initialItemServiceControls = new List<ItemServiceControl>();
-
-
-            InitializeExistingServices();
-            InitializeCustomerDetails();
-            InitializePaymentStatus();
-            InitializeOrderStatus();
         }
 
         public void LoadOrder(Guid orderId)
@@ -58,6 +52,11 @@ namespace Lababa.Frontend.Forms
             lblTotalAmount.Text = $"{_currencySymbol}{_currentTotalAmount:F2}";
             lblCreatedDate.Text = _order.DateCreated.ToString("MMM dd, yyyy");
             dtpDueDate.Value = _order.DueDate;
+
+            InitializeExistingServices();
+            InitializeCustomerDetails();
+            InitializePaymentStatus();
+            InitializeOrderStatus();
         }
 
         private void btnAddService_Click(object sender, System.EventArgs e)
@@ -92,8 +91,7 @@ namespace Lababa.Frontend.Forms
 
         private void InitializeExistingServices()
         {
-            var orderWeightItems = _order.WeightItems;
-
+            var orderWeightItems = _order.WeightItems.ToList();
 
             foreach (var orderWeightItem in orderWeightItems)
             {
@@ -112,7 +110,7 @@ namespace Lababa.Frontend.Forms
                 _initialWeightServiceControls.Add(weightServiceControl);
             }
 
-            var orderItemItems = _orderItemItemService.GetAll(_order.Id);
+            var orderItemItems = _order.ItemItems.ToList();
 
             foreach (var orderItemItem in orderItemItems)
             {
@@ -223,8 +221,7 @@ namespace Lababa.Frontend.Forms
                     Weight = control.GetWeight,
                     OrderId = _order.Id,
                 };
-
-                _orderWeightItemService.Add(orderWeightItem);
+                _order.WeightItems.Add(orderWeightItem);
             }
 
             foreach (ItemServiceControl control in flpItemServices.Controls)
@@ -241,8 +238,7 @@ namespace Lababa.Frontend.Forms
                     Quantity = control.GetQuantity,
                     OrderId = _order.Id
                 };
-
-                _orderItemItemService.Add(orderItemItem);
+                _order.ItemItems.Add(orderItemItem);
             }
 
             OrderUpdated?.Invoke(this, EventArgs.Empty);

@@ -1,13 +1,13 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class WeightServiceControl : UserControl
     {
-        private readonly ApplicationSettings _appSettings;
-        private readonly WeightServiceCatalogService _catalogService;
+        private ApplicationSettings _appSettings;
         public event EventHandler RemoveClicked;
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
@@ -22,13 +22,9 @@ namespace Lababa.Frontend.UserControls
             get { return Convert.ToDouble(nudWeight.Value); }
         }
 
-        public WeightServiceControl(ApplicationSettingsService appSettingsService, WeightServiceCatalogService catalogService)
+        public WeightServiceControl()
         {
             InitializeComponent();
-
-            _appSettings = appSettingsService.LoadSettings();
-            _catalogService = catalogService;
-
             InitializeCommon();
             cmbWeightServiceCatalog.SelectedIndex = 0;
         }
@@ -38,13 +34,16 @@ namespace Lababa.Frontend.UserControls
             InitializeComponent();
             InitializeCommon();
 
+
             cmbWeightServiceCatalog.SelectedValue = orderWeightItem.ServiceId;
             nudWeight.Value = Convert.ToDecimal(orderWeightItem.Weight);
         }
 
         private void InitializeCommon()
         {
-            var weightServiceCatalog = new BindingList<WeightService>(_catalogService.GetAll());
+            _appSettings = Program.ServiceProvider.GetRequiredService<ApplicationSettingsService>().LoadSettings();
+            var catalogService = Program.ServiceProvider.GetRequiredService<WeightServiceCatalogService>();
+            var weightServiceCatalog = new BindingList<WeightService>(catalogService.GetAll());
 
             cmbWeightServiceCatalog.DataSource = weightServiceCatalog;
             cmbWeightServiceCatalog.DisplayMember = "ServiceName";

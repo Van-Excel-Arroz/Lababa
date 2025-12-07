@@ -1,14 +1,13 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class ItemServiceControl : UserControl
     {
-        private readonly ApplicationSettings _appSettings;
-        private readonly ItemServiceCatalogService _catalogService;
-        private BindingList<ItemService> _itemServiceCatalog;
+        private ApplicationSettings _appSettings;
         public event EventHandler RemoveClicked;
         public event EventHandler DropDownValueChanged;
         public event EventHandler WeightChanged;
@@ -23,13 +22,9 @@ namespace Lababa.Frontend.UserControls
             get { return Convert.ToInt16(nudQuantity.Value); }
         }
 
-        public ItemServiceControl(ApplicationSettingsService appSettingsService, ItemServiceCatalogService catalogService)
+        public ItemServiceControl()
         {
             InitializeComponent();
-
-            _appSettings = appSettingsService.LoadSettings();
-            _catalogService = catalogService;
-
             InitializeCommon();
             cmbItemServiceCatalog.SelectedIndex = 0;
         }
@@ -45,9 +40,11 @@ namespace Lababa.Frontend.UserControls
 
         private void InitializeCommon()
         {
-            _itemServiceCatalog = new BindingList<ItemService>(_catalogService.GetAll());
+            _appSettings = Program.ServiceProvider.GetRequiredService<ApplicationSettingsService>().LoadSettings();
+            var catalogService = Program.ServiceProvider.GetRequiredService<ItemServiceCatalogService>();
+            var itemServiceCatalog = new BindingList<ItemService>(catalogService.GetAll());
 
-            cmbItemServiceCatalog.DataSource = _itemServiceCatalog;
+            cmbItemServiceCatalog.DataSource = itemServiceCatalog;
             cmbItemServiceCatalog.DisplayMember = "ItemName";
             cmbItemServiceCatalog.ValueMember = "Id";
 

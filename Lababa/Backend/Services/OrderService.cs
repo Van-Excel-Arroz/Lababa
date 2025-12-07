@@ -66,7 +66,11 @@ namespace Lababa.Backend.Services
 
         public List<Order> GetAllOrders()
         {
-            return _context.Orders.Include(o => o.Customer).ToList();
+            return _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.WeightItems)
+                .Include(o => o.ItemItems)
+                .ToList();
         }
 
         public void UpdateOrder(Order order)
