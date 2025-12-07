@@ -102,6 +102,8 @@ namespace Lababa.Frontend.Forms
                     _orderService.DeleteOrder(e.Order.Id);
                     break;
             }
+
+            LoadOrders();
         }
 
         private void AttachFlowLayoutPanelResizeHandlers()
