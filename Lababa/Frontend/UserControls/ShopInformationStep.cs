@@ -1,14 +1,15 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.RegularExpressions;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class ShopInformationStep : UserControl, IWizardStep
     {
-        private readonly ApplicationSettings _appSettings;
-        private readonly ApplicationSettingsService _appSettingsService;
+        private ApplicationSettings _appSettings;
+        private ApplicationSettingsService _appSettingsService;
         private const string DEFAULT_RECEIPT_MESSAGE = "Thank you for choosing our laundry service!";
 
         public ShopInformationStep()
@@ -25,6 +26,14 @@ namespace Lababa.Frontend.UserControls
 
         private void ShopInformationStep_Load(object sender, System.EventArgs e)
         {
+            if (!DesignMode && _appSettingsService == null)
+            {
+                _appSettingsService = Program.ServiceProvider.GetRequiredService<ApplicationSettingsService>();
+                _appSettings = _appSettingsService.LoadSettings();
+            }
+
+            if (DesignMode || _appSettings == null) return;
+
             txtShopName.Text = _appSettings.ShopName;
             txtAddress.Text = _appSettings.Address;
             txtPhoneNumber.Text = _appSettings.PhoneNumber;

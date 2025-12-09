@@ -1,13 +1,14 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
 using Lababa.Frontend.UserControls.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel;
 
 namespace Lababa.Frontend.UserControls
 {
     public partial class ItemServicesStep : UserControl, IWizardStep
     {
-        private readonly ItemServiceCatalogService _service;
+        private ItemServiceCatalogService _service;
         private BindingList<ItemService> _itemServiceCatalog;
 
         public ItemServicesStep()
@@ -24,6 +25,13 @@ namespace Lababa.Frontend.UserControls
 
         private void WeightServicesStep_Load(object sender, System.EventArgs e)
         {
+            if (!DesignMode && _service == null)
+            {
+                _service = Program.ServiceProvider.GetRequiredService<ItemServiceCatalogService>();
+            }
+
+            if (DesignMode || _service == null) return;
+
             dgvItemServiceCatalog.AutoGenerateColumns = false;
 
             var initialServices = _service.GetAll();
