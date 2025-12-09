@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Lababa.Backend.Models
+﻿namespace Lababa.Backend.Models
 {
     public class ApplicationSettings
     {
@@ -11,5 +9,6 @@ namespace Lababa.Backend.Models
         public string ReceiptMessage { get; set; }
         public WeightUnit DefaultWeightUnit { get; set; }
         public string CurrencySymbol { get; set; }
+        public bool IsSetup { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Lababa.Backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lababa.Migrations
 {
     [DbContext(typeof(LababaDbContext))]
-    partial class LababaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251209063538_AddIsSetupToApplicationSettings")]
+    partial class AddIsSetupToApplicationSettings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
