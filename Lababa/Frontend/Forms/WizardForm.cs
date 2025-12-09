@@ -1,4 +1,5 @@
-﻿using Lababa.Frontend.Forms;
+﻿using Lababa.Backend.Services;
+using Lababa.Frontend.Forms;
 using Lababa.Frontend.UserControls;
 using Lababa.Frontend.UserControls.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -124,7 +125,12 @@ namespace Lababa
 
                 finishWizardStep.WizardCompleted += (_, __) =>
                 {
-                    var dashboard = Program.ServiceProvider.GetRequiredService<DashboardForm>();
+                    var dashboard = _serviceProvider.GetRequiredService<DashboardForm>();
+                    var appSettingsService = _serviceProvider.GetRequiredService<ApplicationSettingsService>();
+                    var appSettings = appSettingsService.LoadSettings();
+                    appSettings.IsSetup = true;
+                    appSettingsService.SaveSettings(appSettings);
+
                     dashboard.FormClosed += (s, args) => this.Close();
                     dashboard.Show();
                     this.Hide();

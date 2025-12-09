@@ -30,7 +30,15 @@ namespace Lababa
                 dbContext.Database.Migrate();
             }
 
-            Application.Run(ServiceProvider.GetRequiredService<WizardForm>());
+            if (ServiceProvider.GetRequiredService<ApplicationSettingsService>().LoadSettings().IsSetup)
+            {
+                Application.Run(ServiceProvider.GetRequiredService<DashboardForm>());
+            }
+            else
+            {
+                Application.Run(ServiceProvider.GetRequiredService<WizardForm>());
+            }
+
         }
 
         static IHostBuilder CreateHostBuilder() =>
