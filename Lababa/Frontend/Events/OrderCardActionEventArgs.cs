@@ -1,7 +1,6 @@
-﻿
-using Lababa.Backend.Models;
+﻿using Lababa.Backend.Models;
 
-namespace Lababa.Frontend.UserControls.Events
+namespace Lababa.Frontend.Events
 {
     public enum OrderCardActionType 
     {

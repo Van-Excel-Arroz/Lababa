@@ -1,7 +1,7 @@
 ﻿using Lababa.Backend.Models;
 using Lababa.Backend.Services;
+using Lababa.Frontend.Events;
 using Lababa.Frontend.UserControls;
-using Lababa.Frontend.UserControls.Events;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Lababa.Frontend.Forms
