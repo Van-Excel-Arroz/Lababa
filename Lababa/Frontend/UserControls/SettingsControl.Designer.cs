@@ -208,6 +208,7 @@
             btnResetData.Text = "Reset All Data";
             btnResetData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnResetData.UseVisualStyleBackColor = false;
+            btnResetData.Click += btnResetData_Click;
             // 
             // label3
             // 

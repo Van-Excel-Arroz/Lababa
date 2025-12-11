@@ -32,5 +32,10 @@
             shopInformationStep.LoadStepData();
             CancelClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void btnResetData_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
