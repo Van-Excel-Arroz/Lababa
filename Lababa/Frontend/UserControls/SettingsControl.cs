@@ -4,6 +4,7 @@
     {
         public event EventHandler SettingsChanged;
         public event EventHandler CancelClicked;
+        public event EventHandler ResetClicked;
 
         public SettingsControl()
         {
@@ -35,7 +36,7 @@
 
         private void btnResetData_Click(object sender, EventArgs e)
         {
-
+            ResetClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
