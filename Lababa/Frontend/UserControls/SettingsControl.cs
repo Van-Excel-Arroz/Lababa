@@ -36,7 +36,11 @@
 
         private void btnResetData_Click(object sender, EventArgs e)
         {
-            ResetClicked?.Invoke(this, EventArgs.Empty);
+            var result = MessageBox.Show("Are you sure you want to reset all settings to default values?", "Confirm Reset", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                ResetClicked?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }
