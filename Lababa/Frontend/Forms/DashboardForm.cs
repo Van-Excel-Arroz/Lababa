@@ -21,17 +21,6 @@ namespace Lababa.Frontend.Forms
             _appSettingService = appSettingsService;
             tlpOrdersTableView.Visible = true;
             settingsControl.Visible = false;
-            settingsControl.ResetClicked +=
-                (_, __) =>
-            {
-                var resetForm = Program.ServiceProvider.GetRequiredService<ResetDataForm>();
-                resetForm.DataReset += (_, __) =>
-                {
-                    LoadSettings();
-                    LoadOrders();
-                };
-                resetForm.Show();
-            };
             tlpContainer.RowStyles[2] = new RowStyle(SizeType.Absolute, 0);
             AttachFlowLayoutPanelResizeHandlers();
             AttachedSettingsControlEvent();
