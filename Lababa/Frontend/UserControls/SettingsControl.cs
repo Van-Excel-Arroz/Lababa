@@ -23,7 +23,7 @@
 
             if (validShopInfo && validItemServices && validWeightServices)
             {
-                MessageBox.Show("Settings save successfull!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Settings save successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SettingsChanged?.Invoke(this, EventArgs.Empty);
             }
         }
