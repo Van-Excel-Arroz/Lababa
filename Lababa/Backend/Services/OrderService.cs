@@ -37,7 +37,7 @@ namespace Lababa.Backend.Services
             var today = DateTime.Today;
 
             return _context.Orders
-                .Where(o => o.DateCreated == today || o.DueDate >= today)
+                .Where(o => o.DateCreated >= today && o.DueDate < today.AddDays(1))
                 .ToList();
         }
 
