@@ -13,13 +13,13 @@ namespace Lababa.Backend.Services
             _context = context;
         }
 
-        public Order GetOrderByIdWithDetails(Guid id)
+        public async Task<Order> GetOrderByIdWithDetails(Guid id)
         {
-            return _context.Orders
+            return await _context.Orders
                 .Include(o => o.Customer)
                 .Include(o => o.ItemItems)
                 .Include(o => o.WeightItems)
-                .FirstOrDefault(o => o.Id == id);
+                .FirstOrDefaultAsync(o => o.Id == id);
         }
 
         public Order GetRecentOrder()
