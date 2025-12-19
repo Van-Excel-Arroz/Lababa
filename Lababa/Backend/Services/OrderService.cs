@@ -22,9 +22,9 @@ namespace Lababa.Backend.Services
                 .FirstOrDefaultAsync(o => o.Id == id);
         }
 
-        public Order GetRecentOrder()
+        public async Task<Order> GetRecentOrder()
         {
-            return _context.Orders.OrderByDescending(o => o.DateCreated).FirstOrDefault();
+            return _context.Orders.OrderByDescending(o => o.DateCreated).FirstOrDefaultAsync();
         }
 
         public List<Order> GetAllOrdersByCustomerId(Guid customerId)
