@@ -27,9 +27,9 @@ namespace Lababa.Backend.Services
             return _context.Orders.OrderByDescending(o => o.DateCreated).FirstOrDefaultAsync();
         }
 
-        public List<Order> GetAllOrdersByCustomerId(Guid customerId)
+        public async Task<List<Order>> GetAllOrdersByCustomerId(Guid customerId)
         {
-            return _context.Orders.Where(o => o.CustomerId == customerId).ToList();
+            return _context.Orders.Where(o => o.CustomerId == customerId).ToListAsync();
         }
 
         public List<Order> GetOrdersForToday()
