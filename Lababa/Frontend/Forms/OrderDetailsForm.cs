@@ -37,9 +37,9 @@ namespace Lababa.Frontend.Forms
             _initialItemServiceControls = new List<ItemServiceControl>();
         }
 
-        public void LoadOrder(Guid orderId)
+        public async void LoadOrder(Guid orderId)
         {
-            _order = _orderService.GetOrderByIdWithDetails(orderId);
+            _order = await _orderService.GetOrderByIdWithDetails(orderId);
 
             if (_order == null)
             {

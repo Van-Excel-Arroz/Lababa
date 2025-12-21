@@ -24,12 +24,12 @@ namespace Lababa.Backend.Services
 
         public async Task<Order> GetRecentOrder()
         {
-            return _context.Orders.OrderByDescending(o => o.DateCreated).FirstOrDefaultAsync();
+            return await _context.Orders.OrderByDescending(o => o.DateCreated).FirstOrDefaultAsync();
         }
 
         public async Task<List<Order>> GetAllOrdersByCustomerId(Guid customerId)
         {
-            return _context.Orders.Where(o => o.CustomerId == customerId).ToListAsync();
+            return await _context.Orders.Where(o => o.CustomerId == customerId).ToListAsync();
         }
 
         public List<Order> GetOrdersForToday()

@@ -34,14 +34,15 @@ namespace Lababa.Frontend.Forms
             lblShopName.Text = _appSettings.ShopName;
         }
 
-        private void LoadOrders()
+        private async Task LoadOrders()
         {
             var orders = _orderService.GetAllOrders();
 
             lblTodaysRevenue.Text = $"{_appSettings.CurrencySymbol}{_orderService.CalculateOrdersTotalAmount(orders):F2}";
             lblTotalCustomers.Text = _customerService.GetAllCustomers().Count.ToString();
             lblTotalOrders.Text = orders.Count.ToString();
-            string orderNumber = _orderService.GetRecentOrder()?.OrderNumber;
+            var recentOrder = await _orderService.GetRecentOrder();
+            string orderNumber = recentOrder.OrderNumber;
             lblRecentOrder.Text = orderNumber != null ? orderNumber : "N/A";
 
             flpPendingStatus.Controls.Clear();
@@ -118,20 +119,20 @@ namespace Lababa.Frontend.Forms
         {
             var addOrderForm = Program.ServiceProvider.GetRequiredService<AddOrderForm>();
             addOrderForm.Show();
-            addOrderForm.OrderCreated += (_, __) => LoadOrders();
+            addOrderForm.OrderCreated += async (_, __) => await LoadOrders();
         }
 
         private void btnSearchOrders_Click(object sender, System.EventArgs e)
         {
             var searchOrderForm = Program.ServiceProvider.GetRequiredService<SearchOrderForm>();
-            searchOrderForm.OrdersUpdated += (_, __) => LoadOrders();
+            searchOrderForm.OrdersUpdated += async (_, __) => await LoadOrders();
             searchOrderForm.Show();
         }
 
         private void btnCustomers_Click(object sender, System.EventArgs e)
         {
             var addCustomerForm = Program.ServiceProvider.GetRequiredService<AddCustomerForm>();
-            addCustomerForm.CustomerUpdated += (_, __) => LoadOrders();
+            addCustomerForm.CustomerUpdated += async (_, __) => await LoadOrders();
             addCustomerForm.Show();
         }
 
