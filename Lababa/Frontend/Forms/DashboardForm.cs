@@ -25,7 +25,12 @@ namespace Lababa.Frontend.Forms
             AttachFlowLayoutPanelResizeHandlers();
             AttachedSettingsControlEvent();
             LoadSettings();
-            LoadOrders();
+        }
+
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadOrders();
         }
 
         private void LoadSettings()
@@ -36,13 +41,15 @@ namespace Lababa.Frontend.Forms
 
         private async Task LoadOrders()
         {
-            var orders = _orderService.GetAllOrders();
+            var orders = await _orderService.GetAllOrders();
+            var recentOrder = await _orderService.GetRecentOrder();
+            var customers = await _customerService.GetAllCustomers();
+            int customersCount = customers.Count;
+            string orderNumber = recentOrder.OrderNumber;
 
             lblTodaysRevenue.Text = $"{_appSettings.CurrencySymbol}{_orderService.CalculateOrdersTotalAmount(orders):F2}";
-            lblTotalCustomers.Text = _customerService.GetAllCustomers().Count.ToString();
+            lblTotalCustomers.Text = customersCount.ToString();
             lblTotalOrders.Text = orders.Count.ToString();
-            var recentOrder = await _orderService.GetRecentOrder();
-            string orderNumber = recentOrder.OrderNumber;
             lblRecentOrder.Text = orderNumber != null ? orderNumber : "N/A";
 
             flpPendingStatus.Controls.Clear();
@@ -92,7 +99,7 @@ namespace Lababa.Frontend.Forms
             lblCancelledCount.Text = flpCancelledStatus.Controls.Count.ToString();
         }
 
-        private void HandleOrderCardAction(object sender, OrderCardActionEventArgs e)
+        private async void HandleOrderCardAction(object sender, OrderCardActionEventArgs e)
         {
             switch (e.Action)
             {
@@ -104,7 +111,7 @@ namespace Lababa.Frontend.Forms
                     break;
             }
 
-            LoadOrders();
+            await LoadOrders();
         }
 
         private void AttachFlowLayoutPanelResizeHandlers()
@@ -175,10 +182,10 @@ namespace Lababa.Frontend.Forms
 
         private void AttachedSettingsControlEvent()
         {
-            settingsControl.SettingsChanged += (_, __) =>
+            settingsControl.SettingsChanged += async (_, __) =>
             {
                 LoadSettings();
-                LoadOrders();
+                await LoadOrders();
                 HandleSwitchTab();
             };
 

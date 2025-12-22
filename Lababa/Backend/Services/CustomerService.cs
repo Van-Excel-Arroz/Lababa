@@ -1,5 +1,6 @@
 ﻿using Lababa.Backend.Data;
 using Lababa.Backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lababa.Backend.Services
 {
@@ -25,9 +26,9 @@ namespace Lababa.Backend.Services
             _context.SaveChanges();
         }
 
-        public List<Customer> GetAllCustomers()
+        public async Task<List<Customer>> GetAllCustomers()
         {
-            return _context.Customers.ToList();
+            return await _context.Customers.ToListAsync();
         }
 
         public Customer GetCustomerById(Guid id)

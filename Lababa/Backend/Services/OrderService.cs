@@ -64,13 +64,13 @@ namespace Lababa.Backend.Services
             _context.SaveChanges();
         }
 
-        public List<Order> GetAllOrders()
+        public async Task<List<Order>> GetAllOrders()
         {
-            return _context.Orders
+            return await _context.Orders
                 .Include(o => o.Customer)
                 .Include(o => o.WeightItems)
                 .Include(o => o.ItemItems)
-                .ToList();
+                .ToListAsync();
         }
 
         public void UpdateOrder(Order order)
