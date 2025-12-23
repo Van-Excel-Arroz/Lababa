@@ -13,7 +13,7 @@ namespace Lababa.Backend.Services
             _context = context;
         }
 
-        public void AddCustomer(Customer customer)
+        public async Task AddCustomer(Customer customer)
         {
             if (string.IsNullOrWhiteSpace(customer.FullName))
                 throw new ArgumentException("Customer name is required");
