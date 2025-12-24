@@ -32,13 +32,13 @@ namespace Lababa.Backend.Services
             return await _context.Orders.Where(o => o.CustomerId == customerId).ToListAsync();
         }
 
-        public List<Order> GetOrdersForToday()
+        public async Task<List<Order>> GetOrdersForToday()
         {
             var today = DateTime.Today;
 
-            return _context.Orders
+            return await _context.Orders
                 .Where(o => o.DateCreated >= today && o.DueDate < today.AddDays(1))
-                .ToList();
+                .ToListAsync();
         }
 
         public decimal CalculateOrdersTotalAmount(List<Order> orders)
