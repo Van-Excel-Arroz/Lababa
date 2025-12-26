@@ -31,9 +31,9 @@ namespace Lababa.Backend.Services
             return await _context.Customers.ToListAsync();
         }
 
-        public Customer GetCustomerById(Guid id)
+        public async Task<Customer> GetCustomerById(Guid id)
         {
-            return _context.Customers.Find(id);
+            return await _context.Customers.FindAsync(id);
         }
 
         public void UpdateCustomer(Customer customer)
