@@ -47,7 +47,7 @@ namespace Lababa.Backend.Services
                 .Sum(o => o.TotalAmount);
         }
 
-        public void CreateOrder(Order order)
+        public async Task CreateOrder(Order order)
         {
             if (order.Id == Guid.Empty)
             {
@@ -56,12 +56,12 @@ namespace Lababa.Backend.Services
 
             if (string.IsNullOrEmpty(order.OrderNumber))
             {
-                int totalOrders = _context.Orders.Count();
+                int totalOrders = await _context.Orders.CountAsync();
                 order.OrderNumber = $"ORD-{totalOrders + 1:D4}";
             }
 
             _context.Orders.Add(order);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Order>> GetAllOrders()
