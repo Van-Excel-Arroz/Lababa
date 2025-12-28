@@ -132,9 +132,9 @@ namespace Lababa.Frontend.Forms
         }
 
 
-        private void InitializeCustomerDetails()
+        private async void InitializeCustomerDetails()
         {
-            var customer = _customerService.GetCustomerById(_order.CustomerId);
+            var customer = await _customerService.GetCustomerById(_order.CustomerId);
             lblCustomerName.Text = customer.FullName;
             lblPhoneNumber.Text = customer.PhoneNumber;
             lblAddress.Text = string.IsNullOrEmpty(customer.Address) ? "N/A" : customer.Address;
