@@ -36,7 +36,7 @@ namespace Lababa.Backend.Services
             return await _context.Customers.FindAsync(id);
         }
 
-        public void UpdateCustomer(Customer customer)
+        public async Task UpdateCustomer(Customer customer)
         {
             if (string.IsNullOrWhiteSpace(customer.FullName))
                 throw new ArgumentException("Customer name is required");
@@ -45,7 +45,7 @@ namespace Lababa.Backend.Services
                 throw new ArgumentException("Phone number is required");
 
             _context.Customers.Update(customer);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public void DeleteCustomer(Guid id)
