@@ -48,14 +48,14 @@ namespace Lababa.Backend.Services
             await _context.SaveChangesAsync();
         }
 
-        public void DeleteCustomer(Guid id)
+        public async Task DeleteCustomer(Guid id)
         {
-            var customer = _context.Customers.Find(id);
+            var customer = await _context.Customers.FindAsync(id);
 
             if (customer != null)
             {
                 _context.Customers.Remove(customer);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
     }
