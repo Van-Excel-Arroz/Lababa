@@ -73,10 +73,10 @@ namespace Lababa.Backend.Services
                 .ToListAsync();
         }
 
-        public void UpdateOrder(Order order)
+        public async Task UpdateOrder(Order order)
         {
             _context.Orders.Update(order);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public void DeleteOrder(Guid id)
